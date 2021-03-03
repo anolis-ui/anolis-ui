@@ -7,5 +7,10 @@ A nice component library for React offering high flexibility and themeability, b
 ⚡️ Customize everything with _psedo props <br/>
 ⚡️ Inspired by [Chakra UI](https://chakra-ui.com) + [Theme UI](https://theme-ui.com/)
 
-# Roadmap
+## Roadmap
+
 Right now we are working on releasing first version and building a new website and documentation. You can watch [our roadmap](https://www.notion.so/Anolis-UI-roadmap-0ce3854b4b88445983906e99908d65a7).
+
+## @xcorejs/ui
+
+[@xcorejs/ui](https://github.com/xcorejs/ui) old version of this library which is still going to be maintained but no new features are going to be added.
