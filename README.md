@@ -3,8 +3,8 @@ Anolis UI 🦎
 
 A nice component library for React offering high flexibility and themeability, but easy to setup with minimal config. Made for building beautiful design-systems or building websites
 
-⚡️ Built with xstyled with emotion
-⚡️ Customize everything with _psedo props
+⚡️ Built with xstyled with emotion <br/>
+⚡️ Customize everything with _psedo props <br/>
 ⚡️ Inspired by [Chakra UI](https://chakra-ui.com) + [Theme UI](https://theme-ui.com/)
 
 # Roadmap
