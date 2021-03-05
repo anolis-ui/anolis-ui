@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import StoryLayout from "stories/StoryLayout";
 
 import { Modal, useModal } from ".";

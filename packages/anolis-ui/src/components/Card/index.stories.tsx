@@ -1,5 +1,5 @@
 import { x } from "@xstyled/emotion";
-import { FC } from "react";
+import React, { FC } from "react";
 import StoryLayout from "stories/StoryLayout";
 import { Card } from ".";
 

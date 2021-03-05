@@ -1,7 +1,7 @@
 import { x } from "@xstyled/emotion";
 import { Typography } from "components/Typography";
 import AnolisProvider from "components/AnolisProvider";
-import { FC } from "react";
+import React, { FC } from "react";
 
 export default {
   title: "Examples/Typography"

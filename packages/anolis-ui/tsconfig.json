@@ -3,7 +3,7 @@
     "baseUrl": "./src",
     "module": "esnext",
     "target": "esnext",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "lib": [
       "dom",

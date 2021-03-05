@@ -15,6 +15,13 @@ module.exports = {
       }
     }
   ],
+  babel: async (options) => {
+    console.log(options);
+    return ({
+      ...options,
+      // any extra options you want to set
+    })
+  },
   webpackFinal: async (config, { configType }) => {
     config.resolve.modules.unshift(path.resolve(__dirname, '../src'));
 
