@@ -5,12 +5,8 @@ import { FC } from "react";
 const Index: FC = () => {
   return (
     <AnolisProvider>
-      <x.div fontSize="xl">Hello</x.div>
+      <x.div fontSize="8xl">Hello</x.div>
       <Card title="Hello">World</Card>
-
-      <Button>
-        Button
-      </Button>
     </AnolisProvider>
   );
 };

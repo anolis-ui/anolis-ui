@@ -43,6 +43,15 @@ const AnolisProvider: FC<AnolisProviderProps> = ({ children, theme, xstyledTheme
       "8xl": "6rem",
       "9xl": "8rem"
     },
+    screens: {
+      xxs: "22.5em",
+      xs: "30em",
+      sm: "48em",
+      md: "64em",
+      lg: "78em",
+      xl: "85em",
+      xxl: "94em"
+    },
     anolis: theme ?? emptyTheme
   }), [theme, xstyledTheme]);
 
