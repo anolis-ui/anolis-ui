@@ -6,7 +6,6 @@ export type ButtonVariant = "solid" | "clear" | "outline" | "link";
 export type ButtonSize = "xs" | "sm" | "md" | "lg";
 
 export interface ButtonThemeProps extends ComplementThemeProps, PseudoProp {
-
 }
 
 export type ButtonTheme = ComponentTheme<ButtonThemeProps, ButtonVariant, ButtonSize>;

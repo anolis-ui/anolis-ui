@@ -1,5 +1,5 @@
 import { x } from "@xstyled/emotion";
-import { AnolisProvider, Card } from "anolis-ui";
+import { AnolisProvider, Button, Card } from "anolis-ui";
 import { FC } from "react";
 
 const Index: FC = () => {
@@ -7,6 +7,10 @@ const Index: FC = () => {
     <AnolisProvider>
       <x.div fontSize="xl">Hello</x.div>
       <Card title="Hello">World</Card>
+
+      <Button>
+        Button
+      </Button>
     </AnolisProvider>
   );
 };
