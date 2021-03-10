@@ -2,6 +2,7 @@
 export * from "./components/Card";
 export * from "./components/Control";
 export * from "./components/Tag";
+export * from "./components/Button";
 
 // Unthemed
 export * from "./components/Icon";

@@ -25,7 +25,7 @@ const emptyTag: TagTheme = {
     px: "3",
     fontSize: "sm",
     fontWeight: 500,
-    lineHeight: "relaxed"
+    lineHeight: "relaxed",
   },
   sizes: {},
   variants: {

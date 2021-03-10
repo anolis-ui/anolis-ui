@@ -4,6 +4,7 @@ import { ControlTheme, controlTheme } from "components/Control/theme";
 import { ModalTheme, modalTheme } from "components/Modal/theme";
 import { TagTheme, tagTheme } from "components/Tag/theme";
 import { typographyTheme, TypographyTheme } from "components/Typography/theme";
+import { ButtonTheme, buttonTheme } from "components/Button";
 
 export type AnolisTheme = {
   card: CardTheme;
@@ -11,6 +12,7 @@ export type AnolisTheme = {
   typography: TypographyTheme;
   control: ControlTheme;
   modal: ModalTheme;
+  button: ButtonTheme;
 };
 
 export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
@@ -19,6 +21,7 @@ export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
   ...typographyTheme(),
   ...controlTheme(),
   ...modalTheme(),
+  ...buttonTheme(),
   ...theme
 });
 
