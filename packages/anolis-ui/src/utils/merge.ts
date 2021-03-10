@@ -13,8 +13,7 @@ const appendTo = <T>(t: T, s: T | undefined): T => {
   keys(s).reverse().forEach(k => {
     t[k] && k[0] === "_" && typeof t[k] === "object"
       ? appendTo(t[k], s[k])
-      : !(k in t) &&
-          (t[k] = s[k]);
+      : t[k] = s[k];
   });
   return t;
 };
