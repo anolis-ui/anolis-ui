@@ -1,7 +1,7 @@
 import { x } from "@xstyled/emotion";
 import { Button, Container, Typography } from "anolis-ui";
 import { FC } from "react";
-import Ui from "../../components/Ui";
+import Ui from "components/Ui";
 
 const ButtonPage: FC = () => {
   return (

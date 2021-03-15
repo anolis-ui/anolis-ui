@@ -1,7 +1,7 @@
 import { x } from "@xstyled/emotion";
 import { Container } from "anolis-ui";
 import React, { FC } from "react";
-import Ui from "../../components/Ui";
+import Ui from "components/Ui";
 
 const ContainerPage: FC = () => {
   return (
