@@ -1,30 +1,25 @@
-import Head from "next/head";
-import { FC } from "react";
-import { AnolisProvider, Button, Container } from "anolis-ui";
 import { x } from "@xstyled/emotion";
+import { AnolisProvider, Button, Container } from "anolis-ui";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FC } from "react";
+
+import { theme } from "../theme";
+import { xstyledTheme } from "../theme/xstyled";
 
 const Ui: FC = ({ children }) => {
   const router = useRouter();
 
   return (
-    <AnolisProvider>
+    <AnolisProvider xstyledTheme={xstyledTheme} theme={theme}>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-        <style>
-          {`
-          * {
-            font-family: 'Sora', sans-serif
-          }
-          `}
-        </style>
       </Head>
 
       <x.div>
-        <Container display="flex" paddingTop="3rem" paddingBottom="2rem" alignItems="center" justifyContent="space-between">
+        <Container display="flex" pt="3rem" pb="2rem" alignItems="center" justifyContent="space-between">
           <x.div
             fontSize="4rem"
             lineHeight="6rem"
