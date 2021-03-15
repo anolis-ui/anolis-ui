@@ -30,7 +30,7 @@ const emptyTypography: TypographyTheme = {
   variants: {
     normal: {
       _h1: {
-        fontSize: "2xl",
+        fontSize: "3.5rem",
         fontWeight: 500,
         lineHeight: "loose"
       },

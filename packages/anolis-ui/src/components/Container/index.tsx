@@ -12,7 +12,7 @@ export const Container = anolisComponent<"div", ContainerProps, ContainerVariant
   { children, v, s, ...p }, ref) => {
   const theme = useComponentTheme("container", v, s);
 
-  const [props] = comp(p);
+  const [,,props] = comp(p);
 
   return (
     <x.div ref={ref as any} {...theme as ContainerProps} container={v === "normal"} {...props}>

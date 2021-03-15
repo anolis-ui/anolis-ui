@@ -4,6 +4,8 @@ export * from "./components/Control";
 export * from "./components/Tag";
 export * from "./components/Button";
 export * from "./components/Container";
+export * from "./components/List";
+export * from "./components/Typography";
 
 // Unthemed
 export * from "./components/Icon";

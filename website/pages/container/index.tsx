@@ -1,12 +1,13 @@
 import { x } from "@xstyled/emotion";
-import { AnolisProvider, Button, Container } from "anolis-ui";
+import { Container } from "anolis-ui";
 import React, { FC } from "react";
+import Ui from "../../components/Ui";
 
 const ContainerPage: FC = () => {
   return (
-    <AnolisProvider>
+    <Ui>
       <x.div display="flex" flexDirection="column" spaceY="4" alignItems="flex-start">
-        <x.h1 fontSize="4xl">
+        <x.h1 fontSize="4rem">
           Container
         </x.h1>
         <x.h2 fontSize="2xl">
@@ -28,7 +29,7 @@ const ContainerPage: FC = () => {
           <x.div w="100%" h="10rem" bg="primary" />
         </Container>
       </x.div>
-    </AnolisProvider>
+    </Ui>
   );
 };
 

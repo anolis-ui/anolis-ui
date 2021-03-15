@@ -56,9 +56,9 @@ const emptyButton: ButtonTheme = {
     solid: {
       bg: "anolis-blue",
       color: "#fff",
-      hoverBg: "colors.primaryHover",
-      activeBg: "colors.primaryActive",
-      focusBg: "colors.primaryFocus",
+      hoverBg: "primaryHover",
+      activeBg: "primaryActive",
+      focusBg: "primaryFocus",
       focusOutline: "2px solid rgba(15, 31, 40, 0.2)",
       // focusOutlineOffset: "-2px",
       disabledOpacity: 0.5
