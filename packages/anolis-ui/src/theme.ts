@@ -7,6 +7,7 @@ import { typographyTheme, TypographyTheme } from "components/Typography/theme";
 import { ButtonTheme, buttonTheme } from "components/Button";
 import { containerTheme, ContainerTheme } from "components/Container";
 import { listTheme, ListTheme } from "components/List";
+import { linkTheme, LinkTheme } from "components/Link";
 
 export type AnolisTheme = {
   card: CardTheme;
@@ -17,6 +18,7 @@ export type AnolisTheme = {
   button: ButtonTheme;
   container: ContainerTheme;
   list: ListTheme;
+  link: LinkTheme;
 };
 
 export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
@@ -28,6 +30,7 @@ export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
   ...buttonTheme(),
   ...containerTheme(),
   ...listTheme(),
+  ...linkTheme(),
   ...theme
 });
 

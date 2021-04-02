@@ -35,7 +35,7 @@ const emptyTypography: TypographyTheme = {
         lineHeight: "loose"
       },
       _h2: {
-        fontSize: "xl",
+        fontSize: "2.5rem",
         fontWeight: 500,
         lineHeight: "loose"
       },
@@ -58,7 +58,8 @@ const emptyTypography: TypographyTheme = {
         lineHeight: "2rem"
       },
       _lead: {
-
+        fontSize: "1.5rem",
+        lineHeight: "2rem"
       }
     }
   },
