@@ -39,7 +39,7 @@ const Footer: FC = () => {
           }}
         >
           <x.p>
-            Powered by
+            Created by
           </x.p>
 
           <TextLink

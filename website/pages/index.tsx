@@ -168,7 +168,8 @@ const Index: FC = () => {
             </x.h2>
 
             <Txt t="lead" mt="2rem">
-              Unsung heroes, which made all of this possible – <x.strong color="#061227">huge thanks to each and every one of them!</x.strong>
+              Unsung heroes, which made all of this possible –{" "}
+              <x.strong color="#061227">huge thanks to each and every one of them!</x.strong>
             </Txt>
           </Typography>
 
