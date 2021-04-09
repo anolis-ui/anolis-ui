@@ -20,7 +20,7 @@ export const Control = anolisComponent<"div", ControlProps, never, ControlSizes>
 
   return (
     <x.div ref={ref} {...theme} {...props}>
-      <Icon svg={icon} {...theme._icon} {..._icon} />
+      <Icon svg={icon} {...theme._icon as any} {..._icon as any} />
     </x.div>
   );
 });

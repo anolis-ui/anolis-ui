@@ -63,7 +63,7 @@ interface ComplementSideProps {
 const Complement: FC<ComplementSideProps> = ({ _icon, icon, element }) => (
   <>
     {renderComponent(element)}
-    {icon && <Icon mr="1rem" svg={icon} {..._icon} />}
+    {icon && <Icon mr="1rem" svg={icon} {..._icon as any} />}
   </>
 );
 
