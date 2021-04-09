@@ -6,7 +6,7 @@ import { ButtonVariant, ButtonSize } from "./theme";
 
 export * from "./theme";
 
-export type ButtonProps = ComplementProps;
+export type ButtonProps = ComplementProps & { href?: string; target?: "_blank" | "_self" | "_parent" | "_top" };
 
 export const Button = anolisComponent<"button", ButtonProps, ButtonVariant, ButtonSize>("button", (
   { children, v, s, ...p }, ref) => {

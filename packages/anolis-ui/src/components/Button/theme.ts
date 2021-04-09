@@ -31,25 +31,28 @@ const emptyButton: ButtonTheme = {
   },
   sizes: {
     xs: {
-      py: 0,
-      px: "2",
+      py: "0.25rem",
+      px: "0.5rem",
       fontSize: "xs",
-      lineHeight: "1.8rem"
+      lineHeight: "1rem"
     },
     sm: {
-      px: "3",
-      py: "1",
-      fontSize: "sm"
+      px: "0.75rem",
+      py: "0.25rem",
+      fontSize: "sm",
+      lineHeight: "1.5rem"
     },
     md: {
-      px: "5",
-      py: "2",
-      fontSize: "base"
+      px: "2rem",
+      py: "0.5rem",
+      fontSize: "base",
+      lineHeight: "1.5rem"
     },
     lg: {
       px: "8",
       py: "3",
-      fontSize: "lg"
+      fontSize: "lg",
+      lineHeight: "1.875rem"
     }
   },
   variants: {
