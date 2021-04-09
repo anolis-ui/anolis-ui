@@ -36,6 +36,7 @@ const IconStyle = styled.divBox<IconProps>`
     path {
       fill: ${props => props.fill};
       stroke: ${props => props.stroke};
+      transition: fill 300ms stroke 300ms";
     }
   }
 
