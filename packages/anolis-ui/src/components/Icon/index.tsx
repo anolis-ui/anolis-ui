@@ -1,22 +1,50 @@
-import { x } from "@xstyled/emotion";
+import styled, { system, SystemProps } from "@xstyled/emotion";
 import renderComponent, { Renderable } from "utils/renderComponent";
 import { anolisComponent } from "utils/anolisComponent";
 
 export type IconProps = {
   svg?: Renderable;
-};
+  fill?: string;
+  fillHover?: string;
+  stroke?: string;
+  strokeHover?: string;
+} & SystemProps;
 
-export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, children, ...props }, ref) => {
+export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fillHover, stroke, strokeHover, children, ...props }, ref) => {
   return (
-    <x.span
+    <IconStyle
       ref={ref as any}
       display="inline-block"
       verticalAlign="middle"
       maxHeight="100%"
-      {...props}
+      fill={fill}
+      fillHover={fillHover}
+      stroke={stroke}
+      strokeHover={strokeHover}
+      {...props as any}
     >
       {renderComponent(svg)}
       {children}
-    </x.span>
+    </IconStyle>
   );
 });
+
+const IconStyle = styled.divBox<IconProps>`
+  ${system}
+
+  & > svg {
+    path {
+      fill: ${props => props.fill};
+      stroke: ${props => props.stroke};
+    }
+  }
+
+  &:hover {
+    & > svg {
+      path {
+        fill: ${props => props.fillHover};
+        stroke: ${props => props.strokeHover};
+      }
+    }
+  }
+`;
