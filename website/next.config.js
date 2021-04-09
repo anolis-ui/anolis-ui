@@ -1,4 +1,7 @@
 module.exports = {
+  experimental: {
+    optimizeFonts: true
+  },
   webpack (config, { dir, defaultLoaders }) {
     config.resolve.extensions.push(".svg");
     config.module.rules.push(svgLoaderRule(defaultLoaders, dir));
