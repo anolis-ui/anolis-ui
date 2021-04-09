@@ -1,5 +1,5 @@
 
-import { createTheme, typographyTheme, buttonTheme } from "anolis-ui";
+import { buttonTheme, createTheme, Tag, tagTheme, textLinkTheme, typographyTheme } from "anolis-ui";
 
 export const theme = createTheme({
   ...typographyTheme({
@@ -24,11 +24,25 @@ export const theme = createTheme({
       }
     }
   }),
+  ...tagTheme({
+    baseStyle: {
+      background: "#45C264",
+      border: 0,
+      py: "0.25rem",
+      px: "0.75rem",
+      fontSize: "1rem"
+    }
+  }),
   ...buttonTheme({
     variants: {
       clear: {
-        maxWidth: "1rem"
+        color: "#888AA5"
       }
+    }
+  }),
+  ...textLinkTheme({
+    baseStyle: {
+      color: "#888aa5"
     }
   })
 });

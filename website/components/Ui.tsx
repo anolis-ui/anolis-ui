@@ -1,15 +1,19 @@
 import { x } from "@xstyled/emotion";
-import { AnolisProvider, Button, Container } from "anolis-ui";
+import { Container, Icon, TextLink } from "anolis-ui";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC } from "react";
-
-import { theme } from "../theme";
-import { xstyledTheme } from "../theme/xstyled";
+import { FC, useEffect, useState } from "react";
+import Logo from "components/Logo";
+import Footer from "components/Footer";
+import GithubIcon from "components/icons/24/github.svg";
 
 const Ui: FC = ({ children }) => {
   const router = useRouter();
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => setOffset(window.pageYOffset));
+  }, []);
 
   return (
     <>
@@ -18,50 +22,51 @@ const Ui: FC = ({ children }) => {
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
       </Head>
 
-      <x.div>
-        <Container display="flex" pt="3rem" pb="2rem" alignItems="center" justifyContent="space-between">
-          <x.div
-            fontSize="4rem"
-            lineHeight="6rem"
-            background="-webkit-linear-gradient(#eee, #333)"
-            backgroundClip="text"
-            display="inline-flex"
-            fontWeight="500"
-            style={{
-              "-webkitTextFillColor": "transparent",
-              "background": "linear-gradient(to right, #45C264 0%, #0171B6 100%)",
-              "-webkitBackgroundClip": "text"
-            } as any}
-          >
-            Anolis
-          </x.div>
+      <x.div
+        position="sticky"
+        top="0"
+        bg="#fff"
+        boxShadow={offset > 64 ? "0 0.25rem 1rem 0 rgba(6, 18, 39, 0.15)" : "0 0.25rem 1rem 0 transparent"}
+        transition="boxShadow 300ms"
+      >
+        <Container
+          display="flex"
+          py="0.5rem"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Logo
+            fontSize="2rem"
+            lineHeight="3rem"
+            opacity={offset < 128 && router.pathname === "/" ? 0 : 1}
+          />
 
-          {router.pathname === "/" ? (
-            <Button
-              v="clear"
-              s="lg"
-              as="a"
-              {...{ href: "https://www.notion.so/Anolis-UI-roadmap-0ce3854b4b88445983906e99908d65a7" }as any}
-              target="_blank"
+          <x.div />
+
+          <x.div display="flex" alignItems="center">
+            <TextLink>
+              Read the docs
+            </TextLink>
+
+            <x.div
+              display="flex"
+              alignItems="center"
+              h="2rem"
+              pl="2rem"
+              ml="2rem"
+              borderLeft="1px solid rgba(136, 138, 165, 0.25)"
             >
-              Roadmap ⟶
-            </Button>
-          ) : (
-            <Link href="/">
-              <Button
-                v="clear"
-                s="lg"
-                as="a"
-              >
-                ⟵ Back
-              </Button>
-            </Link>
-          )}
+              <TextLink href="https://github.com/anolis-ui/anolis-ui" target="_blank">
+                <Icon svg={<GithubIcon />} fillHover="red" />
+              </TextLink>
+            </x.div>
+          </x.div>
         </Container>
-
       </x.div>
 
       {children}
+
+      <Footer />
     </>
   );
 };
