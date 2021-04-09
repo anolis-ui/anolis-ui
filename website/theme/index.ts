@@ -1,5 +1,5 @@
 
-import { createTheme, typographyTheme } from "anolis-ui";
+import { createTheme, typographyTheme, buttonTheme } from "anolis-ui";
 
 export const theme = createTheme({
   ...typographyTheme({
@@ -21,6 +21,13 @@ export const theme = createTheme({
       },
       _h6: {
         fontFamily: "heading-sans"
+      }
+    }
+  }),
+  ...buttonTheme({
+    variants: {
+      clear: {
+        maxWidth: "1rem"
       }
     }
   })

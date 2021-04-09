@@ -11,7 +11,7 @@ export interface ComponentTheme<P extends PseudoProp<keyof JSX.IntrinsicElements
   };
 }
 
-export type PartialComponentTheme<T extends ComponentTheme<any, any, any>> = Partial<T> & {
+export type PartialComponentTheme<T extends ComponentTheme<any, any, any>> = Omit<Partial<T>, "sizes" | "variants"> & {
   sizes?: Partial<T["sizes"]>;
   variants?: Partial<T["variants"]>;
 };
@@ -33,6 +33,6 @@ export const extendTheme = <T extends ComponentTheme<{}, keyof any, keyof any>>(
     };
 };
 
-const mergeVariants = <T extends Record<string, any>>(target: T, source: T | undefined): T => Object.fromEntries(
+const mergeVariants = <T extends Record<string, any>>(target: T, source: Partial<T> | undefined): T => Object.fromEntries(
   Object.entries(target).map(([k, v]) => [k, merge(v, source?.[k])])
 ) as T;
