@@ -16,6 +16,7 @@ export const tagTheme = (t?: PartialComponentTheme<TagTheme>): { tag: TagTheme }
 
 const emptyTag: TagTheme = {
   baseStyle: {
+    display: "inline-flex",
     whiteSpace: "nowrap",
     alignItems: "center",
     userSelect: "none",
