@@ -61,7 +61,7 @@ const TypographyStyle = styled.divBox<TypographyStyleProps>`
   }
 
   h4, ._anolis-as-h4 {
-    ${typoCss("_h2")}
+    ${typoCss("_h4")}
   }
 
   h5, ._anolis-as-h5 {
@@ -73,7 +73,7 @@ const TypographyStyle = styled.divBox<TypographyStyleProps>`
   }
 
   p, ._anolis-as-p {
-    ${typoCss("_lead")}
+    ${typoCss("_p")}
   }
 
   ._anolis-as-lead {

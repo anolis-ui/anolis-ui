@@ -31,17 +31,20 @@ const emptyTypography: TypographyTheme = {
       _h1: {
         fontSize: "3.5rem",
         fontWeight: 500,
-        lineHeight: "loose"
+        lineHeight: "3.75rem",
+        color: "#061227"
       },
       _h2: {
         fontSize: "2.5rem",
         fontWeight: 500,
-        lineHeight: "loose"
+        lineHeight: "3rem",
+        color: "#061227"
       },
       _h3: {
-        fontSize: "lg",
+        fontSize: "1.5rem",
         fontWeight: 500,
-        lineHeight: "loose"
+        lineHeight: "2.25rem",
+        color: "#061227"
       },
       _h4: {
 
@@ -54,11 +57,12 @@ const emptyTypography: TypographyTheme = {
       },
       _p: {
         fontSize: "1rem",
-        lineHeight: "2rem"
+        lineHeight: "1.5rem",
+        color: "#444554"
       },
       _lead: {
         fontSize: "1.5rem",
-        lineHeight: "2rem"
+        lineHeight: "2.25rem"
       }
     }
   },
