@@ -6,7 +6,7 @@
     "website"
   ],
   "scripts": {
-    "build": "lerna run build --ignore @anolis/website"
+    "build": "lerna run build --ignore @anolis/website && lerna run build --ignore anolis-ui"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.15.2",

@@ -2,7 +2,7 @@
 import { DEFAULT_EXTENSIONS } from "@babel/core";
 import babel from "@rollup/plugin-babel";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
-import tsPlugin from "rollup-plugin-typescript2";
+import tsPlugin from "@rollup/plugin-typescript";
 import typescript from "ttypescript";
 
 import pkg, { dependencies, peerDependencies } from "./package.json";
@@ -19,7 +19,12 @@ const config = (input, outputCjs, outputEsm) => ({
     nodeResolve({
       moduleDirectories: ["node_modules", "src"]
     }),
-    tsPlugin({ typescript }),
+    tsPlugin({
+      typescript,
+      noEmit: true,
+      declarationDir: undefined,
+      declaration: false
+    }),
     babel({
       babelHelpers: "runtime",
       extensions: [

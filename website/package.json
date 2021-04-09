@@ -11,6 +11,7 @@
     "@emotion/server": "^11.0.0",
     "@emotion/styled": "^11.1.5",
     "@xstyled/emotion": "^2.2.3",
+    "anolis-ui": "*",
     "next": "^10.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"

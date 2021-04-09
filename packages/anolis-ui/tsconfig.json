@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "declarationDir": "./dist",
     "baseUrl": "./src",
     "module": "esnext",
     "target": "esnext",
@@ -20,7 +21,7 @@
     "importHelpers": true,
     "declaration": true,
     "rootDir": "./src",
-    "noEmit": false,
+    "emitDeclarationOnly": true,
     "paths": {
       "*": [
         "*"
@@ -36,10 +37,13 @@
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "**/*.test.tsx",
+    "dist",
+    "./dist",
+    "./dist/**/*",
+    "./dist/**/*.d.ts"
   ],
   "include": [
-    "src",
-    "**/*.d.ts",
+    "src"
   ]
 }
