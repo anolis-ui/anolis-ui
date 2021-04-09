@@ -57,7 +57,7 @@ const Ui: FC = ({ children }) => {
               borderLeft="1px solid rgba(136, 138, 165, 0.25)"
             >
               <TextLink href="https://github.com/anolis-ui/anolis-ui" target="_blank">
-                <Icon svg={<GithubIcon />} fillHover="red" />
+                <Icon svg={<GithubIcon />} fillHover="#24292e" />
               </TextLink>
             </x.div>
           </x.div>

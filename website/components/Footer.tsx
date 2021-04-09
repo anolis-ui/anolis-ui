@@ -5,7 +5,12 @@ import { Typography, TextLink, Container } from "anolis-ui";
 const Footer: FC = () => {
   return (
     <Container>
-      <x.div display="flex" justifyContent="space-between" py="1.5rem">
+      <x.div
+        display="flex"
+        justifyContent="space-between"
+        flexDirection={{ _: "column", md: "row" }}
+        py="1.5rem"
+      >
         <Typography
           display="flex"
           alignItems="center"
