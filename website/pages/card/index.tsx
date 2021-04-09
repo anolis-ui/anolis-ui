@@ -7,11 +7,9 @@ const CardPage: FC = () => {
   return (
     <Ui>
       <Container>
-        <Typography>
-          <x.h1 color="red">
-            Card
-          </x.h1>
-        </Typography>
+        <x.h1 color="red">
+          Card
+        </x.h1>
       </Container>
     </Ui>
   );

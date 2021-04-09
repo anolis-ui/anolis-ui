@@ -13,7 +13,6 @@ export interface TypographyThemeProps extends PseudoProp {
   _h6?: PseudoProp;
   _p?: PseudoProp;
   _lead?: PseudoProp;
-  _a?: PseudoProp;
 }
 
 export type TypographyTheme = ComponentTheme<TypographyThemeProps, TypographyVariant, TypographySize>;

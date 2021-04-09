@@ -5,22 +5,22 @@ export const theme = createTheme({
   ...typographyTheme({
     baseStyle: {
       _h1: {
-        fontFamily: "heading"
+        fontFamily: "heading-sans"
       },
       _h2: {
-        fontFamily: "heading"
+        fontFamily: "heading-sans"
       },
       _h3: {
-        fontFamily: "heading"
+        fontFamily: "heading-sans"
       },
       _h4: {
-        fontFamily: "heading"
+        fontFamily: "heading-sans"
       },
       _h5: {
-        fontFamily: "heading"
+        fontFamily: "heading-sans"
       },
       _h6: {
-        fontFamily: "heading"
+        fontFamily: "heading-sans"
       }
     }
   })

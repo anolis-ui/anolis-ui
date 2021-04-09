@@ -2,7 +2,7 @@ import { defaultTheme, Theme } from "@xstyled/system";
 
 export const xstyledTheme: Theme = {
   fonts: {
-    ...defaultTheme,
-    headings: "'Sora', sans-serif"
+    ...defaultTheme.fonts,
+    "heading-sans": "'Sora', sans-serif"
   }
 };

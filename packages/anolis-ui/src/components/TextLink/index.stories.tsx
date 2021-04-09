@@ -1,10 +1,10 @@
 import { defaultTheme, x } from "@xstyled/emotion";
 import { FC } from "react";
 import StoryLayout from "stories/StoryLayout";
-import { Link } from ".";
+import { TextLink } from ".";
 
 export default {
-  title: "Themed/Link"
+  title: "Themed/TextLink"
 };
 
 const theme = {
@@ -15,13 +15,13 @@ export const Normal: FC = () => {
   return (
     <StoryLayout title="Link">
       <x.div display="flex" spaceX="2" alignItems="center">
-        <Link v="normal">
+        <TextLink v="normal">
           Normal link
-        </Link>
+        </TextLink>
 
-        <Link v="underlined">
+        <TextLink v="underlined">
           Underlined link
-        </Link>
+        </TextLink>
       </x.div>
     </StoryLayout>
   );

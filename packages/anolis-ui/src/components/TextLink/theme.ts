@@ -2,18 +2,18 @@ import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme"
 import { ComplementThemeProps } from "components/Complement";
 import { PseudoProp } from "utils/PseudoProp";
 
-export type LinkVariant = "normal" | "underlined";
+export type TextLinkVariant = "normal" | "underlined";
 
-export interface LinkThemeProps extends ComplementThemeProps, PseudoProp {
+export interface TextLinkThemeProps extends ComplementThemeProps, PseudoProp {
 }
 
-export type LinkTheme = ComponentTheme<LinkThemeProps, LinkVariant>;
+export type TextLinkTheme = ComponentTheme<TextLinkThemeProps, TextLinkVariant>;
 
-export const linkTheme = (t?: PartialComponentTheme<LinkTheme>): { link: LinkTheme } => ({
-  link: extendTheme(emptyLink, t)
+export const textLinkTheme = (t?: PartialComponentTheme<TextLinkTheme>): { textLink: TextLinkTheme } => ({
+  textLink: extendTheme(emptyTextLink, t)
 });
 
-const emptyLink: LinkTheme = {
+const emptyTextLink: TextLinkTheme = {
   baseStyle: {
     color: "primary",
     borderBottom: "1px solid transparent",

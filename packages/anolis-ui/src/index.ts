@@ -7,7 +7,7 @@ export * from "./components/Container";
 export * from "./components/List";
 export * from "./components/Typography";
 export * from "./components/Typography/Txt";
-export * from "./components/Link";
+export * from "./components/TextLink";
 
 // Unthemed
 export * from "./components/Icon";
@@ -17,6 +17,7 @@ export { default as AnolisProvider, AnolisProviderProps } from "./components/Ano
 
 // Theme
 export { AnolisTheme, createTheme } from "./theme";
+export * from "./defaultTheme";
 
 // Hooks
 export { default as useTheme } from "./hooks/useTheme";

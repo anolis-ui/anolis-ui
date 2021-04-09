@@ -4,8 +4,7 @@ module.exports = {
     ["@babel/preset-react", {
       runtime: "automatic"
     }],
-    "@babel/preset-typescript",
-    "@xstyled/babel-preset-emotion-css-prop"
+    "@babel/preset-typescript"
   ],
   plugins: [
     "@babel/plugin-transform-runtime"

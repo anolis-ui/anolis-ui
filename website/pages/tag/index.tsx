@@ -7,11 +7,9 @@ const TagPage: FC = () => {
   return (
     <Ui>
       <Container>
-        <Typography>
-          <x.h1>
-            Tag
-          </x.h1>
-        </Typography>
+        <x.h1>
+          Tag
+        </x.h1>
       </Container>
     </Ui>
   );

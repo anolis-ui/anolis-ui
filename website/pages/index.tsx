@@ -1,28 +1,27 @@
 import { x } from "@xstyled/emotion";
-import { AnolisProvider, Button, Card, Container, Typography } from "anolis-ui";
+import { AnolisProvider, Button, Card, Container, Typography, useTheme } from "anolis-ui";
 import { FC } from "react";
 import Ui from "components/Ui";
 import Link from "next/link";
 
 const Index: FC = () => {
+  const theme = useTheme();
   return (
     <Ui>
       <Container>
-        <Typography>
-          <x.h1 fontSize="3.5rem" fontWeight="600" maxWidth="54rem" color="#061227">
-            Flexible yet strong foundation
-            for your next React project.
-          </x.h1>
+        <x.h1 fontSize="3.5rem" fontWeight="600" maxWidth="54rem" color="#061227">
+          Flexible yet strong foundation
+          for your next React project.
+        </x.h1>
 
-          <x.p marginTop="3.5rem" maxWidth="68rem" fontSize="1.5rem" lineHeight="2.25rem" fontWeight="400" color="#444554">
-            Anolis UI is a <x.strong color="#45C264">nice component library</x.strong> for React offering high flexibility and themeability,
-            but <x.strong color="#0171B6">easy to setup</x.strong> with minimal config. Made for building beautiful design-systems or websites.
-          </x.p>
+        <x.p marginTop="3.5rem" maxWidth="68rem" fontSize="1.5rem" lineHeight="2.25rem" fontWeight="400" color="#444554">
+          Anolis UI is a <x.strong color="#45C264">nice component library</x.strong> for React offering high flexibility and themeability,
+          but <x.strong color="#0171B6">easy to setup</x.strong> with minimal config. Made for building beautiful design-systems or websites.
+        </x.p>
 
-          <x.h2 marginTop="4rem" fontSize="2rem" lineHeight="3rem" fontWeight="300" color="#888aa5">
-            <x.strong fontWeight="600" color="#061227">Browse components</x.strong> (disabled are unfinished)
-          </x.h2>
-        </Typography>
+        <x.h2 marginTop="4rem" fontSize="2rem" lineHeight="3rem" fontWeight="300" color="#888aa5">
+          <x.strong fontWeight="600" color="#061227">Browse components</x.strong> (disabled are unfinished)
+        </x.h2>
 
         <x.div spaceX="6" spaceY="6" spaceXReverse>
           <Link href="/button">

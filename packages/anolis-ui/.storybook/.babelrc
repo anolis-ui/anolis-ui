@@ -7,7 +7,6 @@
         "runtime": "automatic"
       }
     ],
-    "@babel/preset-typescript",
-    "@xstyled/babel-preset-emotion-css-prop"
+    "@babel/preset-typescript"
   ]
 }

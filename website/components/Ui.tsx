@@ -12,7 +12,7 @@ const Ui: FC = ({ children }) => {
   const router = useRouter();
 
   return (
-    <AnolisProvider xstyledTheme={xstyledTheme} theme={theme}>
+    <>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -62,7 +62,7 @@ const Ui: FC = ({ children }) => {
       </x.div>
 
       {children}
-    </AnolisProvider>
+    </>
   );
 };
 
