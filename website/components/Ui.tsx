@@ -41,7 +41,7 @@ const Ui: FC = ({ children }) => {
               v="clear"
               s="lg"
               as="a"
-              href="https://www.notion.so/Anolis-UI-roadmap-0ce3854b4b88445983906e99908d65a7"
+              {...{ href: "https://www.notion.so/Anolis-UI-roadmap-0ce3854b4b88445983906e99908d65a7" }as any}
               target="_blank"
             >
               Roadmap ⟶
