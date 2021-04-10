@@ -119,11 +119,13 @@ const Index: FC = () => {
         </Container>
 
         <Container>
-          <Typography>
-            <x.h2>
-              Features & Benefits
-            </x.h2>
-          </Typography>
+          <x.h2>
+            Features & Benefits
+          </x.h2>
+
+          <Txt t="lead" mt="2rem">
+            Anolis is currently in development. We have set 3 main phases, each with a dedicated goal of set components.
+          </Txt>
 
           <x.div
             mt="2rem"
