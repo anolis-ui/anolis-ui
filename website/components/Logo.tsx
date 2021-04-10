@@ -1,15 +1,12 @@
 import { FC } from "react";
-import { SystemProps, x } from "@xstyled/emotion";
+import styled, { SystemProps, x } from "@xstyled/emotion";
 
 const Logo: FC<SystemProps> = ({ ...props }) => {
   return (
-    <x.div
+    <LogoStyle
+      position="relative"
       fontSize="4rem"
       lineHeight="6rem"
-      backgroundImage="gradient-to-r"
-      gradientTo="#0171B6"
-      gradientFrom="#45C264"
-      backgroundClip="text"
       display="inline-flex"
       fontWeight="500"
       color="transparent"
@@ -17,9 +14,29 @@ const Logo: FC<SystemProps> = ({ ...props }) => {
       fontFamily="heading-sans"
       {...props as any}
     >
-      Anolis
-    </x.div>
+      <div>Anolis</div>
+    </LogoStyle>
+
   );
 };
 
 export default Logo;
+
+const LogoStyle = styled.divBox`
+  div {
+    background: linear-gradient(to right, #45C264 0%, #0171B6 50%, #45C264 100%);
+    background-size: 200% auto;
+    color: #45C264;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 6s linear infinite;
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+  }
+`;

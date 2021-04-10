@@ -11,12 +11,9 @@ const Footer: FC = () => {
         flexDirection={{ _: "column", md: "row" }}
         py="1.5rem"
       >
-        <Typography
+        <x.div
           display="flex"
           alignItems="center"
-          _p={{
-            color: "#444554"
-          }}
         >
           <x.p>
             Powered by
@@ -29,14 +26,11 @@ const Footer: FC = () => {
           >
             <x.img src="/static/img/vercel.svg" width="71" height="16" loading="lazy" alt="Vercel.com" />
           </TextLink>
-        </Typography>
+        </x.div>
 
-        <Typography
+        <x.div
           display="flex"
           alignItems="center"
-          _p={{
-            color: "#444554"
-          }}
         >
           <x.p>
             Created by
@@ -49,7 +43,7 @@ const Footer: FC = () => {
           >
             <x.img src="/static/img/appio.svg" width="70" height="24" loading="lazy" alt="Appio.cz" />
           </TextLink>
-        </Typography>
+        </x.div>
       </x.div>
     </Container>
   );

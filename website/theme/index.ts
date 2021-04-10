@@ -1,18 +1,14 @@
 
-import { buttonTheme, createTheme, Tag, tagTheme, textLinkTheme, typographyTheme } from "anolis-ui";
+import { buttonTheme, createTheme, tagTheme, textLinkTheme, typographyTheme } from "anolis-ui";
 
 export const theme = createTheme({
   ...typographyTheme({
     baseStyle: {
       _h1: {
-        fontFamily: "heading-sans",
-        fontSize: "3xl"
+        fontFamily: "heading-sans"
       },
       _h2: {
-        fontFamily: "heading-sans",
-        fontSize: "2xl",
-        paddingTop: "2",
-        ...{ paddingBottom: "4" } as any
+        fontFamily: "heading-sans"
       },
       _h3: {
         fontFamily: "heading-sans"
@@ -25,9 +21,6 @@ export const theme = createTheme({
       },
       _h6: {
         fontFamily: "heading-sans"
-      },
-      _p: {
-        ...{ paddingBottom: "3" } as any
       }
     }
   }),
