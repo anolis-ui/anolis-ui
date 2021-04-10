@@ -10,9 +10,13 @@
     "@emotion/react": "^11.1.5",
     "@emotion/server": "^11.0.0",
     "@emotion/styled": "^11.1.5",
+    "@mdx-js/loader": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@next/mdx": "^10.1.3",
     "@xstyled/emotion": "^2.2.3",
     "anolis-ui": "*",
     "next": "^10.0.7",
+    "prism-react-renderer": "^1.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
@@ -22,6 +26,7 @@
     "start": "next start"
   },
   "devDependencies": {
+    "@types/mdx-js__react": "^1.5.3",
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
     "react-svg-loader": "^3.0.3",

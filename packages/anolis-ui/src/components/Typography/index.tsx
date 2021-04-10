@@ -28,6 +28,8 @@ export const Typography = anolisComponent<"div", TypographyProps, TypographyVari
     _lead: theme._lead
   }), [theme._h1, theme._h2, theme._h3, theme._h4, theme._h5, theme._h6, theme._lead, theme._p]);
 
+  console.log(theme);
+
   return (
     <TypographyStyle ref={ref} _theme={_theme} {...theme} {...props} />
   );

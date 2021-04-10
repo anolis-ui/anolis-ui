@@ -1,0 +1,53 @@
+import { x } from "@xstyled/emotion";
+import { Button } from "anolis-ui";
+import { CodeBlock } from "components/CodeBlock";
+import { ComponentDisplay } from "components/ComponentDisplay";
+
+# Button
+
+```tsx
+import { Button } from "anolis-ui";
+
+interface ButtonProps extends ComplementProps, SystemProps {
+
+}
+
+type ButtonVariant = "solid" | "clear" | "outline" | "link";
+type ButtonSize = "xs" | "sm" | "md" | "lg";
+```
+
+Button has 4 default variants and sizes.
+
+## Variants
+
+You can use 4 variants of button. Just use **v** prop.
+
+<ComponentDisplay>
+  {[
+    [<Button>Solid</Button>, "<Button>Solid</Button>"],
+    [<Button v="outline">Outline</Button>, "<Button v=\"outline\">Outline</Button>"],
+    [<Button v="clear">Clear</Button>, "<Button v=\"clear\">Clear</Button>"],
+    [<Button v="link">Link</Button>, "<Button v=\"link\">Link</Button>"]
+  ]}
+</ComponentDisplay>
+
+## Sizes
+
+You can use 4 sizes of button. Just use **s** prop.
+
+<ComponentDisplay>
+  {[
+    [<Button s="xs">XS Button</Button>, `<Button s="xs">XS Button</Button>`],
+    [<Button s="sm">SM Button</Button>, `<Button s="sm">SM Button</Button>`],
+    [<Button s="md">MD Button</Button>, `<Button s="md">MD Button</Button>`],
+    [<Button s="lg">LG Button</Button>, `<Button s="lg">LG Button</Button>`]
+  ]}
+</ComponentDisplay>
+
+## Other states
+
+<ComponentDisplay>
+  {[
+    [<Button disabled>Disabled Button</Button>, `<Button disabled>Disabled Button</Button>`],
+  ]}
+</ComponentDisplay>

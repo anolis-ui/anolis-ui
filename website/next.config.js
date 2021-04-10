@@ -1,4 +1,9 @@
-module.exports = {
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/
+});
+
+module.exports = withMDX({
+  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   experimental: {
     optimizeFonts: true
   },
@@ -8,7 +13,7 @@ module.exports = {
 
     return config;
   }
-};
+});
 
 const svgLoaderRule = (defaultLoaders, dir) => ({
   test: /\.svg$/,

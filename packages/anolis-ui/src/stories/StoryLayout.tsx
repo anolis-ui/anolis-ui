@@ -1,6 +1,8 @@
 import { x } from "@xstyled/emotion";
 import AnolisProvider from "components/AnolisProvider";
+import { typographyTheme } from "components/Typography";
 import { FC, ReactNode } from "react";
+import { createTheme } from "../theme";
 
 interface Props {
   title?: ReactNode;

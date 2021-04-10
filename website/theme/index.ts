@@ -5,10 +5,14 @@ export const theme = createTheme({
   ...typographyTheme({
     baseStyle: {
       _h1: {
-        fontFamily: "heading-sans"
+        fontFamily: "heading-sans",
+        fontSize: "3xl"
       },
       _h2: {
-        fontFamily: "heading-sans"
+        fontFamily: "heading-sans",
+        fontSize: "2xl",
+        paddingTop: "2",
+        ...{ paddingBottom: "4" } as any
       },
       _h3: {
         fontFamily: "heading-sans"
@@ -21,6 +25,9 @@ export const theme = createTheme({
       },
       _h6: {
         fontFamily: "heading-sans"
+      },
+      _p: {
+        ...{ paddingBottom: "3" } as any
       }
     }
   }),

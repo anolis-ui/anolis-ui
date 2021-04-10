@@ -12,7 +12,7 @@ export const Normal: FC = () => {
   return (
     <StoryLayout title="Card">
       <x.div>
-        <Typography _h1={{ fontSize: "2xl", fontFamily: "heading" }} spaceY="5">
+        <Typography _h1={{ }} spaceY="5">
           <x.h1>Test</x.h1>
 
           <x.p>Text text text</x.p>

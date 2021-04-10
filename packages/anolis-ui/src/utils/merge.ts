@@ -1,4 +1,4 @@
-
+// Same as Object.assign but deep merges props with _
 export const merge = <T>(target: T, ...sources: (T | undefined)[]): T => {
   const next = appendTo({} as T, target);
   sources.forEach(s => appendTo(next, s));
