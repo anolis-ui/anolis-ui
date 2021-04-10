@@ -1,7 +1,6 @@
 import { x } from "@xstyled/emotion";
-import { Button, Container, Typography, Tag, Txt, useTheme } from "anolis-ui";
+import { Button, Container, TextLink, Tag, Txt, useTheme } from "anolis-ui";
 import { FC, useEffect, useState } from "react";
-
 import Ui from "components/Ui";
 import Logo from "components/Logo";
 import GithubIcon from "components/icons/24/github.svg";
@@ -17,8 +16,12 @@ type ContributorType = {
   name: string;
 };
 
+type PhaseType = {
+  name: string;
+  description: string;
+};
+
 const Index: FC = () => {
-  const theme = useTheme();
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -69,6 +72,24 @@ const Index: FC = () => {
     }
   ];
 
+  const phases: PhaseType[] = [
+    {
+      name: "Phase 1 – Kick off",
+      description: "A wonderful serenity has taken possession of my entire soul," +
+        "like these sweet mornings of spring which I enjoy with my whole heart."
+    },
+    {
+      name: "Phase 2 – Websites",
+      description: "A wonderful serenity has taken possession of my entire soul," +
+        "like these sweet mornings of spring which I enjoy with my whole heart."
+    },
+    {
+      name: "Phase 3 – Applications",
+      description: "A wonderful serenity has taken possession of my entire soul," +
+        "like these sweet mornings of spring which I enjoy with my whole heart."
+    }
+  ];
+
   return (
     <Ui>
       <x.div spaceY="4.5rem">
@@ -114,7 +135,6 @@ const Index: FC = () => {
             >
               Show on Github
             </Button>
-
           </x.div>
         </Container>
 
@@ -156,24 +176,39 @@ const Index: FC = () => {
         </Container>
 
         <Container>
-          <Typography>
-            <x.h2>
-              Roadmap
-            </x.h2>
-          </Typography>
+          <x.h2>
+            Roadmap
+          </x.h2>
+
+          <Txt t="lead" mt="2rem">
+            Anolis is currently in development. We have set 3 main phases, each with a dedicated goal of set components.<br />
+            Do not hesitate to <TextLink v="underlined" fontSize="inherit" lineHeight="inherit" color="#0171B6">join our Discord</TextLink>
+            {" "}or <TextLink v="underlined" fontSize="inherit" lineHeight="inherit" color="#0171B6">follow us on Twitter</TextLink>
+            {" "}to check up on our progress.
+          </Txt>
+
+          {phases.map((p, i) => (
+            <x.div key={i} mt="3rem">
+              <Tag background={i === 0 ? "#45c264" : "#888aa5"}>
+                {p.name}
+              </Tag>
+
+              <x.p mt="1.5rem" maxW="40rem">
+                {p.description}
+              </x.p>
+            </x.div>
+          ))}
         </Container>
 
         <Container>
-          <Typography>
-            <x.h2>
-              Core contributors
-            </x.h2>
+          <x.h2>
+            Core contributors
+          </x.h2>
 
-            <Txt t="lead" mt="2rem">
-              Unsung heroes, which made all of this possible –{" "}
-              <x.strong color="#061227">huge thanks to each and every one of them!</x.strong>
-            </Txt>
-          </Typography>
+          <Txt t="lead" mt="2rem">
+            Unsung heroes, which made all of this possible –{" "}
+            <x.strong color="#061227">huge thanks to each and every one of them!</x.strong>
+          </Txt>
 
           <x.div
             display="flex"
@@ -191,7 +226,7 @@ const Index: FC = () => {
 
         <x.div background="linear-gradient(135deg, #45C264 0%, #0064B4 100%)" py="4.5rem">
           <Container>
-            <Typography spaceY="2rem">
+            <x.div spaceY="2rem">
               <x.h2 color="#fff">
                 Support Anolis
               </x.h2>
@@ -204,7 +239,7 @@ const Index: FC = () => {
               <Button s="lg">
                 Get in touch
               </Button>
-            </Typography>
+            </x.div>
           </Container>
         </x.div>
       </x.div>

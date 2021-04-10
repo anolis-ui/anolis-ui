@@ -46,8 +46,6 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
             opacity={offset < 128 && router.pathname === "/" ? 0 : 1}
           />
 
-          <x.div />
-
           <x.div display="flex" alignItems="center">
             <TextLink>
               Read the docs
@@ -69,14 +67,27 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
         </Container>
       </x.header>
 
-      <Container display="flex">
-        {showMenu && <Nav />}
-        <x.main flexGrow={1}>
-          {children}
-        </x.main>
-      </Container>
+      {showMenu ? (
+        <Container display="flex" flexGrow={1}>
+          <Nav />
 
-      <Footer />
+          <x.div display="flex" flexDirection="column">
+            <x.main flexGrow={1}>
+              {children}
+            </x.main>
+
+            <Footer />
+          </x.div>
+        </Container>
+      ) : (
+        <>
+          <x.main>
+            {children}
+          </x.main>
+
+          <Footer />
+        </>
+      )}
     </>
   );
 };

@@ -5,8 +5,9 @@ import { FC } from "react";
 
 export const Nav: FC = () => {
   return (
-    <x.nav minWidth="15rem">
+    <x.nav minWidth="20rem" flex="0 0 auto">
       <NavHeader>Getting started</NavHeader>
+
       <x.ul pl="1">
         <NavI href="/introduction">Introduction</NavI>
         <NavI href="/installation">Installation</NavI>
@@ -14,7 +15,9 @@ export const Nav: FC = () => {
         <NavI href="/theming">Theming</NavI>
         <NavI href="/modals">Modals</NavI>
       </x.ul>
+
       <NavHeader>Components</NavHeader>
+
       <x.ul pl="1">
         <NavI href="/components/button">Button</NavI>
         <NavI>Dropdown</NavI>
@@ -57,7 +60,7 @@ const NavI: FC<{ href?: string }> = ({ children, href }) => (
   <x.li lineHeight="loose">
     {href ? (
       <Link href={href} passHref>
-        <TextLink v="normal">
+        <TextLink>
           {children}
         </TextLink>
       </Link>
