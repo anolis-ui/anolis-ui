@@ -13,10 +13,16 @@ export const ComponentDisplay = ({ children }: Props) => {
       <x.table w="100%" style={{ borderSpacing: 0 }}>
         {children.map(([a, b], i) => (
           <tr key={i}>
-            <x.td {...tdStyle} pr="16" pt={i === 0 ? "12" : undefined} pb={i === children.length - 1 ? "12" : undefined}>
+            <x.td {...tdStyle} maxWidth="35%" pr="6" pt={i === 0 ? "12" : undefined} pb={i === children.length - 1 ? "12" : undefined}>
               {a}
             </x.td>
-            <x.td {...tdStyle} w="100%" bg="#1E1E1E" pt={i === 0 ? "12" : undefined} pb={i === children.length - 1 ? "12" : undefined}>
+            <x.td
+              {...tdStyle}
+              bg="#1E1E1E"
+              fontSize="sm"
+              pt={i === 0 ? "12" : undefined}
+              pb={i === children.length - 1 ? "12" : undefined}
+            >
               <CodeHighlight code={b} />
             </x.td>
           </tr>

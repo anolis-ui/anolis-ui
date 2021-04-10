@@ -6,8 +6,13 @@ import { FC, useEffect, useState } from "react";
 import Logo from "components/Logo";
 import Footer from "components/Footer";
 import GithubIcon from "components/icons/24/github.svg";
+import { Nav } from "./Nav";
 
-const Ui: FC = ({ children }) => {
+interface Props {
+  showMenu?: boolean;
+}
+
+const Ui: FC<Props> = ({ children, showMenu }) => {
   const router = useRouter();
   const [offset, setOffset] = useState(0);
 
@@ -22,11 +27,11 @@ const Ui: FC = ({ children }) => {
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
       </Head>
 
-      <x.div
+      <x.header
         position="sticky"
         top="0"
         bg="#fff"
-        boxShadow={offset > 64 ? "0 0.25rem 1rem 0 rgba(6, 18, 39, 0.15)" : "0 0.25rem 1rem 0 transparent"}
+        boxShadow={offset > 0 ? "0 0.25rem 1rem 0 rgba(6, 18, 39, 0.15)" : "0 0.25rem 1rem 0 transparent"}
         transition="boxShadow 300ms"
       >
         <Container
@@ -62,9 +67,14 @@ const Ui: FC = ({ children }) => {
             </x.div>
           </x.div>
         </Container>
-      </x.div>
+      </x.header>
 
-      {children}
+      <Container display="flex">
+        <Nav />
+        <x.main flexGrow={1}>
+          {children}
+        </x.main>
+      </Container>
 
       <Footer />
     </>

@@ -1,0 +1,74 @@
+import { x } from "@xstyled/emotion";
+import { Card } from "anolis-ui";
+import { CodeBlock } from "components/CodeBlock";
+import { ComponentDisplay } from "components/ComponentDisplay";
+
+# Card
+
+```tsx
+import { Card } from "anolis-ui";
+
+interface CardProps extends SystemProps {
+  _header?: PseudoProp;
+  header?: Renderable;
+
+  _title?: PseudoProp;
+  title?: Renderable;
+
+  _tag?: PseudoProp;
+  tag?: Renderable;
+
+  _media?: PseudoProp;
+  media?: Renderable;
+
+  _body?: PseudoProp;
+  body?: Renderable;
+
+  _footer?: PseudoProp;
+  footer?: Renderable;
+}
+
+type CardVariant = "normal" | "elevated" | "outline";
+type CardSize = never;
+```
+
+Button has 4 default variants and sizes.
+
+## Variants
+
+text
+
+<ComponentDisplay>
+  {[
+    [
+      <Card title="Lorem ipsum" media={<img src="https://placekitten.com/g/300/180"/>}>
+        Lorem ipsum dolor sit amet.
+      </Card>,
+      `
+<Card title="Lorem ipsum" media="https://placekitten.com/g/300/180">
+  Lorem ipsum dolor sit amet.
+</Card>
+      `
+    ],
+    [
+      <Card v="elevated" title="Lorem ipsum" media={<img src="https://placekitten.com/g/300/180"/>}>
+        Lorem ipsum dolor sit amet.
+      </Card>,
+      `
+<Card v="elevated" title="Lorem ipsum" media="https://placekitten.com/g/300/180">
+  Lorem ipsum dolor sit amet.
+</Card>
+      `
+    ],
+    [
+      <Card v="outline" title="Lorem ipsum" media={<img src="https://placekitten.com/g/300/180"/>}>
+        Lorem ipsum dolor sit amet.
+      </Card>,
+      `
+<Card v="outline" title="Lorem ipsum" media="https://placekitten.com/g/300/180">
+  Lorem ipsum dolor sit amet.
+</Card>
+      `
+    ],
+  ]}
+</ComponentDisplay>
