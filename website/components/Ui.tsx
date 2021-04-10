@@ -70,7 +70,7 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
       </x.header>
 
       <Container display="flex">
-        <Nav />
+        {showMenu && <Nav />}
         <x.main flexGrow={1}>
           {children}
         </x.main>

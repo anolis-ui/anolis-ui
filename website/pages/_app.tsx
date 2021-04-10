@@ -18,7 +18,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
       {isMdx
         ? (
 
-          <Ui>
+          <Ui showMenu>
             <Container>
               <MDXProvider components={components}>
                 <Component {...pageProps} />
