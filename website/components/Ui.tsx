@@ -47,7 +47,7 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
           </Link>
 
           <x.div display="flex" alignItems="center">
-            <Link href="/introduction" passHref>
+            <Link href="/docs/introduction" passHref>
               <TextLink>
                 Read the docs
               </TextLink>
@@ -73,7 +73,7 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
         <Container display="flex" flexGrow={1}>
           <Nav />
 
-          <x.div display="flex" flexDirection="column" w="100%">
+          <x.div display="flex" flexDirection="column" w="100%" px="2rem">
             <x.main flexGrow={1}>
               {children}
             </x.main>

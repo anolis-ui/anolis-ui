@@ -2,24 +2,36 @@ import { x } from "@xstyled/emotion";
 import { TextLink } from "anolis-ui";
 import Link from "next/link";
 import { FC } from "react";
+import { useRouter } from "next/router";
 
 export const Nav: FC = () => {
+  const router = useRouter();
+
   return (
-    <x.nav minWidth="20rem" flex="0 0 auto">
+    <x.nav
+      minWidth="20rem"
+      flex="0 0 auto"
+      position="sticky"
+      maxH="calc(100vh - 4rem)"
+      top="4rem"
+      overflowY="auto"
+      ml="-0.75rem"
+      pb="2rem"
+    >
       <NavHeader>Getting started</NavHeader>
 
-      <x.ul pl="1">
-        <NavI href="/introduction">Introduction</NavI>
-        <NavI href="/installation">Installation</NavI>
-        <NavI href="/pseudo-props">Design principles</NavI>
-        <NavI href="/theming">Theming</NavI>
-        <NavI href="/modals">Modals</NavI>
+      <x.ul>
+        <NavI href="docs/introduction">Introduction</NavI>
+        <NavI href="docs/installation">Installation</NavI>
+        <NavI href="docs/pseudo-props">Design principles</NavI>
+        <NavI href="docs/theming">Theming</NavI>
+        <NavI href="docs/modals">Modals</NavI>
       </x.ul>
 
       <NavHeader>Components</NavHeader>
 
-      <x.ul pl="1">
-        <NavI href="/components/button">Button</NavI>
+      <x.ul>
+        <NavI href="/components/button" isActive={router.pathname === "/components/button"}>Button</NavI>
         <NavI>Dropdown</NavI>
         <NavI>Icon</NavI>
         <NavI>Link</NavI>
@@ -55,16 +67,36 @@ export const Nav: FC = () => {
   );
 };
 
-const NavHeader: FC = ({ children }) => <x.h4 fontSize="lg" mt="2rem" mb="2" fontWeight="700">{children}</x.h4>;
+const NavHeader: FC = ({ children }) => <x.h4 fontSize="lg" mt="2rem" pl="0.75rem" mb="2" fontWeight="700">{children}</x.h4>;
 
-const NavI: FC<{ href?: string }> = ({ children, href }) => (
+const NavI: FC<{ href?: string; isActive?: boolean }> = ({ children, href, isActive }) => (
   <x.li lineHeight="loose">
     {href ? (
       <Link href={href} passHref>
-        <TextLink>
+        <TextLink
+          px="0.75rem"
+          py="0.375rem"
+          w="100%"
+          h="100%"
+          borderRadius="0.25rem"
+          transition="background 300ms, color 300ms"
+          color={isActive ? "#061227" : "#444554"}
+          background={isActive ? "rgba(1, 113, 182, 0.1)" : "transparent"}
+          fontWeight={isActive ? 500 : 400}
+          hoverColor="#061227"
+          hoverBackground="rgba(1, 113, 182, 0.1)"
+        >
           {children}
         </TextLink>
       </Link>
-    ) : <>{children}</>}
+    ) : (
+      <x.p
+        opacity="0.5"
+        px="0.75rem"
+        py="0.375rem"
+      >
+        {children}
+      </x.p>
+    )}
   </x.li>
 );
