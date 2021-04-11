@@ -21,11 +21,11 @@ export const Nav: FC = () => {
       <NavHeader>Getting started</NavHeader>
 
       <x.ul>
-        <NavI href="docs/introduction">Introduction</NavI>
-        <NavI href="docs/installation">Installation</NavI>
-        <NavI href="docs/pseudo-props">Design principles</NavI>
-        <NavI href="docs/theming">Theming</NavI>
-        <NavI href="docs/modals">Modals</NavI>
+        <NavI href="/docs/introduction" isActive={router.pathname === "/docs/introduction"}>Introduction</NavI>
+        <NavI href="/docs/installation" isActive={router.pathname === "/docs/installation"}>Installation</NavI>
+        <NavI href="/docs/pseudo-props" isActive={router.pathname === "/docs/pseudo-props"}>Design principles</NavI>
+        <NavI href="/docs/theming" isActive={router.pathname === "/docs/theming"}>Theming</NavI>
+        <NavI href="/docs/modals" isActive={router.pathname === "/docs/modals"}>Modals</NavI>
       </x.ul>
 
       <NavHeader>Components</NavHeader>
