@@ -1,4 +1,4 @@
-import { AnolisProvider, Container } from "anolis-ui";
+import { AnolisProvider, Typography, useTheme } from "anolis-ui";
 import { MDXProvider } from "@mdx-js/react";
 import { AppProps } from "next/app";
 import { FC } from "react";
@@ -7,6 +7,7 @@ import { xstyledTheme } from "theme/xstyled";
 import Ui from "components/Ui";
 import { CodeBlock } from "../components/CodeBlock";
 import { createGlobalStyle } from "@xstyled/emotion";
+import Head from "next/head";
 
 const components = {
   code: CodeBlock
@@ -14,20 +15,62 @@ const components = {
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   const isMdx = (Component as any).isMDXComponent;
-  return (
-    <AnolisProvider xstyledTheme={xstyledTheme} theme={theme}>
-      <GlobalStyle />
 
-      {isMdx
-        ? (
-          <Ui showMenu>
-            <MDXProvider components={components}>
-              <Component {...pageProps} />
-            </MDXProvider>
-          </Ui>
-        )
-        : <Component {...pageProps} />}
-    </AnolisProvider>
+  return (
+    <>
+      <Head>
+        <title key="title">Anolis UI</title>
+
+        <meta property="og:title" content="Anolis UI" key="og_title" />
+        <meta
+          name="description"
+          content=""
+          key="description"
+        />
+        <meta
+          property="og:description"
+          content=""
+          key="og_description"
+        />
+        <meta property="og:image" content="/static/og-image.jpg" key="og_image" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://anolis-ui.com" key="og_url" />
+        <meta property="og:site_name" content="AnolisUI" />
+        <meta property="og:locale" content="en_EN" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@AnolisUI" />
+        <meta name="theme-color" content="#45c264" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="/static/favicon/site.webmanifest" />
+        <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#45c264" />
+        <meta name="msapplication-TileColor" content="#45c264" />
+        <meta name="theme-color" content="#ffffff" />
+      </Head>
+
+      <AnolisProvider xstyledTheme={xstyledTheme} theme={theme}>
+        <GlobalStyle />
+
+        {isMdx
+          ? (
+            <Ui showMenu>
+              <MDXProvider components={components}>
+                <Typography
+                  _h1={{ ...theme.typography.baseStyle._h2, marginBottom: "1rem" }}
+                  _h2={{ ...theme.typography.baseStyle._h3, marginBottom: "1rem" }}
+                  _p={{ marginBottom: "2rem" }}
+                >
+                  <Component {...pageProps} />
+                </Typography>
+              </MDXProvider>
+            </Ui>
+          )
+          : <Component {...pageProps} />}
+      </AnolisProvider>
+
+    </>
   );
 };
 

@@ -8,7 +8,6 @@ export const CodeBlock: FC<{ children: string; className: string }> = ({ childre
     <x.div borderRadius="default" overflow="hidden" p="6" bg="#1E1E1E" fontSize="sm" my="4" boxShadow="xl">
       <CodeHighlight code={children} language={lang.replace("language-", "") as any} />
     </x.div>
-
   );
 };
 

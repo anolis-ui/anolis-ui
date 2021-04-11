@@ -17,6 +17,7 @@ export const Nav: FC = () => {
       overflowY="auto"
       ml="-0.75rem"
       pb="2rem"
+      pr="2rem"
     >
       <NavHeader>Getting started</NavHeader>
 
@@ -67,7 +68,9 @@ export const Nav: FC = () => {
   );
 };
 
-const NavHeader: FC = ({ children }) => <x.h4 fontSize="lg" mt="2rem" pl="0.75rem" mb="2" fontWeight="700">{children}</x.h4>;
+const NavHeader: FC = ({ children }) =>
+  <x.h4 fontSize="lg" mt="2rem" pl="0.75rem" mb="0.625rem" fontWeight="700">{children}</x.h4>
+  ;
 
 const NavI: FC<{ href?: string; isActive?: boolean }> = ({ children, href, isActive }) => (
   <x.li lineHeight="loose">

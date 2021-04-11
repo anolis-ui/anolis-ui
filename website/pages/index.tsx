@@ -122,7 +122,7 @@ const Index: FC = () => {
           </Txt>
 
           <x.div display="flex" alignItems="center" spaceX="1.5rem" mt="2rem">
-            <Link href="/installation" passHref>
+            <Link href="/docs/installation" passHref>
               <Button as="a" s="lg">
                 Get started
               </Button>
