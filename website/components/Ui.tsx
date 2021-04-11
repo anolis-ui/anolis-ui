@@ -23,11 +23,6 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
 
   return (
     <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
-      </Head>
-
       <x.header
         position="sticky"
         top="0"
@@ -52,9 +47,11 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
           </Link>
 
           <x.div display="flex" alignItems="center">
-            <TextLink>
-              Read the docs
-            </TextLink>
+            <Link href="/introduction" passHref>
+              <TextLink>
+                Read the docs
+              </TextLink>
+            </Link>
 
             <x.div
               display="flex"

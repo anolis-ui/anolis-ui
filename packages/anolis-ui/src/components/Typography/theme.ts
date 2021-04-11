@@ -22,7 +22,6 @@ export const typographyTheme = (c?: PartialComponentTheme<TypographyTheme>): { t
 });
 
 const t = <T>(t: T) => {
-  console.log(t);
   return t;
 };
 

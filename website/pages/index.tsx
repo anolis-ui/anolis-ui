@@ -4,6 +4,7 @@ import { FC, useEffect, useState } from "react";
 import Ui from "components/Ui";
 import Logo from "components/Logo";
 import GithubIcon from "components/icons/24/github.svg";
+import Link from "next/link";
 
 type BenefitType = {
   icon: string;
@@ -121,9 +122,11 @@ const Index: FC = () => {
           </Txt>
 
           <x.div display="flex" alignItems="center" spaceX="1.5rem" mt="2rem">
-            <Button s="lg">
-              Get started
-            </Button>
+            <Link href="/installation" passHref>
+              <Button as="a" s="lg">
+                Get started
+              </Button>
+            </Link>
 
             <Button
               as="a"
