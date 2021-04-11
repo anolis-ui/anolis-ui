@@ -55,7 +55,8 @@ export const Nav: FC = () => {
   );
 };
 
-const NavHeader: FC = ({ children }) => <x.h4 fontSize="lg" mt="4" mb="2">{children}</x.h4>;
+const NavHeader: FC = ({ children }) => <x.h4 fontSize="lg" mt="2rem" mb="2" fontWeight="700">{children}</x.h4>;
+
 const NavI: FC<{ href?: string }> = ({ children, href }) => (
   <x.li lineHeight="loose">
     {href ? (

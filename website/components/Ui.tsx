@@ -7,6 +7,7 @@ import Logo from "components/Logo";
 import Footer from "components/Footer";
 import GithubIcon from "components/icons/24/github.svg";
 import { Nav } from "./Nav";
+import Link from "next/link";
 
 interface Props {
   showMenu?: boolean;
@@ -40,11 +41,15 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Logo
-            fontSize="2rem"
-            lineHeight="3rem"
-            opacity={offset < 128 && router.pathname === "/" ? 0 : 1}
-          />
+          <Link href="/" passHref>
+            <Logo
+              {...{ as: "a" } as any}
+              fontSize="2rem"
+              lineHeight="3rem"
+              opacity={offset < 128 && router.pathname === "/" ? 0 : 1}
+              cursor="pointer"
+            />
+          </Link>
 
           <x.div display="flex" alignItems="center">
             <TextLink>
