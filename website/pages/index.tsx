@@ -185,8 +185,28 @@ const Index: FC = () => {
 
           <Txt t="lead" mt="2rem">
             Anolis is currently in development. We have set 3 main phases, each with a dedicated goal of set components.<br />
-            Do not hesitate to <TextLink v="underlined" fontSize="inherit" lineHeight="inherit" color="#0171B6">join our Discord</TextLink>
-            {" "}or <TextLink v="underlined" fontSize="inherit" lineHeight="inherit" color="#0171B6">follow us on Twitter</TextLink>
+            Do not hesitate to{" "}
+            <TextLink
+              href="https://discord.com/channels/820955392015073302/"
+              target="_blank"
+              v="underlined"
+              fontSize="inherit"
+              lineHeight="inherit"
+              color="#0171B6"
+            >
+              join our Discord
+            </TextLink>
+            {" "}or{" "}
+            <TextLink
+              href="https://twitter.com/AnolisUI"
+              target="_blank"
+              v="underlined"
+              fontSize="inherit"
+              lineHeight="inherit"
+              color="#0171B6"
+            >
+              follow us on Twitter
+            </TextLink>
             {" "}to check up on our progress.
           </Txt>
 
@@ -239,7 +259,12 @@ const Index: FC = () => {
                 <x.strong>Your support and contribution to the community behind it would be much appreciated!</x.strong> 💖
               </Txt>
 
-              <Button s="lg">
+              <Button
+                s="lg"
+                as="a"
+                href="https://discord.com/channels/820955392015073302/820955392015073307"
+                target="_blank"
+              >
                 Get in touch
               </Button>
             </x.div>

@@ -22,7 +22,8 @@ const emptyTextLink: TextLinkTheme = {
     display: "inline-flex",
     transition: "color 300ms, border 300ms",
     cursor: "pointer",
-    hoverColor: "primary"
+    hoverColor: "primary",
+    textDecoration: "none"
   },
   sizes: {
   },
