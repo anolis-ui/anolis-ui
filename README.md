@@ -14,3 +14,9 @@ Right now we are working on releasing first version and building a new website a
 ## @xcorejs/ui
 
 [@xcorejs/ui](https://github.com/xcorejs/ui) old version of this library which is still going to be maintained but no new features are going to be added.
+
+## Powered by Vercel
+
+This project is [powered by Vercel](https://vercel.com/?utm_source=[anolis]&utm_campaign=oss). Thanks for the support!
+
+![Powered by Vercel](https://anolis-web.vercel.app/static/img/vercel.svg)
