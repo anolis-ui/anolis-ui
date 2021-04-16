@@ -1,11 +1,11 @@
 import { x } from "@xstyled/emotion";
 import { Container, Icon, TextLink } from "anolis-ui";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import Logo from "components/Logo";
 import Footer from "components/Footer";
 import GithubIcon from "components/icons/24/github.svg";
+import TwitterIcon from "components/icons/24/twitter.svg";
 import { Nav } from "./Nav";
 import Link from "next/link";
 
@@ -63,6 +63,10 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
             >
               <TextLink href="https://github.com/anolis-ui/anolis-ui" target="_blank">
                 <Icon svg={<GithubIcon />} fillHover="#24292e" />
+              </TextLink>
+
+              <TextLink href="https://twitter.com/AnolisUI" target="_blank">
+                <Icon svg={<TwitterIcon />} fillHover="#24292e" />
               </TextLink>
             </x.div>
           </x.div>

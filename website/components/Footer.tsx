@@ -20,7 +20,7 @@ const Footer: FC = () => {
           </x.p>
 
           <TextLink
-            href="https://vercel.com?utm_source=[anolis-ui]&utm_campaign=oss"
+            href="https://vercel.com?utm_source=anolis&utm_campaign=oss"
             target="_blank"
             marginLeft="0.25rem"
           >

@@ -187,7 +187,7 @@ const Index: FC = () => {
             Anolis is currently in development. We have set 3 main phases, each with a dedicated goal of set components.<br />
             Do not hesitate to{" "}
             <TextLink
-              href="https://discord.com/channels/820955392015073302/"
+              href="https://discord.gg/3QSxbtfmUb"
               target="_blank"
               v="underlined"
               fontSize="inherit"
@@ -262,7 +262,7 @@ const Index: FC = () => {
               <Button
                 s="lg"
                 as="a"
-                href="https://discord.com/channels/820955392015073302/820955392015073307"
+                href="mailto:team@appio.cz?subject=Anolis UI support"
                 target="_blank"
               >
                 Get in touch
