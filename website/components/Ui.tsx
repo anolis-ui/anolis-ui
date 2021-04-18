@@ -57,15 +57,15 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
               display="flex"
               alignItems="center"
               h="2rem"
-              pl="2rem"
-              ml="2rem"
+              pl="1.5rem"
+              ml="1.5rem"
               borderLeft="1px solid rgba(136, 138, 165, 0.25)"
             >
               <TextLink href="https://github.com/anolis-ui/anolis-ui" target="_blank">
                 <Icon svg={<GithubIcon />} fillHover="#24292e" />
               </TextLink>
 
-              <TextLink href="https://twitter.com/AnolisUI" target="_blank">
+              <TextLink href="https://twitter.com/AnolisUI" target="_blank" ml="1.5rem">
                 <Icon svg={<TwitterIcon />} fillHover="#24292e" />
               </TextLink>
             </x.div>
