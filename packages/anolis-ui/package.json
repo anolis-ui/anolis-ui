@@ -6,7 +6,7 @@
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/xcorejs/ui",
+  "repository": "https://github.com/anolis-ui/anolis-ui",
   "license": "MIT",
   "contributors": [
     {
