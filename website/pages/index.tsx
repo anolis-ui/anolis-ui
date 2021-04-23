@@ -47,7 +47,7 @@ const Index: FC = () => {
       text: "With full Typescript support and various ways of custimizing allows you to take full control."
     },
     {
-      icon: "⚡",
+      icon: "☘️",
       heading: "Triplet props",
       text: "New universal way to customize components. 3 unified props for each part of a component which allows full control over the rendering."
     },
