@@ -15,6 +15,7 @@ type BenefitType = {
 type ContributorType = {
   image: string;
   name: string;
+  url: string;
 };
 
 type PhaseType = {
@@ -64,12 +65,24 @@ const Index: FC = () => {
 
   const contributors: ContributorType[] = [
     {
-      image: "//placehold.it/192x192",
-      name: "Name"
+      image: "/static/img/contributors/alfonz.jpg",
+      name: "Denis Homolík",
+      url: "https://github.com/AlfonzAlfonz"
     },
     {
-      image: "//placehold.it/192x192",
-      name: "Name"
+      image: "/static/img/contributors/tomas.jpg",
+      name: "Tomáš Nývlt",
+      url: "https://github.com/tomasnyvlt"
+    },
+    {
+      image: "/static/img/contributors/filip.jpg",
+      name: "Filip Votava",
+      url: "https://github.com/proboss1337"
+    },
+    {
+      image: "/static/img/contributors/pavel.jpg",
+      name: "Pavel Vondrášek",
+      url: "https://github.com/pavelvondrasek"
     }
   ];
 
@@ -240,7 +253,9 @@ const Index: FC = () => {
           >
             {contributors.map((c, i) => (
               <x.div w="12rem" h="12rem" key={i} borderRadius="50%" overflow="hidden">
-                <img width="192" height="192" src={c.image} loading="lazy" alt={c.name} />
+                <TextLink href={c.url} target="_blank" title={c.name}>
+                  <img width="192" height="192" src={c.image} loading="lazy" alt={c.name} />
+                </TextLink>
               </x.div>
             )
             )}
