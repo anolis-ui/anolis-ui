@@ -27,7 +27,7 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
         position="sticky"
         top="0"
         bg="#fff"
-        boxShadow={offset > 0 ? "0 0.25rem 1rem 0 rgba(6, 18, 39, 0.15)" : "0 0.25rem 1rem 0 transparent"}
+        boxShadow={offset > 64 ? "0 0.25rem 1rem 0 rgba(6, 18, 39, 0.15)" : "0 0.25rem 1rem 0 transparent"}
         transition="boxShadow 300ms"
       >
         <Container
@@ -48,7 +48,7 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
 
           <x.div display="flex" alignItems="center">
             <Link href="/docs/introduction" passHref>
-              <TextLink>
+              <TextLink fontFamily="heading-sans">
                 Read the docs
               </TextLink>
             </Link>
@@ -65,7 +65,7 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
                 <Icon svg={<GithubIcon />} fillHover="#24292e" />
               </TextLink>
 
-              <TextLink href="https://twitter.com/AnolisUI" target="_blank" ml="1.5rem">
+              <TextLink href="https://twitter.com/AnolisUI" target="_blank" ml="1rem">
                 <Icon svg={<TwitterIcon />} fillHover="#24292e" />
               </TextLink>
             </x.div>

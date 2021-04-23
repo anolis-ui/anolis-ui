@@ -36,8 +36,8 @@ export const Nav: FC = () => {
         <NavI>Dropdown</NavI>
         <NavI>Icon</NavI>
         <NavI>Link</NavI>
-        <NavI href="/components/card">Card</NavI>
-        <NavI>Tag</NavI>
+        <NavI href="/components/card" isActive={router.pathname === "/components/button"}>Card</NavI>
+        <NavI href="/components/tag" isActive={router.pathname === "/components/tag"}>Tag</NavI>
         <NavI>Typography</NavI>
         <NavI>Image</NavI>
         <NavI>Spinner</NavI>
@@ -88,6 +88,8 @@ const NavI: FC<{ href?: string; isActive?: boolean }> = ({ children, href, isAct
           fontWeight={isActive ? 500 : 400}
           hoverColor="#061227"
           hoverBackground="rgba(1, 113, 182, 0.1)"
+          fontSize="0.875rem"
+          lineHeight="1.25rem"
         >
           {children}
         </TextLink>
@@ -97,6 +99,8 @@ const NavI: FC<{ href?: string; isActive?: boolean }> = ({ children, href, isAct
         opacity="0.5"
         px="0.75rem"
         py="0.375rem"
+        fontSize="0.875rem"
+        lineHeight="1.25rem"
       >
         {children}
       </x.p>

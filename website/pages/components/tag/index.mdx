@@ -1,0 +1,32 @@
+import { x } from "@xstyled/emotion";
+import { Tag } from "anolis-ui";
+import { CodeBlock } from "components/CodeBlock";
+import { ComponentDisplay } from "components/ComponentDisplay";
+import Head from "components/Head";
+
+<Head title="Tag" />
+
+# Tag
+
+```tsx
+import { Tag } from "anolis-ui";
+
+export type TagVariant = "solid" | "outline" | "clear";
+
+export interface TagThemeProps extends ComplementThemeProps, PseudoProp {
+
+}
+```
+Tag has 4 default variants.
+
+##Variants
+
+You can use 4 variants of button. Just use **v** prop.
+
+<ComponentDisplay>
+  {[
+    [<Tag>Solid tag</Tag>, "<Tag>Solid tag</Tag>"],
+    [<Tag v="outline">Outline tag</Tag>, "<Tag v=\"outline\">Outline tag</Tag>"],
+    [<Tag v="clear">Clear tag</Tag>, "<Tag v=\"clear\">Clear tag</Tag>"]
+  ]}
+</ComponentDisplay>

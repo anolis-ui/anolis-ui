@@ -180,7 +180,7 @@ const Index: FC = () => {
                 <x.p fontSize="4rem" lineHeight="4rem">
                   {b.icon}
                 </x.p>
-                <x.h3 mt="1.5rem">
+                <x.h3 mt="1.5rem" fontFamily="sans">
                   {b.heading}
                 </x.h3>
                 <x.p mt="1rem">
