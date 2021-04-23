@@ -22,7 +22,7 @@ const containerButton: ContainerTheme = {
   variants: {
     normal: {
       w: "100%",
-      maxWidth: { "_": "100%", "xxs": "100%", "xs": "100%", "sm": "32em", "md": "40em", "lg": "56em", "xl": "64em", "2xl": "88em" },
+      maxWidth: { "_": "100%", "xxs": "100%", "xs": "100%", "sm": "32em", "md": "40em", "lg": "56em", "xl": "64em", "2xl": "83.5em" },
       px: 3
     },
     fluid: {

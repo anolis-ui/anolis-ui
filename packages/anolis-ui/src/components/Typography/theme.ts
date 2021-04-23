@@ -29,7 +29,7 @@ const emptyTypography: TypographyTheme = {
   baseStyle: {
     fontFamily: "sans",
     _h1: {
-      fontSize: "3.5rem",
+      fontSize: "3rem",
       fontWeight: 500,
       lineHeight: "3.75rem",
       color: "#061227"
