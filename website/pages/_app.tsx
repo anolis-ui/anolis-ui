@@ -1,11 +1,11 @@
-import { AnolisProvider, Typography, useTheme } from "anolis-ui";
+import { AnolisProvider, Typography } from "anolis-ui";
 import { MDXProvider } from "@mdx-js/react";
 import { AppProps } from "next/app";
 import { FC } from "react";
 import { theme } from "theme";
 import { xstyledTheme } from "theme/xstyled";
 import Ui from "components/Ui";
-import { CodeBlock } from "../components/CodeBlock";
+import { CodeBlock } from "components/CodeBlock";
 import { createGlobalStyle } from "@xstyled/emotion";
 import Head from "next/head";
 
@@ -24,15 +24,17 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         <meta property="og:title" content="Anolis UI" key="og_title" />
         <meta
           name="description"
-          content=""
+          content="Anolis UI is a nice component library for React offering high flexibility and themeability,
+            but easy to setup with minimal config. Made for building beautiful design-systems or websites."
           key="description"
         />
         <meta
           property="og:description"
-          content=""
+          content="Anolis UI is a nice component library for React offering high flexibility and themeability,
+            but easy to setup with minimal config. Made for building beautiful design-systems or websites."
           key="og_description"
         />
-        <meta property="og:image" content="/static/og-image.jpg" key="og_image" />
+        <meta property="og:image" content="/static/og-image.png" key="og_image" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://anolis-ui.com" key="og_url" />
         <meta property="og:site_name" content="AnolisUI" />
