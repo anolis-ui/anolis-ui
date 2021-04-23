@@ -89,18 +89,18 @@ const Index: FC = () => {
   const phases: PhaseType[] = [
     {
       name: "Phase 1 – Kick off",
-      description: "A wonderful serenity has taken possession of my entire soul," +
-        "like these sweet mornings of spring which I enjoy with my whole heart."
+      description: "First phase of development in which we want to deliver" +
+        "basic set of components to be easily used by anyone."
     },
     {
       name: "Phase 2 – Websites",
-      description: "A wonderful serenity has taken possession of my entire soul," +
-        "like these sweet mornings of spring which I enjoy with my whole heart."
+      description: "In the second phase, we will focus on advanced website" +
+        "components, such as Breadcrumb, Hero, Dialog, Carousels and more."
     },
     {
       name: "Phase 3 – Applications",
-      description: "A wonderful serenity has taken possession of my entire soul," +
-        "like these sweet mornings of spring which I enjoy with my whole heart."
+      description: "Third and final phase will feature even more" +
+        "components needed for application develomplent."
     }
   ];
 
@@ -158,10 +158,6 @@ const Index: FC = () => {
           <x.h2>
             Features & Benefits
           </x.h2>
-
-          <Txt t="lead" mt="2rem">
-            Anolis is currently in development. We have set 3 main phases, each with a dedicated goal of set components.
-          </Txt>
 
           <x.div
             mt="2rem"
