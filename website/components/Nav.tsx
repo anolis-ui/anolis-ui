@@ -19,38 +19,49 @@ export const Nav: FC = () => {
       pb="2rem"
       pr="2rem"
     >
-      <NavHeader>Getting started</NavHeader>
+      <x.ul>
+        <NavI href="/docs/installation">Installation</NavI>
+        <NavI href="/docs/triplet-props">Triplet props</NavI>
+        <NavI href="/docs/modals">Modals</NavI>
+        <NavI href="/docs/anolis-provider">Anolis Provider</NavI>
+        <NavI href="/docs/typescript">Typescript</NavI>
+      </x.ul>
+
+      <NavHeader>Theming</NavHeader>
 
       <x.ul>
-        <NavI href="/docs/introduction" isActive={router.pathname === "/docs/introduction"}>Introduction</NavI>
-        <NavI href="/docs/installation" isActive={router.pathname === "/docs/installation"}>Installation</NavI>
-        <NavI href="/docs/pseudo-props" isActive={router.pathname === "/docs/pseudo-props"}>Design principles</NavI>
-        <NavI href="/docs/theming" isActive={router.pathname === "/docs/theming"}>Theming</NavI>
-        <NavI href="/docs/modals" isActive={router.pathname === "/docs/modals"}>Modals</NavI>
+        <NavI href="/theme/basic">Basic theme</NavI>
+        <NavI href="/theme/customizing">Customizing theme</NavI>
+        <NavI href="/theme/structure">Theme structure</NavI>
       </x.ul>
 
       <NavHeader>Components</NavHeader>
 
       <x.ul>
-        <NavI href="/components/button" isActive={router.pathname === "/components/button"}>Button</NavI>
-        <NavI>Dropdown</NavI>
-        <NavI>Icon</NavI>
-        <NavI>Link</NavI>
-        <NavI href="/components/card" isActive={router.pathname === "/components/button"}>Card</NavI>
-        <NavI href="/components/tag" isActive={router.pathname === "/components/tag"}>Tag</NavI>
-        <NavI>Typography</NavI>
-        <NavI>Image</NavI>
-        <NavI>Spinner</NavI>
-        <NavI>Control</NavI>
-        <NavI>Input</NavI>
-        <NavI>FormControl</NavI>
+        <NavI href="/components/button">Button</NavI>
+        <NavI href="/components/card">Card</NavI>
         <NavI>Checkbox</NavI>
-        <NavI>Radio</NavI>
-        <NavI>Switch</NavI>
-        <NavI>Textarea</NavI>
-        <NavI>Modal</NavI>
-        <NavI>List</NavI>
         <NavI>Collapse</NavI>
+        <NavI>Control</NavI>
+        <NavI>FormControl</NavI>
+        <NavI>Icon</NavI>
+        <NavI>Image</NavI>
+        <NavI>Input</NavI>
+        <NavI>List & ListItem</NavI>
+        <NavI>Modal</NavI>
+        <NavI>Radio</NavI>
+        <NavI>Spinner</NavI>
+        <NavI>Tag</NavI>
+        <NavI>Textarea</NavI>
+        <NavI>TextLink</NavI>
+        <NavI>Typography</NavI>
+      </x.ul>
+
+      <NavHeader>Coming soon</NavHeader>
+
+      <x.ul>
+        <NavI>Dropdown</NavI>
+        <NavI>Switch</NavI>
         <NavI>Toast</NavI>
         <NavI>FloatingBox</NavI>
         <NavI>Tooltip</NavI>
@@ -62,7 +73,6 @@ export const Nav: FC = () => {
         <NavI>Avatar</NavI>
         <NavI>Progress</NavI>
         <NavI>Divider</NavI>
-        <NavI>Spacer</NavI>
       </x.ul>
     </x.nav>
   );
