@@ -34,32 +34,32 @@ const Index: FC = () => {
     {
       icon: "📦",
       heading: "Ready out of the box",
-      text: "Just install and use, Anolis is easy to setup and comes with variety of ready-to-use components."
-    },
-    {
-      icon: "⚡",
-      heading: "Blazing fast",
-      text: "Just install and use, Anolis is easy to setup and comes with variety of ready-to-use components."
+      text: "Just install and use, Anolis is easy to setup and comes with variety of precisely designed, ready-to-use components."
     },
     {
       icon: "🎨",
       heading: "Flexible and themeable",
-      text: "Just install and use, Anolis is easy to setup and comes with variety of ready-to-use components."
+      text: "Made for easy customization of any part of the component. And by any, we literally mean it."
     },
     {
       icon: "🛠️",
       heading: "Developer friendly",
-      text: "Just install and use, Anolis is easy to setup and comes with variety of ready-to-use components."
+      text: "With full Typescript support and various ways of custimizing allows you to take full control."
+    },
+    {
+      icon: "⚡",
+      heading: "Triplet props",
+      text: "New universal way to customize components. 3 unified props for each part of a component which allows full control over the rendering."
+    },
+    {
+      icon: "❌",
+      heading: "Based on xstyled & emotion",
+      text: "Create fully responsive styles with ease thanks to the utility-first CSS-in-JS from xstyled."
     },
     {
       icon: "🌙",
       heading: "Support the dark side",
-      text: "Just install and use, Anolis is easy to setup and comes with variety of ready-to-use components."
-    },
-    {
-      icon: "📐",
-      heading: "Fully responsive",
-      text: "Just install and use, Anolis is easy to setup and comes with variety of ready-to-use components."
+      text: "We plan to add support for the light and dark theme in the future. Stay tuned!"
     }
   ];
 
