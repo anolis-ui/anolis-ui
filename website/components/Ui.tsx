@@ -8,6 +8,7 @@ import GithubIcon from "components/icons/24/github.svg";
 import TwitterIcon from "components/icons/24/twitter.svg";
 import { Nav } from "./Nav";
 import Link from "next/link";
+import Discord from "components/Discord";
 
 interface Props {
   showMenu?: boolean;
@@ -81,6 +82,8 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
             <x.main flexGrow={1}>
               {children}
             </x.main>
+
+            <Discord />
 
             <Footer />
           </x.div>
