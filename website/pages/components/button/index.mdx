@@ -2,9 +2,9 @@ import { x } from "@xstyled/emotion";
 import { Button } from "anolis-ui";
 import { CodeBlock } from "components/CodeBlock";
 import { ComponentDisplay } from "components/ComponentDisplay";
-// import Head from "components/Head";
+import Head from "components/Head";
 
-{/* <Head title="Button" /> */}
+<Head title="Button" />
 
 # Button
 
@@ -19,7 +19,22 @@ type ButtonVariant = "solid" | "clear" | "outline" | "link";
 type ButtonSize = "xs" | "sm" | "md" | "lg";
 ```
 
-Button has 4 default variants and sizes.
+## Basic
+
+Button has 4 default variants and sizes. By default, button is in solid variant and md size.
+
+<ComponentDisplay>
+  {[
+    [
+      <Button>Solid</Button>,
+      `
+<Button>Solid</Button>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+
 
 ## Variants
 
@@ -27,12 +42,25 @@ You can use 4 variants of button. Just use **v** prop.
 
 <ComponentDisplay>
   {[
-    [<Button>Solid</Button>, "<Button>Solid</Button>"],
-    [<Button v="outline">Outline</Button>, "<Button v=\"outline\">Outline</Button>"],
-    [<Button v="clear">Clear</Button>, "<Button v=\"clear\">Clear</Button>"],
-    [<Button v="link">Link</Button>, "<Button v=\"link\">Link</Button>"]
+    [
+      <x.div spaceX="4">
+        <Button>Solid</Button>
+        <Button v="outline">Outline</Button>
+        <Button v="clear">Clear</Button>
+        <Button v="link">Link</Button>
+     </x.div>,
+      `
+<x.div spaceX="4">
+   <Button>Solid</Button>
+   <Button v="outline">Outline</Button>
+   <Button v="clear">Clear</Button>
+   <Button v="link">Link</Button>
+</x.div>
+      `
+    ]
   ]}
 </ComponentDisplay>
+
 
 ## Sizes
 
@@ -40,10 +68,22 @@ You can use 4 sizes of button. Just use **s** prop.
 
 <ComponentDisplay>
   {[
-    [<Button s="xs">XS Button</Button>, `<Button s="xs">XS Button</Button>`],
-    [<Button s="sm">SM Button</Button>, `<Button s="sm">SM Button</Button>`],
-    [<Button s="md">MD Button</Button>, `<Button s="md">MD Button</Button>`],
-    [<Button s="lg">LG Button</Button>, `<Button s="lg">LG Button</Button>`]
+    [
+      <x.div spaceX="4">
+        <Button s="xs">XS Button</Button>
+        <Button s="sm">SM Button</Button>
+        <Button s="md">MD Button</Button>
+        <Button s="lg">LG Button</Button>
+     </x.div>,
+      `
+<x.div spaceX="4">
+   <Button s="xs">XS Button</Button>
+   <Button s="sm">SM Button</Button>
+   <Button s="md">MD Button</Button>
+   <Button s="lg">LG Button</Button>
+</x.div>
+      `
+    ]
   ]}
 </ComponentDisplay>
 
