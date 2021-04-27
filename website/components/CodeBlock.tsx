@@ -5,7 +5,7 @@ import { FC } from "react";
 
 export const CodeBlock: FC<{ children: string; className: string }> = ({ children, className: lang }) => {
   return (
-    <x.div borderRadius="default" overflow="hidden" p="6" bg="#1E1E1E" fontSize="sm" my="4" boxShadow="xl">
+    <x.div borderRadius="9" overflow="hidden" p="6" bg="#1E1E1E" fontSize="sm" mb="8" boxShadow="xl">
       <CodeHighlight code={children} language={lang.replace("language-", "") as any} />
     </x.div>
   );

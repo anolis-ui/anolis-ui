@@ -14,6 +14,9 @@ const Discord: FC = () => {
 
       <x.div>
         <Button
+          href="https://discord.gg/3QSxbtfmUb"
+          as="a"
+          target="_blank"
           v="outline"
           bg="#fff"
           color="discord"

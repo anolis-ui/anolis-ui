@@ -5,8 +5,6 @@ import { FC } from "react";
 import { useRouter } from "next/router";
 
 export const Nav: FC = () => {
-  const router = useRouter();
-
   return (
     <x.nav
       minWidth="20rem"
@@ -18,6 +16,7 @@ export const Nav: FC = () => {
       ml="-0.75rem"
       pb="2rem"
       pr="2rem"
+      pt="2rem"
     >
       <x.ul>
         <NavI href="/docs/installation">Installation</NavI>
@@ -82,38 +81,43 @@ const NavHeader: FC = ({ children }) =>
   <x.h4 fontSize="lg" mt="2rem" pl="0.75rem" mb="0.625rem" fontWeight="700">{children}</x.h4>
   ;
 
-const NavI: FC<{ href?: string; isActive?: boolean }> = ({ children, href, isActive }) => (
-  <x.li lineHeight="loose">
-    {href ? (
-      <Link href={href} passHref>
-        <TextLink
+const NavI: FC<{ href?: string }> = ({ children, href }) => {
+  const router = useRouter();
+  const isActive = router.pathname === href;
+
+  return (
+    <x.li lineHeight="loose">
+      {href ? (
+        <Link href={href} passHref>
+          <TextLink
+            px="0.75rem"
+            py="0.375rem"
+            w="100%"
+            h="100%"
+            borderRadius="0.25rem"
+            transition="background 300ms, color 300ms"
+            color={isActive ? "#061227" : "#444554"}
+            background={isActive ? "rgba(1, 113, 182, 0.1)" : "transparent"}
+            fontWeight={isActive ? 500 : 400}
+            hoverColor="#061227"
+            hoverBackground="rgba(1, 113, 182, 0.1)"
+            fontSize="0.875rem"
+            lineHeight="1.25rem"
+          >
+            {children}
+          </TextLink>
+        </Link>
+      ) : (
+        <x.p
+          opacity="0.5"
           px="0.75rem"
           py="0.375rem"
-          w="100%"
-          h="100%"
-          borderRadius="0.25rem"
-          transition="background 300ms, color 300ms"
-          color={isActive ? "#061227" : "#444554"}
-          background={isActive ? "rgba(1, 113, 182, 0.1)" : "transparent"}
-          fontWeight={isActive ? 500 : 400}
-          hoverColor="#061227"
-          hoverBackground="rgba(1, 113, 182, 0.1)"
           fontSize="0.875rem"
           lineHeight="1.25rem"
         >
           {children}
-        </TextLink>
-      </Link>
-    ) : (
-      <x.p
-        opacity="0.5"
-        px="0.75rem"
-        py="0.375rem"
-        fontSize="0.875rem"
-        lineHeight="1.25rem"
-      >
-        {children}
-      </x.p>
-    )}
-  </x.li>
-);
+        </x.p>
+      )}
+    </x.li>
+  )
+};
