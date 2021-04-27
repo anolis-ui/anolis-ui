@@ -10,7 +10,7 @@ export default {
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout title="Card">
+    <StoryLayout title="Typography">
       <x.div>
         <Typography _h1={{ }} spaceY="5">
           <x.h1>Test</x.h1>

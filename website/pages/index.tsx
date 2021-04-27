@@ -1,13 +1,14 @@
 import { x } from "@xstyled/emotion";
 import { Button, Container, TextLink, Tag, Txt, useTheme } from "anolis-ui";
-import { FC, useEffect, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import Ui from "components/Ui";
 import Logo from "components/Logo";
 import GithubIcon from "components/icons/24/github.svg";
 import Link from "next/link";
+import XstyledIcon from "components/icons/64/xstyled.svg";
 
 type BenefitType = {
-  icon: string;
+  icon: string | ReactNode;
   heading: string;
   text: string;
 };
@@ -52,7 +53,7 @@ const Index: FC = () => {
       text: "New universal way to customize components. 3 unified props for each part of a component which allows full control over the rendering."
     },
     {
-      icon: "❌",
+      icon: <XstyledIcon />,
       heading: "Based on xstyled & emotion",
       text: "Create fully responsive styles with ease thanks to the utility-first CSS-in-JS from xstyled."
     },

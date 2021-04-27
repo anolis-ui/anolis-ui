@@ -1,0 +1,149 @@
+import { x } from "@xstyled/emotion";
+import { Txt } from "anolis-ui";
+import { CodeBlock } from "components/CodeBlock";
+import { ComponentDisplay } from "components/ComponentDisplay";
+import Head from "components/Head";
+
+<Head title="Typography" />
+
+# Button
+
+```tsx
+import { Typography } from "anolis-ui";
+
+export type TypographyVariant = never;
+export type TypographySize = never;
+
+export interface TypographyThemeProps extends PseudoProp {
+  _h1?: PseudoProp;
+  _h2?: PseudoProp;
+  _h3?: PseudoProp;
+  _h4?: PseudoProp;
+  _h5?: PseudoProp;
+  _h6?: PseudoProp;
+  _p?: PseudoProp;
+  _lead?: PseudoProp;
+}
+```
+
+## Basic
+
+Beacuse all app is wrapped by AnolisProvider, you can use just x.components.
+
+<ComponentDisplay>
+  {[
+    [
+      <x.p>Paragraph</x.p>,
+      `
+<x.p>Paragraph</x.p>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## Heading 1
+
+<ComponentDisplay>
+  {[
+    [
+      <x.h1>Heading 1</x.h1>,
+      `
+<x.h1>Heading 1</x.h1>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## Heading 2
+
+<ComponentDisplay>
+  {[
+    [
+      <x.h2>Heading 2</x.h2>,
+      `
+<x.h2>Heading 2</x.h2>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## Heading 3
+
+<ComponentDisplay>
+  {[
+    [
+      <x.h3>Heading 3</x.h3>,
+      `
+<x.h3>Heading 3</x.h3>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## Heading 4
+
+<ComponentDisplay>
+  {[
+    [
+      <x.h4>Heading 4</x.h4>,
+      `
+<x.h4>Heading 4</x.h4>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## Heading 5
+
+<ComponentDisplay>
+  {[
+    [
+      <x.h5>Heading 5</x.h5>,
+      `
+<x.h5>Heading 5</x.h5>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## Heading 6
+
+<ComponentDisplay>
+  {[
+    [
+      <x.h6>Heading 6</x.h6>,
+      `
+<x.h6>Heading 6</x.h6>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## Paragraph
+
+<ComponentDisplay>
+  {[
+    [
+      <x.p>Paragraph</x.p>,
+      `
+<x.p>Paragraph</x.p>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## Lead
+
+Lead variant can be set by using **Txt** component.
+
+<ComponentDisplay>
+  {[
+    [
+      <Txt t="lead">Lead</Txt>,
+      `
+<Txt t="lead">Lead</Txt>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+

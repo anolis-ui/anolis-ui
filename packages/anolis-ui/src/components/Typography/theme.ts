@@ -27,42 +27,62 @@ const t = <T>(t: T) => {
 
 const emptyTypography: TypographyTheme = {
   baseStyle: {
-    fontFamily: "sans",
     _h1: {
+      // fontSize: { _: "2.5rem", sm: "3rem" },
       fontSize: "3rem",
       fontWeight: 500,
-      lineHeight: "3.75rem",
-      color: "#061227"
+      // lineHeight: { _: "3.75rem", sm: "4.5rem" },
+      lineHeight: "4.5rem",
+      color: "anolis-blue-900",
+      fontFamily: "sans"
     },
     _h2: {
+      // fontSize: { _: "2.25rem", sm: "2.5rem" },
       fontSize: "2.5rem",
       fontWeight: 500,
-      lineHeight: "3rem",
-      color: "#061227"
+      // lineHeight: { _: "3.375rem", sm: "3.75rem" },
+      lineHeight: "3.75rem",
+      color: "anolis-blue-900",
+      fontFamily: "sans"
     },
     _h3: {
-      fontSize: "1.5rem",
+      fontSize: "2rem",
       fontWeight: 500,
-      lineHeight: "2.25rem",
-      color: "#061227"
+      lineHeight: "3rem",
+      color: "anolis-blue-900",
+      fontFamily: "sans"
     },
     _h4: {
-
+      fontSize: "1.5rem",
+      fontWeight: 500,
+      lineHeight: "2rem",
+      color: "anolis-blue-900",
+      fontFamily: "sans"
     },
     _h5: {
-
+      fontSize: "1.25rem",
+      fontWeight: 500,
+      lineHeight: "1.875rem",
+      color: "anolis-blue-900",
+      fontFamily: "sans"
     },
     _h6: {
-
+      fontSize: "1rem",
+      fontWeight: 500,
+      lineHeight: "1.5rem",
+      color: "anolis-blue-900",
+      fontFamily: "sans"
     },
     _p: {
       fontSize: "1rem",
       lineHeight: "1.5rem",
-      color: "#444554"
+      color: "anolis-gray-700",
+      fontFamily: "sans"
     },
     _lead: {
       fontSize: "1.5rem",
-      lineHeight: "2.25rem"
+      lineHeight: "2.25rem",
+      fontFamily: "sans"
     }
   },
   sizes: {},

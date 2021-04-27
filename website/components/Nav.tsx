@@ -53,7 +53,7 @@ export const Nav: FC = () => {
         <NavI>Tag</NavI>
         <NavI>Textarea</NavI>
         <NavI>TextLink</NavI>
-        <NavI>Typography</NavI>
+        <NavI href="/components/typography">Typography</NavI>
       </x.ul>
 
       <NavHeader>Coming soon</NavHeader>
@@ -96,13 +96,14 @@ const NavI: FC<{ href?: string }> = ({ children, href }) => {
             h="100%"
             borderRadius="0.25rem"
             transition="background 300ms, color 300ms"
-            color={isActive ? "#061227" : "#444554"}
-            background={isActive ? "rgba(1, 113, 182, 0.1)" : "transparent"}
+            color={isActive ? "anolis-blue-900" : "#444554"}
+            bg={isActive ? "anolis-blue-50" : "transparent"}
             fontWeight={isActive ? 500 : 400}
             hoverColor="#061227"
-            hoverBackground="rgba(1, 113, 182, 0.1)"
+            hoverBg="anolis-blue-50"
             fontSize="0.875rem"
             lineHeight="1.25rem"
+            borderBottom="0"
           >
             {children}
           </TextLink>
