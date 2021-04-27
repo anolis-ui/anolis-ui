@@ -50,11 +50,10 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#45c264" />
         <meta name="msapplication-TileColor" content="#45c264" />
         <meta name="theme-color" content="#ffffff" />
+        <link rel="stylesheet" href="/static/font/sora.css" />
       </Head>
 
       <AnolisProvider xstyledTheme={xstyledTheme} theme={theme}>
-        <GlobalStyle />
-
         {isMdx
           ? (
             <Ui showMenu>
@@ -62,7 +61,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
                 <Typography
                   _h1={{ ...theme.typography.baseStyle._h2, marginBottom: "1rem" }}
                   _h2={{ ...theme.typography.baseStyle._h3, marginBottom: "1rem" }}
-                  _p={{ marginBottom: "2rem" }}
+                  _p={{ marginBottom: "1.5rem" }}
                 >
                   <Component {...pageProps} />
                 </Typography>
@@ -77,41 +76,3 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
 };
 
 export default App;
-
-const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Sora';
-    src: url('/static/font/sora-light.woff2') format('woff2'),
-    url('/static/font/sora-light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Sora';
-    src: url('/static/font/sora-medium.woff2') format('woff2'),
-    url('/static/font/sora-medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Sora';
-    src: url('/static/font/sora-regular.woff2') format('woff2'),
-    url('/static/font/sora-regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Sora';
-    src: url('/static/font/sora-semibold.woff2') format('woff2'),
-    url('/static/font/sora-semibold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-  }
-`;
