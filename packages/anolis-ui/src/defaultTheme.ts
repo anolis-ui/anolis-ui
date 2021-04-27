@@ -30,7 +30,17 @@ export const defaultTheme = {
     "anolis-green-600": "#2a8641",
     "anolis-green-700": "#1b602e",
     "anolis-green-800": "#0d3b19",
-    "anolis-green-900": "#001502"
+    "anolis-green-900": "#001502",
+    "anolis-gray-50": "#f0f0fc",
+    "anolis-gray-100": "#d5d5e0",
+    "anolis-gray-200": "#b9b9c6",
+    "anolis-gray-300": "#9c9eae",
+    "anolis-gray-400": "#808296",
+    "anolis-gray-500": "#67687d",
+    "anolis-gray-600": "#505162",
+    "anolis-gray-700": "#393a46",
+    "anolis-gray-800": "#21232c",
+    "anolis-gray-900": "#070c15"
   },
   fonts: {
     ...xdefaultTheme.fonts,
