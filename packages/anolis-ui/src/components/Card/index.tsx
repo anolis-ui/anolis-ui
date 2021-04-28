@@ -79,11 +79,10 @@ export const Card = anolisComponent<"div", CardProps, CardVariant>("div", ({
       )}
 
       {footer && (
-        <x.div {...theme._body} {..._footer}>
+        <x.div {...theme._footer} {..._footer}>
           {renderComponent(footer)}
         </x.div>
       )}
-
     </x.div>
   );
 });

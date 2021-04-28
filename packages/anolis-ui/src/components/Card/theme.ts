@@ -27,7 +27,6 @@ const emptyCard: CardTheme = {
     flexDirection: "column",
     color: "text",
     background: "white",
-    maxWidth: "30rem",
     _header: {
       display: "flex",
       order: 1,
@@ -48,8 +47,9 @@ const emptyCard: CardTheme = {
       order: 2
     },
     _body: {
-      padding: "1rem",
+      padding: "2rem",
       display: "flex",
+      flexDirection: "column",
       order: 3
     },
     _footer: {
@@ -62,11 +62,11 @@ const emptyCard: CardTheme = {
   variants: {
     normal: {},
     elevated: {
-      borderRadius: "0.3rem",
-      boxShadow: "0 0.3rem 0.8rem 0 rgba(36, 49, 70, 0.25)"
+      borderRadius: "9",
+      boxShadow: "0 0.25rem 1rem 0 rgba(6,18,39,0.15)"
     },
     outline: {
-      border: "1px solid rgba(69, 86, 99, 0.5)"
+      border: "1px solid rgba(68, 69, 84, 0.25)"
     }
   },
   defaultProps: {

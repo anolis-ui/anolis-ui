@@ -8,8 +8,6 @@ interface Props {
 }
 
 export const ComponentDisplay = ({ children }: Props) => {
-  console.log(defaultTheme.anolis.typography.baseStyle._lead);
-
   return (
     <AnolisProvider>
       <Typography

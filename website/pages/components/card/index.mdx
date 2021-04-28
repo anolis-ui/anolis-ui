@@ -1,11 +1,11 @@
 import { x } from "@xstyled/emotion";
-import { Card } from "anolis-ui";
+import { Card, Button, Typography} from "anolis-ui";
 import { CodeBlock } from "components/CodeBlock";
 import { ComponentDisplay } from "components/ComponentDisplay";
 import { ComponentSandbox } from "components/ComponentSandbox";
-// import Head from "components/Head";
+import Head from "components/Head";
 
-{/* <Head title="Card" /> */}
+<Head title="Card" />
 
 # Card
 
@@ -36,44 +36,38 @@ type CardVariant = "normal" | "elevated" | "outline";
 type CardSize = never;
 ```
 
-Button has 4 default variants and sizes.
+Card has 4 default variants and sizes.
 
 ## Variants
 
 <ComponentDisplay>
   {[
     [
-      <Card title="Lorem ipsum" media={<img src="https://placekitten.com/g/300/180"/>}>
-        Lorem ipsum dolor sit amet.
+      <Card v="elevated">
+        <x.p fontSize="4rem" lineHeight="4rem">
+          📦
+        </x.p>
+        <x.h3 mt="1.5rem">
+          Ready out of the box
+        </x.h3>
+        <x.p mt="1rem">Just install and use, Anolis is easy to setup and comes with variety of ready-to-use components.</x.p>
       </Card>,
       `
-<Card title="Lorem ipsum" media="https://placekitten.com/g/300/180">
-  Lorem ipsum dolor sit amet.
+<Card v="elevated">
+  <x.p fontSize="4rem" lineHeight="4rem">
+    📦
+  </x.p>
+  <x.h3 mt="1.5rem">
+    Ready out of the box
+  </x.h3>
+  <x.p mt="1rem">Just install and use, Anolis is easy to setup and comes with variety of ready-to-use components.</x.p>
 </Card>
       `
-    ],
-    [
-      <Card v="elevated" title="Lorem ipsum" media={<img src="https://placekitten.com/g/300/180"/>}>
-        Lorem ipsum dolor sit amet.
-      </Card>,
-      `
-<Card v="elevated" title="Lorem ipsum" media="https://placekitten.com/g/300/180">
-  Lorem ipsum dolor sit amet.
-</Card>
-      `
-    ],
-    [
-      <Card v="outline" title="Lorem ipsum" media={<img src="https://placekitten.com/g/300/180"/>}>
-        Lorem ipsum dolor sit amet.
-      </Card>,
-      `
-<Card v="outline" title="Lorem ipsum" media="https://placekitten.com/g/300/180">
-  Lorem ipsum dolor sit amet.
-</Card>
-      `
-    ],
+    ]
   ]}
 </ComponentDisplay>
+
+
 
 # Sandbox
 
