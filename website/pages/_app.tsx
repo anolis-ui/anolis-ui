@@ -59,8 +59,8 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
             <Ui showMenu>
               <MDXProvider components={components}>
                 <Typography
-                  _h1={{ ...theme.typography.baseStyle._h2, marginBottom: "1rem" }}
-                  _h2={{ ...theme.typography.baseStyle._h3, marginBottom: "1rem" }}
+                  _h1={{ ...theme.typography.baseStyle._h3, marginBottom: "1rem" }}
+                  _h2={{ ...theme.typography.baseStyle._h4, marginBottom: "1rem" }}
                   _p={{ marginBottom: "1.5rem" }}
                 >
                   <Component {...pageProps} />

@@ -3,7 +3,7 @@ import { PseudoProp } from "utils/PseudoProp";
 import { anolisComponent } from "utils/anolisComponent";
 import { useComponentTheme } from "hooks/useComponentTheme";
 
-interface TxtProps extends PseudoProp {
+export interface TxtProps extends PseudoProp {
   t: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "lead";
 }
 

@@ -3,10 +3,14 @@ import Complement, { comp, ComplementProps } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { anolisComponent } from "utils/anolisComponent";
 import { ButtonVariant, ButtonSize } from "./theme";
+import { ElementType } from "react";
 
 export * from "./theme";
 
-export type ButtonProps = ComplementProps & { href?: string; target?: "_blank" | "_self" | "_parent" | "_top" };
+export type ButtonProps = ComplementProps & {
+  as?: ElementType | undefined;
+  href?: string; target?: "_blank" | "_self" | "_parent" | "_top";
+};
 
 export const Button = anolisComponent<"button", ButtonProps, ButtonVariant, ButtonSize>("button", (
   { children, v, s, ...p }, ref) => {
