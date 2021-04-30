@@ -50,7 +50,7 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
 
           <x.div display="flex" alignItems="center">
             <Link href="/docs/introduction" passHref>
-              <TextLink fontFamily="heading-sans">
+              <TextLink fontFamily="heading-sans" justifyContent={{ _: "flex-end", sm: "flex-start" }}>
                 Read the docs
               </TextLink>
             </Link>
@@ -64,11 +64,11 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
               borderLeft="1px solid rgba(136, 138, 165, 0.25)"
             >
               <TextLink href="https://github.com/anolis-ui/anolis-ui" target="_blank">
-                <Icon svg={<GithubIcon />} fillHover="#24292e" />
+                <Icon svg={<GithubIcon />} fillHover="anolis-blue-700" />
               </TextLink>
 
               <TextLink href="https://twitter.com/AnolisUI" target="_blank" ml="1rem">
-                <Icon svg={<TwitterIcon />} fillHover="#24292e" />
+                <Icon svg={<TwitterIcon />} fillHover="anolis-blue-700" />
               </TextLink>
             </x.div>
           </x.div>

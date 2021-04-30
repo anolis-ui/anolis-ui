@@ -45,7 +45,7 @@ const Index: FC = () => {
     {
       icon: "🛠️",
       heading: "Developer friendly",
-      text: "With full Typescript support and various ways of custimizing allows you to take full control."
+      text: "With full Typescript support and various ways of customizing allows you to take full control."
     },
     {
       icon: "☘️",
@@ -135,7 +135,14 @@ const Index: FC = () => {
             </x.strong>
           </Txt>
 
-          <x.div display="flex" alignItems="center" spaceX="1.5rem" mt="2rem">
+          <x.div
+            display="flex"
+            flexDirection={{ _: "column", sm: "row" }}
+            alignItems={{ _: "strech", sm: "center" }}
+            spaceX={{ _: 0, sm: "1.5rem" }}
+            spaceY={{ _: "1rem", sm: 0 }}
+            mt="2rem"
+          >
             <Link href="/docs/installation" passHref>
               <Button as="a" s="lg">
                 Get started
@@ -164,7 +171,7 @@ const Index: FC = () => {
             mt="2rem"
             display="grid"
             gap="2rem"
-            gridTemplateColumns={{ _: "repeat(1, 1fr)", sm: "repeat(3, 1fr)" }}
+            gridTemplateColumns={{ _: "repeat(1, 1fr)", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
           >
             {benefits.map((b, i) => (
               <x.div
@@ -244,9 +251,15 @@ const Index: FC = () => {
           </Txt>
 
           <x.div
-            display="flex"
+            display="grid"
+            gridTemplateColumns={{
+              _: "repeat(1, min-content)",
+              sm: "repeat(2, min-content)",
+              lg: "repeat(4, min-content)",
+              xl: "repeat(6, min-content)"
+            }}
+            gap="2rem"
             mt="2rem"
-            spaceX="2rem"
           >
             {contributors.map((c, i) => (
               <x.div w="12rem" h="12rem" key={i} borderRadius="50%" overflow="hidden">

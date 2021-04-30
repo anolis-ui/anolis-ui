@@ -41,107 +41,46 @@ Beacuse all app is wrapped by AnolisProvider, you can use just x.components.
   ]}
 </ComponentDisplay>
 
-## Heading 1
+## Variants
 
 <ComponentDisplay>
   {[
     [
-      <x.h1>Heading 1</x.h1>,
+      <x.div>
+        <x.h1>Heading 1</x.h1>
+        <x.h2>Heading 2</x.h2>
+        <x.h3>Heading 3</x.h3>
+        <x.h4>Heading 4</x.h4>
+        <x.h5>Heading 5</x.h5>
+        <x.h6>Heading 6</x.h6>
+        <x.p>Paragraph</x.p>
+      </x.div>,
       `
-<x.h1>Heading 1</x.h1>
+<x.div>
+  <x.h1>Heading 1</x.h1>
+  <x.h2>Heading 2</x.h2>
+  <x.h3>Heading 3</x.h3>
+  <x.h4>Heading 4</x.h4>
+  <x.h5>Heading 5</x.h5>
+  <x.h6>Heading 6</x.h6>
+  <x.p>Paragraph</x.p>
+</x.div>
       `
     ]
   ]}
 </ComponentDisplay>
 
-## Heading 2
+## Txt component
+
+You can also use Txt component, which has **t prop** to set type of Typography.
+Also Lead variant can be set by using **Txt** component.
 
 <ComponentDisplay>
   {[
     [
-      <x.h2>Heading 2</x.h2>,
+      <Txt t="lead">Lead/perex paragraph</Txt>,
       `
-<x.h2>Heading 2</x.h2>
-      `
-    ]
-  ]}
-</ComponentDisplay>
-
-## Heading 3
-
-<ComponentDisplay>
-  {[
-    [
-      <x.h3>Heading 3</x.h3>,
-      `
-<x.h3>Heading 3</x.h3>
-      `
-    ]
-  ]}
-</ComponentDisplay>
-
-## Heading 4
-
-<ComponentDisplay>
-  {[
-    [
-      <x.h4>Heading 4</x.h4>,
-      `
-<x.h4>Heading 4</x.h4>
-      `
-    ]
-  ]}
-</ComponentDisplay>
-
-## Heading 5
-
-<ComponentDisplay>
-  {[
-    [
-      <x.h5>Heading 5</x.h5>,
-      `
-<x.h5>Heading 5</x.h5>
-      `
-    ]
-  ]}
-</ComponentDisplay>
-
-## Heading 6
-
-<ComponentDisplay>
-  {[
-    [
-      <x.h6>Heading 6</x.h6>,
-      `
-<x.h6>Heading 6</x.h6>
-      `
-    ]
-  ]}
-</ComponentDisplay>
-
-## Paragraph
-
-<ComponentDisplay>
-  {[
-    [
-      <x.p>Paragraph</x.p>,
-      `
-<x.p>Paragraph</x.p>
-      `
-    ]
-  ]}
-</ComponentDisplay>
-
-## Lead
-
-Lead variant can be set by using **Txt** component.
-
-<ComponentDisplay>
-  {[
-    [
-      <Txt t="lead">Lead</Txt>,
-      `
-<Txt t="lead">Lead</Txt>
+<Txt t="lead">Lead/perex paragraph</Txt>
       `
     ]
   ]}

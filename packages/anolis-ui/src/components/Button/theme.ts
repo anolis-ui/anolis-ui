@@ -27,6 +27,7 @@ const emptyButton: ButtonTheme = {
     cursor: "pointer",
     textDecoration: "none",
     alignItems: "center",
+    justifyContent: "center",
     disabledCursor: "not-allowed"
   },
   sizes: {

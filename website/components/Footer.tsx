@@ -1,6 +1,6 @@
 import { x } from "@xstyled/emotion";
 import React, { FC } from "react";
-import { Typography, TextLink, Container } from "anolis-ui";
+import { TextLink, Container } from "anolis-ui";
 
 const Footer: FC = () => {
   return (
