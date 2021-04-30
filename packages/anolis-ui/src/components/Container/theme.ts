@@ -10,10 +10,10 @@ export interface ContainerThemeProps extends ComplementThemeProps, PseudoProp {
 export type ContainerTheme = ComponentTheme<ContainerThemeProps, ContainerVariant>;
 
 export const containerTheme = (t?: PartialComponentTheme<ContainerTheme>): { container: ContainerTheme } => ({
-  container: extendTheme(containerButton, t)
+  container: extendTheme(emptyContainer, t)
 });
 
-const containerButton: ContainerTheme = {
+const emptyContainer: ContainerTheme = {
   baseStyle: {
     ml: "auto",
     mr: "auto"
@@ -23,11 +23,11 @@ const containerButton: ContainerTheme = {
     normal: {
       w: "100%",
       maxWidth: { "_": "100%", "xxs": "100%", "xs": "100%", "sm": "32em", "md": "40em", "lg": "56em", "xl": "64em", "2xl": "84em" },
-      px: 4
+      px: { _: 6, sm: 4 }
     },
     fluid: {
       w: "100%",
-      px: 4
+      px: { _: 6, sm: 4 }
     }
   },
   defaultProps: {

@@ -22,7 +22,7 @@ const emptyTextLink: TextLinkTheme = {
     display: "inline-flex",
     transition: "color 300ms, border 300ms",
     cursor: "pointer",
-    hoverColor: "primary",
+    hoverColor: "anolis-blue-700",
     textDecoration: "none"
   },
   sizes: {
@@ -32,7 +32,7 @@ const emptyTextLink: TextLinkTheme = {
     },
     underlined: {
       borderBottom: "1px solid",
-      borderColor: "primary",
+      borderColor: "anolis-blue-700",
       hoverBorderBottom: "1px solid transparent"
     }
   },
