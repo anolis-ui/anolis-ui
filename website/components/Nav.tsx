@@ -39,6 +39,7 @@ export const Nav: FC = () => {
       <x.ul>
         <NavI href="/components/button">Button</NavI>
         <NavI href="/components/card">Card</NavI>
+        <NavI href="/components/container">Container</NavI>
         <NavI>Checkbox</NavI>
         <NavI>Collapse</NavI>
         <NavI>Control</NavI>

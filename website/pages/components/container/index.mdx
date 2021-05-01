@@ -1,0 +1,40 @@
+import { x } from "@xstyled/emotion";
+import { Container } from "anolis-ui";
+import { CodeBlock } from "components/CodeBlock";
+import { ComponentDisplay } from "components/ComponentDisplay";
+import Head from "components/Head";
+
+<Head title="Container" />
+
+# Container
+
+```tsx
+import { Container } from "anolis-ui";
+
+export type ContainerVariant = "normal" | "fluid";
+
+export interface ContainerThemeProps extends ComplementThemeProps, PseudoProp {
+}
+```
+
+## Basic
+
+<ComponentDisplay>
+  {[
+    [
+      <Container bg="anolis-green-400">Container</Container>,
+      `
+<Container bg="anolis-green-400">Paragraph</Container>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## Variants
+
+Container has 2 variants. By default it is **normal**, but you can use also **fluid** which is always 100% width.
+Width of normal variant is based on breakpoints. Anolis default theme use this max-widths:
+
+| _ | xxs | xs | sm | md | lg | xl | 2xl
+|:-:|---|---|---|---|---|---|---|---|---|
+| 100% | 100% | 100% | 32em | 40em | 56em | 64em | 84em
