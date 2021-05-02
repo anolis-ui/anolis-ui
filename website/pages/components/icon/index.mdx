@@ -1,0 +1,45 @@
+import { x } from "@xstyled/emotion";
+import { Icon } from "anolis-ui";
+import { CodeBlock } from "components/CodeBlock";
+import { ComponentDisplay } from "components/ComponentDisplay";
+import Head from "components/Head";
+import GithubIcon from "components/icons/24/github.svg";
+
+<Head title="Icon" />
+
+# Icon
+
+```tsx
+import { Icon } from "anolis-ui";
+
+```
+
+## Basic
+
+Icon doesn't have any default theme. It is used to render SVG icons.
+
+<ComponentDisplay>
+  {[
+    [
+      <Icon svg={<GithubIcon/>} />,
+      `
+<Icon svg={<GithubIcon/>} />
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## Usage / styling
+
+You can use **fill** and **fillHover** to change fill color and **stroke** and **strokeWidth** for stroke.
+
+<ComponentDisplay>
+  {[
+    [
+      <Icon svg={<GithubIcon/>} fill="anolis-green-400" fillHover="anolis-green-600" />,
+      `
+<Icon svg={<GithubIcon/>} fill="anolis-green-400" fillHover="anolis-green-600" />
+      `
+    ]
+  ]}
+</ComponentDisplay>

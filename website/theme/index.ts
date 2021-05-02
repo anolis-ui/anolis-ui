@@ -1,4 +1,4 @@
-import { buttonTheme, createTheme, tagTheme, textLinkTheme, typographyTheme } from "anolis-ui";
+import { buttonTheme, cardTheme, createTheme, tagTheme, textLinkTheme, typographyTheme } from "anolis-ui";
 
 export const theme = createTheme({
   ...typographyTheme({
@@ -42,6 +42,16 @@ export const theme = createTheme({
   ...textLinkTheme({
     baseStyle: {
       color: "#888aa5"
+    }
+  }),
+  ...cardTheme({
+    baseStyle: {
+      maxWidth: "none"
+    },
+    variants: {
+      eleveted: {
+        borderRadius: "9"
+      }
     }
   })
 });

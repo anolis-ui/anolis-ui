@@ -5,6 +5,7 @@ export * from "./components/Tag";
 export * from "./components/Button";
 export * from "./components/Container";
 export * from "./components/List";
+export * from "./components/List/ListItem";
 export * from "./components/Typography";
 export * from "./components/Typography/Txt";
 export * from "./components/TextLink";

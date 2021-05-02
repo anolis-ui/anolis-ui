@@ -19,6 +19,13 @@ export interface ContainerThemeProps extends ComplementThemeProps, PseudoProp {
 
 ## Basic
 
+Cointainer component is used to contain other components, with set width and padding for each screen size.
+Width of normal variant is based on breakpoints. Anolis default theme use this max-widths:
+
+| _ | xxs | xs | sm | md | lg | xl | 2xl
+|:-:|---|---|---|---|---|---|---|---|---|
+| 100% | 100% | 100% | 32em | 40em | 56em | 64em | 84em
+
 <ComponentDisplay>
   {[
     [
@@ -30,11 +37,6 @@ export interface ContainerThemeProps extends ComplementThemeProps, PseudoProp {
   ]}
 </ComponentDisplay>
 
-## Variants
+## Fluid
 
-Container has 2 variants. By default it is **normal**, but you can use also **fluid** which is always 100% width.
-Width of normal variant is based on breakpoints. Anolis default theme use this max-widths:
-
-| _ | xxs | xs | sm | md | lg | xl | 2xl
-|:-:|---|---|---|---|---|---|---|---|---|
-| 100% | 100% | 100% | 32em | 40em | 56em | 64em | 84em
+Fluid container is 100% width with a set padding. Just use **fluid** variant.

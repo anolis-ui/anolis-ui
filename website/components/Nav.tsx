@@ -44,16 +44,16 @@ export const Nav: FC = () => {
         <NavI>Collapse</NavI>
         <NavI>Control</NavI>
         <NavI>FormControl</NavI>
-        <NavI>Icon</NavI>
+        <NavI href="/components/icon">Icon</NavI>
         <NavI>Image</NavI>
         <NavI>Input</NavI>
-        <NavI>List & ListItem</NavI>
+        <NavI href="/components/list">List & ListItem</NavI>
         <NavI>Modal</NavI>
         <NavI>Radio</NavI>
         <NavI>Spinner</NavI>
-        <NavI>Tag</NavI>
+        <NavI href="/components/tag">Tag</NavI>
         <NavI>Textarea</NavI>
-        <NavI>TextLink</NavI>
+        <NavI href="/components/textlink">TextLink</NavI>
         <NavI href="/components/typography">Typography</NavI>
       </x.ul>
 

@@ -31,6 +31,7 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
         boxShadow={router.pathname === "/" ? offset > 64
           ? "0 0.25rem 1rem 0 rgba(6, 18, 39, 0.15)" : "0 0.25rem 1rem 0 transparent" : "0 0.25rem 1rem 0 rgba(6, 18, 39, 0.15)"}
         transition="boxShadow 300ms"
+        zIndex={10}
       >
         <Container
           display="flex"
@@ -79,7 +80,13 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
         <Container display="flex" flexGrow={1}>
           <Nav />
 
-          <x.div display="flex" flexDirection="column" w="100%" px="2rem" pt="2rem">
+          <x.div
+            display="flex"
+            flexDirection="column"
+            w="calc(100% - 20rem)"
+            px="2rem"
+            pt="2rem"
+          >
             <x.main flexGrow={1}>
               {children}
             </x.main>

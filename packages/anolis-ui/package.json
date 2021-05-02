@@ -40,7 +40,7 @@
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "@reach/portal": "^0.13.2",
-    "@xstyled/emotion": "^2.2.3",
+    "@xstyled/emotion": "^2.4.1",
     "hoist-non-react-statics": "^3.3.2",
     "lorem-ipsum": "^2.0.3",
     "polished": "^3.4.4",

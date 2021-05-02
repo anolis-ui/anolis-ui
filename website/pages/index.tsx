@@ -184,9 +184,9 @@ const Index: FC = () => {
                 <x.p fontSize="4rem" lineHeight="4rem">
                   {b.icon}
                 </x.p>
-                <x.h3 fontSize="1.5rem" lineHeight="2.25rem" mt="1.5rem" fontFamily="sans">
+                <x.h4 fontSize="1.5rem" lineHeight="2.25rem" mt="1.5rem" fontFamily="sans">
                   {b.heading}
-                </x.h3>
+                </x.h4>
                 <x.p mt="1rem">
                   {b.text}
                 </x.p>
