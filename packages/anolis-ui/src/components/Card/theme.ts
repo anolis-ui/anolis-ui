@@ -1,7 +1,7 @@
 import { PseudoProp } from "utils/PseudoProp";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 
-export type CardVariant = "normal" | "elevated" | "outline";
+export type CardVariant = "elevated" | "outlined";
 
 export interface CardThemeProps extends PseudoProp {
   _header?: PseudoProp;
@@ -25,16 +25,20 @@ const emptyCard: CardTheme = {
     w: "100%",
     position: "relative",
     flexDirection: "column",
-    color: "text",
+    color: "anolis-blue-900",
     background: "white",
+    maxWidth: "26rem",
     _header: {
       display: "flex",
       order: 1,
-      padding: "1rem"
+      padding: "2rem",
+      pb: 0
     },
     _title: {
-      fontSize: "2rem",
-      lineHeight: "3rem"
+      fontSize: "1.25rem",
+      lineHeight: "1.75rem",
+      fontWeight: 600,
+      marginBottom: "-0.75rem"
     },
     _tag: {
       position: "absolute",
@@ -55,21 +59,24 @@ const emptyCard: CardTheme = {
     _footer: {
       display: "flex",
       order: 4,
-      padding: "1rem"
+      padding: "2rem",
+      paddingTop: 0,
+      fontSize: "0.75rem",
+      lineHeight: "1.125rem",
+      color: "anolis-gray-100"
     }
   },
   sizes: {},
   variants: {
-    normal: {},
     elevated: {
-      borderRadius: "9",
+      borderRadius: "3",
       boxShadow: "0 0.25rem 1rem 0 rgba(6,18,39,0.15)"
     },
-    outline: {
+    outlined: {
       border: "1px solid rgba(68, 69, 84, 0.25)"
     }
   },
   defaultProps: {
-    v: "normal"
+    v: "elevated"
   }
 };

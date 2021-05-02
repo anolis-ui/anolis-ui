@@ -3780,7 +3780,7 @@
   dependencies:
     "@xstyled/system" "^2.4.0"
 
-"@xstyled/emotion@^2.2.3":
+"@xstyled/emotion@^2.2.3", "@xstyled/emotion@^2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@xstyled/emotion/-/emotion-2.4.1.tgz#c1b79aa1e40bab0980a927551770454f3d43fa25"
   integrity sha512-ZMRH2u0fMwLq+Enof+TB9RYCWnJ0ySSdnrUfrR+J1FZ6T6002WAyOtMW5Mag5nCbSmI/7h9Q9AKBZYLADz/v3w==
