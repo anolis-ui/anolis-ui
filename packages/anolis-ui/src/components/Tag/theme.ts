@@ -22,7 +22,8 @@ const emptyTag: TagTheme = {
     userSelect: "none",
     transition: "color 300ms, background 300ms, border-color 300ms",
     borderRadius: "0.3rem",
-    border: "1px solid #455663",
+    border: "1px solid",
+    borderColor: "anolis-gray-400",
     px: "3",
     fontSize: "sm",
     fontWeight: 500,
@@ -31,14 +32,15 @@ const emptyTag: TagTheme = {
   sizes: {},
   variants: {
     solid: {
-      bg: "#455663",
+      bg: "anolis-gray-400",
       color: "white"
     },
     outline: {
-      color: "#0f1f28"
+      color: "anolis-gray-400"
     },
     clear: {
-      borderColor: "transparent"
+      borderColor: "transparent",
+      color: "anolis-gray-400"
     }
   },
   defaultProps: {

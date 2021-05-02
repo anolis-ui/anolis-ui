@@ -3,6 +3,7 @@ import { Tag } from "anolis-ui";
 import { CodeBlock } from "components/CodeBlock";
 import { ComponentDisplay } from "components/ComponentDisplay";
 import Head from "components/Head";
+import DownIcon from "components/icons/16/down.svg";
 
 <Head title="Tag" />
 
@@ -17,16 +18,47 @@ export interface TagThemeProps extends ComplementThemeProps, PseudoProp {
 
 }
 ```
-Tag has 4 default variants.
-
-##Variants
-
-You can use 4 variants of button. Just use **v** prop.
+Tag component for labeling, categorizing etc.
 
 <ComponentDisplay>
   {[
     [<Tag>Solid tag</Tag>, "<Tag>Solid tag</Tag>"],
-    [<Tag v="outline">Outline tag</Tag>, "<Tag v=\"outline\">Outline tag</Tag>"],
-    [<Tag v="clear">Clear tag</Tag>, "<Tag v=\"clear\">Clear tag</Tag>"]
+  ]}
+</ComponentDisplay>
+
+
+## Variants
+
+You can use 4 variants of tag. Just use **v** prop.
+
+<ComponentDisplay>
+  {[
+    [<x.div spaceX="4">
+      <Tag>Solid tag</Tag>
+      <Tag v="outline">Outline tag</Tag>
+      <Tag v="clear">Clear tag</Tag>
+    </x.div>,
+    `
+<x.div spaceX="4">
+  <Tag>Solid tag</Tag>
+  <Tag v="outline">Outline tag</Tag>
+  <Tag v="clear">Clear tag</Tag>
+</x.div>
+    `],
+  ]}
+</ComponentDisplay>
+
+
+## With icon
+
+Icon can be added to the Tag, both left and right positions
+
+<ComponentDisplay>
+  {[
+    [<Tag leftIcon={<DownIcon/>} _leftIcon={{ fill: "#fff" }} rightIcon={<DownIcon/>} _rightIcon={{ fill: "#fff" }}>Solid tag</Tag>,
+    `
+<Tag leftIcon={<DownIcon/>} rightIcon={<DownIcon/>}>Solid tag</Tag>
+    `
+    ],
   ]}
 </ComponentDisplay>
