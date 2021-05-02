@@ -16,9 +16,9 @@ export const TextLink = anolisComponent<"a", TextLinkProps, TextLinkVariant>("a"
 
   return (
     <x.a ref={ref as any} {...theme as TextLinkProps} {...props}>
-      <Complement {...theme._leftIcon} {...left} />
+      <Complement _icon={theme._leftIcon} {...left} />
       {children}
-      <Complement {...theme._rightIcon} {...right} />
+      <Complement _icon={theme._rightIcon} {...right} />
     </x.a>
   );
 });

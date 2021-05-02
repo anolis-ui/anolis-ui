@@ -1,0 +1,96 @@
+import { x } from "@xstyled/emotion";
+import { TextLink } from "anolis-ui";
+import { CodeBlock } from "components/CodeBlock";
+import { ComponentDisplay } from "components/ComponentDisplay";
+import Head from "components/Head";
+import GithubIcon from "components/icons/24/github.svg";
+
+<Head title="TextLink" />
+
+# TextLink
+
+```tsx
+import { TextLink } from "anolis-ui";
+
+export type TextLinkVariant = "normal" | "underlined";
+
+export interface TextLinkThemeProps extends ComplementThemeProps, PseudoProp {
+}
+```
+
+## Basic
+
+TextLink is used for navigation, resembles a hyperlink.
+
+<ComponentDisplay>
+  {[
+    [
+      <TextLink>
+        TextLink
+      </TextLink>,
+      `
+<TextLink>
+  TextLink
+</TextLink>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+
+## With text
+
+Link used inline with a text
+
+<ComponentDisplay>
+  {[
+    [
+      <x.p>
+        When, while the lovely valley teems with vapour <TextLink href="#">around me</TextLink>, and the meridian sun strikes.
+      </x.p>,
+      `
+<x.p>
+  When, while the lovely valley teems with vapour <TextLink href="#">around me</TextLink>, and the meridian sun strikes.
+</x.p>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## With underline
+
+Link can be also displayed with underline. Use **underlined** variant.
+
+<ComponentDisplay>
+  {[
+    [
+      <TextLink v="underlined">
+        TextLink
+      </TextLink>,
+      `
+<TextLink v="underlined">
+  TextLink
+</TextLink>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+## With Left/Right Complement
+
+TextLink can also have a Left or Right Complement
+
+<ComponentDisplay>
+  {[
+    [
+      <TextLink leftIcon={<GithubIcon/>} rightIcon={<GithubIcon/>} _rightIcon={{ marginLeft: "1rem" }}>
+        Github
+      </TextLink>,
+      `
+<TextLink leftIcon={<GithubIcon/>} rightIcon={<GithubIcon/>}>
+  TextLink
+</TextLink>
+      `
+    ]
+  ]}
+</ComponentDisplay>
