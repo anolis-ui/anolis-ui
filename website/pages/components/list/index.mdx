@@ -1,0 +1,98 @@
+import { x } from "@xstyled/emotion";
+import { List, ListItem } from "anolis-ui";
+import { CodeBlock } from "components/CodeBlock";
+import { ComponentDisplay } from "components/ComponentDisplay";
+import Head from "components/Head";
+
+<Head title="List" />
+
+# List
+
+```tsx
+import { List } from "anolis-ui";
+
+export type ListProps = ComplementProps & { _bullet?: any; _item?: any };
+```
+
+## Basic
+
+List is used to display list items
+
+<ComponentDisplay>
+  {[
+    [
+      <List v="unordered" listStylePosition="inside">
+        <ListItem>
+          First item
+        </ListItem>
+        <ListItem>
+          Second item
+        </ListItem>
+        <ListItem>
+          Third item
+        </ListItem>
+        <ListItem>
+          Forth item
+        </ListItem>
+      </List>,
+      `
+<List v="unordered" listStylePosition="inside">
+  <ListItem>
+    First item
+  </ListItem>
+  <ListItem>
+    Second item
+  </ListItem>
+  <ListItem>
+    Third item
+  </ListItem>
+  <ListItem>
+    Forth item
+  </ListItem>
+</List>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+
+## Ordered list
+
+Simple ordered list
+
+<ComponentDisplay>
+  {[
+    [
+      <List v="ordered" listStylePosition="inside">
+        <ListItem>
+          First item
+        </ListItem>
+        <ListItem>
+          Second item
+        </ListItem>
+        <ListItem>
+          Third item
+        </ListItem>
+        <ListItem>
+          Forth item
+        </ListItem>
+      </List>,
+      `
+<List v="ordered" listStylePosition="inside">
+  <ListItem>
+    First item
+  </ListItem>
+  <ListItem>
+    Second item
+  </ListItem>
+  <ListItem>
+    Third item
+  </ListItem>
+  <ListItem>
+    Forth item
+  </ListItem>
+</List>
+      `
+    ]
+  ]}
+</ComponentDisplay>

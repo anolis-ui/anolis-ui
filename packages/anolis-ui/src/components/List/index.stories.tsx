@@ -2,7 +2,7 @@ import { defaultTheme, x } from "@xstyled/emotion";
 import { FC } from "react";
 import StoryLayout from "stories/StoryLayout";
 import { List } from "components/List";
-import { Button } from "components/Button";
+import { ListItem } from "components/List/ListItem";
 
 export default {
   title: "Themed/List"
@@ -17,31 +17,46 @@ export const Normal: FC = () => {
     <StoryLayout title="List">
       <x.div display="flex" flexDirection="column" spaceY="2">
 
-        <Button bg="red">
-          aaa
-        </Button>
         <List v="ordered" listStylePosition="inside" bg="red">
-          <li>
+          <ListItem>
             Ordered list item
-          </li>
+          </ListItem>
         </List>
 
-        <List v="ordered" listStylePosition="outside">
-          <li>
+        <List v="ordered" listStylePosition="outside" bg="green">
+          <ListItem>
             Ordered list item
-          </li>
-        </List>
-
-        <List v="unordered" listStylePosition="inside">
-          <li>
-            Unordered list item
-          </li>
+          </ListItem>
+          <ListItem>
+            Ordered list item
+          </ListItem>
         </List>
 
         <List v="unordered" listStylePosition="outside">
-          <li>
+          <ListItem>
+            Unordered list item with custom icon
+          </ListItem>
+          <ListItem>
+            Unordered list item with custom icon
+          </ListItem>
+        </List>
+
+        <List v="unordered" listStylePosition="inside">
+          <ListItem>
             Unordered list item
-          </li>
+          </ListItem>
+          <ListItem>
+            Unordered list item
+          </ListItem>
+        </List>
+
+        <List v="unordered" listStylePosition="outside">
+          <ListItem>
+            Unordered list item
+          </ListItem>
+          <ListItem>
+            Unordered list item
+          </ListItem>
         </List>
       </x.div>
     </StoryLayout>

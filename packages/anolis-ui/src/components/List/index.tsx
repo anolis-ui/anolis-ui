@@ -1,27 +1,27 @@
 import { x } from "@xstyled/emotion";
-import Complement, { comp, ComplementProps } from "components/Complement";
+import { comp, ComplementProps } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { anolisComponent } from "utils/anolisComponent";
 import { ListVariant } from "./theme";
 
 export * from "./theme";
 
-export type ListProps = ComplementProps;
+export type ListProps = ComplementProps & { _bullet?: any; _item?: any };
 
-export const List = anolisComponent<"div", ListProps, ListVariant>("div", (
-  { children, v, s, ...p }, ref) => {
+export const List = anolisComponent<"ul", ListProps, ListVariant>("ul", (
+  { children, v, ...p }, ref) => {
   const theme = useComponentTheme("list", v);
 
-  const [props] = comp(p);
+  const [,,props] = comp(p);
 
   return (
-    <x.div
+    <x.ul
       ref={ref as any}
       {...theme as ListProps}
       {...props}
       {...p}
     >
       {children}
-    </x.div>
+    </x.ul>
   );
 });
