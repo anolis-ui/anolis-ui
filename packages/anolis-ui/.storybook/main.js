@@ -6,15 +6,7 @@ module.exports = {
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
-  "addons": [
-    '@storybook/addon-storysource',
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        controls: false,
-      }
-    }
-  ],
+  "addons": [],
   webpackFinal: async (config, { configType }) => {
     config.resolve.modules.unshift(path.resolve(__dirname, '../src'));
 
