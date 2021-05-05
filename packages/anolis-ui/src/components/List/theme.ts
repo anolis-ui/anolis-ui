@@ -1,14 +1,13 @@
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 import { ComplementThemeProps } from "components/Complement";
 import { PseudoProp } from "utils/PseudoProp";
-import { Renderable } from "utils/renderComponent";
-import { ListItemProps } from "components/List/ListItem";
+import { SideComplementThemeProps } from "../Complement/index";
 
 export type ListVariant = "ordered" | "unordered";
 
 export interface ListThemeProps extends ComplementThemeProps, PseudoProp {
-  _bullet?: Renderable;
-  _item?: ListItemProps;
+  _bullet?: any;
+  _item?: SideComplementThemeProps & PseudoProp;
 }
 
 export type ListTheme = ComponentTheme<ListThemeProps, ListVariant>;

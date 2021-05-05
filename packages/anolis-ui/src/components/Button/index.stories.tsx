@@ -1,3 +1,4 @@
+import { Menu } from "@emotion-icons/feather";
 import { defaultTheme, x } from "@xstyled/emotion";
 import { FC } from "react";
 import StoryLayout from "stories/StoryLayout";
@@ -25,6 +26,8 @@ export const Variants: FC = () => {
         <Button v="link">Link button</Button>
 
         <Button disabled>Disabled Button</Button>
+
+        <Button _rightIcon={{ bg: "red", ml: "4" }} rightIcon={<Menu size={24} />}>Solid button</Button>
       </x.div>
     </StoryLayout>
   );

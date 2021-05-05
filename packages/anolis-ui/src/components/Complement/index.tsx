@@ -1,5 +1,5 @@
 import { Icon, IconProps } from "components/Icon";
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 import renderComponent, { Renderable } from "utils/renderComponent";
 
 export type SideComplementThemeProps = {
@@ -23,36 +23,37 @@ export interface ComplementProps extends ComplementThemeProps {
   rightElement?: Renderable;
 }
 
-export const sideComp = <T extends SideComplementProps>({
-  _icon,
-  icon,
-  element,
-  ...props
-}: T): [ComplementSideProps, Omit<T, keyof SideComplementProps>] =>
-  [{ _icon, icon, element }, props];
+export const useSideComplement = <T extends SideComplementProps>(
+  { _icon, icon, element, ...props }: T,
+  theme: SideComplementThemeProps
+): [ComplementSideProps, Omit<T, keyof SideComplementProps>] =>
+  useMemo(() => [{ _icon: { ...theme._icon, ..._icon }, icon, element }, props], [_icon, element, icon, props, theme._icon]);
 
-export const comp = <T extends ComplementProps>({
-  _rightIcon,
-  rightIcon,
-  rightElement,
-  _leftIcon,
-  leftIcon,
-  leftElement,
-  ...props
-}: T): [ComplementSideProps, ComplementSideProps, Omit<T, keyof ComplementProps>] =>
-  [
+export const useComplement = <T extends ComplementProps>(
+  {
+    _rightIcon,
+    rightIcon,
+    rightElement,
+    _leftIcon,
+    leftIcon,
+    leftElement,
+    ...props
+  }: T,
+  theme: ComplementThemeProps
+): [ComplementSideProps, ComplementSideProps, Omit<T, keyof ComplementProps>] =>
+  useMemo(() => [
     {
-      _icon: _leftIcon,
+      _icon: { ...theme._leftIcon, ..._leftIcon },
       icon: leftIcon,
       element: leftElement
     },
     {
-      _icon: _rightIcon,
+      _icon: { ...theme._rightIcon, ..._rightIcon },
       icon: rightIcon,
       element: rightElement
     },
     props
-  ];
+  ], [_leftIcon, _rightIcon, leftElement, leftIcon, props, rightElement, rightIcon, theme._leftIcon, theme._rightIcon]);
 
 interface ComplementSideProps {
   _icon?: IconProps;
@@ -63,7 +64,7 @@ interface ComplementSideProps {
 const Complement: FC<ComplementSideProps> = ({ _icon, icon, element }) => (
   <>
     {renderComponent(element)}
-    {icon && <Icon mr="1rem" svg={icon} {..._icon as any} />}
+    {icon && <Icon svg={icon} {..._icon as any} />}
   </>
 );
 
