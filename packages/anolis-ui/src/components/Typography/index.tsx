@@ -1,10 +1,11 @@
-import styled, { css } from "@xstyled/emotion";
+import styled, { breakpoints, css } from "@xstyled/emotion";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { useMemo } from "react";
 import { anolisComponent } from "utils/anolisComponent";
+import { PseudoProp } from "utils/PseudoProp";
 
 import { TypographyThemeProps, TypographyVariant } from "./theme";
-import { PseudoProp } from "../../utils/PseudoProp";
+import { separateObjValues, groupByBreakpoint } from "./utils";
 
 export * from "./theme";
 
@@ -39,13 +40,19 @@ interface TypographyStyleProps extends Partial<Record<Keys, PseudoProp>> {
 
 type Keys = Exclude<keyof TypographyThemeProps, keyof PseudoProp>;
 
-const typoCss = (t: Keys) => (p: TypographyStyleProps) => {
-  return (
-    css((_p) => ({
-      ...p._theme[t],
-      ...p[t]
-    }) as any));
-};
+const typoCss = (t: Keys) => (p: TypographyStyleProps) => css(
+  (_p) => {
+    const themeValues = separateObjValues(p._theme[t]);
+    const propValues = separateObjValues(p[t]);
+
+    return [
+      themeValues?.[1],
+      breakpoints(groupByBreakpoint(themeValues?.[0]))(_p),
+      propValues?.[1],
+      breakpoints(groupByBreakpoint(propValues?.[0]))(_p)
+    ] as any;
+  }
+);
 
 const TypographyStyle = styled.divBox<TypographyStyleProps>`
   h1, ._anolis-as-h1 {

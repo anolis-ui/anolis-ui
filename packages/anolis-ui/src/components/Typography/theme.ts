@@ -28,11 +28,11 @@ const t = <T>(t: T) => {
 const emptyTypography: TypographyTheme = {
   baseStyle: {
     _h1: {
-      // fontSize: { _: "2.5rem", sm: "3rem" },
-      fontSize: "3rem",
+      fontSize: { _: "2.5rem", sm: "3rem" },
+      // fontSize: "3rem",
       fontWeight: 500,
-      // lineHeight: { _: "3.75rem", sm: "4.5rem" },
-      lineHeight: "4.5rem",
+      lineHeight: { _: "3.75rem", sm: "4.5rem" },
+      // lineHeight: "4.5rem",
       color: "anolis-blue-900",
       fontFamily: "sans"
     },

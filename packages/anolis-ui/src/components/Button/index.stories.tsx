@@ -15,7 +15,7 @@ const theme = {
 export const Variants: FC = () => {
   return (
     <StoryLayout title="Button">
-      <x.div display="flex" spaceX="2" alignItems="center">
+      <x.div display="flex" spaceX="2" alignItems="center" flexWrap="wrap">
         <Button v="solid">Solid button</Button>
 
         <Button v="outline">Outline button</Button>
