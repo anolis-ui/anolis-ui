@@ -49,7 +49,7 @@ export const theme = createTheme({
       maxWidth: "none"
     },
     variants: {
-      eleveted: {
+      elevated: {
         borderRadius: "9"
       }
     }
