@@ -46,9 +46,9 @@ const typoCss = (t: Keys) => (p: TypographyStyleProps) => css(
     const propValues = separateObjValues(p[t]);
 
     return [
-      themeValues?.[1],
+      Object.fromEntries(themeValues?.[1]),
       breakpoints(groupByBreakpoint(themeValues?.[0]))(_p),
-      propValues?.[1],
+      Object.fromEntries(propValues?.[1]),
       breakpoints(groupByBreakpoint(propValues?.[0]))(_p)
     ] as any;
   }
