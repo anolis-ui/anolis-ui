@@ -115,6 +115,7 @@ const Index: FC = () => {
             opacity={offset > 128 ? 0 : 1}
             position="sticky"
             top="0.5rem"
+            zIndex={11}
           />
 
           <x.h1 maxWidth="54rem" color="#061227" mt="1.5rem">

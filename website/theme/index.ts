@@ -41,7 +41,15 @@ export const theme = createTheme({
   }),
   ...textLinkTheme({
     baseStyle: {
-      color: "#888aa5"
+      color: "#888aa5",
+      _leftIcon: {
+        marginLeft: 0,
+        marginRight: "1rem"
+      },
+      _rightIcon: {
+        marginRight: 0,
+        marginLeft: "1rem"
+      }
     }
   }),
   ...cardTheme({
