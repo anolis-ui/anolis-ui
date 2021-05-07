@@ -70,7 +70,7 @@ const emptyCard: CardTheme = {
   variants: {
     elevated: {
       borderRadius: "3",
-      boxShadow: "0 0.25rem 1rem 0 rgba(6,18,39,0.15)"
+      boxShadow: "0 0.25rem 1rem 0 rgba(6, 18, 39, 0.15)"
     },
     outlined: {
       border: "1px solid rgba(68, 69, 84, 0.25)"

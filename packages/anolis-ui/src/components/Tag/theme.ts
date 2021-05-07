@@ -27,7 +27,15 @@ const emptyTag: TagTheme = {
     px: "3",
     fontSize: "sm",
     fontWeight: 500,
-    lineHeight: "relaxed"
+    lineHeight: "relaxed",
+    _leftIcon: {
+      marginLeft: 0,
+      marginRight: "1rem"
+    },
+    _rightIcon: {
+      marginRight: 0,
+      marginLeft: "1rem"
+    }
   },
   sizes: {},
   variants: {

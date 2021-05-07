@@ -28,7 +28,15 @@ const emptyButton: ButtonTheme = {
     textDecoration: "none",
     alignItems: "center",
     justifyContent: "center",
-    disabledCursor: "not-allowed"
+    disabledCursor: "not-allowed",
+    _leftIcon: {
+      marginLeft: 0,
+      marginRight: "1rem"
+    },
+    _rightIcon: {
+      marginRight: 0,
+      marginLeft: "1rem"
+    }
   },
   sizes: {
     xs: {
@@ -65,7 +73,13 @@ const emptyButton: ButtonTheme = {
       focusBg: "anolis-blue-700",
       focusBoxShadow: "inset 0px 0px 0 2px rgba(15, 31, 40, 0.2)",
       focusOutline: "none",
-      disabledOpacity: 0.5
+      disabledOpacity: 0.5,
+      _leftIcon: {
+
+      },
+      _rightIcon: {
+
+      }
     },
     outline: {
       border: "1px solid",
