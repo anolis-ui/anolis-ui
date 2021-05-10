@@ -20,12 +20,15 @@ export const Nav: FC = () => {
     >
       <x.ul>
         <NavI href="/docs/installation">Installation</NavI>
+        {/*
         <NavI href="/docs/triplet-props">Triplet props</NavI>
         <NavI href="/docs/modals">Modals</NavI>
         <NavI href="/docs/anolis-provider">Anolis Provider</NavI>
         <NavI href="/docs/typescript">Typescript</NavI>
+        */}
       </x.ul>
 
+      {/*
       <NavHeader>Theming</NavHeader>
 
       <x.ul>
@@ -33,6 +36,7 @@ export const Nav: FC = () => {
         <NavI href="/theme/customizing">Customizing theme</NavI>
         <NavI href="/theme/structure">Theme structure</NavI>
       </x.ul>
+      */}
 
       <NavHeader>Components</NavHeader>
 
