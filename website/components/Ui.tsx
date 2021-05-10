@@ -50,7 +50,7 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
           </Link>
 
           <x.div display="flex" alignItems="center">
-            <Link href="/docs/introduction" passHref>
+            <Link href="/docs/installation" passHref>
               <TextLink fontFamily="heading-sans" justifyContent={{ _: "flex-end", sm: "flex-start" }}>
                 Read the docs
               </TextLink>
