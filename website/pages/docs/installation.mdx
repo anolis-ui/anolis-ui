@@ -1,6 +1,118 @@
 import Head from "components/Head";
+import { CodeHighlight, CodeBlock } from "components/CodeBlock";
 
 <Head title="Installation" />
 
 
 # Installation
+
+Anolis UI is based on xstyled and emotion so if you are not using them in your project, you should install them.
+
+```bash
+yarn add @emotion/react @emotion/styled @xstyled/emotion
+npm install @emotion/react @emotion/styled @xstyled/emotion
+```
+
+If you have all dependencies installed, you can install Anolis:
+
+```bash
+yarn add anolis-ui
+npm install anolis-ui
+```
+
+## Setup xstyled
+
+If you don’t use xstyled in your project yet, youll need add xstyled provider.
+
+We also recommend to add Anolis colors (anolis-green and anolis-blue) to your xstyled theme config.
+
+```typescript
+import { ThemeProvider } from "@xstyled/emotion";
+
+const xstyledTheme = {
+	...defaultTheme,
+	colors: {
+		...defaultTheme,
+		...anolisColors
+	}
+};
+
+const App: FC = () => {
+	return (
+		<ImportantStuff>
+			<ThemeProvider theme={xstyledTheme}>
+				{/* more important stuff */}
+			</ThemeProvider>
+		</ImportantStuff>
+	);
+}
+```
+
+## Setup anolis
+
+To setup Anolis simply add AnolisProvider to your component tree, preferably near your application root.
+
+```typescript
+import { AnolisProvider } from "anolis-ui";
+import { ThemeProvider } from "@xstyled/emotion";
+
+// ... xstyledTheme
+
+const App: FC = () => {
+	return (
+		<ImportantStuff>
+			<ThemeProvider theme={xstyledTheme}>
+				<AnolisProvider>
+					{/* more important stuff */}
+				</AnolisProvider>
+			</ThemeProvider>
+		</ImportantStuff>
+	);
+}
+```
+
+By default, Anolis adds Typography and ModalProvider for you. If you want to disable this you can with either `noModalProvider` and `noTypography` props.
+
+## Custom theme
+Default theme is designed to follow xstyled theme values, so it will follow your design constrains defined there. If you want to modify styles in the theme you can create custom theme. Custom theme inherits all the styles from default Anolis theme so you can edit just what you need.
+
+*In the future we plan to add minimal theme with minimal amount of styles so you don't need to reset library styles.*
+
+With `createTheme` you can modify styles of the theme with `componentTheme` functions.
+
+```typescript
+import { createTheme } from "anolis-ui";
+
+export const theme = createTheme({
+	...buttonTheme({
+		baseStyle: {
+			fontSize: "xl"
+		}
+    variants: {
+      clear: {
+        color: "#888AA5"
+      }
+    }
+  })
+});
+```
+
+We decided to use functions as `buttonTheme` instead of `button: { ... }` to provide you better type checking and make it easier to split components into individual files if your project grows big.
+
+Finaly add your custom theme to the AnolisProvider.
+
+```typescript
+import { AnolisProvider } from "anolis-ui";
+
+const App: FC = () => {
+	return (
+		<ImportantStuff>
+			<AnolisProvider theme={theme}>
+				{/* more important stuff */}
+			</AnolisProvider>
+		</ImportantStuff>
+	);
+}
+```
+
+Now you should be set, if you have any issues or questions don't hesitate to ask us on Discord :)
