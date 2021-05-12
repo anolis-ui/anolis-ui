@@ -30,11 +30,11 @@ const emptyTag: TagTheme = {
     lineHeight: "relaxed",
     _leftIcon: {
       marginLeft: 0,
-      marginRight: "1rem"
+      marginRight: "0.5rem"
     },
     _rightIcon: {
       marginRight: 0,
-      marginLeft: "1rem"
+      marginLeft: "0.5rem"
     }
   },
   sizes: {},

@@ -90,17 +90,17 @@ const Index: FC = () => {
   const phases: PhaseType[] = [
     {
       name: "Phase 1 – Kick off",
-      description: "First phase of development in which we want to deliver" +
+      description: "First phase of development in which we want to deliver " +
         "basic set of components to be easily used by anyone."
     },
     {
       name: "Phase 2 – Websites",
-      description: "In the second phase, we will focus on advanced website" +
+      description: "In the second phase, we will focus on advanced website " +
         "components, such as Breadcrumb, Hero, Dialog, Carousels and more."
     },
     {
       name: "Phase 3 – Applications",
-      description: "Third and final phase will feature even more" +
+      description: "Third and final phase will feature even more " +
         "components needed for application develomplent."
     }
   ];
