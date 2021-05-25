@@ -13,7 +13,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^10.1.3",
-    "@xstyled/emotion": "^2.2.3",
+    "@xstyled/emotion": "^3.0.0",
     "anolis-ui": "^0.0.3",
     "next": "^10.0.7",
     "prism-react-renderer": "^1.2.0",
