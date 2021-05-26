@@ -6,7 +6,6 @@ import { theme } from "theme";
 import { xstyledTheme } from "theme/xstyled";
 import Ui from "components/Ui";
 import { CodeBlock } from "components/CodeBlock";
-import { createGlobalStyle } from "@xstyled/emotion";
 import Head from "next/head";
 
 const components = {

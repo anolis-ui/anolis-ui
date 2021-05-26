@@ -101,11 +101,9 @@ const NavI: FC<{ href?: string }> = ({ children, href }) => {
             h="100%"
             borderRadius="0.25rem"
             transition="background 300ms, color 300ms"
-            color={isActive ? "anolis-blue-900" : "#444554"}
-            bg={isActive ? "anolis-blue-50" : "transparent"}
+            color={isActive ? "anolis-blue-900" : { _: "#444554", hover: "#061227" } as any}
+            bg={isActive ? "anolis-blue-50" : { _: "transparent", hover: "anolis-blue-50" }}
             fontWeight={isActive ? 500 : 400}
-            hoverColor="#061227"
-            hoverBg="anolis-blue-50"
             fontSize="0.875rem"
             lineHeight="1.25rem"
             borderBottom="0"

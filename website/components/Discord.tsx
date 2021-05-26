@@ -17,12 +17,8 @@ const Discord: FC = () => {
         as="a"
         target="_blank"
         v="outline"
-        bg="#fff"
-        color="discord"
-        hoverColor="#fff"
-        hoverBg="discord"
-        focusColor="#fff"
-        focusBg="discord"
+        bg={{ _: "#fff", hover: "discord", focus: "discord" }}
+        color={{ _: "discord", hover: "#fff", focus: "#fff" } as any}
       >
         Join Anolis on Discord
       </Button>

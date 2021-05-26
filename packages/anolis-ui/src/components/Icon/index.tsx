@@ -30,8 +30,6 @@ export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fil
 });
 
 const IconStyle = styled.divBox<IconProps>`
-  ${system}
-
   & > svg {
     path {
       fill: ${props => props.fill};

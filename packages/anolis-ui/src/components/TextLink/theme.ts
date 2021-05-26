@@ -15,7 +15,7 @@ export const textLinkTheme = (t?: PartialComponentTheme<TextLinkTheme>): { textL
 
 const emptyTextLink: TextLinkTheme = {
   baseStyle: {
-    color: "anolis-blue-600",
+    color: { _: "anolis-blue-600", hover: "anolis-blue-700" } as any,
     borderBottom: "1px solid transparent",
     fontSize: "1rem",
     lineHeight: "initial",
@@ -23,7 +23,6 @@ const emptyTextLink: TextLinkTheme = {
     alignItems: "center",
     transition: "color 300ms, border 300ms",
     cursor: "pointer",
-    hoverColor: "anolis-blue-700",
     textDecoration: "none",
     _leftIcon: {
       marginLeft: 0,
@@ -40,9 +39,7 @@ const emptyTextLink: TextLinkTheme = {
     normal: {
     },
     underlined: {
-      borderBottom: "1px solid",
-      borderColor: "anolis-blue-700",
-      hoverBorderBottom: "1px solid transparent"
+      borderBottom: { _: "1px solid anolis-blue-700", hover: "1px solid transparent" }
     }
   },
   defaultProps: {

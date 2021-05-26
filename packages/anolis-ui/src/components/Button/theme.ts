@@ -24,11 +24,10 @@ const emptyButton: ButtonTheme = {
     bg: "transparent",
     border: "1px solid transparent",
     transition: "background 300ms, color 300ms, border 300ms, box-shadow 300ms",
-    cursor: "pointer",
     textDecoration: "none",
     alignItems: "center",
     justifyContent: "center",
-    disabledCursor: "not-allowed",
+    cursor: { _: "pointer", disabled: "not-allowed" },
     _leftIcon: {
       marginLeft: 0,
       marginRight: "1rem"
@@ -66,61 +65,37 @@ const emptyButton: ButtonTheme = {
   },
   variants: {
     solid: {
-      bg: "anolis-blue-600",
+      bg: { _: "anolis-blue-600", hover: "anolis-blue-700", active: "anolis-blue-800", focus: "anolis-blue-700" },
       color: "#fff",
-      hoverBg: "anolis-blue-700",
-      activeBg: "anolis-blue-800",
-      focusBg: "anolis-blue-700",
-      focusBoxShadow: "inset 0px 0px 0 2px rgba(15, 31, 40, 0.2)",
-      focusOutline: "none",
-      disabledOpacity: 0.5,
-      _leftIcon: {
-
-      },
-      _rightIcon: {
-
-      }
+      boxShadow: { focus: "inset 0px 0px 0 2px rgba(15, 31, 40, 0.2)" },
+      outline: { focus: "none" },
+      opacity: { disabled: 0.5 }
     },
     outline: {
       border: "1px solid",
       borderColor: "anolis-blue-600",
-      color: "anolis-blue-600",
-      hoverColor: "anolis-blue-700",
-      hoverBg: "anolis-blue-50",
-      activeColor: "anolis-blue-800",
-      activeBg: "anolis-blue-100",
-      focusColor: "anolis-blue-800",
-      focusBg: "anolis-blue-50",
-      focusBoxShadow: "inset 0px 0px 0 2px rgba(15, 31, 40, 0.2)",
-      focusOutline: "none",
-      disabledOpacity: 0.5
+      color: { _: "anolis-blue-600", hover: "anolis-blue-700", active: "anolis-blue-800", focus: "anolis-blue-800" } as any,
+      bg: { hover: "anolis-blue-50", active: "anolis-blue-100", focus: "anolis-blue-50" },
+      boxShadow: { focus: "inset 0px 0px 0 2px rgba(15, 31, 40, 0.2)" },
+      outline: { focus: "none" },
+      opacity: { disabled: 0.5 }
     },
     clear: {
-      color: "anolis-blue-600",
-      hoverColor: "anolis-blue-700",
-      hoverBg: "anolis-blue-50",
-      activeColor: "anolis-blue-800",
-      activeBg: "anolis-blue-100",
-      focusColor: "anolis-blue-800",
-      focusBg: "anolis-blue-50",
-      focusBoxShadow: "inset 0px 0px 0 2px rgba(15, 31, 40, 0.2)",
-      focusOutline: "none",
-      disabledOpacity: 0.5
+      color: { _: "anolis-blue-600", hover: "anolis-blue-700", active: "anolis-blue-800", focus: "anolis-blue-800" } as any,
+      bg: { hover: "anolis-blue-50", active: "anolis-blue-100", focus: "anolis-blue-50" },
+      boxShadow: { focus: "inset 0px 0px 0 2px rgba(15, 31, 40, 0.2)" },
+      outline: { focus: "none" },
+      opacity: { disabled: 0.5 }
     },
     link: {
       padding: 0,
-      color: "anolis-blue-600",
+      color: { _: "anolis-blue-600", hover: "anolis-blue-700", active: "anolis-blue-800", focus: "anolis-blue-800" } as any,
       borderRadius: 0,
       border: 0,
-      borderBottom: "1px solid transparent",
-      hoverColor: "anolis-blue-700",
-      hoverBorderBottom: "1px solid",
-      hoverBorderColor: "anolis-blue-600",
-      activeColor: "anolis-blue-800",
-      focusColor: "anolis-blue-800",
-      focusBoxShadow: "inset 0px 0px 0 2px rgba(15, 31, 40, 0.2)",
-      focusOutline: "none",
-      disabledOpacity: 0.5
+      borderBottom: { _: "1px solid transparent", hover: "1px solid anolis-blue-600" },
+      boxShadow: { focus: "inset 0px 0px 0 2px rgba(15, 31, 40, 0.2)" },
+      outline: { focus: "none" },
+      opacity: { disabled: 0.5 }
     }
   },
   defaultProps: {
