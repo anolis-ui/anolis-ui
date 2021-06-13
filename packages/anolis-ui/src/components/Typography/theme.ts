@@ -1,7 +1,7 @@
 import { PseudoProp } from "utils/PseudoProp";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 
-export type TypographyVariant = never;
+export type TypographyVariant = "prose";
 export type TypographySize = never;
 
 export interface TypographyThemeProps extends PseudoProp {
@@ -20,10 +20,6 @@ export type TypographyTheme = ComponentTheme<TypographyThemeProps, TypographyVar
 export const typographyTheme = (c?: PartialComponentTheme<TypographyTheme>): { typography: TypographyTheme } => ({
   typography: t(extendTheme(emptyTypography, c))
 });
-
-const t = <T>(t: T) => {
-  return t;
-};
 
 const emptyTypography: TypographyTheme = {
   baseStyle: {
@@ -82,6 +78,10 @@ const emptyTypography: TypographyTheme = {
     }
   },
   sizes: {},
-  variants: {},
+  variants: {
+    prose: {
+
+    }
+  },
   defaultProps: {}
 };

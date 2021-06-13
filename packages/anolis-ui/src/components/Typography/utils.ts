@@ -1,6 +1,6 @@
 const separateObjValuesMemo = new WeakMap();
 
-// Separate properties with objects as value
+// Separate properties with objects (responsive values) as value
 export const separateObjValues = (x?: Record<string, any>) => {
   if (x === undefined) return undefined;
 
@@ -50,5 +50,21 @@ export const groupByBreakpoint = (x?: [string, Record<string, any>][]) => {
   }
 
   groupByBreakpointMemo.set(x, result);
+  return result;
+};
+
+// wrap strings (media queries) in an array with css selector
+export const wrapObjsWithSelector = (selector: string, arr: (string | {} | null | undefined)[]) => {
+  const result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === null || arr[i] === undefined) continue;
+
+    if (typeof arr[i] !== "string") {
+      result.push(`${selector} {`, arr[i], "}");
+    } else {
+      result.push(arr[i]);
+    }
+  }
   return result;
 };

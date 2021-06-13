@@ -1,14 +1,11 @@
 import { x } from "@xstyled/emotion";
 import { FC } from "react";
+import { sketch } from "sketch";
 import StoryLayout from "stories/StoryLayout";
 import { Typography } from ".";
 import { Txt } from "./Txt";
 
-export default {
-  title: "Themed/Typography"
-};
-
-export const Normal: FC = () => {
+const Normal: FC = sketch(() => {
   return (
     <StoryLayout title="Typography">
       <x.div spaceY="5">
@@ -28,4 +25,6 @@ export const Normal: FC = () => {
       </x.div>
     </StoryLayout>
   );
-};
+});
+
+export default Normal;

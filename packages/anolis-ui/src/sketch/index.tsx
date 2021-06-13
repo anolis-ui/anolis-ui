@@ -16,7 +16,7 @@ const Ui: FC = ({ children }) => {
             )}
           </ul>
         </x.div>
-        <x.div overflow="scroll" px="8" py="4">
+        <x.div overflow="scroll" px="8" py="4" flexGrow={1}>
           {children}
         </x.div>
       </x.div>
