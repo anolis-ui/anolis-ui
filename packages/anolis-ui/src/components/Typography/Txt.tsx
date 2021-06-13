@@ -8,9 +8,5 @@ export interface TxtProps extends PseudoProp {
 }
 
 export const Txt = anolisComponent<"p", TxtProps>("p", ({ v, t, ...props }, ref) => {
-  const theme = useComponentTheme("typography", v);
-
-  return <x.p ref={ref as any} {...theme[prefix(t)]} {...props} className={`_anolis-as-${t} ${props.className ?? ""}`} />;
+  return <x.p ref={ref as any} {...props} className={`_anolis-as-${t} ${props.className ?? ""}`} />;
 });
-
-const prefix = <T extends string>(s: T): `_${T}` => `_${s}` as any;
