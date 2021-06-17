@@ -1,8 +1,7 @@
 import { x } from "@xstyled/emotion";
-import Complement, { useComplement, ComplementProps } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { anolisComponent } from "utils/anolisComponent";
-import { ContainerVariant, ContainerTheme } from "./theme";
+import { ContainerVariant } from "./theme";
 
 export * from "./theme";
 

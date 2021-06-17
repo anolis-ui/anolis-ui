@@ -5,7 +5,7 @@ const withMDX = require("@next/mdx")({
 module.exports = withMDX({
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   future: {
-    webpack5: true,
+    webpack5: true
   },
   experimental: {
     optimizeFonts: true
