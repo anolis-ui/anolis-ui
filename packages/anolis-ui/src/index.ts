@@ -20,7 +20,6 @@ export { default as AnolisProvider, AnolisProviderProps } from "./components/Ano
 
 // Theme
 export { AnolisTheme, createTheme } from "./theme";
-
 export * from "./defaultTheme";
 
 // Hooks
