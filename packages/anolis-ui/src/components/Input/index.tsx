@@ -50,6 +50,7 @@ const InputStyle = styled.divBox`
     -webkit-appearance: inherit;
     transition: inherit;
     resize: none;
+    width: 100%;
 
     &:focus {
       border: none;
