@@ -23,7 +23,7 @@ const AnolisProvider: FC<AnolisProviderProps> = ({ children, theme, xstyledTheme
     ? (
       <ThemeProvider theme={mergedTheme}>
         {!noPreflight && <Preflight />}
-        <Typography>
+        <Typography topLevel>
           <ModalProvider>{children}</ModalProvider>
         </Typography>
       </ThemeProvider>

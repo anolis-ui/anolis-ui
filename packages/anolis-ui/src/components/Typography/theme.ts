@@ -18,7 +18,7 @@ export interface TypographyThemeProps extends PseudoProp {
 export type TypographyTheme = ComponentTheme<TypographyThemeProps, TypographyVariant, TypographySize>;
 
 export const typographyTheme = (c?: PartialComponentTheme<TypographyTheme>): { typography: TypographyTheme } => ({
-  typography: t(extendTheme(emptyTypography, c))
+  typography: extendTheme(emptyTypography, c)
 });
 
 const emptyTypography: TypographyTheme = {
