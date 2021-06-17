@@ -9,6 +9,8 @@ export * from "./components/List/ListItem";
 export * from "./components/Typography";
 export * from "./components/Typography/Txt";
 export * from "./components/TextLink";
+export * from "./components/Label";
+export * from "./components/Input";
 
 // Unthemed
 export * from "./components/Icon";
