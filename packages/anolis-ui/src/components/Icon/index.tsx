@@ -1,4 +1,4 @@
-import styled, { system, SystemProps } from "@xstyled/emotion";
+import styled, { SystemProps } from "@xstyled/emotion";
 import renderComponent, { Renderable } from "utils/renderComponent";
 import { anolisComponent } from "utils/anolisComponent";
 
@@ -29,7 +29,7 @@ export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fil
   );
 });
 
-const IconStyle = styled.divBox<IconProps>`
+const IconStyle = styled.div<IconProps>`
   & > svg {
     path {
       fill: ${props => props.fill};
