@@ -11,6 +11,7 @@ export * from "./components/Typography/Txt";
 export * from "./components/TextLink";
 export * from "./components/Label";
 export * from "./components/Input";
+export * from "./components/Modal";
 
 // Unthemed
 export * from "./components/Icon";

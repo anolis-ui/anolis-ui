@@ -39,7 +39,8 @@ const emptyTextLink: TextLinkTheme = {
     normal: {
     },
     underlined: {
-      borderBottom: { _: "1px solid anolis-blue-700", hover: "1px solid transparent" }
+      borderBottom: { _: "1px solid", hover: "1px solid" },
+      borderColor: { _: "anolis-blue-700", hover: "transparent" }
     }
   },
   defaultProps: {
