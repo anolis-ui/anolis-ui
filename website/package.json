@@ -1,7 +1,7 @@
 {
   "name": "@anolis/website",
   "private": "true",
-  "version": "0.0.4-alpha.6",
+  "version": "0.0.4-alpha.7",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -14,7 +14,7 @@
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^10.1.3",
     "@xstyled/emotion": "^3.0.0",
-    "anolis-ui": "^0.0.4-alpha.6",
+    "anolis-ui": "^0.0.4-alpha.7",
     "next": "^10.0.7",
     "prism-react-renderer": "^1.2.0",
     "react": "^17.0.2",
