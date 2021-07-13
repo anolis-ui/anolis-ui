@@ -1,15 +1,17 @@
-import styled, { x } from "@xstyled/emotion";
+import styled, { SystemProps, x } from "@xstyled/emotion";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { anolisComponent } from "utils/anolisComponent";
 import { InputSize, InputVariant } from "components/Input/theme";
 import Complement, { ComplementProps, useComplement } from "components/Complement";
-import { useRef } from "react";
+import { MutableRefObject, useRef } from "react";
 
 export * from "./theme";
 
 export interface InputProps extends ComplementProps {
   placeholder?: string;
   multiline?: boolean;
+  _textarea?: SystemProps;
+  _input?: SystemProps;
 }
 
 export const Input = anolisComponent<"input", InputProps, InputVariant, InputSize>("input", (
@@ -19,10 +21,12 @@ export const Input = anolisComponent<"input", InputProps, InputVariant, InputSiz
     s,
     placeholder,
     multiline,
+    _textarea,
+    _input,
     ...p
   }, ref) => {
   const theme = useComponentTheme("input", v, s);
-  const input = useRef(null);
+  const input = useRef<HTMLInputElement | HTMLTextAreaElement>(null) as MutableRefObject<HTMLInputElement | HTMLTextAreaElement>;
 
   const [left, right, props] = useComplement(p, theme);
 
@@ -31,12 +35,12 @@ export const Input = anolisComponent<"input", InputProps, InputVariant, InputSiz
       {...theme}
       {...props}
       ref={ref as any}
-      // onClick={() => input.current && input.current.focus()}
+      {...input.current !== null && { onClick: () => input.current.focus() }}
     >
       <Complement {...theme._leftIcon} {...left} />
       {multiline
-        ? <x.textarea ref={input as any} placeholder={placeholder} />
-        : <x.input ref={input as any} placeholder={placeholder} />}
+        ? <x.textarea ref={input as any} placeholder={placeholder} {..._textarea} />
+        : <x.input ref={input as any} placeholder={placeholder} {..._input} />}
       <Complement {...theme._rightIcon} {...right} />
     </InputStyle>
   );
