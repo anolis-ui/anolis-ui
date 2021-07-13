@@ -1,4 +1,4 @@
-import styled, { breakpoints, css, createGlobalStyle } from "@xstyled/emotion";
+import styled, { breakpoints, css, createGlobalStyle, x } from "@xstyled/emotion";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { useMemo } from "react";
 import { anolisComponent } from "utils/anolisComponent";
@@ -50,7 +50,7 @@ const typoCss = (t: Keys, selector: string) =>
     ].flat());
   };
 
-const TypographyStyle = styled.divBox<TypographyStyleProps>`
+const TypographyStyle = styled(x.div)<TypographyStyleProps>`
   ${typoCss("_h1", "h1, ._anolis-as-h1")}
   ${typoCss("_h2", "h2, ._anolis-as-h2")}
   ${typoCss("_h3", "h3, ._anolis-as-h3")}

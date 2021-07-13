@@ -8,7 +8,7 @@ type AnolisComponent<J extends keyof JSX.IntrinsicElements, P, V extends keyof a
   StyledComponent<
   SystemProps<Record<string | number, unknown>> & AnolisComponentProps<V, S> & { as?: React.ElementType } & P,
   {},
-  JSX.IntrinsicElements[J]
+  Omit<JSX.IntrinsicElements[J], "color">
   >;
 
 export const anolisComponent = <

@@ -8,10 +8,6 @@ export interface ThemeWithAnolis extends DefaultTheme {
 
 export const defaultTheme = {
   ...xdefaultTheme,
-  screens: {
-    _: 0,
-    ...xdefaultTheme.screens
-  },
   colors: {
     ...xdefaultTheme.colors,
     "anolis-blue": "anolis-blue-600",

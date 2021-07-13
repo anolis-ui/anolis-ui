@@ -42,7 +42,7 @@ export const Input = anolisComponent<"input", InputProps, InputVariant, InputSiz
   );
 });
 
-const InputStyle = styled.divBox`
+const InputStyle = styled(x.div)`
   input, textarea {
     background: transparent;
     border: none;
