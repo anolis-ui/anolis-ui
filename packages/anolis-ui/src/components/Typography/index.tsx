@@ -59,7 +59,7 @@ const TypographyStyle = styled(x.div)<TypographyStyleProps>`
   ${typoCss("_h6", "h6, ._anolis-as-h6")}
 
 
-  ${typoCss("_p", "p, ._anolis-as-h1")}
+  ${typoCss("_p", "p, ._anolis-as-p")}
   ${typoCss("_lead", "._anolis-as-lead")}
 `;
 
@@ -72,6 +72,6 @@ const TypographyGlobalStyle = createGlobalStyle`
   ${typoCss("_h6", "h6, ._anolis-as-h6") as any}
 
 
-  ${typoCss("_p", "p, ._anolis-as-h1") as any}
+  ${typoCss("_p", "p, ._anolis-as-p") as any}
   ${typoCss("_lead", "._anolis-as-lead") as any}
 `;

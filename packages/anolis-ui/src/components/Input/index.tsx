@@ -35,12 +35,12 @@ export const Input = anolisComponent<"input", InputProps, InputVariant, InputSiz
       {...theme}
       {...props}
       ref={ref as any}
-      {...input.current !== null && { onClick: () => input.current.focus() }}
+      onClick={() => input.current.focus()}
     >
       <Complement {...theme._leftIcon} {...left} />
       {multiline
-        ? <x.textarea ref={input as any} placeholder={placeholder} {..._textarea} />
-        : <x.input ref={input as any} placeholder={placeholder} {..._input} />}
+        ? <x.textarea ref={input as MutableRefObject<HTMLTextAreaElement>} placeholder={placeholder} {..._textarea} />
+        : <x.input ref={input as MutableRefObject<HTMLInputElement>} placeholder={placeholder} {..._input} />}
       <Complement {...theme._rightIcon} {...right} />
     </InputStyle>
   );
