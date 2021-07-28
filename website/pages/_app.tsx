@@ -1,12 +1,13 @@
 import { AnolisProvider, Typography } from "anolis-ui";
 import { MDXProvider } from "@mdx-js/react";
 import { AppProps } from "next/app";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { theme } from "theme";
 import { xstyledTheme } from "theme/xstyled";
 import Ui from "components/Ui";
 import { CodeBlock } from "components/CodeBlock";
 import Head from "next/head";
+import TagManager from "react-gtm-module";
 
 const components = {
   code: CodeBlock
@@ -14,6 +15,10 @@ const components = {
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   const isMdx = (Component as any).isMDXComponent;
+
+  useEffect(() => {
+    TagManager.initialize({ gtmId: "G-GKVECKP0R8" });
+  }, []);
 
   return (
     <>
