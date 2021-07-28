@@ -1,7 +1,7 @@
 {
   "name": "@anolis/website",
   "private": "true",
-  "version": "0.0.4-alpha.9",
+  "version": "0.0.4-alpha.15",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {

@@ -8,7 +8,7 @@ import renderComponent, { Renderable } from "utils/renderComponent";
 import { anolisComponent } from "utils/anolisComponent";
 
 import { ModalContext, ModalInstanceContext } from "./data";
-import { ModalThemeProps } from "./theme";
+import { ModalThemeProps, ModalSize } from "./theme";
 
 export * from "./theme";
 export * from "./data";
@@ -21,7 +21,7 @@ export interface ModalProps extends Omit<ModalThemeProps, "title"> {
   onClose?: () => unknown;
 }
 
-export const Modal = anolisComponent<"div", ModalProps>("div", ({
+export const Modal = anolisComponent<"div", ModalProps, never, ModalSize>("div", ({
   children,
   onClose,
   persistent,
