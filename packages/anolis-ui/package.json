@@ -39,6 +39,7 @@
     "@emotion-icons/feather": "^3.0.0",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
+    "@reach/menu-button": "^0.15.3",
     "@reach/portal": "^0.15.0",
     "@xstyled/emotion": "^3.0.0",
     "hoist-non-react-statics": "^3.3.2",

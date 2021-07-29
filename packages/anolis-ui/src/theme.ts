@@ -10,6 +10,7 @@ import { listTheme, ListTheme } from "components/List";
 import { textLinkTheme, TextLinkTheme } from "components/TextLink";
 import { labelTheme, LabelTheme } from "components/Label";
 import { inputTheme, InputTheme } from "components/Input";
+import { dropMenuTheme, DropMenuTheme } from "components/DropMenu";
 
 export type AnolisTheme = {
   card: CardTheme;
@@ -23,6 +24,7 @@ export type AnolisTheme = {
   textLink: TextLinkTheme;
   label: LabelTheme;
   input: InputTheme;
+  dropMenu: DropMenuTheme;
 };
 
 export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
@@ -37,6 +39,7 @@ export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
   ...textLinkTheme(),
   ...labelTheme(),
   ...inputTheme(),
+  ...dropMenuTheme(),
   ...theme
 });
 

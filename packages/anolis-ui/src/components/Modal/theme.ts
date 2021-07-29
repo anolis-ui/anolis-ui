@@ -1,5 +1,4 @@
 import { ControlThemeProps } from "components/Control";
-import { TypographyThemeProps } from "components/Typography";
 import { PseudoProp } from "utils/PseudoProp";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 
