@@ -62,6 +62,11 @@ export const defaultTheme = {
     "8xl": "6rem",
     "9xl": "8rem"
   },
+  states: {
+    ...xdefaultTheme.states,
+    groupHover: "[data-group]:hover &",
+    marker: "&::marker"
+  },
   // screens: {
   // xxs: "22.5em",
   // xs: "30em",

@@ -35,6 +35,8 @@ export const DropMenuButton = anolisComponent<"div", DropMenuButtonProps>("div",
 
 const ButtonStyle = styled(x.div)`
   & > button {
+    padding: 0;
+
     &:focus {
       outline: none
     }

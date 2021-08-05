@@ -33,9 +33,9 @@ export const Input = anolisComponent<"input", InputProps, InputVariant, InputSiz
   return (
     <InputStyle
       {...theme}
-      {...props}
       ref={ref as any}
       onClick={() => input.current.focus()}
+      {...props}
     >
       <Complement {...theme._leftIcon} {...left} />
       {multiline

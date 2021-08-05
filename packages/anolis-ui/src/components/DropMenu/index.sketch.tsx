@@ -19,7 +19,7 @@ const Normal: FC = sketch(() => {
               </DropMenuButton>
 
               <DropMenuList>
-                <DropMenuItem>
+                <DropMenuItem onSelect={() => console.log("aa")}>
                   aaa
                 </DropMenuItem>
               </DropMenuList>
@@ -33,7 +33,7 @@ const Normal: FC = sketch(() => {
               <DropMenuButton customButton={<div>{isExpanded ? "custom expanded" : "left closed"}</div>} />
 
               <DropMenuList position="right">
-                <DropMenuItem>
+                <DropMenuItem onSelect={() => console.log("selected")}>
                   aaa
                 </DropMenuItem>
               </DropMenuList>
@@ -47,7 +47,7 @@ const Normal: FC = sketch(() => {
               <DropMenuButton customButton={<div>{isExpanded ? "custom expanded" : "exact width closed"}</div>} />
 
               <DropMenuList position="exactWidth">
-                <DropMenuItem>
+                <DropMenuItem onSelect={() => console.log("selected")}>
                   aaa
                 </DropMenuItem>
               </DropMenuList>
