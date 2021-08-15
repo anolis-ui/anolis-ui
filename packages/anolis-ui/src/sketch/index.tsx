@@ -2,6 +2,7 @@ import { graphql, useStaticQuery, Link } from "gatsby";
 import { ComponentType, FC } from "react";
 import { ThemeProvider, x } from "@xstyled/emotion";
 import { defaultTheme } from "../defaultTheme";
+import SketchLayout from "./SketchLayout";
 
 const Ui: FC = ({ children }) => {
   const { pages } = useStaticQuery<{pages: { nodes: {path: string}[]}}>(graphql`{ pages: allSitePage { nodes { path } } }`);
@@ -35,3 +36,13 @@ export const sketch = <T extends {}>(C: ComponentType<T>) => {
 
   return Sketch;
 };
+
+const SketchHomepage = sketch(() => {
+  return (
+    <SketchLayout title="Homepage">
+      Homepage
+    </SketchLayout>
+  );
+});
+
+export default SketchHomepage;

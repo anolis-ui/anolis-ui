@@ -1,6 +1,6 @@
 import { x } from "@xstyled/emotion";
-import React, { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import { FC } from "react";
+import SketchLayout from "sketch/SketchLayout";
 import { DropMenu } from ".";
 import { sketch } from "sketch/index";
 import { DropMenuButton } from "components/DropMenu/DropdownMenuButton";
@@ -9,7 +9,7 @@ import { DropMenuList } from "components/DropMenu/DropdownMenuList";
 
 const Normal: FC = sketch(() => {
   return (
-    <StoryLayout title="Card">
+    <SketchLayout title="Card">
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">
         <DropMenu>
           {({ isExpanded }: { isExpanded: boolean }) => (
@@ -55,7 +55,7 @@ const Normal: FC = sketch(() => {
           )}
         </DropMenu>
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 });
 

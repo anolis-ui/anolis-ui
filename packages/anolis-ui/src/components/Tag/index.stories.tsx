@@ -1,6 +1,6 @@
 import { defaultTheme, x } from "@xstyled/emotion";
 import { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import SketchLayout from "sketch/SketchLayout";
 
 import { Tag } from ".";
 
@@ -20,7 +20,7 @@ const DownIcon = (
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout title="Tag">
+    <SketchLayout title="Tag">
       <x.div display="flex" spaceX="2">
         <Tag>Tag</Tag>
 
@@ -32,6 +32,6 @@ export const Normal: FC = () => {
           Tag with both left and right icon
         </Tag>
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 };

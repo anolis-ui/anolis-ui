@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import SketchLayout from "sketch/SketchLayout";
 
 import { Modal, useModal } from ".";
 
@@ -9,19 +9,19 @@ export default {
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout title="Modal">
+    <SketchLayout title="Modal">
       <Modal title="Modal title">
         Text text text
       </Modal>
-    </StoryLayout>
+    </SketchLayout>
   );
 };
 
 export const WithModalContext: FC = () => {
   return (
-    <StoryLayout>
+    <SketchLayout>
       <InnerWithModalContext />
-    </StoryLayout>
+    </SketchLayout>
   );
 };
 

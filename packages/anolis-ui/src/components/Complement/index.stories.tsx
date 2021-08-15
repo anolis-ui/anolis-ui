@@ -1,6 +1,6 @@
 import { x } from "@xstyled/emotion";
 import { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import SketchLayout from "sketch/SketchLayout";
 
 export default {
   title: "Internal/Complement"
@@ -8,10 +8,10 @@ export default {
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout>
+    <SketchLayout>
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">
         Empty
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 };

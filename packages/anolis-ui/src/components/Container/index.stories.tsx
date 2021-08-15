@@ -1,6 +1,6 @@
 import { defaultTheme, x } from "@xstyled/emotion";
-import React, { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import { FC } from "react";
+import SketchLayout from "sketch/SketchLayout";
 import { Container } from "components/Container/index";
 
 export default {
@@ -13,24 +13,24 @@ const theme = {
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout title="Container">
+    <SketchLayout title="Container">
       <x.div display="flex" spaceX="2" alignItems="center">
         <Container>
           <x.div w="100%" h="10rem" bg="primary" />
         </Container>
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 };
 
 export const Fluid: FC = () => {
   return (
-    <StoryLayout title="Container">
+    <SketchLayout title="Container">
       <x.div display="flex" spaceX="2" alignItems="center">
         <Container v="fluid">
           <x.div w="100%" h="10rem" bg="primary" />
         </Container>
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 };

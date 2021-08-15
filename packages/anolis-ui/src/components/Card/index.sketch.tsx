@@ -1,12 +1,12 @@
 import { x } from "@xstyled/emotion";
 import React, { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import SketchLayout from "sketch/SketchLayout";
 import { Card } from ".";
 import { sketch } from "sketch/index";
 
 const Normal: FC = sketch(() => {
   return (
-    <StoryLayout title="Card">
+    <SketchLayout title="Card">
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">
         <Card
           title="Card title"
@@ -35,7 +35,7 @@ const Normal: FC = sketch(() => {
           body={<LoremIpsum units="sentences" />}
         />
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 });
 

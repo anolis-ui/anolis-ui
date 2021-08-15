@@ -1,6 +1,6 @@
 import { defaultTheme, x } from "@xstyled/emotion";
 import { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import SketchLayout from "sketch/SketchLayout";
 import { Input } from ".";
 
 export default {
@@ -19,7 +19,7 @@ const DownIcon = (
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout title="Input">
+    <SketchLayout title="Input">
       Sizes
 
       <x.div display="flex" spaceX="2" alignItems="center">
@@ -101,6 +101,6 @@ export const Normal: FC = () => {
         />
       </x.div>
 
-    </StoryLayout>
+    </SketchLayout>
   );
 };

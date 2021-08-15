@@ -1,6 +1,6 @@
 import { defaultTheme, x } from "@xstyled/emotion";
 import { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import SketchLayout from "sketch/SketchLayout";
 
 export default {
   title: "Themed/Label"
@@ -12,9 +12,9 @@ const theme = {
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout title="Label">
+    <SketchLayout title="Label">
       <x.div display="flex" spaceX="2" alignItems="center">
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 };

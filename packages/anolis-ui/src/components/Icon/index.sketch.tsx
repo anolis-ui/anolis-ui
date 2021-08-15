@@ -1,6 +1,6 @@
 import { x } from "@xstyled/emotion";
-import React, { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import { FC } from "react";
+import SketchLayout from "sketch/SketchLayout";
 import { Icon } from ".";
 import { sketch } from "sketch/index";
 
@@ -12,7 +12,7 @@ const DownIcon = (
 
 const Normal: FC = sketch(() => {
   return (
-    <StoryLayout title="Icon">
+    <SketchLayout title="Icon">
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">
         <Icon svg={DownIcon} />
 
@@ -21,7 +21,7 @@ const Normal: FC = sketch(() => {
 
         <Icon svg={DownIcon} mt="1rem" />
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 });
 

@@ -1,6 +1,6 @@
 import { defaultTheme, x } from "@xstyled/emotion";
 import { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import SketchLayout from "sketch/SketchLayout";
 import { List } from "components/List";
 import { ListItem } from "components/List/ListItem";
 
@@ -14,7 +14,7 @@ const theme = {
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout title="List">
+    <SketchLayout title="List">
       <x.div display="flex" flexDirection="column" spaceY="2">
 
         <List v="ordered" listStylePosition="inside" bg="red">
@@ -59,6 +59,6 @@ export const Normal: FC = () => {
           </ListItem>
         </List>
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 };

@@ -1,6 +1,7 @@
 import { x } from "@xstyled/emotion";
 import React, { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import SketchLayout from "sketch/SketchLayout";
+
 import { Card } from ".";
 
 export default {
@@ -9,7 +10,7 @@ export default {
 
 export const Normal: FC = () => {
   return (
-    <StoryLayout title="Card">
+    <SketchLayout title="Card">
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">
         <Card
           title="Card title"
@@ -38,7 +39,7 @@ export const Normal: FC = () => {
           body={<LoremIpsum units="sentences" />}
         />
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 };
 

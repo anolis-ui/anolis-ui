@@ -25,14 +25,12 @@
   ],
   "scripts": {
     "build": "yarn ttsc -p ./tsconfig.json && yarn rollup -c",
-    "dev": "yarn rollup -c -w",
+    "dev": "gatsby develop",
     "prepare": "yarn rollup -c",
     "storybook": "gatsby develop",
-    "storybook-ci": "start-storybook --ci --smoke-test",
     "ts-check": "yarn tsc --noEmit",
     "lint": "eslint \"{src,stories}/**/*.{ts,tsx}\"",
-    "ci": "yarn lint && yarn build && yarn test && yarn storybook-ci",
-    "build-storybook": "build-storybook"
+    "ci": "yarn lint && yarn build && yarn test && yarn storybook-ci"
   },
   "dependencies": {
     "@babel/runtime": "^7.13.7",

@@ -1,13 +1,13 @@
 import { x } from "@xstyled/emotion";
 import { FC } from "react";
 import { sketch } from "sketch";
-import StoryLayout from "stories/StoryLayout";
-import { Typography } from ".";
+import SketchLayout from "sketch/SketchLayout";
+
 import { Txt } from "./Txt";
 
 const Normal: FC = sketch(() => {
   return (
-    <StoryLayout title="Typography">
+    <SketchLayout title="Typography">
       <x.div spaceY="5">
         <x.h1>Test</x.h1>
 
@@ -23,7 +23,7 @@ const Normal: FC = sketch(() => {
 
         <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Simple links for Next.js</a>
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 });
 

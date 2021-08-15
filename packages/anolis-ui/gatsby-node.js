@@ -16,3 +16,10 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
     }
   });
 };
+
+exports.createPages = ({ actions: { createPage } }) => {
+  createPage({
+    path: "/",
+    component: path.resolve("src/sketch/index.tsx")
+  });
+};

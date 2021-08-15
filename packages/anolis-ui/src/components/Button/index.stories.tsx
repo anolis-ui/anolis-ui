@@ -1,7 +1,7 @@
 import { Menu } from "@emotion-icons/feather";
 import { defaultTheme, x } from "@xstyled/emotion";
 import { FC } from "react";
-import StoryLayout from "stories/StoryLayout";
+import SketchLayout from "sketch/SketchLayout";
 
 import { Button } from ".";
 
@@ -15,7 +15,7 @@ const theme = {
 
 export const Variants: FC = () => {
   return (
-    <StoryLayout title="Button">
+    <SketchLayout title="Button">
       <x.div display="flex" spaceX="2" alignItems="center" flexWrap="wrap">
         <Button v="solid">Solid button</Button>
 
@@ -29,13 +29,13 @@ export const Variants: FC = () => {
 
         <Button _rightIcon={{ bg: "red", ml: "4" }} rightIcon={<Menu size={24} />}>Solid button</Button>
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 };
 
 export const Sizes: FC = () => {
   return (
-    <StoryLayout title="Button">
+    <SketchLayout title="Button">
       <x.div display="flex" spaceX="2" alignItems="center">
         <Button s="xs">XS Button</Button>
 
@@ -45,6 +45,6 @@ export const Sizes: FC = () => {
 
         <Button s="lg">LG Button</Button>
       </x.div>
-    </StoryLayout>
+    </SketchLayout>
   );
 };
