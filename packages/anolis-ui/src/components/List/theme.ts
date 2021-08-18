@@ -1,14 +1,13 @@
+import { ComplementProps, SideComplementProps } from "components/Complement";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { ComplementThemeProps } from "components/Complement";
-import { PseudoProp } from "utils/PseudoProp";
-import { SideComplementThemeProps } from "../Complement/index";
+import { TripletProp } from "utils/TripletProps";
 
 export type ListVariant = "ordered" | "unordered";
 
-export interface ListThemeProps extends ComplementThemeProps, PseudoProp {
-  _bullet?: any;
-  _item?: SideComplementThemeProps & PseudoProp;
-}
+export type ListThemeProps =
+  & ComplementProps
+  & TripletProp<"bullet", { content: any }>
+  & TripletProp<"item", SideComplementProps>;
 
 export type ListTheme = ComponentTheme<ListThemeProps, ListVariant>;
 

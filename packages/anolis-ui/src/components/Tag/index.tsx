@@ -3,11 +3,11 @@ import Complement, { useComplement, ComplementProps } from "components/Complemen
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { anolisComponent } from "utils/anolisComponent";
 
-import { TagVariant } from "./theme";
+import { TagVariant, TagThemeProps } from "./theme";
 
 export * from "./theme";
 
-export type TagProps = ComplementProps;
+export type TagProps = TagThemeProps;
 
 export const Tag = anolisComponent<"div", TagProps, TagVariant>("div", ({ children, v, ...p }, ref) => {
   const theme = useComponentTheme("tag", v);

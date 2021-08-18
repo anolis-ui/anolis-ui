@@ -9,9 +9,7 @@ import { ControlSizes, ControlThemeProps } from "./theme";
 export * from "./theme";
 export * from "./CloseControl";
 
-export interface ControlProps extends ControlThemeProps {
-  icon?: Renderable;
-}
+export type ControlProps = ControlThemeProps;
 
 export const Control = anolisComponent<"div", ControlProps, never, ControlSizes>("div", ({ s, _icon, icon, ...props }, ref) => {
   const theme = useComponentTheme("control", undefined, s);

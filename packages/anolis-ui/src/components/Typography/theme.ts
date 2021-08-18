@@ -1,19 +1,18 @@
-import { PseudoProp } from "utils/PseudoProp";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
+import { TripletProp } from "utils/TripletProps";
 
 export type TypographyVariant = "prose";
 export type TypographySize = never;
 
-export interface TypographyThemeProps extends PseudoProp {
-  _h1?: PseudoProp;
-  _h2?: PseudoProp;
-  _h3?: PseudoProp;
-  _h4?: PseudoProp;
-  _h5?: PseudoProp;
-  _h6?: PseudoProp;
-  _p?: PseudoProp;
-  _lead?: PseudoProp;
-}
+export type TypographyThemeProps =
+  & TripletProp<"h1">
+  & TripletProp<"h2">
+  & TripletProp<"h3">
+  & TripletProp<"h4">
+  & TripletProp<"h5">
+  & TripletProp<"h6">
+  & TripletProp<"p">
+  & TripletProp<"lead">;
 
 export type TypographyTheme = ComponentTheme<TypographyThemeProps, TypographyVariant, TypographySize>;
 

@@ -1,16 +1,15 @@
-import { PseudoProp } from "utils/PseudoProp";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
+import { TripletProp } from "utils/TripletProps";
 
 export type CardVariant = "elevated" | "outlined";
 
-export interface CardThemeProps extends PseudoProp {
-  _header?: PseudoProp;
-  _title?: PseudoProp;
-  _tag?: PseudoProp;
-  _media?: PseudoProp;
-  _body?: PseudoProp;
-  _footer?: PseudoProp;
-}
+export type CardThemeProps =
+  & TripletProp<"header">
+  & TripletProp<"title">
+  & TripletProp<"tag">
+  & TripletProp<"media">
+  & TripletProp<"body">
+  & TripletProp<"footer">;
 
 export type CardTheme = ComponentTheme<CardThemeProps, CardVariant>;
 
@@ -21,7 +20,6 @@ export const cardTheme = (c?: PartialComponentTheme<CardTheme>): { card: CardThe
 const emptyCard: CardTheme = {
   baseStyle: {
     display: "flex",
-    role: "group",
     w: "100%",
     position: "relative",
     flexDirection: "column",

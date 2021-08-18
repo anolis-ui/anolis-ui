@@ -1,15 +1,13 @@
-import styled, { breakpoints, css, createGlobalStyle, x } from "@xstyled/emotion";
+import styled, { breakpoints, createGlobalStyle, x, SystemProps } from "@xstyled/emotion";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { useMemo } from "react";
 import { anolisComponent } from "utils/anolisComponent";
-import { PseudoProp } from "utils/PseudoProp";
 
 import { TypographyThemeProps, TypographyVariant } from "./theme";
 import { separateObjValues, groupByBreakpoint, wrapObjsWithSelector } from "./utils";
 
 export * from "./theme";
 
-interface TypographyProps extends TypographyThemeProps {
+export interface TypographyProps extends TypographyThemeProps {
   topLevel?: boolean;
 }
 
@@ -31,11 +29,11 @@ export const Typography = anolisComponent<"div", TypographyProps, TypographyVari
   ;
 });
 
-interface TypographyStyleProps extends Partial<Record<Keys, PseudoProp>> {
-  _theme: TypographyThemeProps;
-}
+type Keys = keyof TypographyProps & `_${string}`;
 
-type Keys = Exclude<keyof TypographyThemeProps, keyof PseudoProp>;
+type TypographyStyleProps =
+  & { [K in Keys]?: SystemProps }
+  & { _theme: TypographyThemeProps };
 
 const typoCss = (t: Keys, selector: string) =>
   (p: TypographyStyleProps) => {

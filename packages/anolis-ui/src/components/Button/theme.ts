@@ -1,12 +1,11 @@
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { ComplementThemeProps } from "components/Complement";
-import { PseudoProp } from "utils/PseudoProp";
+import { ComplementProps } from "components/Complement";
 
 export type ButtonVariant = "solid" | "clear" | "outline" | "link";
 export type ButtonSize = "xs" | "sm" | "md" | "lg";
 
-export interface ButtonThemeProps extends ComplementThemeProps, PseudoProp {
-}
+export type ButtonThemeProps =
+  & ComplementProps;
 
 export type ButtonTheme = ComponentTheme<ButtonThemeProps, ButtonVariant, ButtonSize>;
 

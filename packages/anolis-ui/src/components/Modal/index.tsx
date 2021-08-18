@@ -13,10 +13,8 @@ import { ModalThemeProps, ModalSize } from "./theme";
 export * from "./theme";
 export * from "./data";
 
-export interface ModalProps extends Omit<ModalThemeProps, "title"> {
-  title?: Renderable;
-  header?: Renderable;
-
+export interface ModalProps extends ModalThemeProps {
+  /** If true, modal won't close when user clicks outside of the modal */
   persistent?: boolean;
   onClose?: () => unknown;
 }

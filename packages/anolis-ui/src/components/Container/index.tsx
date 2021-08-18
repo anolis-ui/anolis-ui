@@ -1,11 +1,11 @@
 import { x } from "@xstyled/emotion";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { anolisComponent } from "utils/anolisComponent";
-import { ContainerVariant } from "./theme";
+import { ContainerVariant, ContainerThemeProps } from "./theme";
 
 export * from "./theme";
 
-export type ContainerProps = {};
+export type ContainerProps = ContainerThemeProps;
 
 export const Container = anolisComponent<"div", ContainerProps, ContainerVariant>("div", (
   { children, v, s, ...p }, ref) => {

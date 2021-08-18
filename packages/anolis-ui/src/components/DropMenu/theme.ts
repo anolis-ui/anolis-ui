@@ -1,13 +1,13 @@
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { ComplementThemeProps } from "components/Complement";
-import { PseudoProp } from "utils/PseudoProp";
-import { ButtonProps } from "components/Button";
+import { ComplementProps } from "components/Complement";
+import { ButtonThemeProps } from "components/Button";
+import { TripletProp } from "../../utils/TripletProps";
 
-export interface DropMenuThemeProps extends ComplementThemeProps, PseudoProp {
-  _button: ButtonProps;
-  _item: ComplementThemeProps & PseudoProp;
-  _list: ComplementThemeProps & PseudoProp;
-}
+export type DropMenuThemeProps =
+  & ComplementProps
+  & TripletProp<"button", ButtonThemeProps>
+  & TripletProp<"item", ComplementProps>
+  & TripletProp<"list", ComplementProps>;
 
 export type DropMenuTheme = ComponentTheme<DropMenuThemeProps>;
 

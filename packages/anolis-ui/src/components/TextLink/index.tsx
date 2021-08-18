@@ -3,10 +3,11 @@ import Complement, { useComplement, ComplementProps } from "components/Complemen
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { anolisComponent } from "utils/anolisComponent";
 import { TextLinkVariant } from "components/TextLink/theme";
+import { TextLinkThemeProps } from "./theme";
 
 export * from "./theme";
 
-export type TextLinkProps = ComplementProps;
+export type TextLinkProps = TextLinkThemeProps;
 
 export const TextLink = anolisComponent<"a", TextLinkProps, TextLinkVariant>("a", (
   { children, v, ...p }, ref) => {

@@ -1,22 +1,29 @@
 import { merge } from "./merge";
-import { PseudoProp } from "./PseudoProp";
+import { SystemProps } from "@xstyled/emotion";
+import { DOMAttributes, HTMLAttributes } from "react";
 
-export interface ComponentTheme<P extends PseudoProp<keyof JSX.IntrinsicElements> = PseudoProp, V extends keyof any = never, S extends keyof any = never> {
-  baseStyle: P;
-  sizes: Record<S, P>;
-  variants: Record<V, P>;
+export interface ComponentTheme<
+  Props extends object = {},
+  Variant extends keyof any = never,
+  Size extends keyof any = never
+> {
+  baseStyle: ThemeComponentProps<Props>;
+  sizes: Record<Size, ThemeComponentProps<Props>>;
+  variants: Record<Variant, ThemeComponentProps<Props>>;
   defaultProps: {
-    s?: S;
-    v?: V;
+    s?: Size;
+    v?: Variant;
   };
 }
+
+type ThemeComponentProps<P extends object> = SystemProps & P & Omit<HTMLAttributes<{}>, keyof DOMAttributes<{}>>;
 
 export type PartialComponentTheme<T extends ComponentTheme<any, any, any>> = Omit<Partial<T>, "sizes" | "variants"> & {
   sizes?: Partial<T["sizes"]>;
   variants?: Partial<T["variants"]>;
 };
 
-export type AnolisComponentProps<V extends keyof any = never, S extends keyof any = never> = {
+export type SizeVariantProps<V extends keyof any = never, S extends keyof any = never> = {
   s?: S;
   v?: V;
 };

@@ -1,11 +1,9 @@
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { ComplementThemeProps } from "components/Complement";
-import { PseudoProp } from "utils/PseudoProp";
+import { ComplementProps } from "components/Complement";
 
 export type TextLinkVariant = "normal" | "underlined";
 
-export interface TextLinkThemeProps extends ComplementThemeProps, PseudoProp {
-}
+export type TextLinkThemeProps = ComplementProps;
 
 export type TextLinkTheme = ComponentTheme<TextLinkThemeProps, TextLinkVariant>;
 

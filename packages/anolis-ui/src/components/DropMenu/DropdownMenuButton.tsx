@@ -11,7 +11,7 @@ export interface DropMenuButtonProps extends ButtonProps {
   customButton?: ReactNode;
 }
 
-export const DropMenuButton = anolisComponent<"div", DropMenuButtonProps>("div", (
+export const DropMenuButton = anolisComponent<"button", DropMenuButtonProps>("button", (
   {
     children,
     v,

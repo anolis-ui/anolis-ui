@@ -1,15 +1,14 @@
 import { ControlThemeProps } from "components/Control";
-import { PseudoProp } from "utils/PseudoProp";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
+import { TripletProp } from "utils/TripletProps";
 
 export type ModalSize = "sm" | "md" | "lg" | "full";
 
-export interface ModalThemeProps extends PseudoProp {
-  _title?: PseudoProp;
-  _header?: PseudoProp;
-  _close?: ControlThemeProps;
-  _overlay?: PseudoProp;
-}
+export type ModalThemeProps =
+  & TripletProp<"title">
+  & TripletProp<"header">
+  & TripletProp<"close", ControlThemeProps>
+  & TripletProp<"overlay">;
 
 export type ModalTheme = ComponentTheme<ModalThemeProps, never, ModalSize>;
 

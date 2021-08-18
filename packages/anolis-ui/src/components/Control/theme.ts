@@ -1,11 +1,11 @@
-import { PseudoProp } from "utils/PseudoProp";
+import { IconProps } from "components/Icon";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
+import { TripletProp } from "../../utils/TripletProps";
 
 export type ControlSizes = "xs" | "sm" | "md" | "lg";
 
-export interface ControlThemeProps extends PseudoProp {
-  _icon?: PseudoProp;
-}
+export type ControlThemeProps =
+  & TripletProp<"icon">;
 
 export type ControlTheme = ComponentTheme<ControlThemeProps, never, ControlSizes>;
 
