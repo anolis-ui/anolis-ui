@@ -16,7 +16,7 @@ export interface ComponentTheme<
   };
 }
 
-type ThemeComponentProps<P extends object> = SystemProps & P & Omit<HTMLAttributes<{}>, keyof DOMAttributes<{}>>;
+type ThemeComponentProps<P extends object> = SystemProps & P & Omit<HTMLAttributes<{}>, keyof DOMAttributes<{}> | "color">;
 
 export type PartialComponentTheme<T extends ComponentTheme<any, any, any>> = Omit<Partial<T>, "sizes" | "variants"> & {
   sizes?: Partial<T["sizes"]>;
