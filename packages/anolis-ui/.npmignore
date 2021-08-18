@@ -1,12 +1,11 @@
-.storybook
-# lib
+.cache
+# dist
 logo
 # node_modules
+public
 # src
-stories
-tests
 
-babelrc.config.js
+babel.config.js
 jest.config.json
 # LICENSE
 # package.json
