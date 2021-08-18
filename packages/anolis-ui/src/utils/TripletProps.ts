@@ -9,4 +9,4 @@ export type TripletProp<T extends string, P extends {} = {}> =
 
 export type AnolisThemeProps =
   & SystemProps
-  & Omit<HTMLAttributes<{}>, keyof DOMAttributes<{}>>;
+  & Omit<HTMLAttributes<{}>, keyof DOMAttributes<{}> | "color">;
