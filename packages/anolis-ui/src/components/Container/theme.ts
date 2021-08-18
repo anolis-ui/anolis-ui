@@ -1,11 +1,9 @@
+import { ComplementProps } from "components/Complement";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { ComplementThemeProps } from "components/Complement";
-import { PseudoProp } from "utils/PseudoProp";
 
 export type ContainerVariant = "normal" | "fluid";
 
-export interface ContainerThemeProps extends ComplementThemeProps, PseudoProp {
-}
+export type ContainerThemeProps = ComplementProps;
 
 export type ContainerTheme = ComponentTheme<ContainerThemeProps, ContainerVariant>;
 

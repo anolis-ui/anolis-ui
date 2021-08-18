@@ -1,12 +1,7 @@
 import { x } from "@xstyled/emotion";
-import { FC } from "react";
-import SketchLayout from "sketch/SketchLayout";
+import { sketch, SketchLayout } from "sketch";
 
-export default {
-  title: "Internal/Complement"
-};
-
-export const Normal: FC = () => {
+const Normal = sketch(() => {
   return (
     <SketchLayout>
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">
@@ -14,4 +9,6 @@ export const Normal: FC = () => {
       </x.div>
     </SketchLayout>
   );
-};
+});
+
+export default Normal;

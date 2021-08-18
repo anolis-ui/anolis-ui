@@ -1,15 +1,14 @@
 import { x } from "@xstyled/emotion";
-import { useComplement } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
-import { ListVariant } from "./theme";
+import { ListVariant, ListThemeProps } from "./theme";
 
 export * from "./theme";
 
-export type ListProps = {};
+export type ListProps = AnolisComponentProps<"ul", ListThemeProps, ListVariant>;
 
-export const List = anolisComponent<"ul", ListProps, ListVariant>("ul", (
+export const List = anolisComponent<"ul", ListProps>("ul", (
   { children, v, ...p }, ref) => {
   const theme = useComponentTheme("list", v);
 

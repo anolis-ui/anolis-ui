@@ -1,17 +1,8 @@
-import { defaultTheme, x } from "@xstyled/emotion";
-import { FC } from "react";
-import SketchLayout from "sketch/SketchLayout";
-import { Container } from "components/Container/index";
+import { x } from "@xstyled/emotion";
+import { Container } from "components/Container";
+import { sketch, SketchLayout } from "sketch";
 
-export default {
-  title: "Themed/Container"
-};
-
-const theme = {
-  ...defaultTheme
-};
-
-export const Normal: FC = () => {
+const Normal = sketch(() => {
   return (
     <SketchLayout title="Container">
       <x.div display="flex" spaceX="2" alignItems="center">
@@ -19,13 +10,6 @@ export const Normal: FC = () => {
           <x.div w="100%" h="10rem" bg="primary" />
         </Container>
       </x.div>
-    </SketchLayout>
-  );
-};
-
-export const Fluid: FC = () => {
-  return (
-    <SketchLayout title="Container">
       <x.div display="flex" spaceX="2" alignItems="center">
         <Container v="fluid">
           <x.div w="100%" h="10rem" bg="primary" />
@@ -33,4 +17,6 @@ export const Fluid: FC = () => {
       </x.div>
     </SketchLayout>
   );
-};
+});
+
+export default Normal;

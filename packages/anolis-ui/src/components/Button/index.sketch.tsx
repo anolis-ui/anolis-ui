@@ -1,11 +1,10 @@
 import { Menu } from "@emotion-icons/feather";
-import { defaultTheme, x } from "@xstyled/emotion";
-import { FC } from "react";
-import SketchLayout from "sketch/SketchLayout";
-import { Button } from "./index";
-import { sketch } from "sketch/index";
+import { x } from "@xstyled/emotion";
+import { sketch, SketchLayout } from "sketch";
 
-const Variants: FC = sketch(() => {
+import { Button } from ".";
+
+const Variants = sketch(() => {
   return (
     <SketchLayout title="Button">
       <x.div display="flex" spaceX="2" alignItems="center" flexWrap="wrap">
@@ -20,6 +19,16 @@ const Variants: FC = sketch(() => {
         <Button disabled>Disabled Button</Button>
 
         <Button _rightIcon={{ bg: "red", ml: "4" }} rightIcon={<Menu size={24} />}>Solid button</Button>
+      </x.div>
+
+      <x.div display="flex" spaceX="2" alignItems="center">
+        <Button s="xs">XS Button</Button>
+
+        <Button s="sm">SM Button</Button>
+
+        <Button s="md">MD Button</Button>
+
+        <Button s="lg">LG Button</Button>
       </x.div>
     </SketchLayout>
   );

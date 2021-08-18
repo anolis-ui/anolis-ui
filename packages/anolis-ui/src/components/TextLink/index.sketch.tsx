@@ -1,18 +1,9 @@
 import { defaultTheme, x } from "@xstyled/emotion";
-import { FC } from "react";
-import SketchLayout from "sketch/SketchLayout";
+import { sketch, SketchLayout } from "sketch";
 
 import { TextLink } from ".";
 
-export default {
-  title: "Themed/TextLink"
-};
-
-const theme = {
-  ...defaultTheme
-};
-
-export const Normal: FC = () => {
+const Normal = sketch(() => {
   return (
     <SketchLayout title="Link">
       <x.div display="flex" spaceX="2" alignItems="center">
@@ -26,4 +17,6 @@ export const Normal: FC = () => {
       </x.div>
     </SketchLayout>
   );
-};
+});
+
+export default Normal;

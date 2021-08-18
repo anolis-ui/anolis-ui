@@ -1,18 +1,9 @@
-import { defaultTheme, x } from "@xstyled/emotion";
-import { FC } from "react";
-import SketchLayout from "sketch/SketchLayout";
+import { x } from "@xstyled/emotion";
 import { List } from "components/List";
 import { ListItem } from "components/List/ListItem";
+import { sketch, SketchLayout } from "sketch";
 
-export default {
-  title: "Themed/List"
-};
-
-const theme = {
-  ...defaultTheme
-};
-
-export const Normal: FC = () => {
+const Normal = sketch(() => {
   return (
     <SketchLayout title="List">
       <x.div display="flex" flexDirection="column" spaceY="2">
@@ -61,4 +52,6 @@ export const Normal: FC = () => {
       </x.div>
     </SketchLayout>
   );
-};
+});
+
+export default Normal;

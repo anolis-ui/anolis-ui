@@ -1,9 +1,7 @@
+import { ComplementProps } from "components/Complement";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { ComplementThemeProps } from "components/Complement";
-import { PseudoProp } from "utils/PseudoProp";
 
-export interface LabelThemeProps extends ComplementThemeProps, PseudoProp {
-}
+export type LabelThemeProps = ComplementProps;
 
 export type LabelTheme = ComponentTheme<LabelThemeProps>;
 

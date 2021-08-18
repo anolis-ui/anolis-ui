@@ -1,14 +1,15 @@
 import { x } from "@xstyled/emotion";
 import Complement, { useComplement, ComplementProps } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { TextLinkVariant } from "components/TextLink/theme";
+import { TextLinkThemeProps } from "./theme";
 
 export * from "./theme";
 
-export type TextLinkProps = ComplementProps;
+export type TextLinkProps = AnolisComponentProps<"a", TextLinkThemeProps, TextLinkVariant>;
 
-export const TextLink = anolisComponent<"a", TextLinkProps, TextLinkVariant>("a", (
+export const TextLink = anolisComponent<"a", TextLinkProps>("a", (
   { children, v, ...p }, ref) => {
   const theme = useComponentTheme("textLink", v);
 

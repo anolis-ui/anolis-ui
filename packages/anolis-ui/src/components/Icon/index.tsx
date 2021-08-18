@@ -1,15 +1,15 @@
-import styled, { SystemProps } from "@xstyled/emotion";
+import styled, { x } from "@xstyled/emotion";
+import { system } from "@xstyled/system";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import renderComponent, { Renderable } from "utils/renderComponent";
-import { anolisComponent } from "utils/anolisComponent";
-import { system } from '@xstyled/system';
 
-export type IconProps = {
+export type IconProps = AnolisComponentProps<"span", {
   svg?: Renderable;
   fill?: string;
   fillHover?: string;
   stroke?: string;
   strokeHover?: string;
-} & SystemProps;
+}>;
 
 export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fillHover, stroke, strokeHover, children, ...props }, ref) => {
   return (
@@ -22,7 +22,7 @@ export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fil
       fillHover={fillHover}
       stroke={stroke}
       strokeHover={strokeHover}
-      {...props as any}
+      {...props}
     >
       {renderComponent(svg)}
       {children}
@@ -30,7 +30,7 @@ export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fil
   );
 });
 
-const IconStyle = styled.div<IconProps>`
+const IconStyle = styled(x.div)<IconProps>`
   ${system};
 
   & > svg {

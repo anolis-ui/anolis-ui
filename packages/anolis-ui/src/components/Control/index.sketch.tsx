@@ -1,14 +1,10 @@
-import { x } from "@xstyled/emotion";
-import { FC } from "react";
-import SketchLayout from "sketch/SketchLayout";
-import { Control } from ".";
 import { Activity } from "@emotion-icons/feather";
+import { x } from "@xstyled/emotion";
+import { sketch, SketchLayout } from "sketch";
 
-export default {
-  title: "Themed/Control"
-};
+import { Control } from ".";
 
-export const Normal: FC = () => {
+const Normal = sketch(() => {
   return (
     <SketchLayout title="Card">
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">
@@ -16,4 +12,6 @@ export const Normal: FC = () => {
       </x.div>
     </SketchLayout>
   );
-};
+});
+
+export default Normal;

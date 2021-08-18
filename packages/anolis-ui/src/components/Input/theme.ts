@@ -1,12 +1,10 @@
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { PseudoProp } from "utils/PseudoProp";
-import { ComplementThemeProps } from "components/Complement";
+import { ComplementProps } from "components/Complement";
 
 export type InputVariant = "outline" | "line" | "fill" | "unstyled";
 export type InputSize = "xs" | "sm" | "md" | "lg";
 
-export interface InputThemeProps extends ComplementThemeProps, PseudoProp {
-}
+export type InputThemeProps = ComplementProps;
 
 export type InputTheme = ComponentTheme<InputThemeProps, InputVariant, InputSize>;
 

@@ -1,7 +1,6 @@
 import { x } from "@xstyled/emotion";
 import { FC } from "react";
-import { sketch } from "sketch";
-import SketchLayout from "sketch/SketchLayout";
+import { sketch, SketchLayout } from "sketch";
 
 import { Txt } from "./Txt";
 
