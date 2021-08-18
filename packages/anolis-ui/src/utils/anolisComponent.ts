@@ -4,7 +4,7 @@ import hoistNonReactStatics from "hoist-non-react-statics";
 import { forwardRef, ForwardRefRenderFunction, RefObject } from "react";
 import { SizeVariantProps } from "./theme";
 
-type AnolisComponent<
+export type AnolisComponent<
   Element extends keyof JSX.IntrinsicElements,
   Props extends object,
   Variant extends string = never,
@@ -16,7 +16,7 @@ type AnolisComponent<
   Omit<JSX.IntrinsicElements[Element], "color">
   >;
 
-type AnolisComponentProps<
+export type AnolisComponentProps<
   Element extends keyof JSX.IntrinsicElements,
   Props extends object,
   Variant extends string = never,

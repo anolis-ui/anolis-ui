@@ -29,3 +29,6 @@ export * from "./defaultTheme";
 
 // Hooks
 export { default as useTheme } from "./hooks/useTheme";
+
+// Utils
+export { anolisComponent, AnolisComponent, AnolisComponentProps } from "./utils/anolisComponent";
