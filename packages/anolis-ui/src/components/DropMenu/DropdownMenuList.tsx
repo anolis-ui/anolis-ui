@@ -1,14 +1,14 @@
 import { x } from "@xstyled/emotion";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { MenuItems, MenuPopover } from "@reach/menu-button";
 import { positionRight, positionDefault, positionMatchWidth } from "@reach/popover";
 
 export * from "./theme";
 
-export type DropMenuListProps = {
+export type DropMenuListProps = AnolisComponentProps<"div", {
   position?: "left" | "right" | "exactWidth";
-};
+}>;
 
 export const DropMenuList = anolisComponent<"div", DropMenuListProps>("div", (
   { children, v, position, ...p }, ref) => {

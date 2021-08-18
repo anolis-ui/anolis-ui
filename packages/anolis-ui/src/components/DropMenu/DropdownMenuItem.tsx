@@ -2,12 +2,12 @@ import { MenuItem, MenuItemProps } from "@reach/menu-button";
 import { x } from "@xstyled/emotion";
 import Complement, { useComplement, ComplementProps } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { ComponentProps } from "react";
 
 export * from "./theme";
 
-export interface DropMenuItemProps extends ComplementProps, MenuItemProps {}
+export type DropMenuItemProps = AnolisComponentProps<"div", ComplementProps & MenuItemProps>;
 
 export const DropMenuItem = anolisComponent<"div", DropMenuItemProps>("div", (
   { children, v, as, color, ref: _, ...p }, ref) => {
@@ -25,5 +25,3 @@ export const DropMenuItem = anolisComponent<"div", DropMenuItemProps>("div", (
     </MenuItem>
   );
 });
-
-type A = ComponentProps<typeof MenuItem>["as"];

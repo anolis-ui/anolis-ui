@@ -1,15 +1,15 @@
-import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent } from "utils/anolisComponent";
 import { MenuButton } from "@reach/menu-button";
-import { Button, ButtonProps } from "components/Button";
-import { ReactNode } from "react";
 import styled, { x } from "@xstyled/emotion";
+import { Button, ButtonProps } from "components/Button";
+import { useComponentTheme } from "hooks/useComponentTheme";
+import { ReactNode } from "react";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
 export * from "./theme";
 
-export interface DropMenuButtonProps extends ButtonProps {
+export type DropMenuButtonProps = AnolisComponentProps<"button", ButtonProps & {
   customButton?: ReactNode;
-}
+}>;
 
 export const DropMenuButton = anolisComponent<"button", DropMenuButtonProps>("button", (
   {

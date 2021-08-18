@@ -1,9 +1,9 @@
 import { x } from "@xstyled/emotion";
 import Complement, { SideComplementProps, useSideComplement } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
-export type ListItemProps = SideComplementProps;
+export type ListItemProps = AnolisComponentProps<"li", SideComplementProps>;
 
 export const ListItem = anolisComponent<"li", ListItemProps>("li", (
   { children, v, s, ...p }, ref) => {
