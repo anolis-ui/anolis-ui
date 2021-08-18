@@ -1,19 +1,24 @@
 import { x } from "@xstyled/emotion";
 import Complement, { useComplement, ComplementProps } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { ButtonVariant, ButtonSize, ButtonThemeProps } from "./theme";
 import { ElementType, FC } from "react";
 
 export * from "./theme";
 
-export type ButtonProps = ButtonThemeProps & {
+export type ButtonProps = AnolisComponentProps<
+"button",
+ButtonThemeProps & {
   as?: ElementType | undefined;
   href?: string;
   target?: "_blank" | "_self" | "_parent" | "_top";
-};
+},
+ButtonVariant,
+ButtonSize
+>;
 
-export const Button = anolisComponent<"button", ButtonProps, ButtonVariant, ButtonSize>("button", (
+export const Button = anolisComponent<"button", ButtonProps>("button", (
   { children, v, s, ...p }, ref) => {
   const theme = useComponentTheme("button", v, s);
 

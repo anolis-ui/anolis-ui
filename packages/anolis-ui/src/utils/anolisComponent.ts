@@ -26,17 +26,15 @@ export type AnolisComponentProps<
   & SizeVariantProps<Variant, Size>
   & { as?: React.ElementType }
   & Props
-  & Omit<JSX.IntrinsicElements[Element], "color">;
+  & Omit<JSX.IntrinsicElements[Element], "color" | "v" | "s">;
 
 export const anolisComponent = <
   Element extends keyof JSX.IntrinsicElements,
-  Props extends object = {},
-  Variant extends string = never,
-  Size extends string = never
+  Props extends AnolisComponentProps<Element, object, string, string>
 >(
   tag: Element,
-  Component: ForwardRefRenderFunction<RefOf<Element>, AnolisComponentProps<Element, Props, Variant, Size>>
-): AnolisComponent<Element, Props, Variant, Size> => {
+  Component: ForwardRefRenderFunction<RefOf<Element>, Props>
+): AnolisComponent<Element, Props, NonNullable<Props["v"]>, NonNullable<Props["s"]>> => {
   const a = forwardRef(hoistNonReactStatics(Component, x[tag]));
 
   return a as any;

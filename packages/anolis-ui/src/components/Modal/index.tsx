@@ -4,22 +4,27 @@ import { CloseControl } from "components/Control/CloseControl";
 import { Txt } from "components/Typography/Txt";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { useContext, useEffect, useRef } from "react";
-import renderComponent, { Renderable } from "utils/renderComponent";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import renderComponent from "utils/renderComponent";
 
 import { ModalContext, ModalInstanceContext } from "./data";
-import { ModalThemeProps, ModalSize } from "./theme";
+import { ModalSize, ModalThemeProps } from "./theme";
 
 export * from "./theme";
 export * from "./data";
 
-export interface ModalProps extends ModalThemeProps {
+export type ModalProps = AnolisComponentProps<
+"div",
+ModalThemeProps & {
   /** If true, modal won't close when user clicks outside of the modal */
   persistent?: boolean;
   onClose?: () => unknown;
-}
+},
+never,
+ModalSize
+>;
 
-export const Modal = anolisComponent<"div", ModalProps, never, ModalSize>("div", ({
+export const Modal = anolisComponent<"div", ModalProps>("div", ({
   children,
   onClose,
   persistent,

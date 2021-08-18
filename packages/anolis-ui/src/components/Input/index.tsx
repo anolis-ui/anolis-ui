@@ -3,20 +3,20 @@ import Complement, { useComplement } from "components/Complement";
 import { InputSize, InputVariant } from "components/Input/theme";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { ComponentProps, InputHTMLAttributes, MutableRefObject, TextareaHTMLAttributes, useRef } from "react";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
 import { InputThemeProps } from "./theme";
 
 export * from "./theme";
 
-export interface InputProps extends InputThemeProps {
+export type InputProps = AnolisComponentProps<"input", InputThemeProps&{
   placeholder?: string;
   multiline?: boolean;
   _textarea?: SystemProps | Partial<TextareaHTMLAttributes<any>>;
   _input?: SystemProps | Partial<InputHTMLAttributes<any>>;
-}
+}, InputVariant, InputSize>;
 
-export const Input = anolisComponent<"input", InputProps, InputVariant, InputSize>("input", (
+export const Input = anolisComponent<"input", InputProps>("input", (
   {
     children,
     v,

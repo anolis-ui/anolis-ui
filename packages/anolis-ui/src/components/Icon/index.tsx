@@ -1,15 +1,15 @@
 import styled, { x } from "@xstyled/emotion";
-import renderComponent, { Renderable } from "utils/renderComponent";
-import { anolisComponent } from "utils/anolisComponent";
 import { system } from "@xstyled/system";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import renderComponent, { Renderable } from "utils/renderComponent";
 
-export type IconProps = {
+export type IconProps = AnolisComponentProps<"span", {
   svg?: Renderable;
   fill?: string;
   fillHover?: string;
   stroke?: string;
   strokeHover?: string;
-};
+}>;
 
 export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fillHover, stroke, strokeHover, children, ...props }, ref) => {
   return (

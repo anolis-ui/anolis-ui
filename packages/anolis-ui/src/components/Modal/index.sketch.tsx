@@ -1,13 +1,9 @@
-import React, { FC } from "react";
-import SketchLayout from "sketch/SketchLayout";
+import { FC } from "react";
+import { sketch, SketchLayout } from "sketch";
 
 import { Modal, useModal } from ".";
 
-export default {
-  title: "Themed/Modal"
-};
-
-export const Normal: FC = () => {
+const Normal = sketch(() => {
   return (
     <SketchLayout title="Modal">
       <Modal title="Modal title">
@@ -15,7 +11,9 @@ export const Normal: FC = () => {
       </Modal>
     </SketchLayout>
   );
-};
+});
+
+export default Normal;
 
 export const WithModalContext: FC = () => {
   return (

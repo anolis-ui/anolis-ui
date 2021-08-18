@@ -1,13 +1,13 @@
 import { x } from "@xstyled/emotion";
 import Complement, { useComplement } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
 import { LabelThemeProps } from "./theme";
 
 export * from "./theme";
 
-export type LabelProps = LabelThemeProps;
+export type LabelProps = AnolisComponentProps<"label", LabelThemeProps>;
 
 export const Label = anolisComponent<"label", LabelProps>("label", (
   { children, ...p }, ref) => {

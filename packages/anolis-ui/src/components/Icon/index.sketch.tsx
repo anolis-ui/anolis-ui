@@ -1,8 +1,8 @@
 import { x } from "@xstyled/emotion";
 import { FC } from "react";
-import SketchLayout from "sketch/SketchLayout";
+import { sketch, SketchLayout } from "sketch";
+
 import { Icon } from ".";
-import { sketch } from "sketch/index";
 
 const DownIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">

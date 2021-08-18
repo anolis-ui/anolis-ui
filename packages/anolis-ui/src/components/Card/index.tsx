@@ -1,16 +1,16 @@
 import { x } from "@xstyled/emotion";
 import { Tag } from "components/Tag";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import renderComponent from "utils/renderComponent";
 
 import { CardThemeProps, CardVariant } from "./theme";
 
 export * from "./theme";
 
-export type CardProps = CardThemeProps;
+export type CardProps = AnolisComponentProps<"div", CardThemeProps, CardVariant>;
 
-export const Card = anolisComponent<"div", CardProps, CardVariant>("div", ({
+export const Card = anolisComponent<"div", CardProps>("div", ({
   _header,
   header,
   _tag,

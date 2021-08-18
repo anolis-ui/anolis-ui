@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery, Link } from "gatsby";
-import { ComponentType, FC } from "react";
+import { ComponentType, FC, ReactNode } from "react";
 import { ThemeProvider, x } from "@xstyled/emotion";
 import { defaultTheme } from "../defaultTheme";
-import SketchLayout from "./SketchLayout";
+import AnolisProvider from "components/AnolisProvider";
 
 const Ui: FC = ({ children }) => {
   const { pages } = useStaticQuery<{pages: { nodes: {path: string}[]}}>(graphql`{ pages: allSitePage { nodes { path } } }`);
@@ -46,3 +46,23 @@ const SketchHomepage = sketch(() => {
 });
 
 export default SketchHomepage;
+interface SketchLayoutProps {
+  title?: ReactNode;
+  description?: ReactNode;
+}
+
+export const SketchLayout: FC<SketchLayoutProps> = ({ title, description, children }) => {
+  return (
+    <AnolisProvider>
+      <x.div spaceY="5">
+        {title && <x.h1>{title} <x.span color="gray-500">Anolis UI</x.span></x.h1>}
+
+        {description && <x.p>{description}</x.p>}
+
+        <x.div>
+          {children}
+        </x.div>
+      </x.div>
+    </AnolisProvider>
+  );
+};

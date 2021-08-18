@@ -3788,15 +3788,16 @@ alphanum-sort@^1.0.2:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
-anolis-ui@^0.0.4-alpha.8:
-  version "0.0.4-alpha.9"
-  resolved "https://registry.yarnpkg.com/anolis-ui/-/anolis-ui-0.0.4-alpha.9.tgz#83bc5bec1280fcb227e22e4d983fc24cc24f82e8"
-  integrity sha512-8RMnur/2jcwHaCBxzfD8PavBe1FhF0GBv7naYvmgOo9gz6ALSsqiex1wTqc6P67QgO6hMIUUOJzZGuvsOYhNDw==
+anolis-ui@^0.0.4-types.0:
+  version "0.0.4-types.2"
+  resolved "https://registry.yarnpkg.com/anolis-ui/-/anolis-ui-0.0.4-types.2.tgz#acc667d0913c33788f97a91201c0472b67912716"
+  integrity sha512-YAlWEJaW25Ar8OtBuWheSHrt5Lnfvayhi8lFY1yOs4uXRCOXUmBAoOiGgqpeeLhBWD2l9wESee8xhd0cKNHFzA==
   dependencies:
     "@babel/runtime" "^7.13.7"
     "@emotion-icons/feather" "^3.0.0"
     "@emotion/react" "^11.1.5"
     "@emotion/styled" "^11.1.5"
+    "@reach/menu-button" "^0.15.3"
     "@reach/portal" "^0.15.0"
     "@xstyled/emotion" "^3.0.0"
     hoist-non-react-statics "^3.3.2"

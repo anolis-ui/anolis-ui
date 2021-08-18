@@ -1,13 +1,12 @@
 import { x } from "@xstyled/emotion";
-import { FC } from "react";
-import SketchLayout from "sketch/SketchLayout";
-import { DropMenu } from ".";
-import { sketch } from "sketch/index";
 import { DropMenuButton } from "components/DropMenu/DropdownMenuButton";
 import { DropMenuItem } from "components/DropMenu/DropdownMenuItem";
 import { DropMenuList } from "components/DropMenu/DropdownMenuList";
+import { sketch, SketchLayout } from "sketch";
 
-const Normal: FC = sketch(() => {
+import { DropMenu } from ".";
+
+const Normal = sketch(() => {
   return (
     <SketchLayout title="Card">
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">
@@ -19,7 +18,7 @@ const Normal: FC = sketch(() => {
               </DropMenuButton>
 
               <DropMenuList>
-                <DropMenuItem onSelect={() => console.log("aa")}>
+                <DropMenuItem onSelect={() => console.info("aa")}>
                   aaa
                 </DropMenuItem>
               </DropMenuList>
@@ -33,7 +32,7 @@ const Normal: FC = sketch(() => {
               <DropMenuButton customButton={<div>{isExpanded ? "custom expanded" : "left closed"}</div>} />
 
               <DropMenuList position="right">
-                <DropMenuItem onSelect={() => console.log("selected")}>
+                <DropMenuItem onSelect={() => console.info("selected")}>
                   aaa
                 </DropMenuItem>
               </DropMenuList>
@@ -47,7 +46,7 @@ const Normal: FC = sketch(() => {
               <DropMenuButton customButton={<div>{isExpanded ? "custom expanded" : "exact width closed"}</div>} />
 
               <DropMenuList position="exactWidth">
-                <DropMenuItem onSelect={() => console.log("selected")}>
+                <DropMenuItem onSelect={() => console.info("selected")}>
                   aaa
                 </DropMenuItem>
               </DropMenuList>

@@ -1,10 +1,10 @@
 import { x } from "@xstyled/emotion";
-import React, { FC } from "react";
-import SketchLayout from "sketch/SketchLayout";
-import { Card } from ".";
-import { sketch } from "sketch/index";
+import { FC } from "react";
+import { SketchLayout, sketch } from "sketch";
 
-const Normal: FC = sketch(() => {
+import { Card } from ".";
+
+const Normal = sketch(() => {
   return (
     <SketchLayout title="Card">
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">

@@ -1,17 +1,21 @@
 import styled, { breakpoints, createGlobalStyle, x, SystemProps } from "@xstyled/emotion";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
 import { TypographyThemeProps, TypographyVariant } from "./theme";
 import { separateObjValues, groupByBreakpoint, wrapObjsWithSelector } from "./utils";
 
 export * from "./theme";
 
-export interface TypographyProps extends TypographyThemeProps {
+export type TypographyProps =AnolisComponentProps<
+"div",
+TypographyThemeProps & {
   topLevel?: boolean;
-}
+},
+TypographyVariant
+>;
 
-export const Typography = anolisComponent<"div", TypographyProps, TypographyVariant>("div", ({
+export const Typography = anolisComponent<"div", TypographyProps>("div", ({
   v,
   s,
   topLevel,
