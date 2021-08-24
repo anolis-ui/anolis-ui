@@ -65,6 +65,7 @@ export const defaultTheme = {
   states: {
     ...xdefaultTheme.states,
     groupHover: "[data-group]:hover &",
+    disabled: "&:disabled, &[aria-disabled=true]",
     marker: "&::marker"
   },
   // screens: {
