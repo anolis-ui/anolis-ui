@@ -4,6 +4,8 @@ import { ThemeProvider, x } from "@xstyled/emotion";
 import { defaultTheme } from "../defaultTheme";
 import AnolisProvider from "components/AnolisProvider";
 
+export * from "./faker";
+
 const Ui: FC = ({ children }) => {
   const { pages } = useStaticQuery<{pages: { nodes: {path: string}[]}}>(graphql`{ pages: allSitePage { nodes { path } } }`);
   return (

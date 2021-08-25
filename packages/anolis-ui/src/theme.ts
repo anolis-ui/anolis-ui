@@ -1,45 +1,47 @@
-// Import components from /theme to prevent circular references in Storybook
-import { CardTheme, cardTheme } from "components/Card/theme";
-import { ControlTheme, controlTheme } from "components/Control/theme";
-import { ModalTheme, modalTheme } from "components/Modal/theme";
-import { TagTheme, tagTheme } from "components/Tag/theme";
-import { typographyTheme, TypographyTheme } from "components/Typography/theme";
 import { ButtonTheme, buttonTheme } from "components/Button";
-import { containerTheme, ContainerTheme } from "components/Container";
-import { listTheme, ListTheme } from "components/List";
-import { textLinkTheme, TextLinkTheme } from "components/TextLink";
-import { labelTheme, LabelTheme } from "components/Label";
-import { inputTheme, InputTheme } from "components/Input";
-import { dropMenuTheme, DropMenuTheme } from "components/DropMenu";
+import { CardTheme, cardTheme } from "components/Card";
+import { collapseTheme, CollapseTheme } from "components/Collapse";
+import { ContainerTheme, containerTheme } from "components/Container";
+import { ControlTheme, controlTheme } from "components/Control";
+import { DropMenuTheme, dropMenuTheme } from "components/DropMenu";
+import { InputTheme, inputTheme } from "components/Input";
+import { LabelTheme, labelTheme } from "components/Label";
+import { ListTheme, listTheme } from "components/List";
+import { ModalTheme, modalTheme } from "components/Modal";
+import { TagTheme, tagTheme } from "components/Tag";
+import { TextLinkTheme, textLinkTheme } from "components/TextLink";
+import { TypographyTheme, typographyTheme } from "components/Typography";
 
 export type AnolisTheme = {
-  card: CardTheme;
-  tag: TagTheme;
-  typography: TypographyTheme;
-  control: ControlTheme;
-  modal: ModalTheme;
   button: ButtonTheme;
+  card: CardTheme;
+  collapse: CollapseTheme;
   container: ContainerTheme;
-  list: ListTheme;
-  textLink: TextLinkTheme;
-  label: LabelTheme;
-  input: InputTheme;
+  control: ControlTheme;
   dropMenu: DropMenuTheme;
+  input: InputTheme;
+  label: LabelTheme;
+  list: ListTheme;
+  modal: ModalTheme;
+  tag: TagTheme;
+  textLink: TextLinkTheme;
+  typography: TypographyTheme;
 };
 
 export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
-  ...cardTheme(),
-  ...tagTheme(),
-  ...typographyTheme(),
-  ...controlTheme(),
-  ...modalTheme(),
   ...buttonTheme(),
+  ...cardTheme(),
+  ...collapseTheme(),
   ...containerTheme(),
-  ...listTheme(),
-  ...textLinkTheme(),
-  ...labelTheme(),
-  ...inputTheme(),
+  ...controlTheme(),
   ...dropMenuTheme(),
+  ...inputTheme(),
+  ...labelTheme(),
+  ...listTheme(),
+  ...modalTheme(),
+  ...tagTheme(),
+  ...textLinkTheme(),
+  ...typographyTheme(),
   ...theme
 });
 
