@@ -87,3 +87,5 @@ export const Modal = anolisComponent<"div", ModalProps>("div", ({
     </Portal>
   );
 });
+
+Modal.displayName = "Modal";

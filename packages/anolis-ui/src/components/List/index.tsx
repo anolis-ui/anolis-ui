@@ -18,3 +18,5 @@ export const List = anolisComponent<"ul", ListProps>("ul", (
     </x.ul>
   );
 });
+
+List.displayName = "List";

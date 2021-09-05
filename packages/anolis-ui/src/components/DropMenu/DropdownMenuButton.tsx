@@ -33,6 +33,8 @@ export const DropMenuButton = anolisComponent<"button", DropMenuButtonProps>("bu
   );
 });
 
+DropMenuButton.displayName = "DropMenuButton";
+
 const ButtonStyle = styled(x.div)`
   & > button {
     padding: 0;

@@ -79,3 +79,5 @@ export const Card = anolisComponent<"div", CardProps>("div", ({
     </x.div>
   );
 });
+
+Card.displayName = "Card";

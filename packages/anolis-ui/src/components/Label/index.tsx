@@ -23,3 +23,5 @@ export const Label = anolisComponent<"label", LabelProps>("label", (
     </x.label>
   );
 });
+
+Label.displayName = "Label";

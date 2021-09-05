@@ -17,3 +17,5 @@ export const Container = anolisComponent<"div", ContainerProps>("div", (
     </x.div>
   );
 });
+
+Container.displayName = "Container";

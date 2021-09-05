@@ -30,6 +30,8 @@ export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fil
   );
 });
 
+Icon.displayName = "Icon";
+
 const IconStyle = styled(x.div)<IconProps>`
   ${system};
 

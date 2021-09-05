@@ -26,3 +26,5 @@ export const DropMenuList = anolisComponent<"div", DropMenuListProps>("div", (
     </MenuPopover>
   );
 });
+
+DropMenuList.displayName = "DropMenuList";

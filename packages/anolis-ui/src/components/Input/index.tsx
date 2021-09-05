@@ -48,6 +48,8 @@ export const Input = anolisComponent<"input", InputProps>("input", (
   );
 });
 
+Input.displayName = "Input";
+
 const InputStyle = styled(x.div)`
   input, textarea {
     background: transparent;

@@ -18,3 +18,5 @@ export const ListItem = anolisComponent<"li", ListItemProps>("li", (
     </x.li>
   );
 });
+
+ListItem.displayName = "ListItem";

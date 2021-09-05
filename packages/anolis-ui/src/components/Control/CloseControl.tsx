@@ -7,3 +7,5 @@ import { ControlSizes } from "./theme";
 export const CloseControl = anolisComponent<"div", ControlProps>("div", (p, ref) => {
   return <Control ref={ref as any} icon={<X />} {...p} />;
 });
+
+CloseControl.displayName = "CloseControl";

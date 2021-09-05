@@ -25,3 +25,5 @@ export const DropMenuItem = anolisComponent<"div", DropMenuItemProps>("div", (
     </MenuItem>
   );
 });
+
+DropMenuItem.displayName = "DropMenuItem";

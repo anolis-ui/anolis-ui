@@ -42,6 +42,8 @@ export const Collapse = anolisComponent<"div", CollapseProps>("div", ({ children
   );
 });
 
+Collapse.displayName = "Collapse";
+
 const InnerCollapse: FC<CollapseOptions> = ({
   children,
   open,

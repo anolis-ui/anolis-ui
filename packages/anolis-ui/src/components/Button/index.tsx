@@ -60,3 +60,5 @@ export const Button = anolisComponent<"button", ButtonProps>("button", (
     </x.button>
   );
 });
+
+Button.displayName = "Button";

@@ -15,3 +15,5 @@ export const Spinner = anolisComponent<"div", SpinnerProps>("div", ({ children, 
     <x.div ref={ref as any} {...theme} {...props} />
   );
 });
+
+Spinner.displayName = "Spinner";

@@ -21,3 +21,5 @@ export const Control = anolisComponent<"div", ControlProps>("div", ({ s, _icon, 
     </x.div>
   );
 });
+
+Control.displayName = "Control";

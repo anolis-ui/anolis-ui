@@ -1,5 +1,5 @@
 import { x } from "@xstyled/emotion";
-import Complement, { useComplement, ComplementProps } from "components/Complement";
+import Complement, { useComplement } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { TextLinkVariant } from "components/TextLink/theme";
@@ -23,3 +23,5 @@ export const TextLink = anolisComponent<"a", TextLinkProps>("a", (
     </x.a>
   );
 });
+
+TextLink.displayName = "TextLink";

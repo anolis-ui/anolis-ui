@@ -22,3 +22,5 @@ export const Tag = anolisComponent<"div", TagProps>("div", ({ children, v, ...p 
     </x.div>
   );
 });
+
+Tag.displayName = "Tag";
