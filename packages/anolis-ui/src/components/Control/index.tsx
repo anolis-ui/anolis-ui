@@ -1,7 +1,6 @@
 import { x } from "@xstyled/emotion";
 import { Icon } from "components/Icon";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { Renderable } from "utils/renderComponent";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
 import { ControlSizes, ControlThemeProps } from "./theme";
