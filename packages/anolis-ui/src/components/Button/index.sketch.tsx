@@ -70,6 +70,11 @@ const Variants = sketch(() => {
         <Button s="lg" loading>LG Button</Button>
       </x.div>
 
+      <x.h2>Custom button</x.h2>
+      <x.div display="flex" spaceX="2" alignItems="center" flexWrap="wrap">
+        <Button v="solid" bg="red" p={4} borderRadius={0} borderWidth={0}>Solid button</Button>
+      </x.div>
+
     </SketchLayout>
   );
 });

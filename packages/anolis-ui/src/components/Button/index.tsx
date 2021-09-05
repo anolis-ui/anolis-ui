@@ -24,8 +24,6 @@ ButtonSize
 
 export const Button = anolisComponent<"button", ButtonProps>("button", (
   { children, v, s, as, onClick, loading, ...p }, ref) => {
-  if (ref && !("current" in ref)) throw new Error("Unsupported ref");
-
   const t = useComponentTheme("button", v, s);
 
   const [left, right, props, theme] = useComplement(p, t);
@@ -36,14 +34,15 @@ export const Button = anolisComponent<"button", ButtonProps>("button", (
     ...props as any,
     isDisabled: props.disabled,
     elementType: as
-  }, ref ?? innerRef);
+  }, ref && "current" in ref ? ref : innerRef);
 
   return (
     <x.button
-      ref={ref ?? innerRef}
       {...theme}
       as={as}
+      {...props}
       {...buttonProps}
+      ref={ref ?? innerRef}
       value={as === "input" ? p.value : undefined}
       onClick={onClick}
     >
