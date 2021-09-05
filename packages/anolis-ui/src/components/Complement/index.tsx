@@ -38,7 +38,7 @@ export const useComplement = <T extends ComplementProps>(
     _rightIcon: themeRightIcon,
     ...theme
   }: ComplementProps
-): [SideComplementProps, SideComplementProps, Omit<T, keyof ComplementProps>, Omit<ComplementProps, "_leftIcon" | "_rightIcon">] =>
+): [SideComplementProps, SideComplementProps, Omit<T, keyof ComplementProps>, Omit<T, "_leftIcon" | "_rightIcon">] =>
   useMemo(() => [
     {
       _icon: { ...themeLeftIcon, ..._leftIcon },

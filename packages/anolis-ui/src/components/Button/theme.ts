@@ -1,11 +1,15 @@
-import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 import { ComplementProps } from "components/Complement";
+import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
+import { TripletProp } from "utils/TripletProps";
+
+import { SpinnerProps } from "../Spinner";
 
 export type ButtonVariant = "solid" | "clear" | "outline" | "link";
 export type ButtonSize = "xs" | "sm" | "md" | "lg";
 
 export type ButtonThemeProps =
-  & ComplementProps;
+  & ComplementProps
+  & TripletProp<"spinner", SpinnerProps>;
 
 export type ButtonTheme = ComponentTheme<ButtonThemeProps, ButtonVariant, ButtonSize>;
 
@@ -34,6 +38,9 @@ const emptyButton: ButtonTheme = {
     _rightIcon: {
       marginRight: 0,
       marginLeft: "1rem"
+    },
+    _spinner: {
+      s: "md"
     }
   },
   sizes: {
@@ -41,13 +48,19 @@ const emptyButton: ButtonTheme = {
       py: "0.25rem",
       px: "0.5rem",
       fontSize: "xs",
-      lineHeight: "1rem"
+      lineHeight: "1rem",
+      _spinner: {
+        s: "xs"
+      }
     },
     sm: {
       px: "0.75rem",
       py: "0.25rem",
       fontSize: "sm",
-      lineHeight: "1.5rem"
+      lineHeight: "1.5rem",
+      _spinner: {
+        s: "sm"
+      }
     },
     md: {
       px: "2rem",
@@ -59,7 +72,10 @@ const emptyButton: ButtonTheme = {
       px: "8",
       py: "3",
       fontSize: "lg",
-      lineHeight: "1.875rem"
+      lineHeight: "1.875rem",
+      _spinner: {
+        s: "lg"
+      }
     }
   },
   variants: {

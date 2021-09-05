@@ -5,6 +5,7 @@ import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { ButtonVariant, ButtonSize, ButtonThemeProps } from "./theme";
 import { ElementType, useRef } from "react";
 import { useButton } from "@react-aria/button";
+import { Spinner } from "../Spinner/index";
 
 export * from "./theme";
 
@@ -14,13 +15,15 @@ ButtonThemeProps & {
   as?: ElementType | undefined;
   href?: string;
   target?: "_blank" | "_self" | "_parent" | "_top";
+
+  loading?: boolean;
 },
 ButtonVariant,
 ButtonSize
 >;
 
 export const Button = anolisComponent<"button", ButtonProps>("button", (
-  { children, v, s, as, onClick, ...p }, ref) => {
+  { children, v, s, as, onClick, loading, ...p }, ref) => {
   if (ref && !("current" in ref)) throw new Error("Unsupported ref");
 
   const t = useComponentTheme("button", v, s);
@@ -44,13 +47,17 @@ export const Button = anolisComponent<"button", ButtonProps>("button", (
       value={as === "input" ? p.value : undefined}
       onClick={onClick}
     >
-      {as !== "input" ? (
-        <>
-          <Complement {...left} />
-          {children}
-          <Complement {...right} />
-        </>
-      ) : undefined}
+      {as !== "input"
+        ? loading
+          ? <Spinner {...theme._spinner} {...props._spinner} />
+          : (
+            <>
+              <Complement {...left} />
+              {children}
+              <Complement {...right} />
+            </>
+          )
+        : undefined}
     </x.button>
   );
 });

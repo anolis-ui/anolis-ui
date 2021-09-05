@@ -45,6 +45,31 @@ const Variants = sketch(() => {
         </x.div>
       </x.div>
 
+      <x.h2>Loading state</x.h2>
+      <x.div display="flex" spaceX="2" alignItems="center" flexWrap="wrap">
+        <Button v="solid" loading>Solid button</Button>
+
+        <Button v="outline" loading>Outline button</Button>
+
+        <Button v="clear" loading>Clear button</Button>
+
+        <Button v="link" loading>Link button</Button>
+
+        <Button disabled loading>Disabled Button</Button>
+
+        <Button _rightIcon={{ bg: "red", ml: "4" }} rightIcon={<Menu size={24} />} loading>Solid button</Button>
+      </x.div>
+
+      <x.div display="flex" spaceX="2" alignItems="center">
+        <Button s="xs" loading>XS Button</Button>
+
+        <Button s="sm" loading>SM Button</Button>
+
+        <Button s="md" loading>MD Button</Button>
+
+        <Button s="lg" loading>LG Button</Button>
+      </x.div>
+
     </SketchLayout>
   );
 });
