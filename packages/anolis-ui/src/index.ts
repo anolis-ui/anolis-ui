@@ -16,6 +16,7 @@ export * from "./components/DropMenu";
 export * from "./components/DropMenu/DropdownMenuButton";
 export * from "./components/DropMenu/DropdownMenuList";
 export * from "./components/DropMenu/DropdownMenuItem";
+export * from "./components/Spinner";
 
 // Unthemed
 export * from "./components/Icon";
