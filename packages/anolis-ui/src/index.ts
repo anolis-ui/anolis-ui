@@ -1,6 +1,7 @@
 // Themed
 export * from "./components/Card";
 export * from "./components/Control";
+export * from "./components/Collapse";
 export * from "./components/Tag";
 export * from "./components/Button";
 export * from "./components/Container";
