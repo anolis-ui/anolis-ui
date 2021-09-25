@@ -54,7 +54,6 @@ const InputStyle = styled(x.div)`
   input, textarea {
     background: transparent;
     border: none;
-    box-shadow: inherit;
     -webkit-appearance: inherit;
     transition: inherit;
     resize: none;
