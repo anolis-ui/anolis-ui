@@ -1,5 +1,6 @@
 import { ButtonTheme, buttonTheme } from "components/Button/theme";
 import { CardTheme, cardTheme } from "components/Card/theme";
+import { checkboxTheme, CheckboxTheme } from "components/Checkbox/theme";
 import { CollapseTheme, collapseTheme } from "components/Collapse/theme";
 import { ContainerTheme, containerTheme } from "components/Container/theme";
 import { ControlTheme, controlTheme } from "components/Control/theme";
@@ -17,6 +18,7 @@ import { TypographyTheme, typographyTheme } from "components/Typography/theme";
 export type AnolisTheme = {
   button: ButtonTheme;
   card: CardTheme;
+  checkbox: CheckboxTheme;
   collapse: CollapseTheme;
   container: ContainerTheme;
   control: ControlTheme;
@@ -35,6 +37,7 @@ export type AnolisTheme = {
 export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
   ...buttonTheme(),
   ...cardTheme(),
+  ...checkboxTheme(),
   ...collapseTheme(),
   ...containerTheme(),
   ...controlTheme(),
