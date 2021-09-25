@@ -66,7 +66,8 @@ export const defaultTheme = {
     ...xdefaultTheme.states,
     groupHover: "[data-group]:hover &",
     disabled: "&:disabled, &[aria-disabled=true]",
-    marker: "&::marker"
+    marker: "&::marker",
+    invalid: "&:user-invalid, [data-a-invalid=true] &, [data-a-invalid=true]&"
   },
   // screens: {
   // xxs: "22.5em",

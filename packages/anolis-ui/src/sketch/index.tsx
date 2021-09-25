@@ -1,8 +1,9 @@
-import { graphql, useStaticQuery, Link } from "gatsby";
-import { ComponentType, FC, ReactNode } from "react";
-import { ThemeProvider, x } from "@xstyled/emotion";
-import { defaultTheme } from "../defaultTheme";
+import { SystemProps, ThemeProvider, x } from "@xstyled/emotion";
 import AnolisProvider from "components/AnolisProvider";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import { ComponentType, FC, ReactNode } from "react";
+
+import { defaultTheme } from "../defaultTheme";
 
 export * from "./faker";
 
@@ -48,12 +49,12 @@ const SketchHomepage = sketch(() => {
 });
 
 export default SketchHomepage;
-interface SketchLayoutProps {
+interface SketchLayoutProps extends SystemProps {
   title?: ReactNode;
   description?: ReactNode;
 }
 
-export const SketchLayout: FC<SketchLayoutProps> = ({ title, description, children }) => {
+export const SketchLayout: FC<SketchLayoutProps> = ({ title, description, children, ...p }) => {
   return (
     <AnolisProvider>
       <x.div spaceY="5">
@@ -61,7 +62,7 @@ export const SketchLayout: FC<SketchLayoutProps> = ({ title, description, childr
 
         {description && <x.p>{description}</x.p>}
 
-        <x.div>
+        <x.div {...p}>
           {children}
         </x.div>
       </x.div>

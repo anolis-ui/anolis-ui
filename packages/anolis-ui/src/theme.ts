@@ -4,6 +4,7 @@ import { CollapseTheme, collapseTheme } from "components/Collapse/theme";
 import { ContainerTheme, containerTheme } from "components/Container/theme";
 import { ControlTheme, controlTheme } from "components/Control/theme";
 import { DropMenuTheme, dropMenuTheme } from "components/DropMenu/theme";
+import { FormControlTheme, formControlTheme } from "components/FormControl/theme";
 import { InputTheme, inputTheme } from "components/Input/theme";
 import { LabelTheme, labelTheme } from "components/Label/theme";
 import { ListTheme, listTheme } from "components/List/theme";
@@ -20,6 +21,7 @@ export type AnolisTheme = {
   container: ContainerTheme;
   control: ControlTheme;
   dropMenu: DropMenuTheme;
+  formControl: FormControlTheme;
   input: InputTheme;
   label: LabelTheme;
   list: ListTheme;
@@ -37,6 +39,7 @@ export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
   ...containerTheme(),
   ...controlTheme(),
   ...dropMenuTheme(),
+  ...formControlTheme(),
   ...inputTheme(),
   ...labelTheme(),
   ...listTheme(),

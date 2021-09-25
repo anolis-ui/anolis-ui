@@ -1,3 +1,4 @@
+import { SSRProvider } from "@react-aria/ssr";
 import { Preflight, ThemeProvider } from "@xstyled/emotion";
 import ModalProvider from "components/Modal/ModalProvider";
 import { Typography } from "components/Typography";
@@ -19,16 +20,20 @@ const AnolisProvider: FC<AnolisProviderProps> = ({ children, theme, xstyledTheme
     anolis: theme ?? defaultTheme.anolis
   }), [theme, xstyledTheme]);
 
-  return theme !== null
-    ? (
-      <ThemeProvider theme={mergedTheme}>
-        {!noPreflight && <Preflight />}
-        <Typography topLevel>
-          <ModalProvider>{children}</ModalProvider>
-        </Typography>
-      </ThemeProvider>
-    )
-    : <ModalProvider>{children}</ModalProvider>;
+  return (
+    <SSRProvider>
+      {theme !== null
+        ? (
+          <ThemeProvider theme={mergedTheme}>
+            {!noPreflight && <Preflight />}
+            <Typography topLevel>
+              <ModalProvider>{children}</ModalProvider>
+            </Typography>
+          </ThemeProvider>
+        )
+        : <ModalProvider>{children}</ModalProvider>}
+    </SSRProvider>
+  );
 };
 
 export default AnolisProvider;
