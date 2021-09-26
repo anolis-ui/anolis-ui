@@ -1,10 +1,13 @@
-import styled, { x } from "@xstyled/emotion";
+import { useFocusRing } from "@react-aria/focus";
+import { VisuallyHidden } from "@react-aria/visually-hidden";
+import { x } from "@xstyled/emotion";
 import { CheckboxSize, CheckboxThemeProps, CheckboxVariant } from "components/Checkbox/theme";
 import { Icon } from "components/Icon";
+import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { FC, useState } from "react";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
-import { useThemePropsMerge } from "hooks/useComponentTheme";
+import { useExtractInputProps } from "../Input";
 
 export * from "./theme";
 
@@ -14,6 +17,7 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
   const {
     control,
     _control,
+    _controlFocusRing,
     _controlActive,
     icon,
     _icon,
@@ -23,15 +27,29 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
     ...p
   } = useThemePropsMerge("checkbox", props);
   const [checked, setChecked] = useState(false);
+  const { isFocusVisible, focusProps } = useFocusRing();
+
+  const [transferedProps, finalProps] = useExtractInputProps(p);
 
   return (
-    <x.label ref={ref} {...p} data-a-group>
-      <HiddenInputStyle
-        type="checkbox"
-        onChange={(e) => setChecked(e.target.checked)}
-      />
+    <x.label ref={ref} {...finalProps} data-a-group>
+      <VisuallyHidden>
+        <x.input
+          type="checkbox"
+          {...focusProps}
+          {...transferedProps}
+          onChange={(e) => {
+            !props.readOnly && setChecked(e.target.checked);
+            transferedProps.onChange?.(e);
+          }}
+        />
+      </VisuallyHidden>
 
-      <x.div {..._control} {...checked && _controlActive}>
+      <x.div
+        {..._control}
+        {...isFocusVisible && _controlFocusRing}
+        {...checked && _controlActive}
+      >
         {checked && (control || (
           <Icon
             {..._icon}
@@ -47,28 +65,6 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
     </x.label>
   );
 });
-
-const HiddenInputStyle = styled(x.input)`
-  background: transparent;
-  border: none;
-  box-shadow: inherit;
-  -webkit-appearance: inherit;
-  transition: inherit;
-  resize: none;
-  width: 100%;
-
-  &:focus {
-    border: none;
-    outline: none;
-  }
-
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 3rem white inset !important;
-  }
-`;
 
 const DefaultCheckboxIcon: FC = () => (
   <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 8" width="10" height="8">

@@ -1,5 +1,7 @@
 import { SystemProps } from "@xstyled/emotion";
 import { IconProps } from "components/Icon";
+import { TransferedInputPropKey } from "index";
+import { InputHTMLAttributes } from "react";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 import { TripletProp } from "utils/TripletProps";
 
@@ -7,11 +9,16 @@ export type CheckboxVariant = "outline";
 export type CheckboxSize = "sm" | "md" | "lg";
 
 export type CheckboxThemeProps =
+  & Pick<
+  InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+  TransferedInputPropKey
+  >
   & TripletProp<"icon", IconProps>
   & TripletProp<"control">
   & TripletProp<"label">
   & {
     _controlActive?: SystemProps;
+    _controlFocusRing?: SystemProps;
   };
 
 export type CheckboxTheme = ComponentTheme<CheckboxThemeProps, CheckboxVariant, CheckboxSize>;
@@ -33,6 +40,10 @@ const emptyCheckbox: CheckboxTheme = {
       alignItems: "center",
       justifyContent: "center",
       userSelect: "none"
+    },
+    _controlFocusRing: {
+      borderWidth: 2,
+      borderColor: "anolis-gray-600"
     },
     _icon: {
       display: "flex",

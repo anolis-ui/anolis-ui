@@ -91,7 +91,7 @@ const InputStyle = styled(x.div)`
   }
 `;
 
-const useExtractInputProps = <T extends object>(props: T) =>
+export const useExtractInputProps = <T extends object>(props: T) =>
   useMemo(() => extractKeys<T, TransferedInputPropKey>(props, [
     "disabled",
     "readOnly",
