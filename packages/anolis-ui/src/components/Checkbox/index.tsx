@@ -17,6 +17,8 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
     _controlActive,
     icon,
     _icon,
+    label,
+    _label,
     children,
     ...p
   } = useThemePropsMerge("checkbox", props);
@@ -38,7 +40,10 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
         ))}
       </x.div>
 
-      {children}
+      <x.span {..._label}>
+        {label}
+        {children}
+      </x.span>
     </x.label>
   );
 });

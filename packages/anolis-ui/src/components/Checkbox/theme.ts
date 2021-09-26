@@ -9,6 +9,7 @@ export type CheckboxSize = "sm" | "md" | "lg";
 export type CheckboxThemeProps =
   & TripletProp<"icon", IconProps>
   & TripletProp<"control">
+  & TripletProp<"label">
   & {
     _controlActive?: SystemProps;
   };
@@ -37,6 +38,9 @@ const emptyCheckbox: CheckboxTheme = {
       display: "flex",
       alignItems: "center",
       justifyContent: "center"
+    },
+    _label: {
+      userSelect: "none"
     }
   },
   variants: {
