@@ -64,7 +64,8 @@ export const defaultTheme = {
   },
   states: {
     ...xdefaultTheme.states,
-    groupHover: "[data-group]:hover &",
+    group: "[data-a-group]&",
+    groupHover: "[data-group]:hover &, [data-a-group]:hover &",
     disabled: "&:disabled, &[aria-disabled=true]",
     marker: "&::marker",
     invalid: "&:user-invalid, [data-a-invalid=true] &, [data-a-invalid=true]&"

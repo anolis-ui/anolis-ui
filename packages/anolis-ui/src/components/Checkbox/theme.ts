@@ -1,14 +1,17 @@
-import { PseudoProp } from "utils/PseudoProp";
-import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 import { SystemProps } from "@xstyled/emotion";
+import { IconProps } from "components/Icon";
+import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
+import { TripletProp } from "utils/TripletProps";
 
 export type CheckboxVariant = "outline";
 export type CheckboxSize = "sm" | "md" | "lg";
 
-export interface CheckboxThemeProps extends PseudoProp {
-  control?: SystemProps;
-  controlActive?: SystemProps;
-}
+export type CheckboxThemeProps =
+  & TripletProp<"icon", IconProps>
+  & TripletProp<"control">
+  & {
+    _controlActive?: SystemProps;
+  };
 
 export type CheckboxTheme = ComponentTheme<CheckboxThemeProps, CheckboxVariant, CheckboxSize>;
 
@@ -22,20 +25,32 @@ const emptyCheckbox: CheckboxTheme = {
     color: { _: "anolis-gray-400", hover: "anolis-gray-500", focusWithin: "anolis-gray-600" } as any,
     display: "flex",
     alignItems: "center",
-    fontFamily: "sans"
+    fontFamily: "sans",
+    _control: {
+      flex: "0 0 auto",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      userSelect: "none"
+    },
+    _icon: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
   },
   variants: {
     outline: {
-      control: {
+      _control: {
         borderRadius: "3",
         border: "1px solid",
-        borderColor: { _: "anolis-gray-200", hover: "anolis-gray-300", focusWithin: "anolis-gray-400", groupHover: "anolis-gray-300" },
+        borderColor: { _: "anolis-gray-200", hover: "anolis-gray-300", focusWithin: "anolis-gray-400", groupHover: "anolis-gray-300" }
       }
     }
   },
   sizes: {
     sm: {
-      control: {
+      _control: {
         borderRadius: "3",
         border: "1px solid",
         borderColor: { _: "anolis-gray-200", hover: "anolis-gray-300", focusWithin: "anolis-gray-400", groupHover: "anolis-gray-300" },
@@ -43,12 +58,12 @@ const emptyCheckbox: CheckboxTheme = {
         h: "0.75rem",
         mr: "0.75rem"
       },
-      controlActive: {
+      _controlActive: {
         bg: "anolis-blue-500"
       }
     },
     md: {
-      control: {
+      _control: {
         borderRadius: "3",
         border: "1px solid",
         borderColor: { _: "anolis-gray-200", hover: "anolis-gray-300", focusWithin: "anolis-gray-400", groupHover: "anolis-gray-300" },
@@ -56,12 +71,12 @@ const emptyCheckbox: CheckboxTheme = {
         h: "1rem",
         mr: "1rem"
       },
-      controlActive: {
+      _controlActive: {
         bg: "anolis-blue-500"
       }
     },
     lg: {
-      control: {
+      _control: {
         borderRadius: "3",
         border: "1px solid",
         borderColor: { _: "anolis-gray-200", hover: "anolis-gray-300", focusWithin: "anolis-gray-400", groupHover: "anolis-gray-300" },
@@ -69,7 +84,7 @@ const emptyCheckbox: CheckboxTheme = {
         h: "1.25rem",
         mr: "1.25rem"
       },
-      controlActive: {
+      _controlActive: {
         bg: "anolis-blue-500"
       }
     }
