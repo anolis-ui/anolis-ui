@@ -66,6 +66,8 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
   );
 });
 
+Checkbox.displayName = "Checkbox";
+
 const DefaultCheckboxIcon: FC = () => (
   <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 8" width="10" height="8">
     <g>

@@ -1,8 +1,8 @@
 import styled, { x } from "@xstyled/emotion";
 import Complement, { useComplement } from "components/Complement";
 import { InputSize, InputVariant, TransferedInputPropKey } from "components/Input/theme";
-import { useComponentTheme } from "hooks/useComponentTheme";
-import { MutableRefObject, useRef, DOMAttributes, InputHTMLAttributes, useMemo } from "react";
+import { useThemePropsMerge } from "hooks/useComponentTheme";
+import { MutableRefObject, useRef, useMemo } from "react";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
 import { InputThemeProps } from "./theme";
@@ -11,56 +11,45 @@ export * from "./theme";
 
 export type InputProps = AnolisComponentProps<"input", InputThemeProps, InputVariant, InputSize>;
 
-export const Input = anolisComponent<"input", InputProps>("input", (
-  {
+export const Input = anolisComponent<"input", InputProps>("input", (p, ref) => {
+  const [left, right, {
     children,
-    v,
-    s,
     id,
-    placeholder,
     multiline,
     _textarea,
     _input,
-    ...p
-  }, ref) => {
-  const { _textarea: _themeTextarea, _input: _themeInput, ...theme } = useComponentTheme("input", v, s);
+    ...props
+  }] = useComplement(useThemePropsMerge("input", p));
+
   const input = useRef<HTMLInputElement | HTMLTextAreaElement>(null) as MutableRefObject<HTMLInputElement | HTMLTextAreaElement>;
 
-  const [left, right, props, t] = useComplement(p, theme);
-
   const [transferedProps, finalProps] = useExtractInputProps(props);
-  const [transferedTheme, finalTheme] = useExtractInputProps(t);
 
   return (
     <InputStyle
-      {...finalTheme}
-      ref={ref as any}
-      onClick={() => input.current.focus()}
+      ref={ref}
       {...finalProps}
+      onClick={(e) => {
+        input.current.focus();
+      }}
     >
-      <Complement {...theme._leftIcon} {...left} />
+      <Complement {...left} />
       {multiline
         ? (
           <x.textarea
-            {..._themeTextarea}
-            {...transferedTheme}
             ref={input as MutableRefObject<HTMLTextAreaElement>}
-            placeholder={placeholder}
             {..._textarea}
             {...transferedProps}
           />
         )
         : (
           <x.input
-            {..._themeInput}
-            {...transferedTheme}
             ref={input as MutableRefObject<HTMLInputElement>}
-            placeholder={placeholder}
             {..._input}
             {...transferedProps}
           />
         )}
-      <Complement {...theme._rightIcon} {...right} />
+      <Complement {...right} />
     </InputStyle>
   );
 });

@@ -1,8 +1,9 @@
-import useTheme from "./useTheme";
-import { AnolisTheme } from "../theme";
 import { useMemo } from "react";
-import { merge, merge2 } from "utils/merge";
-import { AnolisComponentProps } from "../utils/anolisComponent";
+import { AnolisComponentProps } from "utils/anolisComponent";
+import { merge } from "utils/merge";
+
+import { AnolisTheme } from "../theme";
+import useTheme from "./useTheme";
 
 export const useComponentTheme = <
   K extends keyof AnolisTheme,
@@ -23,13 +24,13 @@ export const useComponentTheme = <
 export const useThemePropsMerge = <
   K extends keyof AnolisTheme,
   P extends AnolisComponentProps<any, {}, string & keyof AnolisTheme[K]["variants"], string & keyof AnolisTheme[K]["sizes"]>
->(key: K, props: P): P => {
+>(key: K, props: P): Omit<P, "v" | "s"> => {
   const theme = useTheme()[key];
 
   return useMemo(() => {
     const { v, s, ...p } = props;
 
-    return merge2(
+    return merge(
       theme.baseStyle,
       v ?? theme.defaultProps.v ? (theme.variants as any)[v ?? theme.defaultProps.v] : undefined,
       s ?? theme.defaultProps.s ? (theme.sizes as any)[s ?? theme.defaultProps.s] : undefined,

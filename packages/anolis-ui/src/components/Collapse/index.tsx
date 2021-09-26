@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import { useComponentTheme } from "hooks/useComponentTheme";
+import { useComponentTheme, useThemePropsMerge } from "hooks/useComponentTheme";
 import { FC } from "react";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { xstyled } from "utils/createXStyled";
@@ -32,13 +32,11 @@ interface CollapseOptions {
   endingHeight?: number | string;
 }
 
-export const Collapse = anolisComponent<"div", CollapseProps>("div", ({ children, ...p }) => {
-  const theme = useComponentTheme("collapse");
+export const Collapse = anolisComponent<"div", CollapseProps>("div", (p, ref) => {
+  const props = useThemePropsMerge("collapse", p);
 
   return (
-    <CustomCollapseBox {...p}>
-      {children}
-    </CustomCollapseBox>
+    <CustomCollapseBox {...props} />
   );
 });
 

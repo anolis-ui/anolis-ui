@@ -37,7 +37,7 @@ export const useComplement = <T extends ComplementProps, U extends ComplementPro
     _leftIcon: themeLeftIcon,
     _rightIcon: themeRightIcon,
     ...theme
-  }: U
+  }: U = {} as any
 ): [SideComplementProps, SideComplementProps, Omit<T, keyof ComplementProps>, Omit<U, "_leftIcon" | "_rightIcon">] =>
   useMemo(() => [
     {

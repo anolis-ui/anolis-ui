@@ -1,20 +1,18 @@
 import { x } from "@xstyled/emotion";
-import { useComponentTheme } from "hooks/useComponentTheme";
+import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
-import { ContainerVariant, ContainerThemeProps } from "./theme";
+
+import { ContainerThemeProps, ContainerVariant } from "./theme";
 
 export * from "./theme";
 
 export type ContainerProps = AnolisComponentProps<"div", ContainerThemeProps, ContainerVariant>;
 
-export const Container = anolisComponent<"div", ContainerProps>("div", (
-  { children, v, s, ...p }, ref) => {
-  const theme = useComponentTheme("container", v, s);
+export const Container = anolisComponent<"div", ContainerProps>("div", (p, ref) => {
+  const props = useThemePropsMerge("container", p);
 
   return (
-    <x.div ref={ref as any} {...theme} container={v === "normal"} {...p}>
-      {children}
-    </x.div>
+    <x.div ref={ref as any} container={p.v === "normal"} {...props} />
   );
 });
 

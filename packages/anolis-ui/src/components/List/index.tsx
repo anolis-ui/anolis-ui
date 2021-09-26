@@ -8,14 +8,11 @@ export * from "./theme";
 
 export type ListProps = AnolisComponentProps<"ul", ListThemeProps, ListVariant>;
 
-export const List = anolisComponent<"ul", ListProps>("ul", (
-  { children, v, ...p }, ref) => {
-  const theme = useComponentTheme("list", v);
+export const List = anolisComponent<"ul", ListProps>("ul", (p, ref) => {
+  const props = useComponentTheme("list", p);
 
   return (
-    <x.ul ref={ref as any} {...theme as ListProps} {...p}>
-      {children}
-    </x.ul>
+    <x.ul ref={ref} {...props} />
   );
 });
 

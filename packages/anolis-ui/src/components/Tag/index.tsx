@@ -1,24 +1,22 @@
 import { x } from "@xstyled/emotion";
-import Complement, { useComplement, ComplementProps } from "components/Complement";
-import { useComponentTheme } from "hooks/useComponentTheme";
+import Complement, { useComplement } from "components/Complement";
+import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
-import { TagVariant, TagThemeProps } from "./theme";
+import { TagThemeProps, TagVariant } from "./theme";
 
 export * from "./theme";
 
 export type TagProps = AnolisComponentProps<"div", TagThemeProps, TagVariant>;
 
-export const Tag = anolisComponent<"div", TagProps>("div", ({ children, v, ...p }, ref) => {
-  const theme = useComponentTheme("tag", v);
-
-  const [left, right, props] = useComplement(p, theme);
+export const Tag = anolisComponent<"div", TagProps>("div", (p, ref) => {
+  const [left, right, { children, ...props }] = useComplement(useThemePropsMerge("tag", p));
 
   return (
-    <x.div ref={ref as any} {...theme} {...props}>
-      <Complement {...theme._leftIcon} {...left} />
+    <x.div ref={ref} {...props}>
+      <Complement {...left} />
       {children}
-      <Complement {...theme._rightIcon} {...right} />
+      <Complement {...right} />
     </x.div>
   );
 });

@@ -1,6 +1,6 @@
 import { x } from "@xstyled/emotion";
 import { Tag } from "components/Tag";
-import { useComponentTheme } from "hooks/useComponentTheme";
+import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import renderComponent from "utils/renderComponent";
 
@@ -10,37 +10,32 @@ export * from "./theme";
 
 export type CardProps = AnolisComponentProps<"div", CardThemeProps, CardVariant>;
 
-export const Card = anolisComponent<"div", CardProps>("div", ({
-  _header,
-  header,
-  _tag,
-  tag,
-  _title,
-  title,
-  _media,
-  media,
-  _body,
-  body,
-  _footer,
-  footer,
-  children,
-  v,
-  ...props
-}, ref) => {
-  const theme = useComponentTheme("card", v);
+export const Card = anolisComponent<"div", CardProps>("div", (p, ref) => {
+  const {
+    _header,
+    header,
+    _tag,
+    tag,
+    _title,
+    title,
+    _media,
+    media,
+    _body,
+    body,
+    _footer,
+    footer,
+    children,
+    ...props
+  } = useThemePropsMerge("card", p);
 
   return (
-    <x.div
-      {...theme}
-      {...props}
-      ref={ref as any}
-    >
+    <x.div {...props} ref={ref}>
       {(header || title) && (
-        <x.div {...theme._header} {..._header}>
+        <x.div {..._header}>
           {header
             ? renderComponent(header)
             : (
-              <x.span {...theme._title} {..._title}>
+              <x.span {..._title}>
                 {renderComponent(title)}
               </x.span>
             )}
@@ -48,31 +43,31 @@ export const Card = anolisComponent<"div", CardProps>("div", ({
       )}
 
       {tag && (
-        <Tag m={_header?.p ?? _header?.padding} {...theme._tag} {..._tag}>
+        <Tag m={_header?.p ?? _header?.padding} {..._tag}>
           {renderComponent(tag)}
         </Tag>
       )}
 
       {media && (
-        <x.div order={2} {...theme._media} {..._media}>
+        <x.div order={2} {..._media}>
           {renderComponent(media)}
         </x.div>
       )}
 
       {body && (
-        <x.div {...theme._body} {..._body}>
+        <x.div {..._body}>
           {renderComponent(body)}
         </x.div>
       )}
 
       {children && (
-        <x.div {...theme._body} {..._body}>
+        <x.div {..._body}>
           {children}
         </x.div>
       )}
 
       {footer && (
-        <x.div {...theme._footer} {..._footer}>
+        <x.div {..._footer}>
           {renderComponent(footer)}
         </x.div>
       )}

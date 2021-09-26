@@ -1,18 +1,18 @@
 import { x } from "@xstyled/emotion";
-import { useComponentTheme } from "hooks/useComponentTheme";
+import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
-import { SpinnerThemeProps, SpinnerSize } from "./theme";
+import { SpinnerSize, SpinnerThemeProps } from "./theme";
 
 export * from "./theme";
 
 export type SpinnerProps = AnolisComponentProps<"div", SpinnerThemeProps, never, SpinnerSize>;
 
-export const Spinner = anolisComponent<"div", SpinnerProps>("div", ({ children, s, ...props }, ref) => {
-  const theme = useComponentTheme("spinner", undefined, s);
+export const Spinner = anolisComponent<"div", SpinnerProps>("div", (p, ref) => {
+  const props = useThemePropsMerge("spinner", p);
 
   return (
-    <x.div ref={ref as any} {...theme} {...props} />
+    <x.div ref={ref} {...props} />
   );
 });
 

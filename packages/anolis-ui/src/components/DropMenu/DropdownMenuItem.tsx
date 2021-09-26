@@ -1,9 +1,9 @@
 import { MenuItem, MenuItemProps } from "@reach/menu-button";
 import { x } from "@xstyled/emotion";
-import Complement, { useComplement, ComplementProps } from "components/Complement";
+import Complement, { ComplementProps, useComplement } from "components/Complement";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { ComponentProps } from "react";
+import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
 export * from "./theme";
 

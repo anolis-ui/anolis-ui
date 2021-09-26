@@ -1,11 +1,11 @@
 import { x } from "@xstyled/emotion";
 import Complement, { useComplement, ComplementProps } from "components/Complement";
-import { useComponentTheme } from "hooks/useComponentTheme";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { ButtonVariant, ButtonSize, ButtonThemeProps } from "./theme";
 import { ElementType, useRef } from "react";
 import { useButton } from "@react-aria/button";
 import { Spinner } from "../Spinner/index";
+import { useThemePropsMerge } from "../../hooks/useComponentTheme";
 
 export * from "./theme";
 
@@ -22,11 +22,8 @@ ButtonVariant,
 ButtonSize
 >;
 
-export const Button = anolisComponent<"button", ButtonProps>("button", (
-  { children, v, s, as, onClick, loading, ...p }, ref) => {
-  const t = useComponentTheme("button", v, s);
-
-  const [left, right, props, theme] = useComplement(p, t);
+export const Button = anolisComponent<"button", ButtonProps>("button", (p, ref) => {
+  const [left, right, { children, as, onClick, loading, _spinner, ...props }] = useComplement(useThemePropsMerge("button", p));
 
   const innerRef = useRef<HTMLButtonElement>(null);
 
@@ -38,17 +35,16 @@ export const Button = anolisComponent<"button", ButtonProps>("button", (
 
   return (
     <x.button
-      {...theme}
       as={as}
       {...props}
       {...buttonProps}
       ref={ref ?? innerRef}
-      value={as === "input" ? p.value : undefined}
+      value={as === "input" ? props.value : undefined}
       onClick={onClick}
     >
       {as !== "input"
         ? loading
-          ? <Spinner {...theme._spinner} {...props._spinner} />
+          ? <Spinner {..._spinner} />
           : (
             <>
               <Complement {...left} />

@@ -2,7 +2,7 @@ import Portal from "@reach/portal";
 import { x } from "@xstyled/emotion";
 import { CloseControl } from "components/Control/CloseControl";
 import { Txt } from "components/Typography/Txt";
-import { useComponentTheme } from "hooks/useComponentTheme";
+import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { useContext, useEffect, useRef } from "react";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import renderComponent from "utils/renderComponent";
@@ -24,20 +24,19 @@ never,
 ModalSize
 >;
 
-export const Modal = anolisComponent<"div", ModalProps>("div", ({
-  children,
-  onClose,
-  persistent,
-  s,
-  _title,
-  title,
-  _header,
-  header,
-  _overlay,
-  _close,
-  ...p
-}) => {
-  const theme = useComponentTheme("modal", undefined, s);
+export const Modal = anolisComponent<"div", ModalProps>("div", (p, _ref) => {
+  const {
+    children,
+    onClose,
+    persistent,
+    _title,
+    title,
+    _header,
+    header,
+    _overlay,
+    _close,
+    ...props
+  } = useThemePropsMerge("modal", p);
   const { hide } = useContext(ModalInstanceContext);
   const { pop } = useContext(ModalContext);
   const ref = useRef<HTMLDivElement>(null!);
@@ -61,20 +60,19 @@ export const Modal = anolisComponent<"div", ModalProps>("div", ({
         onClick={(e: any) => {
           !persistent && !ref.current.contains(e.target) && (onClose ?? pop)();
         }}
-        {...theme._overlay}
         {..._overlay}
       >
-        <x.div ref={ref} {...theme} {...p}>
+        <x.div ref={ref} {...props}>
           <x.div onClick={onClose ?? pop}>
-            <CloseControl {...theme._close} {..._close} />
+            <CloseControl {..._close} />
           </x.div>
 
           {(header || title) && (
-            <x.div mb="2rem" {...theme._header} {..._header}>
+            <x.div mb="2rem" {..._header}>
               {header
                 ? renderComponent(header)
                 : (
-                  <Txt t="h3" as="div" {...theme._title} {..._title}>
+                  <Txt t="h3" as="div" {..._title}>
                     {renderComponent(title)}
                   </Txt>
                 )}
