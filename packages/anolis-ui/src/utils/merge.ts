@@ -28,20 +28,34 @@ const _keys = <T>(o: T): (keyof T & string)[] =>
  * Returns a new object with properties of input objects (properties starting with "_" are merged deeply, right-to-left priority).
  */
 export const merge2 = <T>(...sources: (T | undefined)[]): T => {
+  return _merge2<T>(...[...sources].reverse());
+};
+
+export const _merge2 = <T>(...sources: (T | undefined)[]): T => {
   const result: any = {};
-  const keys = new Set(sources.filter(Boolean).map(s => Object.keys(s!)).flat());
-  const chain: any = [...sources].reverse();
+  const chain: T[] = [];
+  const keys = new Set<string>();
+
+  for (const s of sources) {
+    if (s === undefined) continue;
+    chain.push(s);
+    for (const k of Object.keys(s)) {
+      keys.add(k);
+    }
+  }
 
   for (const key of keys) {
     // eslint-disable-next-line @typescript-eslint/no-extra-parens
     const shouldDeepMerge = key.startsWith("_") && chain.every((s: any) => s[key] === undefined || (s[key] && typeof s[key] === "object"));
 
     const value = shouldDeepMerge
-      ? merge2(...sources.map(s => (s as any)?.[key]))
-      : chain.find((s: any) => s?.[key])[key];
+      ? _merge2(...chain.map(s => (s as any)[key]))
+      : (chain as any[]).find(s => !isNil(s[key]))?.[key];
 
-    value && (result[key] = value);
+    !isNil(value) && (result[key] = value);
   }
 
   return result;
 };
+
+const isNil = (x: any): x is undefined | null => x === null || x === undefined;

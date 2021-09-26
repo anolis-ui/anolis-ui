@@ -1,38 +1,38 @@
 import { useFocusRing } from "@react-aria/focus";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { x } from "@xstyled/emotion";
-import { Icon } from "components/Icon";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { FC, useState } from "react";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 
 import { useExtractInputProps } from "../Input";
-import { CheckboxSize, CheckboxThemeProps, CheckboxVariant } from "./theme";
+import { SwitchSize, SwitchThemeProps } from "./theme";
 
 export * from "./theme";
 
-export type CheckboxProps = AnolisComponentProps<"label", CheckboxThemeProps, CheckboxVariant, CheckboxSize>;
+export type SwitchProps = AnolisComponentProps<"label", SwitchThemeProps, never, SwitchSize>;
 
-export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props, ref) => {
+export const Switch = anolisComponent<"label", SwitchProps>("label", (props, ref) => {
   const {
     control,
     _control,
+    _knob,
+    knob,
+    _knobActive,
     _controlFocusRing,
-    _controlActive,
-    icon,
-    _icon,
-    label,
     _label,
+    label,
     children,
     ...p
-  } = useThemePropsMerge("checkbox", props);
+  } = useThemePropsMerge("switch", props);
   const [checked, setChecked] = useState(false);
   const { isFocusVisible, focusProps } = useFocusRing();
 
   const [transferedProps, finalProps] = useExtractInputProps(p);
 
   return (
-    <x.label ref={ref} {...finalProps} data-a-group>
+    <x.label ref={ref} {...finalProps} data-a-group aria-disabled={p.disabled ?? p["aria-disabled"]}>
+
       <VisuallyHidden>
         <x.input
           type="checkbox"
@@ -45,22 +45,18 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
         />
       </VisuallyHidden>
 
-      <x.div
-        {..._control}
-        {...isFocusVisible && _controlFocusRing}
-        {...checked && _controlActive}
-      >
-        {checked && (control || (
-          <Icon
-            {..._icon}
-            svg={icon ?? DefaultCheckboxIcon}
-          />
-        ))}
+      <x.div {..._control} {...isFocusVisible && _controlFocusRing}>
+        <x.div
+          {..._knob}
+          {...checked && _knobActive}
+        >
+          {knob}
+        </x.div>
       </x.div>
 
       <x.span {..._label}>
-        {label}
         {children}
+        {label}
       </x.span>
     </x.label>
   );

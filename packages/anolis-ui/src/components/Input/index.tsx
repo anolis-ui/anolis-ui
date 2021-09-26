@@ -103,6 +103,7 @@ export const useExtractInputProps = <T extends object>(props: T) =>
     "aria-autocomplete",
     "aria-haspopup",
     "value",
+    "checked",
     "defaultValue",
     "onChange",
     "autoComplete",

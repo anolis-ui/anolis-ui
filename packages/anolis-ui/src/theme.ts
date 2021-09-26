@@ -1,6 +1,6 @@
 import { ButtonTheme, buttonTheme } from "components/Button/theme";
 import { CardTheme, cardTheme } from "components/Card/theme";
-import { checkboxTheme, CheckboxTheme } from "components/Checkbox/theme";
+import { CheckboxTheme, checkboxTheme } from "components/Checkbox/theme";
 import { CollapseTheme, collapseTheme } from "components/Collapse/theme";
 import { ContainerTheme, containerTheme } from "components/Container/theme";
 import { ControlTheme, controlTheme } from "components/Control/theme";
@@ -10,7 +10,8 @@ import { InputTheme, inputTheme } from "components/Input/theme";
 import { LabelTheme, labelTheme } from "components/Label/theme";
 import { ListTheme, listTheme } from "components/List/theme";
 import { ModalTheme, modalTheme } from "components/Modal/theme";
-import { spinnerTheme, SpinnerTheme } from "components/Spinner/theme";
+import { SpinnerTheme, spinnerTheme } from "components/Spinner/theme";
+import { switchTheme, SwitchTheme } from "components/Switch/theme";
 import { TagTheme, tagTheme } from "components/Tag/theme";
 import { TextLinkTheme, textLinkTheme } from "components/TextLink/theme";
 import { TypographyTheme, typographyTheme } from "components/Typography/theme";
@@ -29,6 +30,7 @@ export type AnolisTheme = {
   list: ListTheme;
   modal: ModalTheme;
   spinner: SpinnerTheme;
+  switch: SwitchTheme;
   tag: TagTheme;
   textLink: TextLinkTheme;
   typography: TypographyTheme;
@@ -48,6 +50,7 @@ export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
   ...listTheme(),
   ...modalTheme(),
   ...spinnerTheme(),
+  ...switchTheme(),
   ...tagTheme(),
   ...textLinkTheme(),
   ...typographyTheme(),

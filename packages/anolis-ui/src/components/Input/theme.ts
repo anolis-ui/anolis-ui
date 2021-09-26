@@ -126,6 +126,7 @@ export type TransferedInputPropKey =
   | "aria-autocomplete"
   | "aria-haspopup"
   | "value"
+  | "checked"
   | "defaultValue"
   | "onChange"
   | "autoComplete"
