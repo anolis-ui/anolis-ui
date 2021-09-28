@@ -16,6 +16,7 @@ export type SwitchThemeProps =
   & TripletProp<"label">
   & {
     _knobActive?: SystemProps;
+    _controlActive?: SystemProps;
     _controlFocusRing?: SystemProps;
   };
 
@@ -33,6 +34,31 @@ const emptySwitch: SwitchTheme = {
     opacity: { disabled: 0.3 },
     pointerEvents: { disabled: "none" },
     _control: {
+      transition: "background 200ms, color 200ms, border 200ms",
+      bg: {
+        _: "anolis-gray-200",
+        groupHover: "anolis-gray-300",
+        active: "anolis-gray-400",
+        focus: "anolis-gray-300"
+      },
+      color: {
+        _: "anolis-gray-200",
+        groupHover: "anolis-gray-300",
+        active: "anolis-gray-400",
+        focus: "anolis-gray-300"
+      },
+      borderWidth: 3,
+      borderColor: {
+        _: "anolis-gray-200",
+        groupHover: "anolis-gray-300",
+        active: "anolis-gray-400",
+        focus: "anolis-gray-300",
+        disabled: "anolis-gray-100"
+      },
+      borderRadius: "full",
+      position: "relative"
+    },
+    _controlActive: {
       bg: {
         _: "anolis-blue-600",
         groupHover: "anolis-blue-700",
@@ -45,16 +71,15 @@ const emptySwitch: SwitchTheme = {
         active: "anolis-blue-800",
         focus: "anolis-blue-700"
       },
-      borderWidth: 3,
       borderColor: {
         _: "anolis-blue-600",
         groupHover: "anolis-blue-700",
         active: "anolis-blue-800",
-        focus: "anolis-blue-700",
-        disabled: "anolis-blue-100"
-      },
-      borderRadius: "full",
-      position: "relative"
+        focus: "anolis-blue-700"
+      }
+    },
+    _controlFocusRing: {
+      boxShadow: "xl"
     },
     _knob: {
       transition: "margin 200ms",
@@ -68,10 +93,6 @@ const emptySwitch: SwitchTheme = {
     },
     _knobActive: {
       mr: 0
-    },
-    _controlFocusRing: {
-      bg: "anolis-blue-700",
-      boxShadow: "xl"
     },
     _label: {
       userSelect: "none"

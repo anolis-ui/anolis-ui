@@ -26,10 +26,12 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
     children,
     ...p
   } = useThemePropsMerge("checkbox", props);
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(p.checked ?? p.defaultChecked);
   const { isFocusVisible, focusProps } = useFocusRing();
 
   const [transferedProps, finalProps] = useExtractInputProps(p);
+
+  console.log(checked);
 
   return (
     <x.label ref={ref} {...finalProps} data-a-group>

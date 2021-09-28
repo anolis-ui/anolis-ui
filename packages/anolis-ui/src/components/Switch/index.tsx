@@ -16,16 +16,17 @@ export const Switch = anolisComponent<"label", SwitchProps>("label", (props, ref
   const {
     control,
     _control,
+    _controlActive,
+    _controlFocusRing,
     _knob,
     knob,
     _knobActive,
-    _controlFocusRing,
     _label,
     label,
     children,
     ...p
   } = useThemePropsMerge("switch", props);
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(p.checked ?? p.defaultChecked);
   const { isFocusVisible, focusProps } = useFocusRing();
 
   const [transferedProps, finalProps] = useExtractInputProps(p);
@@ -45,7 +46,11 @@ export const Switch = anolisComponent<"label", SwitchProps>("label", (props, ref
         />
       </VisuallyHidden>
 
-      <x.div {..._control} {...isFocusVisible && _controlFocusRing}>
+      <x.div
+        {..._control}
+        {...checked && _controlActive}
+        {...isFocusVisible && _controlFocusRing}
+      >
         <x.div
           {..._knob}
           {...checked && _knobActive}

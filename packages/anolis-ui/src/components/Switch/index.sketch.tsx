@@ -6,7 +6,7 @@ import { sketch, SketchLayout } from "sketch";
 import { Switch } from ".";
 
 const Variants: FC = sketch(() => {
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(true);
 
   return (
     <SketchLayout title="Switch">
