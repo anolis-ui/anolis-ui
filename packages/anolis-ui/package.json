@@ -26,7 +26,7 @@
   "scripts": {
     "build": "yarn ttsc -p ./tsconfig.json && yarn rollup -c",
     "dev": "gatsby develop",
-    "prepare": "yarn rollup -c",
+    "prepare": "yarn build",
     "storybook": "gatsby develop",
     "ts-check": "yarn tsc --noEmit",
     "lint": "eslint \"{src,stories}/**/*.{ts,tsx}\"",
