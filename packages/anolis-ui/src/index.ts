@@ -6,6 +6,7 @@ export * from "./components/Collapse";
 export * from "./components/Tag";
 export * from "./components/Button";
 export * from "./components/Container";
+export * from "./components/FormControl";
 export * from "./components/List";
 export * from "./components/List/ListItem";
 export * from "./components/Typography";
