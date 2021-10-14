@@ -6,3 +6,4 @@ coverage
 /lerna-debug.log
 /.idea
 .cache
+.vscode
