@@ -43,7 +43,7 @@ export const Card = anolisComponent<"div", CardProps>("div", (p, ref) => {
       )}
 
       {tag && (
-        <Tag m={_header?.p ?? _header?.padding} {..._tag}>
+        <Tag {..._tag}>
           {renderComponent(tag)}
         </Tag>
       )}
