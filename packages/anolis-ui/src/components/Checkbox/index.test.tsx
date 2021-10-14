@@ -1,21 +1,21 @@
 import { render, testA11y, testSnapshotMatch } from "utils/test";
 
-import { Tag } from ".";
+import { Checkbox } from ".";
 
 test("should render", () => {
   render(
-    <Tag>Electronics</Tag>
+    <Checkbox>Label</Checkbox>
   );
 });
 
 test("should conform a11y", async () => {
   await testA11y(
-    <Tag>Electronics</Tag>
+    <Checkbox>Label</Checkbox>
   );
 });
 
 test("should match snapshot", () => {
   testSnapshotMatch(
-    <Tag>Electronics</Tag>
+    <Checkbox>Label</Checkbox>
   );
 });

@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+Array [
+  .emotion-1 {
+  font-weight: 600;
+}
+
+.emotion-3 {
+  font-size: 0.875rem;
+}
+
+<div
+    className="emotion-0"
+    data-a-invalid={true}
+    error="This field is required"
+    label="Username"
+  >
+    <label
+      className="emotion-1"
+      htmlFor="react-aria-1"
+      id="react-aria-2"
+    >
+      Username
+       
+    </label>
+    <input
+      aria-labelledby="react-aria-2"
+      className="emotion-0"
+      id="react-aria-1"
+    />
+    <div
+      className="emotion-3"
+      id={null}
+    >
+      This field is required
+    </div>
+  </div>,
+  .emotion-1 {
+  font-weight: 600;
+}
+
+.emotion-3 {
+  font-size: 0.875rem;
+}
+
+<div
+    className="emotion-0"
+    data-a-invalid={false}
+    help="Use strong password"
+    label="Password"
+  >
+    <label
+      className="emotion-1"
+      htmlFor="react-aria-5"
+      id="react-aria-6"
+    >
+      Password
+       
+    </label>
+    <input
+      aria-labelledby="react-aria-6"
+      className="emotion-0"
+      id="react-aria-5"
+    />
+    <div
+      className="emotion-3"
+      id={null}
+    >
+      Use strong password
+    </div>
+  </div>,
+]
+`;

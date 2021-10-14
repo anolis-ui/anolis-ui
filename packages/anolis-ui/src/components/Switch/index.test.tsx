@@ -1,21 +1,21 @@
 import { render, testA11y, testSnapshotMatch } from "utils/test";
 
-import { Tag } from ".";
+import { Switch } from ".";
 
 test("should render", () => {
   render(
-    <Tag>Electronics</Tag>
+    <Switch />
   );
 });
 
 test("should conform a11y", async () => {
   await testA11y(
-    <Tag>Electronics</Tag>
+    <Switch label="Toggle dark mode" />
   );
 });
 
 test("should match snapshot", () => {
   testSnapshotMatch(
-    <Tag>Electronics</Tag>
+    <Switch />
   );
 });

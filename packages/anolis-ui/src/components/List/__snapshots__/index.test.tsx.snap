@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+.emotion-0 {
+  line-height: 1.5rem;
+  color: #000f20;
+  list-style-type: disc;
+  margin: 0;
+  padding: 0;
+}
+
+<ul
+  className="emotion-0"
+>
+  <li
+    className="emotion-1"
+  >
+    Item one
+  </li>
+  <li
+    className="emotion-1"
+  >
+    Item two
+  </li>
+  <li
+    className="emotion-1"
+  >
+    Item three
+  </li>
+  <li
+    className="emotion-1"
+  >
+    Item four
+  </li>
+</ul>
+`;

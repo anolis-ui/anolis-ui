@@ -1,21 +1,21 @@
 import { render, testA11y, testSnapshotMatch } from "utils/test";
 
-import { Tag } from ".";
+import { TextLink } from ".";
 
 test("should render", () => {
   render(
-    <Tag>Electronics</Tag>
+    <TextLink href="https://example.com">example.com</TextLink>
   );
 });
 
 test("should conform a11y", async () => {
   await testA11y(
-    <Tag>Electronics</Tag>
+    <TextLink href="https://example.com">example.com</TextLink>
   );
 });
 
 test("should match snapshot", () => {
   testSnapshotMatch(
-    <Tag>Electronics</Tag>
+    <TextLink href="https://example.com">example.com</TextLink>
   );
 });

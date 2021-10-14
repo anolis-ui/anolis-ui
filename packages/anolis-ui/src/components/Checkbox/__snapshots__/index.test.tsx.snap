@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+.emotion-0 {
+  -webkit-transition: border 300ms,background 300ms;
+  transition: border 300ms,background 300ms;
+  color: #808296;
+  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0:focus-within {
+  color: #505162;
+}
+
+.emotion-0:hover {
+  color: #67687d;
+}
+
+.emotion-2 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #b9b9c6;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 1rem;
+}
+
+.emotion-2:focus-within {
+  border-color: #808296;
+}
+
+.emotion-2:hover {
+  border-color: #9c9eae;
+}
+
+[data-group]:hover .emotion-2,
+[data-a-group]:hover .emotion-2 {
+  border-color: #9c9eae;
+}
+
+.emotion-3 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+<label
+  className="emotion-0"
+  data-a-group={true}
+>
+  <div
+    style={
+      Object {
+        "border": 0,
+        "clip": "rect(0 0 0 0)",
+        "clipPath": "inset(50%)",
+        "height": 1,
+        "margin": "0 -1px -1px 0",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": 1,
+      }
+    }
+  >
+    <input
+      className="emotion-1"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      type="checkbox"
+    />
+  </div>
+  <div
+    className="emotion-2"
+  />
+  <span
+    className="emotion-3"
+  >
+    Label
+  </span>
+</label>
+`;

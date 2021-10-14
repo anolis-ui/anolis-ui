@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+.emotion-0 {
+  -webkit-transition: border 300ms,background 300ms;
+  transition: border 300ms,background 300ms;
+  color: #808296;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #b9b9c6;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.emotion-0:focus-within {
+  color: #505162;
+  border-color: #808296;
+}
+
+.emotion-0:hover {
+  color: #67687d;
+  border-color: #9c9eae;
+}
+
+.emotion-0:user-invalid,
+[data-a-invalid=true] .emotion-0,
+[data-a-invalid=true].emotion-0 {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.emotion-0 input,
+.emotion-0 textarea {
+  background: transparent;
+  border: none;
+  -webkit-appearance: inherit;
+  -webkit-transition: inherit;
+  transition: inherit;
+  resize: none;
+  width: 100%;
+  color: inherit;
+}
+
+.emotion-0 input:focus,
+.emotion-0 textarea:focus {
+  border: none;
+  outline: none;
+}
+
+.emotion-0 input:-webkit-autofill,
+.emotion-0 textarea:-webkit-autofill,
+.emotion-0 input:-webkit-autofill:hover,
+.emotion-0 textarea:-webkit-autofill:hover,
+.emotion-0 input:-webkit-autofill:focus,
+.emotion-0 textarea:-webkit-autofill:focus,
+.emotion-0 input:-webkit-autofill:active,
+.emotion-0 textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 3rem white inset!important;
+}
+
+<div
+  className="emotion-0"
+  onClick={[Function]}
+>
+  <input
+    className="emotion-1"
+  />
+</div>
+`;

@@ -1,60 +1,42 @@
-import { Card } from ".";
 import { x } from "@xstyled/emotion";
-import React, { FC } from "react";
-import renderer from "react-test-renderer";
+import { render, testA11y, testSnapshotMatch } from "utils/test";
 
-test("Card component", () => {
-  const component = renderer.create(
+import { Card } from ".";
+
+test("should render", () => {
+  render(
+    <Card
+      title="Card title"
+      media={<x.img src="http://placekitten.com/500/300" alt="cat" />}
+      footer={<x.p>Footer</x.p>}
+    >
+      Text text text
+    </Card>
+  );
+});
+
+test("should conform a11y", async () => {
+  await testA11y((
     <>
       <Card
         title="Card title"
         media={<x.img src="http://placekitten.com/500/300" alt="cat" />}
         footer={<x.p>Footer</x.p>}
       >
-        <LoremIpsum units="sentences" />
+        Text text text
       </Card>
-
-      <Card
-        title="Card title"
-        media={<x.img src="http://placekitten.com/500/300" alt="cat" />}
-        body={<LoremIpsum units="sentences" />}
-        footer={<x.p>Footer</x.p>}
-      />
-
-      <Card
-        title="Card title"
-        tag="Tag"
-        media={<x.img src="http://placekitten.com/500/300" alt="cat" />}
-        body={<LoremIpsum units="sentences" />}
-      />
-
-      <Card
-        title="Card title"
-        tag="Tag"
-        media={<x.img src="http://placekitten.com/500/300" alt="cat" />}
-        body={<LoremIpsum units="sentences" />}
-      />
-
-      <Card
-        tag="Tag"
-        media={<x.img src="http://placekitten.com/500/300" alt="cat" />}
-        body={<LoremIpsum units="sentences" />}
-      />
-
-      <Card
-        title="Thick"
-        tag="Tag"
-        media={<x.img src="http://placekitten.com/500/300" alt="cat" />}
-        body={<LoremIpsum units="sentences" />}
-      />
     </>
-  );
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+  ));
 });
 
-const LoremIpsum: FC<any> = () => {
-  return (
-    <>text text text</>
+test("should match snapshot", () => {
+  testSnapshotMatch(
+    <Card
+      title="Card title"
+      media={<x.img src="http://placekitten.com/500/300" alt="cat" />}
+      footer={<x.p>Footer</x.p>}
+    >
+      Text text text
+    </Card>
   );
-};
+});

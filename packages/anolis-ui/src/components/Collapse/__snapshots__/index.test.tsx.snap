@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<div
+  className="emotion-0"
+  style={
+    Object {
+      "height": "0px",
+      "opacity": 0,
+      "overflow": "hidden",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    Content inside
+  </div>
+</div>
+`;

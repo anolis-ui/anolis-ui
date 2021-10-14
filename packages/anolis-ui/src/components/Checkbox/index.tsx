@@ -31,8 +31,6 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
 
   const [transferedProps, finalProps] = useExtractInputProps(p);
 
-  console.log(checked);
-
   return (
     <x.label ref={ref} {...finalProps} data-a-group>
       <VisuallyHidden>

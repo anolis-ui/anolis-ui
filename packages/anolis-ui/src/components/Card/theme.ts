@@ -29,7 +29,7 @@ const emptyCard: CardTheme = {
     _header: {
       display: "flex",
       order: 1,
-      padding: "2rem",
+      padding: 8,
       pb: 0
     },
     _title: {

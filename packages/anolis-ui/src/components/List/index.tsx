@@ -9,7 +9,7 @@ export * from "./theme";
 export type ListProps = AnolisComponentProps<"ul", ListThemeProps, ListVariant>;
 
 export const List = anolisComponent<"ul", ListProps>("ul", (p, ref) => {
-  const props = useThemePropsMerge("list", p);
+  const { _bullet, _item, _leftIcon, _rightIcon, ...props } = useThemePropsMerge("list", p);
 
   return (
     <x.ul ref={ref} {...props} />

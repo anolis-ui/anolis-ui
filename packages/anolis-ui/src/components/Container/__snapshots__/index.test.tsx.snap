@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+.emotion-0 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .emotion-0 {
+    max-width: 32em;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .emotion-0 {
+    max-width: 40em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .emotion-0 {
+    max-width: 56em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .emotion-0 {
+    max-width: 64em;
+  }
+}
+
+@media (min-width: 1536px) {
+  .emotion-0 {
+    max-width: 84em;
+  }
+}
+
+<div
+  className="emotion-0"
+>
+  Label
+</div>
+`;
