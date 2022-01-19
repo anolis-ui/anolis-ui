@@ -1,24 +1,18 @@
-import { merge } from "./merge";
 import { SystemProps } from "@xstyled/emotion";
-import { DOMAttributes, HTMLAttributes } from "react";
 
-export interface ComponentTheme<
-  Props extends object = {},
-  Variant extends keyof any = never,
-  Size extends keyof any = never
-> {
-  baseStyle: ThemeComponentProps<Props>;
-  sizes: Record<Size, ThemeComponentProps<Props>>;
-  variants: Record<Variant, ThemeComponentProps<Props>>;
+import { merge } from "./merge";
+
+export interface ComponentTheme<P extends SizeVariantProps<keyof any, keyof any> = {}> {
+  baseStyle: P;
+  sizes: Record<NonNullable<P["s"]>, P>;
+  variants: Record<NonNullable<P["v"]>, P>;
   defaultProps: {
-    s?: Size;
-    v?: Variant;
+    s?: P["s"];
+    v?: P["v"];
   };
 }
 
-type ThemeComponentProps<P extends object> = SystemProps & P & Omit<HTMLAttributes<{}>, keyof DOMAttributes<{}> | "color">;
-
-export type PartialComponentTheme<T extends ComponentTheme<any, any, any>> = Omit<Partial<T>, "sizes" | "variants"> & {
+export type PartialComponentTheme<T extends ComponentTheme<any>> = Omit<Partial<T>, "sizes" | "variants"> & {
   sizes?: Partial<T["sizes"]>;
   variants?: Partial<T["variants"]>;
 };
@@ -28,7 +22,7 @@ export type SizeVariantProps<V extends keyof any = never, S extends keyof any = 
   v?: V;
 };
 
-export const extendTheme = <T extends ComponentTheme<{}, keyof any, keyof any>>(base: T, target?: PartialComponentTheme<T>): T => {
+export const extendTheme = <T extends ComponentTheme<{}>>(base: T, target?: PartialComponentTheme<T>): T => {
   return !target
     ? base
     : {
@@ -43,3 +37,22 @@ export const extendTheme = <T extends ComponentTheme<{}, keyof any, keyof any>>(
 const mergeVariants = <T extends Record<string, any>>(target: T, source: Partial<T> | undefined): T => Object.fromEntries(
   Object.entries(target).map(([k, v]) => [k, merge(v, source?.[k])])
 ) as T;
+
+export type ElementProps<As extends React.ElementType> = As extends keyof JSX.IntrinsicElements
+  ? Omit<JSX.IntrinsicElements[As], "color"> & SystemProps
+  : React.ComponentProps<As>;
+
+export const componentTheme = <P extends SizeVariantProps<keyof any, keyof any>>(
+  baseStyle: P,
+  variants?: Record<NonNullable<P["v"]>, P>,
+  sizes?: Record<NonNullable<P["s"]>, P>,
+  defaultProps?: {
+    s?: P["s"];
+    v?: P["v"];
+  }
+): ComponentTheme<P> => ({
+  baseStyle,
+  variants: variants ?? {} as Record<NonNullable<P["v"]>, P>,
+  sizes: sizes ?? {} as Record<NonNullable<P["v"]>, P>,
+  defaultProps: defaultProps ?? {}
+});

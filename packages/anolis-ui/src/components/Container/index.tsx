@@ -1,19 +1,18 @@
 import { x } from "@xstyled/emotion";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { ElementType, ForwardedRef, ReactElement } from "react";
+import { anolisComp } from "utils/anolisComponent";
 
-import { ContainerThemeProps, ContainerVariant } from "./theme";
+import { ContainerProps } from "./theme";
 
 export * from "./theme";
 
-export type ContainerProps = AnolisComponentProps<"div", ContainerThemeProps, ContainerVariant>;
+export type ContainerComponent = <LC extends ElementType, RC extends ElementType>(props: ContainerProps<LC, RC>) => ReactElement | null;
 
-export const Container = anolisComponent<"div", ContainerProps>("div", (p, ref) => {
+export const Container: ContainerComponent = anolisComp("Container", (p, ref) => {
   const props = useThemePropsMerge("container", p);
 
   return (
-    <x.div ref={ref as any} container={p.v === "normal"} {...props} />
+    <x.div ref={ref} container={p.v === "normal"} {...props} />
   );
 });
-
-Container.displayName = "Container";

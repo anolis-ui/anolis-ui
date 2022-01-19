@@ -1,6 +1,6 @@
 import { SystemProps } from "@xstyled/emotion";
 import { Renderable } from "./renderComponent";
-import { ComponentType, DOMAttributes, HTMLAttributes } from "react";
+import { ComponentType, DOMAttributes, ElementType, HTMLAttributes } from "react";
 
 export type TripletProp<T extends string, P extends {} = {}> =
   & { [K in `_${T}`]?: AnolisThemeProps & P; }

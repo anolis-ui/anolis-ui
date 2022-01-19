@@ -1,13 +1,18 @@
-import { IconProps } from "components/Icon";
-import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { TripletProp } from "../../utils/TripletProps";
+import { Icon } from "components/Icon";
+import { ElementType } from "react";
+import { AnolisBaseProps } from "utils/anolisComponent";
+import { Renderable } from "utils/renderComponent";
+import { ComponentTheme, ElementProps, extendTheme, PartialComponentTheme } from "utils/theme";
 
 export type ControlSizes = "xs" | "sm" | "md" | "lg";
 
-export type ControlThemeProps =
-  & TripletProp<"icon">;
+export type ControlProps<Icon extends ElementType> = AnolisBaseProps<"div", never, ControlSizes> & {
+  $icon?: Icon;
+  _icon?: ElementProps<Icon>;
+  icon?: Renderable;
+};
 
-export type ControlTheme = ComponentTheme<ControlThemeProps, never, ControlSizes>;
+export type ControlTheme = ComponentTheme<ControlProps<typeof Icon>>;
 
 export const controlTheme = (c?: PartialComponentTheme<ControlTheme>): { control: ControlTheme } => ({
   control: extendTheme(emptyControl, c)

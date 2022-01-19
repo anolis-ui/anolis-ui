@@ -1,16 +1,16 @@
 import { x } from "@xstyled/emotion";
 import Complement, { useComplement } from "components/Complement";
-import { TextLinkVariant } from "components/TextLink/theme";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { ElementType, ReactElement } from "react";
+import { anolisComp } from "utils/anolisComponent";
 
-import { TextLinkThemeProps } from "./theme";
+import { TextLinkProps } from "./theme";
 
 export * from "./theme";
 
-export type TextLinkProps = AnolisComponentProps<"a", TextLinkThemeProps, TextLinkVariant>;
+type TextLinkComponent = <LC extends ElementType, RC extends ElementType>(props: TextLinkProps<LC, RC>) => ReactElement | null;
 
-export const TextLink = anolisComponent<"a", TextLinkProps>("a", (p, ref) => {
+export const TextLink: TextLinkComponent = anolisComp("TextLink", (p, ref) => {
   const [left, right, { children, ...props }] = useComplement(useThemePropsMerge("textLink", p));
 
   return (
@@ -21,5 +21,3 @@ export const TextLink = anolisComponent<"a", TextLinkProps>("a", (p, ref) => {
     </x.a>
   );
 });
-
-TextLink.displayName = "TextLink";

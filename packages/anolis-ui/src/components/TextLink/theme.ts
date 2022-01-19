@@ -1,11 +1,15 @@
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 import { ComplementProps } from "components/Complement";
+import { AnolisBaseProps } from "utils/anolisComponent";
+import { ElementType } from "react";
 
 export type TextLinkVariant = "normal" | "underlined";
 
-export type TextLinkThemeProps = ComplementProps;
+export type TextLinkProps<LC extends ElementType, RC extends ElementType> =
+  & AnolisBaseProps<"a", TextLinkVariant>
+  & ComplementProps<LC, RC>;
 
-export type TextLinkTheme = ComponentTheme<TextLinkThemeProps, TextLinkVariant>;
+export type TextLinkTheme = ComponentTheme<TextLinkProps<"div", "div">>;
 
 export const textLinkTheme = (t?: PartialComponentTheme<TextLinkTheme>): { textLink: TextLinkTheme } => ({
   textLink: extendTheme(emptyTextLink, t)
@@ -13,7 +17,7 @@ export const textLinkTheme = (t?: PartialComponentTheme<TextLinkTheme>): { textL
 
 const emptyTextLink: TextLinkTheme = {
   baseStyle: {
-    color: { _: "anolis-blue-600", hover: "anolis-blue-700" } as any,
+    color: { _: "anolis-blue-600", hover: "anolis-blue-700" },
     borderBottom: "1px solid transparent",
     fontSize: "1rem",
     lineHeight: "initial",

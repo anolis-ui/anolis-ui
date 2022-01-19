@@ -3,28 +3,24 @@ import { x } from "@xstyled/emotion";
 import { CloseControl } from "components/Control/CloseControl";
 import { Txt } from "components/Typography/Txt";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { useContext, useEffect, useRef } from "react";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { ElementType, ReactElement, useContext, useEffect, useRef } from "react";
+import { anolisComp } from "utils/anolisComponent";
 import renderComponent from "utils/renderComponent";
 
 import { ModalContext, ModalInstanceContext } from "./data";
-import { ModalSize, ModalThemeProps } from "./theme";
+import { ModalProps } from "./theme";
 
 export * from "./theme";
 export * from "./data";
 
-export type ModalProps = AnolisComponentProps<
-"div",
-ModalThemeProps & {
-  /** If true, modal won't close when user clicks outside of the modal */
-  persistent?: boolean;
-  onClose?: () => unknown;
-},
-never,
-ModalSize
->;
+export type ModalComponent = <
+  Title extends ElementType,
+  Header extends ElementType,
+  Close extends ElementType,
+  Overlay extends ElementType
+>(props: ModalProps<Title, Header, Close, Overlay>) => ReactElement | null;
 
-export const Modal = anolisComponent<"div", ModalProps>("div", (p, _ref) => {
+export const Modal: ModalComponent = anolisComp("div", (p, _ref) => {
   const {
     children,
     onClose,
@@ -85,5 +81,3 @@ export const Modal = anolisComponent<"div", ModalProps>("div", (p, _ref) => {
     </Portal>
   );
 });
-
-Modal.displayName = "Modal";

@@ -39,13 +39,13 @@ exports[`should match snapshot 1`] = `
 }
 
 .emotion-3 {
-  -webkit-order: 2;
-  -ms-flex-order: 2;
-  order: 2;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
 }
 
 .emotion-5 {

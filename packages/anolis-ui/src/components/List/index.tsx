@@ -1,19 +1,24 @@
 import { x } from "@xstyled/emotion";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { ElementType, ReactElement } from "react";
+import { anolisComp } from "utils/anolisComponent";
+import { renderTriplet } from "utils/renderTriplet";
 
-import { ListThemeProps, ListVariant } from "./theme";
+import { ListProps } from "./theme";
 
 export * from "./theme";
 
-export type ListProps = AnolisComponentProps<"ul", ListThemeProps, ListVariant>;
+export type ListComponent = <Item extends ElementType>(props: ListProps<Item>) => ReactElement | null;
 
-export const List = anolisComponent<"ul", ListProps>("ul", (p, ref) => {
-  const { _bullet, _item, _leftIcon, _rightIcon, ...props } = useThemePropsMerge("list", p);
+export const List: ListComponent = anolisComp("List", (p, ref) => {
+  const { $item, _item, item, children, ...props } = useThemePropsMerge("list", p);
 
   return (
-    <x.ul ref={ref} {...props} />
+    <x.ul ref={ref} {...props}>
+      {item?.map(i =>
+        renderTriplet($item, _item, i)
+      )}
+      {children}
+    </x.ul>
   );
 });
-
-List.displayName = "List";

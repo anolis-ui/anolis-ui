@@ -1,15 +1,16 @@
 import { x } from "@xstyled/emotion";
 import Complement, { useComplement } from "components/Complement";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { ElementType, ReactElement } from "react";
+import { anolisComp } from "utils/anolisComponent";
 
-import { TagThemeProps, TagVariant } from "./theme";
+import { TagProps } from "./theme";
 
 export * from "./theme";
 
-export type TagProps = AnolisComponentProps<"div", TagThemeProps, TagVariant>;
+export type TagComponent = <LC extends ElementType, RC extends ElementType>(props: TagProps<LC, RC>) => ReactElement | null;
 
-export const Tag = anolisComponent<"div", TagProps>("div", (p, ref) => {
+export const Tag: TagComponent = anolisComp("Tag", (p, ref) => {
   const [left, right, { children, ...props }] = useComplement(useThemePropsMerge("tag", p));
 
   return (
@@ -20,5 +21,3 @@ export const Tag = anolisComponent<"div", TagProps>("div", (p, ref) => {
     </x.div>
   );
 });
-
-Tag.displayName = "Tag";

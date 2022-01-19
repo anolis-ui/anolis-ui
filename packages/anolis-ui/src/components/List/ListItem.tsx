@@ -1,22 +1,35 @@
 import { x } from "@xstyled/emotion";
-import Complement, { SideComplementProps, useSideComplement } from "components/Complement";
-import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import Complement, { useSideComplement } from "components/Complement";
+import { usePropsMerge } from "hooks/useComponentTheme";
+import { ListItemProps, useTheme } from "index";
+import { ElementType, ReactElement, useMemo } from "react";
+import { anolisComp } from "utils/anolisComponent";
+import { componentTheme } from "utils/theme";
 
-export type ListItemProps = AnolisComponentProps<"li", SideComplementProps>;
+export type ListItemComponent = <Icon extends ElementType>(props: ListItemProps<Icon>) => ReactElement | null;
 
-export const ListItem = anolisComponent<"li", ListItemProps>("li", (
-  { children, v, s, ...p }, ref) => {
-  const theme = useComponentTheme("list");
+export const ListItem: ListItemComponent = anolisComp("ListItem", ({ children, ...p }, ref) => {
+  const { list: t } = useTheme();
 
-  const [left, props] = useSideComplement(p, theme._item ?? {});
+  const itemTheme = useMemo(() => componentTheme<ListItemProps<ElementType>>(t.baseStyle._item ?? {}, {
+    ordered: t.variants.ordered._item ?? {},
+    unordered: t.variants.unordered._item ?? {}
+  }), [t.baseStyle._item, t.variants.ordered._item, t.variants.unordered._item]);
+
+  const [left, props] = useSideComplement(usePropsMerge(itemTheme, p));
 
   return (
-    <x.li ref={ref as any} {...theme._item as any} {...props}>
+    <x.li ref={ref} {...props}>
       <Complement {...left} />
       {children}
     </x.li>
   );
 });
 
-ListItem.displayName = "ListItem";
+// const content = style({
+//   prop: "content"
+// });
+
+// export const { css, styled, x, createGlobalStyle } = createCss(
+//   compose(system, content)
+// );

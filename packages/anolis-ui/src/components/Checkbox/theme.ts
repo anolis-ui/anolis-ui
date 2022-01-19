@@ -1,27 +1,34 @@
-import { SystemProps } from "@xstyled/emotion";
-import { IconProps } from "components/Icon";
-import { TransferedInputPropKey } from "index";
-import { InputHTMLAttributes } from "react";
-import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { TripletProp } from "utils/TripletProps";
+import { ElementType } from "react";
+import { AnolisBaseProps } from "utils/anolisComponent";
+import { Renderable } from "utils/renderComponent";
+import { ComponentTheme, ElementProps, extendTheme, PartialComponentTheme } from "utils/theme";
+
+import { Icon } from "../Icon";
+import { TransInputProps } from "../Input";
 
 export type CheckboxVariant = "outline";
 export type CheckboxSize = "sm" | "md" | "lg";
 
-export type CheckboxThemeProps =
-  & Pick<
-  InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
-  TransferedInputPropKey
-  >
-  & TripletProp<"icon", IconProps>
-  & TripletProp<"control">
-  & TripletProp<"label">
+export type CheckboxProps<Control extends ElementType, Icon extends ElementType, Label extends ElementType> =
+  & AnolisBaseProps<"label", CheckboxVariant, CheckboxSize>
+  & TransInputProps<HTMLInputElement>
   & {
-    _controlActive?: SystemProps;
-    _controlFocusRing?: SystemProps;
+    $control?: Control;
+    _control?: ElementProps<Control>;
+    _controlActive?: ElementProps<Control>;
+    _controlFocusRing?: ElementProps<Control>;
+    control?: Renderable;
+
+    $icon?: Icon;
+    _icon?: ElementProps<Icon>;
+    icon?: Renderable;
+
+    $label?: Label;
+    _label?: ElementProps<Label>;
+    label?: Renderable;
   };
 
-export type CheckboxTheme = ComponentTheme<CheckboxThemeProps, CheckboxVariant, CheckboxSize>;
+export type CheckboxTheme = ComponentTheme<CheckboxProps<"div", typeof Icon, "div">>;
 
 export const checkboxTheme = (t?: PartialComponentTheme<CheckboxTheme>): { checkbox: CheckboxTheme } => ({
   checkbox: extendTheme(emptyCheckbox, t)

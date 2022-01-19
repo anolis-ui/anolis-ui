@@ -1,5 +1,5 @@
 import { x } from "@xstyled/emotion";
-import { Card, Button, Typography } from "anolis-ui";
+import { Card, Button, Typography, Tag } from "anolis-ui";
 import { CodeBlock } from "components/CodeBlock";
 import { ComponentDisplay } from "components/ComponentDisplay";
 import { ComponentSandbox } from "components/ComponentSandbox";
@@ -11,55 +11,27 @@ import Head from "components/Head";
 
 ```tsx
 import { Card } from "anolis-ui";
-
-interface CardProps extends SystemProps {
-  _header?: PseudoProp;
-  header?: Renderable;
-
-  _title?: PseudoProp;
-  title?: Renderable;
-
-  _tag?: PseudoProp;
-  tag?: Renderable;
-
-  _media?: PseudoProp;
-  media?: Renderable;
-
-  _body?: PseudoProp;
-  body?: Renderable;
-
-  _footer?: PseudoProp;
-  footer?: Renderable;
-}
-
-type CardVariant = "elevated" | "outline";
-type CardSize = never;
-
 ```
 <ComponentDisplay>
   {[
     [
       <Card
-        footer="Nice footer bro"
-        media={<x.img src="https://placeimg.com/416/180/any" alt="" />}
+        title="Card title"
+        $media={x.img}
+        _media={{ src:"https://placeimg.com/416/180/any", alt:" An image" }}
       >
-        <x.h4>
-          Card title
-        </x.h4>
-        <x.p mt="0.75rem">
+        <x.p>
           I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil
           existence, that I neglect my talents.
         </x.p>
       </Card>,
       `
 <Card
-  footer="Nice footer bro"
-  media={<Img src="//placehold.it/416x180" />}
+  title="Card title"
+  $media={x.img}
+  _media={{ src:"https://placeimg.com/416/180/any", alt:" An image" }}
 >
-  <x.h4>
-    Card title
-  </x.h4>
-  <x.p mt="0.75rem">
+  <x.p>
     I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil
     existence, that I neglect my talents.
   </x.p>
@@ -70,36 +42,123 @@ type CardSize = never;
 </ComponentDisplay>
 
 
-## Outlined
+## Variants
 
 Outline variant of the card is without shadow, but with border instead.
 
 <ComponentDisplay>
   {[
     [
+      <x.div display="flex" spaceX="4">
+        <Card v="elevated" title="Title">
+          Elevated (default)
+        </Card>
+        <Card v="outlined" title="Title">
+          Outlined
+        </Card>
+      </x.div>,
+      `
+<x.div display="flex" spaceX="4">
+  <Card v="elevated" title="Title">
+    Elevated (default)
+  </Card>
+  <Card v="outlined" title="Title">
+    Outlined
+  </Card>
+</x.div>
+      `
+    ]
+  ]}
+</ComponentDisplay>
+
+
+## Title triplet
+
+<ComponentDisplay>
+  {[
+    [
       <Card
-        v="outlined"
-        title="Card title"
-        footer={<Button>Click me</Button>}
+        $title={x.h1}
+        _title={{ color: "red" }}
+        title="Title"
+      />,
+      `
+ <Card
+  $title={x.h1}
+  _title={{ color: "red" }}
+  title="Title"
+/>`
+    ],
+  ]}
+</ComponentDisplay>
+
+## Tag triplet
+
+<ComponentDisplay>
+  {[
+    [
+      <Card
+        title="Title"
+        $tag={Tag}
+        _tag={{ bg: "red" }}
+        tag="News"
       >
-        <x.p>
-          I should be incapable of drawing a single stroke at the present moment; and yet I feel
-          that I never was a greater artist than now.
-        </x.p>
+        Body
       </Card>,
       `
 <Card
-  v="outlined"
-  title="Card title"
-  footer={<Button>Click me</Button>}
+  title="Title"
+  $tag={Tag}
+  _tag={{ bg: "red" }}
+  tag="News"
 >
-  <x.p>
-    I should be incapable of drawing a single stroke at the present moment; and yet I feel
-    that I never was a greater artist than now.
-  </x.p>
-</Card>
+  Body
+</Card>`
+  ],
+  ]}
+</ComponentDisplay>
+
+## Media triplet
+
+<ComponentDisplay>
+  {[
+    [
+      <Card
+        title="Title"
+        media={<img src="https://placeimg.com/416/180/any" alt=" An image" />}
+      >
+        Body
+      </Card>,
       `
-    ]
+<Card
+  title="Title"
+  media={<img src="https://placeimg.com/416/180/any" alt=" An image" />}
+>
+  Body
+</Card>`
+  ],
+  ]}
+</ComponentDisplay>
+
+## Body triplet & children
+
+<ComponentDisplay>
+  {[
+    [
+      <Card
+        title="Title"
+        media={<img src="https://placeimg.com/416/180/any" alt=" An image" />}
+      >
+        Body
+      </Card>,
+      `
+<Card
+  title="Title"
+  media={<img src="https://placeimg.com/416/180/any" alt=" An image" />}
+>
+  Body
+</Card>`
+  ],
   ]}
 </ComponentDisplay>
 

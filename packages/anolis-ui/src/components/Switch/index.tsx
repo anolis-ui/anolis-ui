@@ -2,17 +2,19 @@ import { useFocusRing } from "@react-aria/focus";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { x } from "@xstyled/emotion";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { FC, useState } from "react";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { FC, useState, ReactElement, ElementType } from "react";
+import { anolisComp } from "utils/anolisComponent";
 
 import { useExtractInputProps } from "../Input";
-import { SwitchSize, SwitchThemeProps } from "./theme";
+import { SwitchProps } from "./theme";
 
 export * from "./theme";
 
-export type SwitchProps = AnolisComponentProps<"label", SwitchThemeProps, never, SwitchSize>;
+export type SwitchComponent = <Control extends ElementType, Knob extends ElementType, Label extends ElementType>(
+  props: SwitchProps<Control, Knob, Label>
+) => ReactElement | null;
 
-export const Switch = anolisComponent<"label", SwitchProps>("label", (props, ref) => {
+export const Switch: SwitchComponent = anolisComp("Switch", (props, ref) => {
   const {
     control,
     _control,

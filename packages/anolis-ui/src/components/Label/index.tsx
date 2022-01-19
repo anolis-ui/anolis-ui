@@ -1,15 +1,16 @@
 import { x } from "@xstyled/emotion";
 import Complement, { useComplement } from "components/Complement";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { ElementType, ReactElement } from "react";
+import { anolisComp } from "utils/anolisComponent";
 
-import { LabelThemeProps } from "./theme";
+import { LabelProps } from "./theme";
 
 export * from "./theme";
 
-export type LabelProps = AnolisComponentProps<"label", LabelThemeProps>;
+export type LabelComponent = <LC extends ElementType, RC extends ElementType> (props: LabelProps<LC, RC>) => ReactElement | null;
 
-export const Label = anolisComponent<"label", LabelProps>("label", (p, ref) => {
+export const Label: LabelComponent = anolisComp("Label", (p, ref) => {
   const [left, right, { children, ...props }] = useComplement(useThemePropsMerge("label", p));
 
   return (
@@ -20,5 +21,3 @@ export const Label = anolisComponent<"label", LabelProps>("label", (p, ref) => {
     </x.label>
   );
 });
-
-Label.displayName = "Label";

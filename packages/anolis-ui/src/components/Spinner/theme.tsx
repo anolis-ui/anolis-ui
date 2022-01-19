@@ -1,10 +1,11 @@
+import { AnolisBaseProps } from "utils/anolisComponent";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 
 export type SpinnerSize = "xs" | "sm" | "md" | "lg" | "xl";
 
-export type SpinnerThemeProps = {};
+export type SpinnerProps = AnolisBaseProps<"div", never, SpinnerSize>;
 
-export type SpinnerTheme = ComponentTheme<SpinnerThemeProps, never, SpinnerSize>;
+export type SpinnerTheme = ComponentTheme<SpinnerProps>;
 
 export const spinnerTheme = (t?: PartialComponentTheme<SpinnerTheme>): { spinner: SpinnerTheme } => ({
   spinner: extendTheme(emptySpinner, t)

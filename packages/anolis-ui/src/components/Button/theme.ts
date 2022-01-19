@@ -1,17 +1,29 @@
 import { ComplementProps } from "components/Complement";
-import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { TripletProp } from "utils/TripletProps";
+import { ElementType } from "react";
+import { AnolisBaseProps } from "utils/anolisComponent";
+import { Renderable } from "utils/renderComponent";
+import { ComponentTheme, ElementProps, extendTheme, PartialComponentTheme } from "utils/theme";
 
-import { SpinnerProps } from "../Spinner";
+import { Spinner } from "../Spinner";
 
 export type ButtonVariant = "solid" | "clear" | "outline" | "link";
 export type ButtonSize = "xs" | "sm" | "md" | "lg";
 
-export type ButtonThemeProps =
-  & ComplementProps
-  & TripletProp<"spinner", SpinnerProps>;
+export type ButtonProps<LC extends ElementType, RC extends ElementType, TSpinner extends ElementType> =
+  & AnolisBaseProps<"button", ButtonVariant, ButtonSize>
+  & ComplementProps<LC, RC>
+  & {
+    $spinner?: TSpinner;
+    _spinner?: ElementProps<TSpinner>;
+    spinner?: Renderable;
 
-export type ButtonTheme = ComponentTheme<ButtonThemeProps, ButtonVariant, ButtonSize>;
+    href?: string;
+    target?: "_blank" | "_self" | "_parent" | "_top";
+
+    loading?: boolean;
+  };
+
+export type ButtonTheme = ComponentTheme<ButtonProps<"span", "span", typeof Spinner>>;
 
 export const buttonTheme = (t?: PartialComponentTheme<ButtonTheme>): { button: ButtonTheme } => ({
   button: extendTheme(emptyButton, t)

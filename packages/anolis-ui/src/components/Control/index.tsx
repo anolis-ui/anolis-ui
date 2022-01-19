@@ -1,16 +1,17 @@
 import { x } from "@xstyled/emotion";
 import { Icon } from "components/Icon";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { ElementType, ReactElement } from "react";
+import { anolisComp } from "utils/anolisComponent";
 
-import { ControlSizes, ControlThemeProps } from "./theme";
+import { ControlProps } from "./theme";
 
 export * from "./theme";
 export * from "./CloseControl";
 
-export type ControlProps = AnolisComponentProps<"div", ControlThemeProps, never, ControlSizes>;
+export type ControlComponent = <Icon extends ElementType>(props: ControlProps<Icon>) => ReactElement | null;
 
-export const Control = anolisComponent<"div", ControlProps>("div", (p, ref) => {
+export const Control: ControlComponent = anolisComp("Control", (p, ref) => {
   const { _icon, icon, ...props } = useThemePropsMerge("control", p);
 
   return (
@@ -19,5 +20,3 @@ export const Control = anolisComponent<"div", ControlProps>("div", (p, ref) => {
     </x.div>
   );
 });
-
-Control.displayName = "Control";

@@ -1,5 +1,5 @@
 import { x } from "@xstyled/emotion";
-import { Button } from "anolis-ui";
+import { Button, Tag, Spinner } from "anolis-ui";
 import { CodeBlock } from "components/CodeBlock";
 import { ComponentDisplay } from "components/ComponentDisplay";
 import Head from "components/Head";
@@ -10,27 +10,13 @@ import Head from "components/Head";
 
 ```tsx
 import { Button } from "anolis-ui";
-
-interface ButtonProps extends ComplementProps, SystemProps {
-
-}
-
-type ButtonVariant = "solid" | "clear" | "outline" | "link";
-type ButtonSize = "xs" | "sm" | "md" | "lg";
 ```
-
-## Basic
 
 Button has 4 default variants and sizes. By default, button is in solid variant and md size.
 
 <ComponentDisplay>
   {[
-    [
-      <Button>Solid</Button>,
-      `
-<Button>Solid</Button>
-      `
-    ]
+    [<Button>Solid</Button>, `<Button>Solid</Button>`]
   ]}
 </ComponentDisplay>
 
@@ -74,7 +60,7 @@ You can use 4 sizes of button. Just use **s** prop.
         <Button s="sm">SM Button</Button>
         <Button s="md">MD Button</Button>
         <Button s="lg">LG Button</Button>
-     </x.div>,
+      </x.div>,
       `
 <x.div spaceX="4">
    <Button s="xs">XS Button</Button>
@@ -87,13 +73,37 @@ You can use 4 sizes of button. Just use **s** prop.
   ]}
 </ComponentDisplay>
 
-## Other states
+## Native button states
 
 <ComponentDisplay>
   {[
     [<Button disabled>Disabled Button</Button>, `<Button disabled>Disabled Button</Button>`],
   ]}
 </ComponentDisplay>
+
+## Spinner triplet & loading
+
+<ComponentDisplay>
+  {[
+    [
+      <Button
+        loading
+        _spinner={{ color: "cyan" }}
+        $spinner={Spinner}
+        spinner="AAA"
+      />,
+      `
+<Button
+  loading // Toggle the spinner
+  _spinner={{ color: "cyan" }} // Custom component props
+  $spinner={Spinner} // Custom spinner component
+  spinner="AAA" // Custom component children (unused by default)
+/>`
+    ],
+  ]}
+</ComponentDisplay>
+
+
 
 ## Custom button
 

@@ -1,11 +1,15 @@
 import { ComplementProps } from "components/Complement";
+import { ElementType } from "react";
+import { AnolisBaseProps } from "utils/anolisComponent";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 
 export type TagVariant = "solid" | "outline" | "clear";
 
-export type TagThemeProps = ComplementProps;
+export type TagProps<LC extends ElementType, RC extends ElementType> =
+  & AnolisBaseProps<"div", TagVariant>
+  & ComplementProps<LC, RC>;
 
-export type TagTheme = ComponentTheme<TagThemeProps, TagVariant>;
+export type TagTheme = ComponentTheme<TagProps<"div", "div">>;
 
 export const tagTheme = (t?: PartialComponentTheme<TagTheme>): { tag: TagTheme } => ({
   tag: extendTheme(emptyTag, t)

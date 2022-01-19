@@ -1,16 +1,41 @@
-import { ControlThemeProps } from "components/Control";
-import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { TripletProp } from "utils/TripletProps";
+import { ElementType } from "react";
+import { AnolisBaseProps } from "utils/anolisComponent";
+import { Renderable } from "utils/renderComponent";
+import { ComponentTheme, ElementProps, extendTheme, PartialComponentTheme } from "utils/theme";
+
+import { CloseControl } from "../Control/CloseControl";
 
 export type ModalSize = "sm" | "md" | "lg" | "full";
 
-export type ModalThemeProps =
-  & TripletProp<"title">
-  & TripletProp<"header">
-  & TripletProp<"close", ControlThemeProps>
-  & TripletProp<"overlay">;
+export type ModalProps<
+  Title extends ElementType,
+  Header extends ElementType,
+  Close extends ElementType,
+  Overlay extends ElementType
+> =
+  & AnolisBaseProps<"div", never, ModalSize>
+  & {
+    $title?: Title;
+    _title?: ElementProps<Title>;
+    title?: Renderable;
 
-export type ModalTheme = ComponentTheme<ModalThemeProps, never, ModalSize>;
+    $header?: Header;
+    _header?: ElementProps<Header>;
+    header?: Renderable;
+
+    $close?: Close;
+    _close?: ElementProps<Close>;
+    close?: Renderable;
+
+    $overlay?: Overlay;
+    _overlay?: ElementProps<Overlay>;
+    overlay?: Renderable;
+
+    onClose?: () => unknown;
+    persistent?: boolean;
+  };
+
+export type ModalTheme = ComponentTheme<ModalProps<"div", "div", typeof CloseControl, "div">>;
 
 export const modalTheme = (c?: PartialComponentTheme<ModalTheme>): {modal: ModalTheme} => ({ modal: extendTheme(emptyModal, c) });
 

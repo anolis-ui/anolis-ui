@@ -1,25 +1,29 @@
-import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 import { ComplementProps } from "components/Complement";
-import { TripletProp } from "utils/TripletProps";
-import { InputHTMLAttributes, TextareaHTMLAttributes, DOMAttributes } from "react";
+import { ElementType, InputHTMLAttributes } from "react";
+import { AnolisBaseProps } from "utils/anolisComponent";
+import { Renderable } from "utils/renderComponent";
+import { ComponentTheme, ElementProps, extendTheme, PartialComponentTheme } from "utils/theme";
 
 export type InputVariant = "outline" | "line" | "fill" | "unstyled";
 export type InputSize = "xs" | "sm" | "md" | "lg";
 
-export type InputThemeProps =
-  & Pick<
-  InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
-  TransferedInputPropKey
-  >
-  & ComplementProps
-  & TripletProp<"input", InputHTMLAttributes<HTMLInputElement>>
-  & TripletProp<"textarea", TextareaHTMLAttributes<HTMLTextAreaElement>>
+export type InputProps<Input extends ElementType, Textarea extends ElementType, LC extends ElementType, RC extends ElementType> =
+  & Omit<AnolisBaseProps<"div", InputVariant, InputSize>, keyof TransInputProps<any>>
+  & TransInputProps<HTMLInputElement | HTMLTextAreaElement>
+  & ComplementProps<LC, RC>
   & {
-    placeholder?: string;
+    $input?: Input;
+    _input?: ElementProps<Input>;
+    input?: Renderable;
+
+    $textarea?: Textarea;
+    _textarea?: ElementProps<Textarea>;
+    textarea?: Renderable;
+
     multiline?: boolean;
   };
 
-export type InputTheme = ComponentTheme<InputThemeProps, InputVariant, InputSize>;
+export type InputTheme = ComponentTheme<InputProps<"input", "textarea", "div", "div">>;
 
 export const inputTheme = (t?: PartialComponentTheme<InputTheme>): { input: InputTheme } => ({
   input: extendTheme(emptyInput, t)
@@ -33,7 +37,7 @@ const emptyInput: InputTheme = {
       hover: "anolis-gray-500",
       focusWithin: "anolis-gray-600",
       invalid: "red-600"
-    } as any,
+    },
     display: "flex",
     alignItems: "center",
 
@@ -114,6 +118,8 @@ const emptyInput: InputTheme = {
     s: "md"
   }
 };
+
+export type TransInputProps<T extends HTMLElement> = Pick<InputHTMLAttributes<T>, TransferedInputPropKey>;
 
 export type TransferedInputPropKey =
   | "disabled"

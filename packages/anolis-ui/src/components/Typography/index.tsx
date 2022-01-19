@@ -1,26 +1,16 @@
-import styled, { breakpoints, createGlobalStyle, x, SystemProps } from "@xstyled/emotion";
+import styled, { breakpoints, createGlobalStyle, SystemProps, x } from "@xstyled/emotion";
 import { useComponentTheme } from "hooks/useComponentTheme";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { ReactElement } from "react";
+import { anolisComp } from "utils/anolisComponent";
 
-import { TypographyThemeProps, TypographyVariant } from "./theme";
-import { separateObjValues, groupByBreakpoint, wrapObjsWithSelector } from "./utils";
+import { TypographyProps } from "./theme";
+import { groupByBreakpoint, separateObjValues, wrapObjsWithSelector } from "./utils";
 
 export * from "./theme";
 
-export type TypographyProps =AnolisComponentProps<
-"div",
-TypographyThemeProps & {
-  topLevel?: boolean;
-},
-TypographyVariant
->;
+export type TypographyComponent = (props: TypographyProps & { topLevel?: boolean }) => ReactElement | null;
 
-export const Typography = anolisComponent<"div", TypographyProps>("div", ({
-  v,
-  s,
-  topLevel,
-  ...props
-}, ref) => {
+export const Typography: TypographyComponent = anolisComp("div", ({ v, s, topLevel, ...props }, ref) => {
   const theme = useComponentTheme("typography", v);
 
   return topLevel ? (
@@ -37,7 +27,7 @@ type Keys = keyof TypographyProps & `_${string}`;
 
 type TypographyStyleProps =
   & { [K in Keys]?: SystemProps }
-  & { _theme: TypographyThemeProps };
+  & { _theme: TypographyProps };
 
 const typoCss = (t: Keys, selector: string) =>
   (p: TypographyStyleProps) => {

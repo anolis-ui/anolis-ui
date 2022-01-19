@@ -1,11 +1,8 @@
 import { X } from "@emotion-icons/feather";
-import { anolisComponent } from "utils/anolisComponent";
+import { anolisComp } from "utils/anolisComponent";
 
-import { Control, ControlProps } from ".";
-import { ControlSizes } from "./theme";
+import { Control, ControlComponent } from ".";
 
-export const CloseControl = anolisComponent<"div", ControlProps>("div", (p, ref) => {
-  return <Control ref={ref as any} icon={<X />} {...p} />;
+export const CloseControl: ControlComponent = anolisComp("CloseControl", (p, ref) => {
+  return <Control ref={ref} icon={<X />} {...p} />;
 });
-
-CloseControl.displayName = "CloseControl";

@@ -1,11 +1,15 @@
 import { ComplementProps } from "components/Complement";
+import { ElementType } from "react";
+import { AnolisBaseProps } from "utils/anolisComponent";
 import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
 
 export type ContainerVariant = "normal" | "fluid";
 
-export type ContainerThemeProps = ComplementProps;
+export type ContainerProps<LC extends ElementType, RC extends ElementType> =
+  & AnolisBaseProps<"div", ContainerVariant>
+  & ComplementProps<LC, RC>;
 
-export type ContainerTheme = ComponentTheme<ContainerThemeProps, ContainerVariant>;
+export type ContainerTheme = ComponentTheme<ContainerProps<"div", "div">>;
 
 export const containerTheme = (t?: PartialComponentTheme<ContainerTheme>): { container: ContainerTheme } => ({
   container: extendTheme(emptyContainer, t)

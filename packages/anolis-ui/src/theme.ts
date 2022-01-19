@@ -4,7 +4,7 @@ import { CheckboxTheme, checkboxTheme } from "components/Checkbox/theme";
 import { CollapseTheme, collapseTheme } from "components/Collapse/theme";
 import { ContainerTheme, containerTheme } from "components/Container/theme";
 import { ControlTheme, controlTheme } from "components/Control/theme";
-import { DropMenuTheme, dropMenuTheme } from "components/DropMenu/theme";
+// import { DropMenuTheme, dropMenuTheme } from "components/DropMenu/theme";
 import { FormControlTheme, formControlTheme } from "components/FormControl/theme";
 import { InputTheme, inputTheme } from "components/Input/theme";
 import { LabelTheme, labelTheme } from "components/Label/theme";
@@ -23,7 +23,7 @@ export type AnolisTheme = {
   collapse: CollapseTheme;
   container: ContainerTheme;
   control: ControlTheme;
-  dropMenu: DropMenuTheme;
+  // dropMenu: DropMenuTheme;
   formControl: FormControlTheme;
   input: InputTheme;
   label: LabelTheme;
@@ -43,7 +43,7 @@ export const createTheme = (theme: Partial<AnolisTheme> = {}): AnolisTheme => ({
   ...collapseTheme(),
   ...containerTheme(),
   ...controlTheme(),
-  ...dropMenuTheme(),
+  // ...dropMenuTheme(),
   ...formControlTheme(),
   ...inputTheme(),
   ...labelTheme(),

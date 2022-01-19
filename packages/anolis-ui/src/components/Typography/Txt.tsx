@@ -1,11 +1,10 @@
 import { x } from "@xstyled/emotion";
-import { anolisComponent } from "utils/anolisComponent";
-import { AnolisComponentProps } from "../../utils/anolisComponent";
+import { AnolisBaseProps, anolisComp, anolisComponent } from "utils/anolisComponent";
+import { TxtProps } from "./theme";
+import { ReactElement } from "react";
 
-export type TxtProps = AnolisComponentProps<"p", {
-  t: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "lead";
-}>;
+type TxtComponent = (props: TxtProps) => ReactElement | null;
 
-export const Txt = anolisComponent<"p", TxtProps>("p", ({ t, ...props }, ref) => {
+export const Txt: TxtComponent = anolisComp("Txt", ({ t, ...props }, ref) => {
   return <x.p ref={ref} {...props} className={`_anolis-as-${t} ${props.className ?? ""}`} />;
 });

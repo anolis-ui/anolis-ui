@@ -15,7 +15,7 @@ const Normal: FC = sketch(() => {
         <FormControl
           label="Longitude"
           $field={Input}
-          _field={{ _input: { value: state, onChange: e => setState(e.target.value) } }}
+          // _field={{ _input: { value: state, onChange: e => setState(e.target.value) } }}
           help="example: 17.9627153"
         />
 

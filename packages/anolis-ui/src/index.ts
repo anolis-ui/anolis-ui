@@ -15,10 +15,10 @@ export * from "./components/TextLink";
 export * from "./components/Label";
 export * from "./components/Input";
 export * from "./components/Modal";
-export * from "./components/DropMenu";
-export * from "./components/DropMenu/DropdownMenuButton";
-export * from "./components/DropMenu/DropdownMenuList";
-export * from "./components/DropMenu/DropdownMenuItem";
+// export * from "./components/DropMenu";
+// export * from "./components/DropMenu/DropdownMenuButton";
+// export * from "./components/DropMenu/DropdownMenuList";
+// export * from "./components/DropMenu/DropdownMenuItem";
 export * from "./components/Spinner";
 export * from "./components/Switch";
 

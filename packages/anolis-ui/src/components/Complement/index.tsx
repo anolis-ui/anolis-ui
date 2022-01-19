@@ -1,27 +1,42 @@
-import { Icon, IconProps } from "components/Icon";
-import { FC, useMemo, ComponentProps } from "react";
+import { Icon } from "components/Icon";
+import { ElementType, FC, useMemo } from "react";
 import renderComponent, { Renderable } from "utils/renderComponent";
-import { TripletProp } from "utils/TripletProps";
+import { ElementProps } from "utils/theme";
 
-export type SideComplementProps =
-  & TripletProp<"icon", IconProps>
-  & { element?: Renderable };
+export type SideComplementProps<E extends ElementType> = {
+  $icon?: E;
+  _icon?: ElementProps<E>;
+  icon?: Renderable;
+  element?: Renderable;
+};
 
-export type ComplementProps =
-  & TripletProp<"leftIcon", IconProps>
-  & TripletProp<"rightIcon", IconProps>
-  & {
-    leftElement?: Renderable;
-    rightElement?: Renderable;
-  };
+export type ComplementProps<L extends ElementType, R extends ElementType> = {
+  $leftIcon?: L;
+  _leftIcon?: ElementProps<L>;
+  leftIcon?: Renderable;
+  leftElement?: Renderable;
 
-export const useSideComplement = <T extends SideComplementProps>(
+  $rightIcon?: L;
+  _rightIcon?: ElementProps<L>;
+  rightIcon?: Renderable;
+  rightElement?: Renderable;
+};
+
+export const useSideComplement = <E extends ElementType, T extends SideComplementProps<E>>(
   { _icon, icon, $icon, element, ...props }: T,
-  theme: SideComplementProps
-): [SideComplementProps, Omit<T, keyof SideComplementProps>] =>
-  useMemo(() => [{ _icon: { ...theme._icon, ..._icon }, icon, element }, props], [_icon, element, icon, props, theme._icon]);
+  theme: SideComplementProps<E> = {}
+): [SideComplementProps<E>, Omit<T, keyof SideComplementProps<E>>] =>
+  useMemo(() => [
+    { _icon: { ...theme._icon!, ..._icon! }, icon, element },
+    props
+  ], [_icon, element, icon, props, theme._icon]);
 
-export const useComplement = <T extends ComplementProps, U extends ComplementProps>(
+export const useComplement = <
+  L extends ElementType,
+  R extends ElementType,
+  T extends ComplementProps<L, R>,
+  U extends ComplementProps<L, R>
+>(
   {
     _rightIcon,
     $rightIcon,
@@ -38,15 +53,15 @@ export const useComplement = <T extends ComplementProps, U extends ComplementPro
     _rightIcon: themeRightIcon,
     ...theme
   }: U = {} as any
-): [SideComplementProps, SideComplementProps, Omit<T, keyof ComplementProps>, Omit<U, "_leftIcon" | "_rightIcon">] =>
+): [SideComplementProps<L>, SideComplementProps<R>, Omit<T, keyof ComplementProps<L, R>>, Omit<U, "_leftIcon" | "_rightIcon">] =>
   useMemo(() => [
     {
-      _icon: { ...themeLeftIcon, ..._leftIcon },
+      _icon: { ...themeLeftIcon!, ..._leftIcon! },
       icon: leftIcon,
       element: leftElement
     },
     {
-      _icon: { ...themeRightIcon, ..._rightIcon },
+      _icon: { ...themeRightIcon!, ..._rightIcon! },
       icon: rightIcon,
       element: rightElement
     },
@@ -54,7 +69,7 @@ export const useComplement = <T extends ComplementProps, U extends ComplementPro
     theme
   ], [_leftIcon, _rightIcon, leftElement, leftIcon, props, rightElement, rightIcon, theme, themeLeftIcon, themeRightIcon]);
 
-const Complement: FC<SideComplementProps> = ({ _icon, icon, $icon, element }) => (
+const Complement: FC<SideComplementProps<ElementType>> = ({ _icon, icon, $icon, element }) => (
   <>
     {renderComponent(element)}
     {icon && <Icon svg={icon} {..._icon as any} />}

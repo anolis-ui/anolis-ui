@@ -1,20 +1,36 @@
-import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { TripletProp } from "utils/TripletProps";
+import { AnolisBaseProps } from "utils/anolisComponent";
+import { ComponentTheme, ElementProps, extendTheme, PartialComponentTheme } from "utils/theme";
 
-export type TypographyVariant = "prose";
+export type TypographyVariant = "normal" | "prose";
 export type TypographySize = never;
 
-export type TypographyThemeProps =
-  & TripletProp<"h1">
-  & TripletProp<"h2">
-  & TripletProp<"h3">
-  & TripletProp<"h4">
-  & TripletProp<"h5">
-  & TripletProp<"h6">
-  & TripletProp<"p">
-  & TripletProp<"lead">;
+export type TypographyProps =
+  & AnolisBaseProps<"div", TypographyVariant, never>
+  & {
+    _h1?: ElementProps<"h1">;
 
-export type TypographyTheme = ComponentTheme<TypographyThemeProps, TypographyVariant, TypographySize>;
+    _h2?: ElementProps<"h2">;
+
+    _h3?: ElementProps<"h3">;
+
+    _h4?: ElementProps<"h4">;
+
+    _h5?: ElementProps<"h5">;
+
+    _h6?: ElementProps<"h6">;
+
+    _p?: ElementProps<"p">;
+
+    _lead?: ElementProps<"p">;
+  };
+
+export type TxtProps =
+  & AnolisBaseProps<"p">
+  & {
+    t: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "lead";
+  };
+
+export type TypographyTheme = ComponentTheme<TypographyProps>;
 
 export const typographyTheme = (c?: PartialComponentTheme<TypographyTheme>): { typography: TypographyTheme } => ({
   typography: extendTheme(emptyTypography, c)
@@ -78,6 +94,7 @@ const emptyTypography: TypographyTheme = {
   },
   sizes: {},
   variants: {
+    normal: {},
     prose: {
 
     }

@@ -50,11 +50,13 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
           </Link>
 
           <x.div display="flex" alignItems="center">
-            <Link href="/docs/installation" passHref>
-              <TextLink fontFamily="heading-sans" justifyContent={{ _: "flex-end", sm: "flex-start" }}>
-                Read the docs
-              </TextLink>
-            </Link>
+            {router.pathname === "/" && (
+              <Link href="/docs/installation" passHref>
+                <TextLink fontFamily="heading-sans" justifyContent={{ _: "flex-end", sm: "flex-start" }}>
+                  Read the docs
+                </TextLink>
+              </Link>
+            )}
 
             <x.div
               display="flex"
@@ -62,7 +64,7 @@ const Ui: FC<Props> = ({ children, showMenu }) => {
               h="2rem"
               pl="1.5rem"
               ml="1.5rem"
-              borderLeft="1px solid rgba(136, 138, 165, 0.25)"
+              borderLeft={router.pathname === "/" && "1px solid rgba(136, 138, 165, 0.25)"}
             >
               <TextLink href="https://github.com/anolis-ui/anolis-ui" target="_blank">
                 <Icon svg={<GithubIcon />} fillHover="anolis-blue-700" />

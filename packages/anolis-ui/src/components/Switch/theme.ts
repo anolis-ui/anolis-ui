@@ -1,26 +1,32 @@
-import { SystemProps } from "@xstyled/system";
-import { TransferedInputPropKey } from "index";
-import { InputHTMLAttributes } from "react";
-import { ComponentTheme, extendTheme, PartialComponentTheme } from "utils/theme";
-import { TripletProp } from "utils/TripletProps";
+import { TransInputProps } from "index";
+import { ElementType } from "react";
+import { AnolisBaseProps } from "utils/anolisComponent";
+import { Renderable } from "utils/renderComponent";
+import { ComponentTheme, ElementProps, extendTheme, PartialComponentTheme } from "utils/theme";
 
 export type SwitchSize = "sm" | "md" | "lg";
 
-export type SwitchThemeProps =
-  & Pick<
-  InputHTMLAttributes<HTMLInputElement>,
-  TransferedInputPropKey
-  >
-  & TripletProp<"control">
-  & TripletProp<"knob">
-  & TripletProp<"label">
+export type SwitchProps<Control extends ElementType, Knob extends ElementType, Label extends ElementType> =
+  & AnolisBaseProps<"label", never, SwitchSize>
+  & TransInputProps<HTMLInputElement>
   & {
-    _knobActive?: SystemProps;
-    _controlActive?: SystemProps;
-    _controlFocusRing?: SystemProps;
+    $control?: Control;
+    _control?: ElementProps<Control>;
+    _controlActive?: ElementProps<Control>;
+    _controlFocusRing?: ElementProps<Control>;
+    control?: Renderable;
+
+    $knob?: Knob;
+    _knob?: ElementProps<Knob>;
+    _knobActive?: ElementProps<Knob>;
+    knob?: Renderable;
+
+    $label?: Label;
+    _label?: ElementProps<Label>;
+    label?: Renderable;
   };
 
-export type SwitchTheme = ComponentTheme<SwitchThemeProps, never, SwitchSize>;
+export type SwitchTheme = ComponentTheme<SwitchProps<"div", "div", "div">>;
 
 export const switchTheme = (t?: PartialComponentTheme<SwitchTheme>): { switch: SwitchTheme } => ({
   switch: extendTheme(emptySwitch, t)

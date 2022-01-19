@@ -1,7 +1,7 @@
 import { SystemProps, x } from "@xstyled/emotion";
 import { StyledComponent } from "@emotion/styled";
 import hoistNonReactStatics from "hoist-non-react-statics";
-import { forwardRef, ForwardRefRenderFunction, RefObject } from "react";
+import { forwardRef, ForwardRefRenderFunction, Ref, RefObject, ReactNode } from "react";
 import { SizeVariantProps } from "./theme";
 
 export type AnolisComponent<
@@ -22,11 +22,25 @@ export type AnolisComponentProps<
   Variant extends string = never,
   Size extends string = never
 > =
-  & SystemProps
+  & AnolisBaseProps<Element>
   & SizeVariantProps<Variant, Size>
   & { as?: React.ElementType }
-  & Props
-  & Omit<JSX.IntrinsicElements[Element], "color" | "v" | "s">;
+  & Props;
+
+export type AnolisBaseProps<
+  E extends keyof JSX.IntrinsicElements,
+  V extends string = never,
+  S extends string = never
+> =
+  & SystemProps
+  & Omit<JSX.IntrinsicElements[E], "color" | "v" | "s" | "ref">
+  & SizeVariantProps<V, S>
+  & {
+    as?: React.ElementType;
+    ref?: Ref<RefOf<E>>;
+
+    children?: ReactNode;
+  };
 
 export const anolisComponent = <
   Element extends keyof JSX.IntrinsicElements,
@@ -38,6 +52,12 @@ export const anolisComponent = <
   const a = forwardRef(hoistNonReactStatics(Component, x[tag]));
 
   return a as any;
+};
+
+export const anolisComp = <T, P = {}>(displayName: string, render: ForwardRefRenderFunction<T, P>) => {
+  render.displayName = `anolis(${displayName})`;
+
+  return forwardRef(render);
 };
 
 // Way to get from element key strings ("div", "span", "a") their HTML type (HTMLDivElement, HTMLSpanElement, HTMLAnchorElement)

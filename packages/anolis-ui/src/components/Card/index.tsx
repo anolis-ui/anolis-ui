@@ -1,78 +1,51 @@
 import { x } from "@xstyled/emotion";
-import { Tag } from "components/Tag";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
-import renderComponent from "utils/renderComponent";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { anolisComp } from "utils/anolisComponent";
+import renderComponent, { Renderable } from "utils/renderComponent";
+import { renderTriplet } from "utils/renderTriplet";
 
-import { CardThemeProps, CardVariant } from "./theme";
+import { CardProps } from "./theme";
 
 export * from "./theme";
 
-export type CardProps = AnolisComponentProps<"div", CardThemeProps, CardVariant>;
+type CardComponent = <
+  THeader extends ElementType,
+  TTitle extends ElementType,
+  TTag extends ElementType,
+  TMedia extends ElementType,
+  TBody extends ElementType,
+  TFooter extends ElementType
+>(p: CardProps<THeader, TTitle, TTag, TMedia, TBody, TFooter>) => ReactElement | null;
 
-export const Card = anolisComponent<"div", CardProps>("div", (p, ref) => {
+export const Card: CardComponent = anolisComp("Card", (p, ref) => {
   const {
-    _header,
-    header,
-    _tag,
-    tag,
-    _title,
-    title,
-    _media,
-    media,
-    _body,
-    body,
-    _footer,
-    footer,
+    $header, _header, header,
+    $tag, _tag, tag,
+    $title, _title, title,
+    $media, _media, media,
+    $body, _body, body,
+    $footer, _footer, footer,
     children,
     ...props
   } = useThemePropsMerge("card", p);
 
   return (
     <x.div {...props} ref={ref}>
-      {(header || title) && (
-        <x.div {..._header}>
-          {header
-            ? renderComponent(header)
-            : (
-              <x.span {..._title}>
-                {renderComponent(title)}
-              </x.span>
-            )}
-        </x.div>
+      {(header || title) && renderTriplet($header, _header, header
+        ? renderComponent(header)
+        : renderTriplet($title, _title, title)
       )}
 
-      {tag && (
-        <Tag {..._tag}>
-          {renderComponent(tag)}
-        </Tag>
-      )}
+      {tag && renderTriplet($tag, _tag, tag)}
 
-      {media && (
-        <x.div order={2} {..._media}>
-          {renderComponent(media)}
-        </x.div>
-      )}
+      {media && renderTriplet($media, _media, media)}
 
-      {body && (
-        <x.div {..._body}>
-          {renderComponent(body)}
-        </x.div>
-      )}
+      {body && renderTriplet($body, _body, body)}
 
-      {children && (
-        <x.div {..._body}>
-          {children}
-        </x.div>
-      )}
+      {children && renderTriplet($body, _body, children)}
 
-      {footer && (
-        <x.div {..._footer}>
-          {renderComponent(footer)}
-        </x.div>
-      )}
+      {footer && renderTriplet($footer, _footer, footer)}
     </x.div>
   );
 });
-
-Card.displayName = "Card";

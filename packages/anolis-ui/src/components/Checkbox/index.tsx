@@ -3,17 +3,21 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { x } from "@xstyled/emotion";
 import { Icon } from "components/Icon";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { FC, useState } from "react";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { ElementType, FC, ReactElement, useState } from "react";
+import { anolisComp } from "utils/anolisComponent";
 
 import { useExtractInputProps } from "../Input";
-import { CheckboxSize, CheckboxThemeProps, CheckboxVariant } from "./theme";
+import { CheckboxProps } from "./theme";
 
 export * from "./theme";
 
-export type CheckboxProps = AnolisComponentProps<"label", CheckboxThemeProps, CheckboxVariant, CheckboxSize>;
+type CheckboxComponent = <
+  Control extends ElementType,
+  Icon extends ElementType,
+  Label extends ElementType
+>(props: CheckboxProps<Control, Icon, Label>) => ReactElement | null;
 
-export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props, ref) => {
+export const Checkbox: CheckboxComponent = anolisComp("Checkbox", (props, ref) => {
   const {
     control,
     _control,
@@ -65,8 +69,6 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
     </x.label>
   );
 });
-
-Checkbox.displayName = "Checkbox";
 
 const DefaultCheckboxIcon: FC = () => (
   <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 8" width="10" height="8">

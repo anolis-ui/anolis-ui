@@ -1,17 +1,22 @@
 import styled, { x } from "@xstyled/emotion";
 import Complement, { useComplement } from "components/Complement";
-import { InputSize, InputVariant, TransferedInputPropKey } from "components/Input/theme";
+import { TransferedInputPropKey } from "components/Input/theme";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
-import { MutableRefObject, useRef, useMemo } from "react";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { ElementType, MutableRefObject, ReactElement, useMemo, useRef } from "react";
+import { anolisComp } from "utils/anolisComponent";
 
-import { InputThemeProps } from "./theme";
+import { InputProps } from "./theme";
 
 export * from "./theme";
 
-export type InputProps = AnolisComponentProps<"input", InputThemeProps, InputVariant, InputSize>;
+export type InputComponent = <
+  Input extends ElementType,
+  Textarea extends ElementType,
+  LC extends ElementType,
+  RC extends ElementType
+>(props: InputProps<Input, Textarea, LC, RC>) => ReactElement | null;
 
-export const Input = anolisComponent<"input", InputProps>("input", (p, ref) => {
+export const Input: InputComponent = anolisComp("Input", (p, ref) => {
   const [left, right, {
     children,
     id,
@@ -53,8 +58,6 @@ export const Input = anolisComponent<"input", InputProps>("input", (p, ref) => {
     </InputStyle>
   );
 });
-
-Input.displayName = "Input";
 
 const InputStyle = styled(x.div)`
   input, textarea {

@@ -1,54 +1,47 @@
-import styled, { x } from "@xstyled/emotion";
-import { system } from "@xstyled/system";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import styled, { x, css, SystemProp, DefaultTheme, ThemeSize } from "@xstyled/emotion";
+import { ReactElement } from "react";
+import { AnolisBaseProps, anolisComp } from "utils/anolisComponent";
 import renderComponent, { Renderable } from "utils/renderComponent";
 
-export type IconProps = AnolisComponentProps<"span", {
+export type IconProps = AnolisBaseProps<"span"> & {
   svg?: Renderable;
-  fill?: string;
-  fillHover?: string;
-  stroke?: string;
-  strokeHover?: string;
-}>;
+  disableCurrentColor?: boolean;
 
-export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fillHover, stroke, strokeHover, children, ...props }, ref) => {
+  size?: SystemProp<ThemeSize, DefaultTheme>;
+};
+
+type IconComponent = (props: IconProps) => ReactElement | null;
+
+export const Icon: IconComponent = anolisComp("Icon", ({ svg, children, size, ...props }, ref) => {
   return (
-    <IconStyle
-      ref={ref as any}
-      display="inline-block"
-      verticalAlign="middle"
-      maxHeight="100%"
-      fill={fill}
-      fillHover={fillHover}
-      stroke={stroke}
-      strokeHover={strokeHover}
-      {...props}
-    >
+    <IconStyle ref={ref} {...props} {...size && { w: size, h: size }}>
       {renderComponent(svg)}
       {children}
     </IconStyle>
   );
 });
 
-Icon.displayName = "Icon";
-
-const IconStyle = styled(x.div)<IconProps>`
-  ${system};
-
+const IconStyle = styled(x.span)<{ disableCurrentColor?: boolean }>`
   & > svg {
-    path {
-      fill: ${props => props.fill};
-      stroke: ${props => props.stroke};
-      transition: fill 300ms, stroke 300ms;
-    }
+    width: ${p => p.h || p.w ? "100%" : "initial"};
+    height: ${p => p.h || p.w ? "100%" : "initial"};
+
+    ${p => !p.disableCurrentColor && css`
+      path {
+        fill: currentColor;
+        stroke: currentColor;
+      }
+    `}
   }
 
   &:hover {
     & > svg {
-      path {
-        fill: ${props => props.fillHover};
-        stroke: ${props => props.strokeHover};
-      }
+      ${p => !p.disableCurrentColor && css`
+        path {
+          fill: currentColor;
+          stroke: currentColor;
+        }
+      `}
     }
   }
 `;

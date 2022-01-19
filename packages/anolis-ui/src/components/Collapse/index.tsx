@@ -1,17 +1,15 @@
 import { motion, Variants } from "framer-motion";
-import { useComponentTheme, useThemePropsMerge } from "hooks/useComponentTheme";
-import { FC } from "react";
-import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { useThemePropsMerge } from "hooks/useComponentTheme";
+import { FC, ReactElement } from "react";
+import { anolisComp } from "utils/anolisComponent";
 import { xstyled } from "utils/createXStyled";
 
-import { CollapseThemeProps } from "./theme";
+import { CollapseProps } from "./theme";
 
 export * from "./theme";
 
 // Simple Collapse component, originally implemented by Chakra UI
 // https://github.com/chakra-ui/chakra-ui/blob/main/packages/transition/src/collapse.tsx
-
-export type CollapseProps = AnolisComponentProps<"div", CollapseThemeProps & CollapseOptions>;
 
 interface CollapseOptions {
   open: boolean;
@@ -32,15 +30,15 @@ interface CollapseOptions {
   endingHeight?: number | string;
 }
 
-export const Collapse = anolisComponent<"div", CollapseProps>("div", (p, ref) => {
+type CollapseComponent = (props: CollapseProps & CollapseOptions) => ReactElement | null;
+
+export const Collapse: CollapseComponent = anolisComp("Collapse", (p, ref) => {
   const props = useThemePropsMerge("collapse", p);
 
   return (
     <CustomCollapseBox {...props} />
   );
 });
-
-Collapse.displayName = "Collapse";
 
 const InnerCollapse: FC<CollapseOptions> = ({
   children,
