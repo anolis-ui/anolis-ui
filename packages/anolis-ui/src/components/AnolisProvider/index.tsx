@@ -1,24 +1,33 @@
 import { SSRProvider } from "@react-aria/ssr";
-import { Preflight, ThemeProvider } from "@xstyled/emotion";
+import { Preflight, ThemeProvider, useTheme } from "@xstyled/emotion";
 import ModalProvider from "components/Modal/ModalProvider";
 import { Typography } from "components/Typography";
-import { defaultTheme } from "defaultTheme";
+import { legacyTheme } from "legacyTheme";
 import { FC, useMemo } from "react";
-import { AnolisTheme } from "theme";
+import { AnolisTheme, emptyTheme } from "theme";
 
 export type AnolisProviderProps = {
   theme?: AnolisTheme | null;
+  /** @deprecated use ThemeProvider directly instead */
   xstyledTheme?: {};
 
   noPreflight?: boolean;
 };
 
 const AnolisProvider: FC<AnolisProviderProps> = ({ children, theme, xstyledTheme, noPreflight }) => {
-  const mergedTheme = useMemo<any>(() => ({
-    ...defaultTheme,
-    ...xstyledTheme,
-    anolis: theme ?? defaultTheme.anolis
-  }), [theme, xstyledTheme]);
+  const contextTheme = useTheme();
+
+  const mergedTheme = useMemo<any>(() => xstyledTheme
+    ? { ...legacyTheme, ...xstyledTheme, anolis: theme ?? legacyTheme.anolis }
+    : { ...contextTheme, anolis: theme ?? emptyTheme },
+  [contextTheme, theme, xstyledTheme]);
+
+  if (process.env.NODE_ENV !== "production" && !deprecatedXstyledThemeWarning) {
+    deprecatedXstyledThemeWarning = true;
+    console.warn(
+      "Warning: You are using xstyledTheme prop of AnolisProvider, which is deprecated, please use xstyled ThemeProvider directly instead"
+    );
+  }
 
   return (
     <SSRProvider>
@@ -37,3 +46,5 @@ const AnolisProvider: FC<AnolisProviderProps> = ({ children, theme, xstyledTheme
 };
 
 export default AnolisProvider;
+
+let deprecatedXstyledThemeWarning = false;

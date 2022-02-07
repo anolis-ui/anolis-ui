@@ -6,13 +6,11 @@ export interface ThemeWithAnolis extends DefaultTheme {
   anolis: AnolisTheme;
 }
 
-export const defaultTheme = {
-  ...xdefaultTheme,
+export const anolisXstyledTheme = {
   colors: {
-    ...xdefaultTheme.colors,
     "anolis-blue": "anolis-blue-600",
     "anolis-blue-50": "#dcf6ff",
-    "anolis-blue-100": "#aedeff",
+    "anolis-blue-100": "#aedeff¨",
     "anolis-blue-200": "#7ec6ff",
     "anolis-blue-300": "#4db0ff",
     "anolis-blue-400": "#2199fe",
@@ -43,7 +41,6 @@ export const defaultTheme = {
     "anolis-gray-900": "#070c15"
   },
   fonts: {
-    ...xdefaultTheme.fonts,
     // eslint-disable-next-line @typescript-eslint/quotes
     sans: `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
   },
@@ -63,13 +60,12 @@ export const defaultTheme = {
     "9xl": "8rem"
   },
   states: {
-    ...xdefaultTheme.states,
     group: "[data-a-group]&",
     groupHover: "[data-group]:hover &, [data-a-group]:hover &",
     disabled: "&:disabled, &[aria-disabled=true]",
     marker: "&::marker",
     invalid: "&:user-invalid, [data-a-invalid=true] &, [data-a-invalid=true]&"
-  },
+  }
   // screens: {
   // xxs: "22.5em",
   // xs: "30em",
@@ -78,6 +74,14 @@ export const defaultTheme = {
   // lg: "78em",
   // xl: "85em",
   // xxl: "94em"
-  // },
-  anolis: emptyTheme
+  // }
+};
+
+export const pipeThemes = (...themes: ExtendableTheme[]): ExtendableTheme => themes.reduce((acc: any, x) => {
+  for (const [k, s] of Object.entries(x)) acc[k] = { ...acc[k], ...s };
+  return acc;
+}, {} as DefaultTheme);
+
+type ExtendableTheme = {
+  [K in keyof DefaultTheme]?: Record<string, DefaultTheme[K][keyof DefaultTheme[K]]>;
 };
