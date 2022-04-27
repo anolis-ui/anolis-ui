@@ -2,7 +2,6 @@ import { SSRProvider } from "@react-aria/ssr";
 import { Preflight, ThemeProvider, useTheme } from "@xstyled/emotion";
 import ModalProvider from "components/Modal/ModalProvider";
 import { Typography } from "components/Typography";
-import { legacyTheme } from "legacyTheme";
 import { FC, ReactNode, useMemo } from "react";
 import { AnolisTheme, emptyTheme } from "theme";
 
@@ -19,9 +18,10 @@ export type AnolisProviderProps = {
 const AnolisProvider: FC<AnolisProviderProps> = ({ children, theme, xstyledTheme, noPreflight }) => {
   const contextTheme = useTheme();
 
-  const mergedTheme = useMemo<any>(() => xstyledTheme
-    ? { ...legacyTheme, ...xstyledTheme, anolis: theme ?? legacyTheme.anolis }
-    : { ...contextTheme, anolis: theme ?? emptyTheme },
+  const mergedTheme = useMemo<any>(() => ({
+    ...xstyledTheme ?? contextTheme,
+    anolis: theme ?? emptyTheme
+  }),
   [contextTheme, theme, xstyledTheme]);
 
   if (process.env.NODE_ENV !== "production" && xstyledTheme && !deprecatedXstyledThemeWarning) {

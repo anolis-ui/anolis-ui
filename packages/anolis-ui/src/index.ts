@@ -31,7 +31,6 @@ export { default as AnolisProvider, AnolisProviderProps } from "./components/Ano
 // Theme
 export { AnolisTheme, createTheme } from "./theme";
 export * from "./defaultTheme";
-export * from "./legacyTheme";
 
 // Hooks
 export { default as useTheme } from "./hooks/useTheme";

@@ -51,5 +51,6 @@ const config = (input, outputCjs, outputEsm) => ({
 });
 
 export default [
-  config("./src/index.ts", pkg.main, pkg.module)
+  config("./src/index.ts", pkg.main, pkg.module),
+  config("./src/legacy/index.ts", "./dist/legacy/index.js", "dist/legacy/index.es.js")
 ];

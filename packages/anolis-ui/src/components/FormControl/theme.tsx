@@ -14,10 +14,10 @@ export type FormControlThemeProps =
 export type FormControlTheme = ComponentTheme<FormControlThemeProps>;
 
 export const formControlTheme = (t?: PartialComponentTheme<FormControlTheme>): { formControl: FormControlTheme } => ({
-  formControl: extendTheme(emptyInput, t)
+  formControl: extendTheme(emptyFormControl, t)
 });
 
-const emptyInput: FormControlTheme = {
+const emptyFormControl: FormControlTheme = {
   baseStyle: {
     color: { invalid: "red-600" },
     spaceY: 1,
