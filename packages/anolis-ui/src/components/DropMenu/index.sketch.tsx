@@ -11,7 +11,7 @@ const Normal = sketch(() => {
     <SketchLayout title="Card">
       <x.div display="flex" justifyContent="space-around" spaceX="2" flexWrap="wrap">
         <DropMenu>
-          {({ isExpanded }: { isExpanded: boolean }) => (
+          {({ isExpanded }) => (
             <>
               <DropMenuButton w="15rem">
                 {isExpanded ? "custom expanded" : "right closed"}
@@ -27,7 +27,7 @@ const Normal = sketch(() => {
         </DropMenu>
 
         <DropMenu>
-          {({ isExpanded }: { isExpanded: boolean }) => (
+          {({ isExpanded }) => (
             <>
               <DropMenuButton customButton={<div>{isExpanded ? "custom expanded" : "left closed"}</div>} />
 
@@ -41,7 +41,7 @@ const Normal = sketch(() => {
         </DropMenu>
 
         <DropMenu>
-          {({ isExpanded }: { isExpanded: boolean }) => (
+          {({ isExpanded }) => (
             <>
               <DropMenuButton customButton={<div>{isExpanded ? "custom expanded" : "exact width closed"}</div>} />
 

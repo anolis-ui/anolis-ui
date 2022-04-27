@@ -1,18 +1,21 @@
 import AnolisProvider from "components/AnolisProvider";
-import { defaultTheme } from "defaultTheme";
+import { anolisXstyledTheme } from "defaultTheme";
 import { emptyTheme } from "theme";
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, ReactNode } from "react";
 import { Queries, queries, render, RenderOptions } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 import renderer from "react-test-renderer";
+import { ThemeProvider } from "@xstyled/emotion";
 
 expect.extend(toHaveNoViolations);
 
-const Providers: FC = ({ children }) => {
+const Providers: FC<{ children?: ReactNode }> = ({ children }) => {
   return (
-    <AnolisProvider xstyledTheme={defaultTheme} theme={emptyTheme}>
-      {children}
-    </AnolisProvider>
+    <ThemeProvider theme={anolisXstyledTheme}>
+      <AnolisProvider theme={emptyTheme}>
+        {children}
+      </AnolisProvider>
+    </ThemeProvider>
   );
 };
 
@@ -29,9 +32,11 @@ export const testA11y = async (ui: ReactElement) => {
 
 export const testSnapshotMatch = (ui: ReactElement) => {
   const tree = renderer.create(
-    <AnolisProvider xstyledTheme={defaultTheme} theme={emptyTheme}>
-      {ui}
-    </AnolisProvider>
+    <ThemeProvider theme={anolisXstyledTheme}>
+      <AnolisProvider theme={emptyTheme}>
+        {ui}
+      </AnolisProvider>
+    </ThemeProvider>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

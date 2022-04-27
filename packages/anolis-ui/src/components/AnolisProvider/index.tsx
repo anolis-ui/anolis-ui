@@ -3,7 +3,7 @@ import { Preflight, ThemeProvider, useTheme } from "@xstyled/emotion";
 import ModalProvider from "components/Modal/ModalProvider";
 import { Typography } from "components/Typography";
 import { legacyTheme } from "legacyTheme";
-import { FC, useMemo } from "react";
+import { FC, ReactNode, useMemo } from "react";
 import { AnolisTheme, emptyTheme } from "theme";
 
 export type AnolisProviderProps = {
@@ -12,6 +12,8 @@ export type AnolisProviderProps = {
   xstyledTheme?: {};
 
   noPreflight?: boolean;
+
+  children?: ReactNode;
 };
 
 const AnolisProvider: FC<AnolisProviderProps> = ({ children, theme, xstyledTheme, noPreflight }) => {
@@ -22,10 +24,10 @@ const AnolisProvider: FC<AnolisProviderProps> = ({ children, theme, xstyledTheme
     : { ...contextTheme, anolis: theme ?? emptyTheme },
   [contextTheme, theme, xstyledTheme]);
 
-  if (process.env.NODE_ENV !== "production" && !deprecatedXstyledThemeWarning) {
+  if (process.env.NODE_ENV !== "production" && xstyledTheme && !deprecatedXstyledThemeWarning) {
     deprecatedXstyledThemeWarning = true;
     console.warn(
-      "Warning: You are using xstyledTheme prop of AnolisProvider, which is deprecated, please use xstyled ThemeProvider directly instead"
+      "Warning: You are using xstyledTheme prop of AnolisProvider, which is deprecated, please use xstyled ThemeProvider directly instead."
     );
   }
 

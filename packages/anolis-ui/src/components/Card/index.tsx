@@ -2,7 +2,7 @@ import { x } from "@xstyled/emotion";
 import { Tag } from "components/Tag";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
-import renderComponent from "utils/renderComponent";
+import { renderable } from "utils/renderable";
 
 import { CardThemeProps, CardVariant } from "./theme";
 
@@ -33,10 +33,10 @@ export const Card = anolisComponent<"div", CardProps>("div", (p, ref) => {
       {(header || title) && (
         <x.div {..._header}>
           {header
-            ? renderComponent(header)
+            ? renderable(header)
             : (
               <x.span {..._title}>
-                {renderComponent(title)}
+                {renderable(title)}
               </x.span>
             )}
         </x.div>
@@ -44,19 +44,19 @@ export const Card = anolisComponent<"div", CardProps>("div", (p, ref) => {
 
       {tag && (
         <Tag {..._tag}>
-          {renderComponent(tag)}
+          {renderable(tag)}
         </Tag>
       )}
 
       {media && (
         <x.div order={2} {..._media}>
-          {renderComponent(media)}
+          {renderable(media)}
         </x.div>
       )}
 
       {body && (
         <x.div {..._body}>
-          {renderComponent(body)}
+          {renderable(body)}
         </x.div>
       )}
 
@@ -68,7 +68,7 @@ export const Card = anolisComponent<"div", CardProps>("div", (p, ref) => {
 
       {footer && (
         <x.div {..._footer}>
-          {renderComponent(footer)}
+          {renderable(footer)}
         </x.div>
       )}
     </x.div>

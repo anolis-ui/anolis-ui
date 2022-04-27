@@ -4,6 +4,7 @@ import { x } from "@xstyled/emotion";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { FC, useState } from "react";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { renderable } from "utils/renderable";
 
 import { useExtractInputProps } from "../Input";
 import { SwitchSize, SwitchThemeProps } from "./theme";
@@ -55,13 +56,13 @@ export const Switch = anolisComponent<"label", SwitchProps>("label", (props, ref
           {..._knob}
           {...checked && _knobActive}
         >
-          {knob}
+          {renderable(knob)}
         </x.div>
       </x.div>
 
       <x.span {..._label}>
         {children}
-        {label}
+        {renderable(label)}
       </x.span>
     </x.label>
   );

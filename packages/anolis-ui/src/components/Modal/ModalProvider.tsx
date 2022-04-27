@@ -1,4 +1,4 @@
-import { FC, useState, ComponentType } from "react";
+import { FC, useState, ComponentType, ReactNode } from "react";
 
 import { ModalContext, ModalInstanceContext } from "./data";
 
@@ -7,7 +7,7 @@ interface ModalState {
   queue: [ComponentType<any>, any][];
 }
 
-const ModalProvider: FC = ({ children }) => {
+const ModalProvider: FC<{ children?: ReactNode }> = ({ children }) => {
   const [{ position, queue }, setState] = useState<ModalState>({ position: -1, queue: [] });
 
   const context: ModalContext = {

@@ -1,7 +1,7 @@
 import styled, { x } from "@xstyled/emotion";
 import { system } from "@xstyled/system";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
-import renderComponent, { Renderable } from "utils/renderComponent";
+import { Renderable, renderable } from "utils/renderable";
 
 export type IconProps = AnolisComponentProps<"span", {
   svg?: Renderable;
@@ -24,7 +24,7 @@ export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fil
       strokeHover={strokeHover}
       {...props}
     >
-      {renderComponent(svg)}
+      {renderable(svg)}
       {children}
     </IconStyle>
   );

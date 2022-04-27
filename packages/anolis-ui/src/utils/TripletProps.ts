@@ -1,5 +1,5 @@
 import { SystemProps } from "@xstyled/emotion";
-import { Renderable } from "./renderComponent";
+import { Renderable } from "./renderable";
 import { ComponentType, DOMAttributes, HTMLAttributes } from "react";
 
 export type TripletProp<T extends string, P extends {} = {}> =

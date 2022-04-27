@@ -1,6 +1,6 @@
 import { Icon, IconProps } from "components/Icon";
-import { FC, useMemo, ComponentProps } from "react";
-import renderComponent, { Renderable } from "utils/renderComponent";
+import { ComponentProps, FC, useMemo } from "react";
+import { Renderable, renderable } from "utils/renderable";
 import { TripletProp } from "utils/TripletProps";
 
 export type SideComplementProps =
@@ -56,7 +56,7 @@ export const useComplement = <T extends ComplementProps, U extends ComplementPro
 
 const Complement: FC<SideComplementProps> = ({ _icon, icon, $icon, element }) => (
   <>
-    {renderComponent(element)}
+    {renderable(element)}
     {icon && <Icon svg={icon} {..._icon as any} />}
   </>
 );

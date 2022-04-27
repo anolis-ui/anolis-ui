@@ -5,6 +5,7 @@ import { Icon } from "components/Icon";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { FC, useState } from "react";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { renderable } from "utils/renderable";
 
 import { useExtractInputProps } from "../Input";
 import { CheckboxSize, CheckboxThemeProps, CheckboxVariant } from "./theme";
@@ -50,7 +51,7 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
         {...isFocusVisible && _controlFocusRing}
         {...checked && _controlActive}
       >
-        {checked && (control || (
+        {checked && (renderable(control) || (
           <Icon
             {..._icon}
             svg={icon ?? DefaultCheckboxIcon}
@@ -59,7 +60,7 @@ export const Checkbox = anolisComponent<"label", CheckboxProps>("label", (props,
       </x.div>
 
       <x.span {..._label}>
-        {label}
+        {renderable(label)}
         {children}
       </x.span>
     </x.label>

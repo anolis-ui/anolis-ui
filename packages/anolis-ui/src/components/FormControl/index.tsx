@@ -2,6 +2,7 @@ import { useField } from "@react-aria/label";
 import { x } from "@xstyled/emotion";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
+import { renderable } from "utils/renderable";
 
 import { FormControlThemeProps } from "./theme";
 
@@ -26,9 +27,9 @@ export const FormControl = anolisComponent<"div", FormControlProps>("div", (p, r
   } = useThemePropsMerge("formControl", p);
 
   const { labelProps, fieldProps, descriptionProps, errorMessageProps } = useField({
-    label: label,
-    description: help ?? "Help text",
-    errorMessage: error ?? "Error message"
+    label: renderable(label),
+    description: renderable(help) ?? "Help text",
+    errorMessage: renderable(error) ?? "Error message"
   });
 
   const FieldComponent = $field ?? x.input;
@@ -37,23 +38,23 @@ export const FormControl = anolisComponent<"div", FormControlProps>("div", (p, r
     <x.div ref={ref} {...p} data-a-invalid={!!error}>
       {label && (
         <x.label {..._label} {...labelProps}>
-          {label} {required && "*"}
+          {renderable(label)} {required && "*"}
         </x.label>
       )}
 
       <FieldComponent {..._field} {...fieldProps} required={required}>
-        {field}
+        {renderable(field)}
       </FieldComponent>
 
       {help && (
         <x.div {..._help} {...descriptionProps}>
-          {help}
+          {renderable(help)}
         </x.div>
       )}
 
       {error && (
         <x.div {..._error} {...errorMessageProps}>
-          {error}
+          {renderable(error)}
         </x.div>
       )}
 

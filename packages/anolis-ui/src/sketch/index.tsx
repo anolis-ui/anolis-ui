@@ -10,7 +10,7 @@ export * from "./faker";
 
 const xstyledTheme = pipeThemes(defaultTheme, anolisXstyledTheme);
 
-const Ui: FC = ({ children }) => {
+const Ui: FC<{ children?: ReactNode }> = ({ children }) => {
   const { pages } = useStaticQuery<{pages: { nodes: {path: string}[]}}>(graphql`{ pages: allSitePage { nodes { path } } }`);
   return (
     <ThemeProvider theme={xstyledTheme}>
@@ -57,6 +57,7 @@ export default SketchHomepage;
 interface SketchLayoutProps extends SystemProps {
   title?: ReactNode;
   description?: ReactNode;
+  children?: ReactNode;
 }
 
 export const SketchLayout: FC<SketchLayoutProps> = ({ title, description, children, ...p }) => {

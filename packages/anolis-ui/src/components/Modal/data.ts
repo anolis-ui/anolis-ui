@@ -11,15 +11,29 @@ export interface ModalContext {
   forward: () => unknown;
 }
 
+const noContextMsg = "ModalContext is not set, use AnolisProvider or ModelContext.";
+
 export const ModalContext = createContext<ModalContext>({
-  push: () => {},
-  replace: () => {},
+  push: () => {
+    console.warn(noContextMsg);
+  },
+  replace: () => {
+    console.warn(noContextMsg);
+  },
 
-  pop: () => {},
+  pop: () => {
+    console.warn(noContextMsg);
+  },
 
-  go: () => {},
-  back: () => {},
-  forward: () => {}
+  go: () => {
+    console.warn(noContextMsg);
+  },
+  back: () => {
+    console.warn(noContextMsg);
+  },
+  forward: () => {
+    console.warn(noContextMsg);
+  }
 });
 
 interface UseModal {

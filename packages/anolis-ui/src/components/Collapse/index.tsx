@@ -1,6 +1,6 @@
 import { motion, Variants } from "framer-motion";
-import { useComponentTheme, useThemePropsMerge } from "hooks/useComponentTheme";
-import { FC } from "react";
+import { useThemePropsMerge } from "hooks/useComponentTheme";
+import { FC, ReactNode } from "react";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { xstyled } from "utils/createXStyled";
 
@@ -42,7 +42,7 @@ export const Collapse = anolisComponent<"div", CollapseProps>("div", (p, ref) =>
 
 Collapse.displayName = "Collapse";
 
-const InnerCollapse: FC<CollapseOptions> = ({
+const InnerCollapse: FC<CollapseOptions & { children?: ReactNode }> = ({
   children,
   open,
   animateOpacity = true,

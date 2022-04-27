@@ -1,9 +1,9 @@
-import { Menu } from "@reach/menu-button";
+import { Menu, MenuProps } from "@reach/menu-button";
 import { FC } from "react";
 
 export * from "./theme";
 
-export const DropMenu: FC = ({ children }) => {
+export const DropMenu: FC<{ children?: MenuProps["children"] }> = ({ children }) => {
   return (
     <Menu>
       {children}

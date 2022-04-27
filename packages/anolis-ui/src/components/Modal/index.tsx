@@ -5,7 +5,7 @@ import { Txt } from "components/Typography/Txt";
 import { useThemePropsMerge } from "hooks/useComponentTheme";
 import { useContext, useEffect, useRef } from "react";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
-import renderComponent from "utils/renderComponent";
+import { renderable } from "utils/renderable";
 
 import { ModalContext, ModalInstanceContext } from "./data";
 import { ModalSize, ModalThemeProps } from "./theme";
@@ -70,10 +70,10 @@ export const Modal = anolisComponent<"div", ModalProps>("div", (p, _ref) => {
           {(header || title) && (
             <x.div mb="2rem" {..._header}>
               {header
-                ? renderComponent(header)
+                ? renderable(header)
                 : (
                   <Txt t="h3" as="div" {..._title}>
-                    {renderComponent(title)}
+                    {renderable(title)}
                   </Txt>
                 )}
             </x.div>
