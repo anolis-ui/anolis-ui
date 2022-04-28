@@ -1,6 +1,6 @@
-import { DefaultTheme, defaultTheme as xdefaultTheme } from "@xstyled/emotion";
+import { DefaultTheme } from "@xstyled/emotion";
 
-import { AnolisTheme, emptyTheme } from "./theme";
+import { AnolisTheme } from "./theme";
 
 export interface ThemeWithAnolis extends DefaultTheme {
   anolis: AnolisTheme;
@@ -10,7 +10,7 @@ export const anolisXstyledTheme = {
   colors: {
     "anolis-blue": "anolis-blue-600",
     "anolis-blue-50": "#dcf6ff",
-    "anolis-blue-100": "#aedeff¨",
+    "anolis-blue-100": "#aedeff",
     "anolis-blue-200": "#7ec6ff",
     "anolis-blue-300": "#4db0ff",
     "anolis-blue-400": "#2199fe",
