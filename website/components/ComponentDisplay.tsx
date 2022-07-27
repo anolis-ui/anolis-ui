@@ -1,24 +1,27 @@
 import { x } from "@xstyled/emotion";
-import { FC, ReactNode } from "react";
+import { AnolisProvider, createTheme, Typography } from "anolis-ui";
+import { ReactNode } from "react";
+
 import { CodeHighlight } from "./CodeBlock";
-import { AnolisProvider, Button, defaultTheme, Txt, Typography } from "anolis-ui";
 
 interface Props {
   children: [ReactNode, string][];
 }
 
+const theme = createTheme();
+
 export const ComponentDisplay = ({ children }: Props) => {
   return (
     <AnolisProvider>
       <Typography
-        _h1={{ ...defaultTheme.anolis.typography.baseStyle._h1, fontFamily: "sans", marginBottom: 0 }}
-        _h2={{ ...defaultTheme.anolis.typography.baseStyle._h2, fontFamily: "sans", marginBottom: 0 }}
-        _h3={{ ...defaultTheme.anolis.typography.baseStyle._h3, fontFamily: "sans", marginBottom: 0 }}
-        _h4={{ ...defaultTheme.anolis.typography.baseStyle._h4, fontFamily: "sans", marginBottom: 0 }}
-        _h5={{ ...defaultTheme.anolis.typography.baseStyle._h5, fontFamily: "sans", marginBottom: 0 }}
-        _h6={{ ...defaultTheme.anolis.typography.baseStyle._h6, fontFamily: "sans", marginBottom: 0 }}
-        _p={{ ...defaultTheme.anolis.typography.baseStyle._p, fontFamily: "sans", marginBottom: 0 }}
-        _lead={{ ...defaultTheme.anolis.typography.baseStyle._lead, fontFamily: "sans", marginBottom: 0 }}
+        _h1={{ ...theme.typography.baseStyle._h1, fontFamily: "sans", marginBottom: 0 }}
+        _h2={{ ...theme.typography.baseStyle._h2, fontFamily: "sans", marginBottom: 0 }}
+        _h3={{ ...theme.typography.baseStyle._h3, fontFamily: "sans", marginBottom: 0 }}
+        _h4={{ ...theme.typography.baseStyle._h4, fontFamily: "sans", marginBottom: 0 }}
+        _h5={{ ...theme.typography.baseStyle._h5, fontFamily: "sans", marginBottom: 0 }}
+        _h6={{ ...theme.typography.baseStyle._h6, fontFamily: "sans", marginBottom: 0 }}
+        _p={{ ...theme.typography.baseStyle._p, fontFamily: "sans", marginBottom: 0 }}
+        _lead={{ ...theme.typography.baseStyle._lead, fontFamily: "sans", marginBottom: 0 }}
       >
         <x.div mb="8">
           <x.div w="100%">

@@ -1,5 +1,5 @@
 import { defaultTheme, Theme } from "@xstyled/system";
-import { defaultTheme as anolisTheme } from "anolis-ui";
+import { anolisXstyledTheme } from "anolis-ui";
 
 export const xstyledTheme: Theme = {
   screens: {
@@ -7,11 +7,11 @@ export const xstyledTheme: Theme = {
     _: 0
   },
   fonts: {
-    ...anolisTheme.fonts,
+    ...anolisXstyledTheme.fonts,
     "heading-sans": "'Sora', sans-serif"
   },
   colors: {
-    ...anolisTheme.colors,
+    ...anolisXstyledTheme.colors,
     discord: "#7289DA"
   }
 };

@@ -25,6 +25,7 @@
   "include": [
     "packages",
     "website",
-    "**/*.js"
+    "**/*.js",
+    ".eslintrc.js"
   ]
 }
