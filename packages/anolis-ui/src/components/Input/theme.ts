@@ -28,66 +28,47 @@ export const inputTheme = (t?: PartialComponentTheme<InputTheme>): { input: Inpu
 const emptyInput: InputTheme = {
   baseStyle: {
     transition: "border 300ms, background 300ms",
-    color: {
-      _: "anolis-gray-400",
-      hover: "anolis-gray-500",
-      focusWithin: "anolis-gray-600",
-      invalid: "red-600"
-    } as any,
+    color: { _: "anolis-gray-400", hover: "anolis-gray-500", focusWithin: "anolis-gray-600", invalid: "red-600" },
     display: "flex",
     alignItems: "center",
 
-    _leftIcon: {
-      mr: "1rem"
-    },
-    _rightIcon: {
-      ml: "1rem"
-    }
+    _leftIcon: { mr: 4 },
+    _rightIcon: { ml: 4 }
   },
   sizes: {
     xs: {
-      px: "0.5rem",
+      px: 2,
       fontSize: "xs",
-      lineHeight: "1rem"
+      lineHeight: "none"
     },
     sm: {
-      px: "0.75rem",
-      py: "0.25rem",
+      px: 3,
+      py: 3,
       fontSize: "sm",
-      lineHeight: "1.5rem"
+      lineHeight: "base"
     },
     md: {
-      px: "1rem",
-      py: "0.5rem",
+      px: 4,
+      py: 2,
       fontSize: "base",
-      lineHeight: "1.5rem"
+      lineHeight: "base"
     },
     lg: {
-      px: "1rem",
-      py: "3",
+      px: 4,
+      py: 3,
       fontSize: "lg",
-      lineHeight: "1.875rem"
+      lineHeight: "relaxed"
     }
   },
   variants: {
     outline: {
-      borderRadius: "3",
-      border: "1px solid",
-      borderColor: {
-        _: "anolis-gray-200",
-        hover: "anolis-gray-300",
-        focusWithin: "anolis-gray-400",
-        invalid: "red-600"
-      }
+      borderRadius: 3,
+      borderWidth: 1,
+      borderColor: { _: "anolis-gray-200", hover: "anolis-gray-300", focusWithin: "anolis-gray-400", invalid: "red-600" }
     },
     line: {
       borderBottom: "2px solid",
-      borderColor: {
-        _: "anolis-gray-400",
-        hover: "anolis-gray-500",
-        focusWithinBorder: "anolis-gray-600",
-        invalid: "red-600"
-      }
+      borderColor: { _: "anolis-gray-400", hover: "anolis-gray-500", focusWithinBorder: "anolis-gray-600", invalid: "red-600" }
     },
     fill: {
       borderRadius: "3",

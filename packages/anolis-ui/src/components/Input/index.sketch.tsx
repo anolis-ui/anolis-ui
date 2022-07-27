@@ -6,86 +6,79 @@ import { Input } from ".";
 
 const Normal: FC = sketch(() => {
   return (
-    <SketchLayout title="Input">
-      Sizes
+    <SketchLayout
+      title="Input"
+      description="Basic text input component"
+    >
 
-      <x.div display="flex" spaceX="2" alignItems="center">
-        <Input s="xs" placeholder="Placeholder XS" />
-        <Input s="sm" placeholder="Placeholder SM" />
-        <Input s="md" placeholder="Placeholder MD" />
-        <Input s="lg" placeholder="Placeholder LG" />
+      <x.div display="flex" gap={6} alignItems="center" flexWrap="wrap">
+        {[undefined, "_hover", "_active", "_focus", "_disabled"].map(c => (
+          <x.div
+            key={c ?? "normal"}
+            display="flex"
+            flexDirection="column"
+            fontSize="xs"
+            textAlign="center"
+            gap={2}
+            color="anolis-gray-400"
+          >
+            <Input placeholder="Placeholder" className={c} />
+            <Input value="Lorem ipsum" className={c} />
+            {c ?? "normal"}
+          </x.div>
+        ))}
       </x.div>
 
-      <br />
-      Variants
-      <x.div display="flex" spaceX="2" alignItems="center">
-        <Input v="outline" placeholder="Outline" />
-        <Input v="line" placeholder="Line" />
-        <Input v="fill" placeholder="Filled" />
-        <Input v="unstyled" placeholder="Unstyled" />
+      <x.div>
+        <x.h2>Sizes</x.h2>
+        <x.p>Four defined sizes. Padding / height / font size is alterable</x.p>
+
+        <x.div display="flex" flexDirection="column" alignItems="flex-start" gap={4} mt={8}>
+          {(["xs", "sm", "md", "lg"] as const).map(s =>
+            <Input key={s} placeholder="Placeholder" s={s} />
+          )}
+        </x.div>
       </x.div>
 
-      <br />
-      Icon
+      <x.div>
+        <x.h2>Button variant</x.h2>
+        <x.p>
+          Solid, outline, clear &amp; link with all states <br />Icon copies the color of the text
+        </x.p>
 
-      <x.div display="flex" spaceX="2" alignItems="center">
-        <Input
-          v="outline"
-          placeholder="Outline"
-          leftIcon={DownIcon}
-          rightIcon={DownIcon}
-        />
-        <Input
-          v="line"
-          placeholder="Line"
-          leftIcon={DownIcon}
-          rightIcon={DownIcon}
-        />
-        <Input
-          v="fill"
-          placeholder="Filled"
-          leftIcon={DownIcon}
-          rightIcon={DownIcon}
-        />
-        <Input
-          v="unstyled"
-          placeholder="Unstyled"
-          leftIcon={DownIcon}
-          rightIcon={DownIcon}
-        />
+        <x.table mx={-3}>
+          {[undefined, "_hover", "_active", "_focus", "_disabled"].map(c => (
+            <x.tr
+              key={c ?? "normal"}
+              fontSize="xs"
+              gap={2}
+              color="anolis-gray-400"
+            >
+              {(["outline", "line", "fill", "unstyled"] as const).map(v => (
+                <x.td key={v} px={3} py={2}>
+                  <Input key={v} placeholder="Placeholder" v={v} className={c} mb={2} />
+                  <Input key={v} value="Lorem ipsum" v={v} className={c} />
+                </x.td>
+              ))}
+              <x.td>
+                {c ?? "normal"}
+              </x.td>
+            </x.tr>
+          ))}
+        </x.table>
       </x.div>
 
-      multiline
-
-      <x.div display="flex" spaceX="2" alignItems="center">
-        <Input
-          v="outline"
-          placeholder="Outline"
-          multiline
-          leftIcon={DownIcon}
-          rightIcon={DownIcon}
-        />
-        <Input
-          multiline
-          v="line"
-          placeholder="Line"
-          leftIcon={DownIcon}
-          rightIcon={DownIcon}
-        />
-        <Input
-          multiline
-          v="fill"
-          placeholder="Filled"
-          leftIcon={DownIcon}
-          rightIcon={DownIcon}
-        />
-        <Input
-          multiline
-          v="unstyled"
-          placeholder="Unstyled"
-          leftIcon={DownIcon}
-          rightIcon={DownIcon}
-        />
+      <x.div display="flex" flexDirection="column" gap={4}>
+        <x.div display="flex" gap={6} alignItems="center">
+          <Input placeholder="Placeholder" />
+          <Input placeholder="Placeholder" />
+          <Input placeholder="Placeholder" />
+        </x.div>
+        <x.div display="flex" spaceX={6} alignItems="center">
+          <Input placeholder="Placeholder" />
+          <Input placeholder="Placeholder" />
+          <Input placeholder="Placeholder" />
+        </x.div>
       </x.div>
 
     </SketchLayout>
