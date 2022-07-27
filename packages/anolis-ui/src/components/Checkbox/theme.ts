@@ -30,10 +30,9 @@ export const checkboxTheme = (t?: PartialComponentTheme<CheckboxTheme>): { check
 const emptyCheckbox: CheckboxTheme = {
   baseStyle: {
     transition: "border 300ms, background 300ms",
-    color: { _: "anolis-gray-400", hover: "anolis-gray-500", focusWithin: "anolis-gray-600" } as any,
+    color: "anolis-gray-600",
     display: "flex",
     alignItems: "center",
-    fontFamily: "sans",
     _control: {
       flex: "0 0 auto",
       display: "flex",
@@ -57,50 +56,36 @@ const emptyCheckbox: CheckboxTheme = {
   variants: {
     outline: {
       _control: {
-        borderRadius: "3",
-        border: "1px solid",
+        borderRadius: "sm",
+        borderWidth: 1,
         borderColor: { _: "anolis-gray-200", hover: "anolis-gray-300", focusWithin: "anolis-gray-400", groupHover: "anolis-gray-300" }
+      },
+      _controlActive: {
+        bg: "anolis-blue-500",
+        borderColor: "anolis-blue-500"
       }
     }
   },
   sizes: {
     sm: {
       _control: {
-        borderRadius: "3",
-        border: "1px solid",
-        borderColor: { _: "anolis-gray-200", hover: "anolis-gray-300", focusWithin: "anolis-gray-400", groupHover: "anolis-gray-300" },
-        w: "0.75rem",
-        h: "0.75rem",
-        mr: "0.75rem"
-      },
-      _controlActive: {
-        bg: "anolis-blue-500"
+        w: 3,
+        h: 3,
+        mr: 3
       }
     },
     md: {
       _control: {
-        borderRadius: "3",
-        border: "1px solid",
-        borderColor: { _: "anolis-gray-200", hover: "anolis-gray-300", focusWithin: "anolis-gray-400", groupHover: "anolis-gray-300" },
-        w: "1rem",
-        h: "1rem",
-        mr: "1rem"
-      },
-      _controlActive: {
-        bg: "anolis-blue-500"
+        w: 4,
+        h: 4,
+        mr: 4
       }
     },
     lg: {
       _control: {
-        borderRadius: "3",
-        border: "1px solid",
-        borderColor: { _: "anolis-gray-200", hover: "anolis-gray-300", focusWithin: "anolis-gray-400", groupHover: "anolis-gray-300" },
-        w: "1.25rem",
-        h: "1.25rem",
-        mr: "1.25rem"
-      },
-      _controlActive: {
-        bg: "anolis-blue-500"
+        w: 5,
+        h: 5,
+        mr: 5
       }
     }
   },
