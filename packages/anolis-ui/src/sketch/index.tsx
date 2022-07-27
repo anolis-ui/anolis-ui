@@ -2,18 +2,17 @@ import { defaultTheme, SystemProps, ThemeProvider, x } from "@xstyled/emotion";
 import AnolisProvider from "components/AnolisProvider";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { ComponentType, FC, ReactNode } from "react";
+import { Container } from "../components/Container/index";
 
 import { anolisXstyledTheme, pipeThemes } from "../defaultTheme";
 import { emptyTheme } from "../theme";
 
 export * from "./faker";
 
-const xstyledTheme = pipeThemes(defaultTheme, anolisXstyledTheme);
-
 const Ui: FC<{ children?: ReactNode }> = ({ children }) => {
   const { pages } = useStaticQuery<{pages: { nodes: {path: string}[]}}>(graphql`{ pages: allSitePage { nodes { path } } }`);
   return (
-    <ThemeProvider theme={xstyledTheme}>
+    <ThemeProvider theme={debugTheme}>
       <AnolisProvider theme={emptyTheme}>
         <x.div display="flex" w="100vw" h="100vh">
           <x.div p="4" flexShrink={0} boxShadow="xl" minWidth="15rem">
@@ -62,16 +61,24 @@ interface SketchLayoutProps extends SystemProps {
 
 export const SketchLayout: FC<SketchLayoutProps> = ({ title, description, children, ...p }) => {
   return (
-    <AnolisProvider>
-      <x.div spaceY="5">
-        {title && <x.h1>{title} <x.span color="gray-500">Anolis UI</x.span></x.h1>}
+    <ThemeProvider theme={debugTheme}>
+      <AnolisProvider theme={emptyTheme}>
+        <Container display="flex" flexDirection="column" gap="4.5rem" {...p}>
+          <x.div mb="-1.5rem">
+            {title && <x.h1>{title}</x.h1>}
+            {description && <x.p>{description}</x.p>}
+          </x.div>
 
-        {description && <x.p>{description}</x.p>}
-
-        <x.div {...p}>
           {children}
-        </x.div>
-      </x.div>
-    </AnolisProvider>
+        </Container>
+      </AnolisProvider>
+    </ThemeProvider>
   );
 };
+
+const debugTheme = pipeThemes(defaultTheme, anolisXstyledTheme, {
+  states: Object.fromEntries(
+    Object.entries(defaultTheme.states)
+      .map(([k, s]) => [k, s ? `${s}, &._${k}` : s])
+  ) as any
+});

@@ -65,6 +65,9 @@ export const anolisXstyledTheme = {
     disabled: "&:disabled, &[aria-disabled=true]",
     marker: "&::marker",
     invalid: "&:user-invalid, [data-a-invalid=true] &, [data-a-invalid=true]&"
+  },
+  radii: {
+    sm: "3px"
   }
   // screens: {
   // xxs: "22.5em",

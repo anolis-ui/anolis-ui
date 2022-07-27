@@ -1,4 +1,4 @@
-import { Menu } from "@emotion-icons/feather";
+import { Menu, Plus } from "@emotion-icons/feather";
 import { x } from "@xstyled/emotion";
 import { sketch, SketchLayout } from "sketch";
 
@@ -6,75 +6,108 @@ import { Button } from ".";
 
 const Variants = sketch(() => {
   return (
-    <SketchLayout title="Button">
-      <x.div spaceY="4">
-        <x.div display="flex" spaceX="2" alignItems="center" flexWrap="wrap">
-          <Button v="solid">Solid button</Button>
+    <SketchLayout
+      title="Button"
+      description="Button component is used to trigger an action or event. Hover and Active states are made by function Darken (0,025 , 0,05)"
+    >
+      <x.div display="flex" gap={6} alignItems="center" flexWrap="wrap">
+        {[undefined, "_hover", "_active", "_focus", "_disabled"].map(c => (
+          <x.div
+            key={c ?? "normal"}
+            display="flex"
+            flexDirection="column"
+            fontSize="xs"
+            textAlign="center"
+            gap={2}
+            color="anolis-gray-400"
+          >
+            <Button className={c}>Button</Button>
+            {c ?? "normal"}
+          </x.div>
+        ))}
+      </x.div>
 
-          <Button v="outline">Outline button</Button>
+      <x.div>
+        <x.h2>Sizes</x.h2>
+        <x.p>Four defined sizes. Padding / height / font size is alterable</x.p>
 
-          <Button v="clear">Clear button</Button>
-
-          <Button v="link">Link button</Button>
-
-          <Button disabled>Disabled Button</Button>
-
-          <Button _rightIcon={{ bg: "red", ml: "4" }} rightIcon={<Menu size={24} />}>Solid button</Button>
-        </x.div>
-
-        <x.div display="flex" spaceX="2" alignItems="center">
-          <Button s="xs">XS Button</Button>
-
-          <Button s="sm">SM Button</Button>
-
-          <Button s="md">MD Button</Button>
-
-          <Button s="lg">LG Button</Button>
-        </x.div>
-
-        <x.div display="flex" spaceX="2" alignItems="center">
-          <Button as="a">Button as a</Button>
-          <Button as="a" disabled>Button as a (disabled)</Button>
-        </x.div>
-
-        <x.div display="flex" spaceX="2" alignItems="center">
-          <Button as="input" type="button" value="Button as input" />
-          <Button as="input" type="button" disabled value="Button as input (disabled)" />
-
-          <Button as="input" type="submit" value="Button as input as (submit)" />
+        <x.div display="flex" gap={6} alignItems="center" flexWrap="wrap" mt={8}>
+          {(["xs", "sm", "md", "lg"] as const).map(s => (
+            <x.div
+              key={s}
+              display="flex"
+              flexDirection="column"
+              fontSize="xs"
+              textAlign="center"
+              gap={2}
+              color="anolis-gray-400"
+            >
+              <Button s={s}>Button</Button>
+              {s.toLocaleUpperCase()}
+            </x.div>
+          ))}
         </x.div>
       </x.div>
 
-      <x.h2>Loading state</x.h2>
-      <x.div display="flex" spaceX="2" alignItems="center" flexWrap="wrap">
-        <Button v="solid" loading>Solid button</Button>
+      <x.div>
+        <x.h2>Button with Left/Right Complement</x.h2>
+        <x.p>Button with Icon placed on right or left</x.p>
 
-        <Button v="outline" loading>Outline button</Button>
-
-        <Button v="clear" loading>Clear button</Button>
-
-        <Button v="link" loading>Link button</Button>
-
-        <Button disabled loading>Disabled Button</Button>
-
-        <Button _rightIcon={{ bg: "red", ml: "4" }} rightIcon={<Menu size={24} />} loading>Solid button</Button>
+        <x.div display="flex" gap={6} alignItems="center" flexWrap="wrap" mt={8}>
+          <Button leftIcon={<Plus size={24} />}>Button</Button>
+          <Button rightIcon={<Plus size={24} />}>Button</Button>
+        </x.div>
       </x.div>
 
-      <x.div display="flex" spaceX="2" alignItems="center">
-        <Button s="xs" loading>XS Button</Button>
+      <x.div>
+        <x.h2>Button variant</x.h2>
+        <x.p>
+          Solid, outline, clear &amp; link with all states <br />Icon copies the color of the text
+        </x.p>
 
-        <Button s="sm" loading>SM Button</Button>
-
-        <Button s="md" loading>MD Button</Button>
-
-        <Button s="lg" loading>LG Button</Button>
+        <x.table mx={-3}>
+          {[undefined, "_hover", "_active", "_focus", "_disabled"].map(c => (
+            <x.tr
+              key={c ?? "normal"}
+              fontSize="xs"
+              gap={2}
+              color="anolis-gray-400"
+            >
+              {(["solid", "outline", "clear", "link"] as const).map(v => (
+                <x.td key={v} px={3} py={2}>
+                  <Button v={v} className={c}>Button</Button>
+                </x.td>
+              ))}
+              <x.td>
+                {c ?? "normal"}
+              </x.td>
+            </x.tr>
+          ))}
+        </x.table>
       </x.div>
 
-      <x.h2>Custom button</x.h2>
-      <x.div display="flex" spaceX="2" alignItems="center" flexWrap="wrap">
-        <Button v="solid" bg="red" p={4} borderRadius={0} borderWidth={0}>Solid button</Button>
-      </x.div>
+      <x.div>
+        <x.h2>Loading state</x.h2>
+        <x.p>
+          Loading state of button with spinner and optionally with text <br />{" "}
+          Spinner size is set to default size of Icon according to Button size
+        </x.p>
 
+        <x.div display="flex" gap={6} alignItems="center" flexWrap="wrap" mt={8}>
+          {(["solid", "clear", "outline", "link"] as const).map(v => (
+            <x.td key={v} px={3} py={2}>
+              <Button v={v} loading></Button>
+            </x.td>
+          ))}
+        </x.div>
+        <x.div display="flex" gap={6} alignItems="center" flexWrap="wrap" mt={8}>
+          {(["solid", "clear", "outline", "link"] as const).map(v => (
+            <x.td key={v} px={3} py={2}>
+              <Button v={v} loading>Saving</Button>
+            </x.td>
+          ))}
+        </x.div>
+      </x.div>
     </SketchLayout>
   );
 });
