@@ -14,7 +14,7 @@ export type IconProps = AnolisComponentProps<"span", {
 export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fillHover, stroke, strokeHover, children, ...props }, ref) => {
   return (
     <IconStyle
-      ref={ref as any}
+      ref={ref}
       display="inline-block"
       verticalAlign="middle"
       maxHeight="100%"
@@ -32,7 +32,7 @@ export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fil
 
 Icon.displayName = "Icon";
 
-const IconStyle = styled.divBox<any>`
+const IconStyle = styled(x.div)<any>`
   ${system};
 
   & > svg {
