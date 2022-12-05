@@ -1,5 +1,5 @@
 import { x } from "@xstyled/emotion";
-import Complement, { useComplement, ComplementProps } from "components/Complement";
+import Complement, { useComplement } from "components/Complement";
 import { anolisComponent, AnolisComponentProps } from "utils/anolisComponent";
 import { ButtonVariant, ButtonSize, ButtonThemeProps } from "./theme";
 import { ElementType, useRef } from "react";
@@ -30,7 +30,8 @@ export const Button = anolisComponent<"button", ButtonProps>("button", (p, ref) 
   const { buttonProps } = useButton({
     ...props as any,
     isDisabled: props.disabled,
-    elementType: as
+    elementType: as,
+    onPress: onClick
   }, ref && "current" in ref ? ref : innerRef);
 
   return (
@@ -40,7 +41,6 @@ export const Button = anolisComponent<"button", ButtonProps>("button", (p, ref) 
       {...buttonProps}
       ref={ref ?? innerRef}
       value={as === "input" ? props.value : undefined}
-      onClick={onClick}
     >
       {as !== "input"
         ? loading
