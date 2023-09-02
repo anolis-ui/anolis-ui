@@ -1,6 +1,6 @@
 {
   "name": "anolis-ui",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Flexible, themeable React component library for applications with advanced UI design requirements which is suitable for creating tailored design systems.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
