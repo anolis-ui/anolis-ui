@@ -61,7 +61,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         {isMdx
           ? (
             <Ui showMenu>
-              <MDXProvider components={components}>
+              <MDXProvider components={components as any}>
                 <Typography
                   _h1={{ ...theme.typography.baseStyle._h3, marginBottom: "1rem" }}
                   _h2={{ ...theme.typography.baseStyle._h4, marginBottom: "1rem" }}

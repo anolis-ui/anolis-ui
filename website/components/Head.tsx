@@ -1,11 +1,12 @@
 import NextHead from "next/head";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 interface Props {
   title: string | string[];
   description?: string;
   url?: string;
   img?: string;
+  children: ReactNode;
 }
 
 const Head: FC<Props> = ({ title, description, url, img, children }) => {

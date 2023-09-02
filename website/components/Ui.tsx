@@ -1,7 +1,7 @@
 import { x } from "@xstyled/emotion";
 import { Container, Icon, TextLink } from "anolis-ui";
 import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import Logo from "components/Logo";
 import Footer from "components/Footer";
 import GithubIcon from "components/icons/24/github.svg";
@@ -12,6 +12,7 @@ import Discord from "components/Discord";
 
 interface Props {
   showMenu?: boolean;
+  children: ReactNode;
 }
 
 const Ui: FC<Props> = ({ children, showMenu }) => {

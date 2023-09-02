@@ -1,7 +1,7 @@
 import { x } from "@xstyled/emotion";
 import { TextLink } from "anolis-ui";
 import Link from "next/link";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { useRouter } from "next/router";
 
 export const Nav: FC = () => {
@@ -82,11 +82,11 @@ export const Nav: FC = () => {
   );
 };
 
-const NavHeader: FC = ({ children }) =>
+const NavHeader: FC<{ children: ReactNode }> = ({ children }) =>
   <x.h4 fontSize="lg" mt="2rem" pl="0.75rem" mb="0.625rem" fontWeight="700">{children}</x.h4>
   ;
 
-const NavI: FC<{ href?: string }> = ({ children, href }) => {
+const NavI: FC<{ href?: string; children: ReactNode }> = ({ children, href }) => {
   const router = useRouter();
   const isActive = router.pathname === href;
 
@@ -123,5 +123,5 @@ const NavI: FC<{ href?: string }> = ({ children, href }) => {
         </x.p>
       )}
     </x.li>
-  )
+  );
 };
