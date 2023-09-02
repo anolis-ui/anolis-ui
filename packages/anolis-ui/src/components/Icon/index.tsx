@@ -32,7 +32,9 @@ export const Icon = anolisComponent<"span", IconProps>("span", ({ svg, fill, fil
 
 Icon.displayName = "Icon";
 
-const IconStyle = styled(x.div)<any>`
+const IconStyle = styled(x.div, {
+  shouldForwardProp: (name) => !["fillHover", "strokeHover" as PropertyKey].includes(name)
+})<any>`
   ${system};
 
   & > svg {
